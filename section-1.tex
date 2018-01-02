@@ -1,0 +1,372 @@
+%%
+%%  FILE DOC-1.TEX
+%%
+
+%%
+%%  SEKTION 1
+%%
+
+\newpage
+\section{Allgemeines}
+
+
+
+
+%%
+%%  TEXT
+%%
+
+\Text
+In diesem Abschnitt werden einige Tatsachen aus Funktionentheorie und 
+Funktionalanalysis zitiert, die im Verlauf der Arbeit benötigt werden. 
+Doch zunächst einige 
+
+
+
+
+%%
+%%  UNTERABSCHNITT
+%%
+
+\Unterabschnitt{Bezeichnungen und Konventionen}{}
+\begin{enumerate}
+\item
+Mit $ \R $ und $ \C $ werden im folgenden die Körper der reellen und der 
+komplexen Zahlen bezeichnet. Desweiteren sei $ \sphere $ die erweiterte 
+komplexe Ebene, wobei $ \infty $ der unendlich ferne Punkt ist. Mit $ \N $ 
+und $ \N_0 $ werden die natürlichen Zahlen mit und ohne Null bezeichnet,
+mit $ \Z $ die ganzen Zahlen.
+
+\item
+Alle im Verlauf der Arbeit auftretenden Vektorräume werden stets als 
+Vektorräume über dem Körper der komplexen Zahlen angenommen. 
+
+\item 
+\FRs\ werden mit $ E = (E,\|\ldot\|_k) $ bezeichnet, wobei 
+$ (\|\ldot\|_k)_{k=0}^\infty $ ein Fundamentalsystem von Halbnormen auf 
+$ E $ ist, welches stets als aufsteigend vorausgesetzt wird.
+
+\item
+Ist $ \A $ eine Algebra mit Einselement $ e $, so sei $ G(\A) $ die Gruppe 
+der invertierbaren Elemente. Für ein Element $ a \in \A $ bezeichnen
+\[ 
+    \resol(a) = \{ z \in \C \with (ze-a) \in G(\A) \} \text{ und }
+    \spec(a) = \C \setminus \resol(a) 
+\]
+die Resolventenmenge und das Spektrum von $ a $. Die zugehörige 
+Resolventenabbildung $ R_a: \resol(a) \to \A $ sei definiert durch
+\[
+    R_a(z) = (ze-a)^{-1} \text{ für } z \in \resol(a).
+\]
+Mit $ M_a: \A \to \A $ wird der Multiplikationsoperator von links 
+bezeichnet,
+\[
+    M_a x = ax \text{ für } x \in \A.
+\]
+
+\item
+Sind $ E $ und $ F $ \VRs\ und ist $ T: E \to F $ eine lineare Abbildung, so 
+sei $ N(T) $ der Kern und $ R(T) $ das Bild von $ T $.
+
+\item
+Für \FRs\ $ E $ und $ F $ bezeichne $ L(E,F) $ den \VR\ aller linearen
+und stetigen Abbildungen von $ E $ nach $ F $. Speziell für $ E = F $ sei
+$ L(E) = L(E,E) $ und $ GL(E) = G(L(E)) $. Das Einselement der Algebra 
+$ L(E) $ wird mit $ I $ oder $ I_E $ bezeichnet. Desweiteren sei 
+$ E' = L(E,\C) $ der topologische Dualraum von $ E $.
+
+\item
+Für zwei \TRs\ $ X $ und $ Y $ sei $ C(X,Y) $ die Menge aller stetigen
+Abbildungen von $ X $ nach $ Y $. 
+
+\item
+Es sei $ \Om \subset \sphere $ offen und $ E $ ein \FR. Dann bezeichne 
+$ H(\Om,E) $ den \FR\ aller auf $ \Om $ holomorphen Funktionen mit Werten 
+in $ E $. 
+
+\item
+Ist $ K \compact \sphere $ kompakt und $ E $ ein \FR, so heißt 
+$ f: K \to E $ holomorph, falls eine holomorphe Fortsetzung von $ f $ in 
+einer offenen Umgebung von $ K $ existiert. Zwei auf $ K $ holomorphe 
+Funktionen heißen äquivalent, falls sie in einer offenen Umgebung von 
+$ K $ übereinstimmen. Mit $ H(K,E) $ wird die Menge aller 
+Äquivalenzklassen der auf $ K $ holomorphen Funktionen bezeichnet.
+\end{enumerate}
+
+
+
+
+%%
+%%  TEXT
+%%
+
+\Text
+Als nächstes werden einige Eigenschaften endlich \zush er Jordangebiete 
+zusammengestellt. Hierbei sei auf die Bücher von Privalow \cite{Privalow} 
+oder Goluszin \cite{Goluszin} verwiesen.
+
+
+
+
+%%
+%%  UNTERABSCHNITT
+%%
+
+\Unterabschnitt{Endlich \zush e Jordangebiete}{}
+Ein endlich \zush es Gebiet\footnote{Ein Gebiet heißt endlich 
+zusammenhängend, falls das Komplement bezüglich $ \sphere $ aus endlich 
+vielen Zusammenhangskomponenten besteht.} der erweiterten komplexen Ebene 
+heißt {\em endlich \zush es Jordangebiet}, falls der Rand des Gebietes aus 
+endlich vielen geschlossenen Jordankurven besteht. Sind diese darüberhinaus 
+rektifizierbar, so wird von einem endlich \zush en Jordangebiet 
+mit {\em rektifizierbarem Rand} gesprochen. 
+
+Einfach \zush e Jordangebiete werden schlicht als {\em Jordangebiete} 
+bezeichnet, zweifach \zush e Jordangebiete als {\em Jordanringgebiete}. \\
+
+Die beiden folgenden Aussagen findet man etwa in dem Buch von Goluszin 
+\cite{Goluszin}.
+
+\begin{enumerate}
+\item
+Nach dem Riemannschen Abbildungssatz lassen sich einfach \zush e Gebiete 
+konform auf die Einheitskreisscheibe abbilden. Die zugehörigen Abbildungen 
+sind genau dann stetig auf den Rand fortsetzbar, wenn es sich um 
+Jordangebiete handelt (Satz von Carath\'eodory).
+
+\item
+Zweifach \zush e Gebiete sind konform äquivalent zu Kreisringen. Wie im 
+einfach \zush en Fall lassen sich die jeweiligen Abbildungen dann und nur 
+dann stetig auf den Rand fortsetzen, wenn es sich um Jordanringebiete 
+handelt.
+\end{enumerate}
+
+
+
+
+%%
+%%  BEZEICHNUNGEN
+%%
+
+\Bezeichnungen{}
+\begin{enumerate}
+\item
+Es sei $ \Gamma \subset \C $ eine geschlossene Jordankurve. Nach dem 
+Jordanschen Kurvensatz zerlegt $ \Gamma $ die Sphäre in ein Innen- und ein 
+Außengebiet vereinigt mit $ \Gamma $. Das Innengebiet wird im folgenden mit 
+$ D^+_\Gamma $, das Außengebiet mit $ D^-_\Gamma $ bezeichnet. 
+
+\item
+Es sei $ K $ ein Jordanringgebiet mit rektifizierbarem Rand. Dann zerlegt 
+$ K $ die Sphäre in drei Gebiete $ D^+_K $, $ K $ und $ D^-_K $ 
+zusammen mit dem Rand von $ K $. Ohne Einschränkung gelte 
+$ \infty \in D^-_K $. Im folgenden bezeichne $ \Gamma^+ $ den positiv 
+orientierten äußeren und $ \Gamma^- $ den negativ orientierten inneren Rand 
+von $ K $. Desweiteren sei $ K^\pm = K \cup D^\pm_K \cup \Gamma^\mp $.
+Somit gilt $ \Gamma^\pm = \rd{K^\pm} $.
+\end{enumerate}
+
+
+
+
+%%
+%%  UNTERABSCHNITT
+%%
+
+\Unterabschnitt{Jordankurven und Jordanringgebiete}{}
+Ist $ K \subset \C $ einfach \zush\ und kompakt, $ \Om $ eine offene 
+Umgebung von $ K $, so existiert eine geschlossene und rektifizierbare 
+Jordankurve, die $ K $ umschließt und in $ \Om $ liegt. Dies findet man etwa
+in Rudin \cite{Rudin-1} oder Fischer--Lieb \cite{Fischer-Lieb}. Damit
+erhält man leicht die folgenden Aussagen
+
+\begin{enumerate}
+\item
+Ist $ \Gamma \subset \C $ eine geschlossene Jordankurve und $ \Om $ eine 
+offene Umgebung von $ \Gamma $, so existiert ein Jordanringgebiet mit 
+rektifizierbarem Rand, welches $ \Gamma $ umschließt und in $ \Om $ liegt.
+
+\item
+Ist $ K \subset \C $ ein Jordanringgebiet und $ \Om $ eine offene Umgebung
+von $ K $, so existiert ein Jordanringgebiet mit rektifizierbarem Rand 
+$ K' $ mit 
+\[
+    K' \compact \Om \setminus K^+.
+\]
+\end{enumerate}
+
+
+
+
+%%
+%%  TEXT
+%%
+
+\Text
+Als nächstes werden einige Funktionenräume definiert, die in der unter
+anderem in der Funktionentheorie untersucht werden.
+
+
+
+
+%%
+%%  UNTERABSCHNITT
+%%
+
+\Unterabschnitt{Der Raum $ L_p(\Gamma) $}{}
+Es sei $ 1 \le p < \infty $ und $ \Gamma \subset \C $ eine rektifizierbare
+Jordankurve. Dann bezeichne $ L_p(\Gamma) $ den Vektorraum aller meßbaren 
+Funktionen $ f: \Gamma \to \C $, für die $ |f|^p $ bezüglich des 
+Bogenmaßes $ ds $ integrierbar ist,
+\[
+    \|f\|_p = \left( \int_\Gamma |f|^p ds \right)^{1/p} < \infty.
+\]
+Werden wie üblich fast überall gleiche Funktionen identifiziert, so ist 
+$ L_p(\Gamma) $ zusammen mit obiger Norm ein Banachraum.
+
+
+
+
+%%
+%%  UNTERABSCHNITT
+%%
+
+\Unterabschnitt{Der Raum $ E_p(K) $}{}
+Es sei $ 1 \le p < \infty $ und $ K $ ein endlich \zush es 
+Jordangebiet mit rektifizierbarem Rand. Dann bezeichne $ E_p(K) $ den 
+Vektorraum aller in $ K $ holomorphen Funktionen $ f \in H(K) $, für die 
+eine Auschöpfung aus endlich \zush en Jordangebieten mit rektifizierbarem 
+Rand $ (K_n) $ von $ K $ existiert, so daß gilt
+\[
+    \limsup_{n\to\infty} \int_\rd{K_n} |f|^p ds < \infty.
+\]
+Für $ \infty \in K $ gelte zusätzlich $ f(\infty) = 0 $. Ist $ \Gamma $ 
+eine rektifizierbare Jordankurve, so bezeichne noch
+\[
+    E^\pm_p(\Gamma) = E_p(D^\pm_\Gamma).
+\]
+
+Die folgenden Eigenschaften der Räume $ E_p(K) $ findet man etwa in 
+Duren \cite{Duren}, Privalow \cite{Privalow} oder Goluszin \cite{Goluszin}.
+
+\begin{enumerate}
+\item
+Für $ f \in E_p(K) $ existiert der nichttangentiale Limes fast überall auf 
+$ \rd{K} $ und in diesem Sinne gilt $ E_p(K) \subset L_p(\rd{K}) $.
+
+\item
+Für $ f \in E_1(K) $ gilt die Cauchysche Integralformel in der Form
+\(
+    \label{Gleichung-CI-E-1}
+    f(z) = \frac{1}{2\pi i} \int_{\rd{K}} \frac{f(\zeta)}{\zeta-z}d\zeta
+    \text{ für alle } z \in K.
+\)
+
+\item
+Ist $ f \in E_1(K) $, so gilt
+\(
+    \label{Gleichung-xxxxx}
+    \int_\rd{K} f(z) z^n dz = 0 \text{ für } n \in \N_0.
+\)
+\end{enumerate}
+
+
+
+
+%%
+%%  TEXT
+%%
+
+\Text
+Ein \FR\ $ E $ heißt zerfallend, falls abgeschlossene Unterräume
+$ E^- $ und $ E^+ $ existieren, so daß sich $ E $ als algebraisch und
+topologisch direkte Summe von $ E^- $ und $ E^+ $ schreiben läßt,
+$ E = E^- \directsum E^+ $. Die folgenden \VRs, die bei der Untersuchung
+singulärer Integraloperatoren auftreten, sind ein Beispiel dafür.
+
+
+
+
+%%
+%%  UNTERABSCHNITT
+%%
+
+\Unterabschnitt{Die Räume $ L^\pm_p(\Gamma) $}{}
+Es sei $ 1 \le p < \infty $ und $ \Gamma \subset \C $ eine geschlossene
+Lyapunovkurve\footnote{Eine Jordankurve heißt Lyapunovkurve, falls
+in jedem Punkt $ z \in \Gamma $ eine Tangente an die Kurve existiert und 
+der Winkel $ \theta(z) $ zwischen Tangente und $ x $-Achse einer
+Hölderbedingung genügt, d.h. es existieren $ C >0 $ und $ 0 < \alpha < 1 $,
+so daß $ |\theta(z)-\theta(w)| \le C|z-w|^\alpha $ für alle 
+$ z, w \in \Gamma $ gilt. Aus dieser Eigenschaft folgen die Stetigkeit des 
+singulären Integraloperators und die Zerlegung von $ L_p(\Gamma) $.}. 
+Es bezeichne 
+\[
+     L^\pm_p(\Gamma) = L_p(\Gamma) \cap E^\pm_1(\Gamma).
+\]
+Dann ist $ L_p(\Gamma) $ zerfallend und es gilt
+\[
+     L_p(\Gamma) = L^-_p(\Gamma) \directsum L^+_p(\Gamma).
+\]
+Eine äquivalente Beschreibung der obigen Räume ist die folgende: für ein
+beliebiges $ z_0 \in D^+_\Gamma $ gilt
+\[
+    L^\pm_p(\Gamma) = 
+    \left\{ f \in L_p(\Gamma) \with \int_\Gamma f(z)(z-z_0)^n dz = 0 
+    \text{ für } n \in \N_0 \text{ bzw.~} n \in -\N \right\}.
+\]
+Dies und weitere Eigenschaften der Räume $ L^\pm_p(\Gamma) $ findet man zum 
+Beispiel in Michlin--Prößdorf \cite{Michlin-Proessdorf} oder in 
+Gohberg--Krupnik \cite{Gohberg-Krupnik}.
+
+
+
+
+%%
+%%  TEXT
+%%
+
+\Text
+Die folgenden Aussagen charakterisieren die Existenz einer stetige 
+Inversenabbildung von stetigen Operatoren in \BRs n. Die Beweise hierzu 
+findet man etwa in den Büchern von Meise und Vogt \cite{Meise-Vogt} oder 
+von Heuser \cite{Heuser}.
+
+
+
+
+%%
+%%  UNTERABSCHNITT
+%%
+
+\Unterabschnitt{Stetige Inversenabbildungen}{Stetige-Inversenabbildung}
+Es sei $ E $ ein \BR\ und $ T \in L(E) $. Dann sind die folgenden Aussagen 
+äquivalent
+\begin{enumerate}
+\item
+$ T $ besitzt eine stetige Inverse auf $ R(T) $.
+
+\item
+$ T $ ist injektiv und $ R(T) $ ist abgeschlossen.
+
+\item
+Es existiert ein $ C > 0 $, so daß $ \|Tx\| \ge C\|x\| $ für alle 
+$ x \in E $ gilt.
+\end{enumerate}
+
+Insbesondere ist $ T $ ein injektiver Semifredholmoperator. 
+
+\pagebreak
+
+Negiert man die obigen Aussagen, so erhält man die Äquivalenz von
+\begin{enumerate}
+\item
+$ T $ besitzt keine stetige Inverse auf $ R(T) $.
+
+\item
+Es existiert eine Folge $ (x_n) \subset E $ mit $ \|x_n\| = 1 $, so daß 
+$ (Tx_n) $ gegen Null konvergiert.
+\end{enumerate}
+
+Anstelle von $ \|x_n\| = 1 $ reicht es zu fordern, daß $ \|x_n\| $ durch 
+eine Zahl größer als Null nach unten beschränkt ist.
