@@ -2,29 +2,38 @@
 \newpage
 \section{Minimization without Constraints}
 
-Exercises, remarks and other proofs then in script.
-
+Alternative proof of Lemma 2.10.
 
 \lemma{}
 Let \(M \subseteq \mathbb{R}^n\) be a convex set and \(f \in C^1(M)\). Then \(f\) is convex if and only if
 \begin{equation}
     f(x) \ge f(y) + \gradient {f(y)}^T (x - y)
+%    \label{eq:eq_lognormal}
 \end{equation}
 for all \(x, y \in M \). 
 
 \proof{}
-Let f be convex and \(x, y \in M\). For \(0 \le \lambda \le 1\) we have
+Let f be convex and \(x, y \in M\). For \( 0 \le \lambda \le 1 \) we have
 \[ 
     f(\lambda x + (1 - \lambda) y) \le \lambda f(x) + (1 - \lambda)f(y) =  \lambda f(x) - \lambda f(y) + f(y) 
-\]
-and for \( d = x - y \)\
+\] 
+and 
 \[ 
     f(x) - f(y) \ge \frac{1}{\lambda} (f(\lambda x + (1 - \lambda) y) - f(y)) 
         = \frac{f(y + \lambda (x - y)) - f(y)}{\lambda}
 \]
-
-where the term on the right converges to 
+For \( d = x - y \)\ and \( \lambda \to 0 \) the term on the right converges to the direction derivative of \( f \)
+in \( d \)
 \[
     \frac{\partial f}{\partial d}(y) = \gradient{f(y)}^T d = \gradient{f(y)}^T (x - y) 
 \]
-for \( \lambda \to 0 \).
+
+Now let \( x, y \in M \) and \( z = \lambda x + (1 - \lambda) y \in M \) for \( 0 \le \lambda \le 1 \). It follows that
+\[
+    \lambda f(x) \ge \lambda f(z) + \lambda \gradient {f(z)}^T (x - z)
+\]
+\[
+    (1 - \lambda) f(y) \ge (1 - \lambda) f(z) + (1 - \lambda) \gradient {f(z)}^T (y - z)
+\]
+
+%Now assume \( \eqref{eq:eq_lognormal} \) holds.
