@@ -1,14 +1,29 @@
-\documentclass[10pt,german,a4,ifthen]{article}
-\usepackage[ngerman]{babel}
-\usepackage[ansinew]{inputenc}
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{ifthen}
 \usepackage{makeidx}
+\usepackage{hyperref}
 
-
-\input{macros}
+\sloppy
+\parindent0em
 \makeindex
+\hypersetup{
+    colorlinks,
+    linktoc=all, 
+    citecolor=black,
+    filecolor=black,
+    linkcolor=NavyBlue,
+    urlcolor=black,
+}
+ 
 \begin{document}
-
+\input{macros}
 \input{frontpage}
 \input{section-1}
 \end{document}
