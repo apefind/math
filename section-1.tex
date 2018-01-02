@@ -2,19 +2,29 @@
 \newpage
 \section{Minimization without Constraints}
 
-\sometext
 Exercises, remarks and other proofs then in script.
 
 
-\lemma
-Let $ M \subseteq \mathbb{R}^n $ be a convex set and $ f \in C^1(M) $. Then $ f $is convex if and only if
-\[
-    f(y) \ge f(x) + \gradient f(x)^T (y - x)
+\lemma{}
+Let \(M \subseteq \mathbb{R}^n\) be a convex set and \(f \in C^1(M)\). Then \(f\) is convex if and only if
+\begin{equation}
+    f(x) \ge f(y) + \gradient {f(y)}^T (x - y)
+\end{equation}
+for all \(x, y \in M \). 
+
+\proof{}
+Let f be convex and \(x, y \in M\). For \(0 \le \lambda \le 1\) we have
+\[ 
+    f(\lambda x + (1 - \lambda) y) \le \lambda f(x) + (1 - \lambda)f(y) =  \lambda f(x) - \lambda f(y) + f(y) 
+\]
+and for \( d = x - y \)\
+\[ 
+    f(x) - f(y) \ge \frac{1}{\lambda} (f(\lambda x + (1 - \lambda) y) - f(y)) 
+        = \frac{f(y + \lambda (x - y)) - f(y)}{\lambda}
 \]
 
-\proof Let f be convex and $ x, y \in M $. For $ 0 \le \lambda \le 1 $ we have
-
+where the term on the right converges to 
 \[
-    f(y) \ge f(x) + \gradient f(x)^T (y - x)
+    \frac{\partial f}{\partial d}(y) = \gradient{f(y)}^T d = \gradient{f(y)}^T (x - y) 
 \]
-
+for \( \lambda \to 0 \).

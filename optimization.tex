@@ -21,9 +21,11 @@
     linkcolor=NavyBlue,
     urlcolor=black,
 }
+\newboolean{frontpage}
+% \setboolean{frontpage}{true}
  
 \begin{document}
 \input{macros}
-\input{frontpage}
+\iffrontpage\input{frontpage}\fi
 \input{section-1}
 \end{document}
