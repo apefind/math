@@ -4,7 +4,7 @@
 
 Alternative proof of Lemma 2.10.
 
-\lemma{}
+\lemma{}\label{lemma_convex_gradient}
 Let \(M \subseteq \mathbb{R}^n\) be a convex set and \(f \in C^1(M)\). Then \(f\) is convex if and only if
 \[
     f(x) \ge f(y) + \gradient {f(y)}^T (x - y)
@@ -19,7 +19,7 @@ Let f be convex and \(x, y \in M\). For \( 0 \le \lambda \le 1 \) we have
 \] 
 and 
 \[ 
-    f(x) - f(y) \ge \frac{1}{\lambda} (f(\lambda x + (1 - \lambda) y) - f(y)) 
+    f(x) - f(y) \ge \frac{f(\lambda x + (1 - \lambda) y) - f(y)}{\lambda}
         = \frac{f(y + \lambda (x - y)) - f(y)}{\lambda}
 \]
 For \( d = x - y \)\ and \( \lambda \to 0 \) the term on the right converges to the direction derivative of \( f \)
@@ -44,3 +44,18 @@ Adding the two inequalities gives
         & = f(z)
     \end{split}
 \]
+
+
+\exercise{}
+Let \( S \subset \mathbb{R}^n \) be compact and convex and \( f \in C^1(S) \) convex. 
+Furthermore let \( x \in S \) and \( d \in \mathbb{R}^n \) a descent direction of \( f \) in \( x \) 
+with \( \gradient {f(x)}^T d < 0 \).
+
+\proof{}
+Let \( \gradient {f(x + \lambda^* d)}^T d = 0 \). Then Lemma \ref{lemma_convex_gradient} gives
+\[
+    f(x + \lambda d) \ge f(x + \lambda^* d) + (\lambda - \lambda^*) \gradient {f(x + \lambda^* d)}^T d 
+        = f(x + \lambda^* d) 
+\]
+Hence \( x + \lambda^* d \) is an optimal solution.
+
