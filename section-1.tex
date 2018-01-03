@@ -6,10 +6,10 @@ Alternative proof of Lemma 2.10.
 
 \lemma{}
 Let \(M \subseteq \mathbb{R}^n\) be a convex set and \(f \in C^1(M)\). Then \(f\) is convex if and only if
-\begin{equation}
+\[
     f(x) \ge f(y) + \gradient {f(y)}^T (x - y)
 %    \label{eq:eq_lognormal}
-\end{equation}
+\]
 for all \(x, y \in M \). 
 
 \proof{}
@@ -28,12 +28,19 @@ in \( d \)
     \frac{\partial f}{\partial d}(y) = \gradient{f(y)}^T d = \gradient{f(y)}^T (x - y) 
 \]
 
-Now let \( x, y \in M \) and \( z = \lambda x + (1 - \lambda) y \in M \) for \( 0 \le \lambda \le 1 \). It follows that
+Now let \( x, y \in M \) and  \( 0 \le \lambda \le 1 \). For \( z = \lambda x + (1 - \lambda) y \in M \) it follows that
 \[
-    \lambda f(x) \ge \lambda f(z) + \lambda \gradient {f(z)}^T (x - z)
+    \begin{split}
+    \lambda f(x) & \ge \lambda f(z) + \lambda \gradient {f(z)}^T (x - z) \\
+    (1 - \lambda) f(y) & \ge (1 - \lambda) f(z) + (1 - \lambda) \gradient {f(z)}^T (y - z)
+    \end{split}
 \]
+Adding the two inequalities gives
 \[
-    (1 - \lambda) f(y) \ge (1 - \lambda) f(z) + (1 - \lambda) \gradient {f(z)}^T (y - z)
+    \begin{split}
+       \lambda f(x) + (1 - \lambda) f(y) 
+        & \ge f(z) + \gradient {f(z)}^T(\lambda x - \lambda z + (1- \lambda) y - (1-\lambda)z) \\
+        & = f(z) + \gradient {f(z)}^T(\lambda x + (1- \lambda) y - z) \\
+        & = f(z)
+    \end{split}
 \]
-
-%Now assume \( \eqref{eq:eq_lognormal} \) holds.
