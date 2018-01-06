@@ -4,11 +4,10 @@
 
 Alternative proof of Lemma 2.10.
 
-\lemma{}\label{lemma_convex_gradient}
+\lemma{}\label{lemma_gradient_inequality}
 Let \(M \subseteq \mathbb{R}^n\) be a convex set and \(f \in C^1(M)\). Then \(f\) is convex if and only if
 \[
     f(x) \ge f(y) + \gradient {f(y)}^T (x - y)
-%    \label{eq:eq_lognormal}
 \]
 for all \(x, y \in M \). 
 
@@ -47,15 +46,16 @@ Adding the two inequalities gives
 
 
 \exercise{}
-Let \( S \subset \mathbb{R}^n \) be compact and convex and \( f \in C^1(S) \) convex. 
-Furthermore let \( x \in S \) and \( d \in \mathbb{R}^n \) a descent direction of \( f \) in \( x \) 
+Let \( S \subset \mathbb{R}^n \) be compact and convex. Furthermore let \( f \in C^1(S) \) be convex,
+\( x \in S \) and \( d \in \mathbb{R}^n \) a descent direction of \( f \) in \( x \) 
 with \( \gradient {f(x)}^T d < 0 \).
 
 \proof{}
-Let \( \gradient {f(x + \lambda^* d)}^T d = 0 \). Then Lemma \ref{lemma_convex_gradient} gives
+If  \( x + \lambda^* d \) is an optimal solution then FONC holds and \( \gradient {f(x + \lambda^* d)}^T d = 0 \).
+Let \( \gradient {f(x + \lambda^* d)}^T d = 0 \). Then Lemma \ref{lemma_gradient_inequality} gives
 \[
     f(x + \lambda d) \ge f(x + \lambda^* d) + (\lambda - \lambda^*) \gradient {f(x + \lambda^* d)}^T d 
         = f(x + \lambda^* d) 
 \]
-Hence \( x + \lambda^* d \) is an optimal solution.
+and \( x + \lambda^* d \) is an optimal solution.
 
