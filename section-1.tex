@@ -4,11 +4,11 @@
 
 Alternative proof of Lemma 2.10.
 
-\lemma{}\label{lemma_gradient_inequality}
+\lemma{}\label{thm:lemma_gradient_inequality}
 Let \(M \subseteq \mathbb{R}^n\) be a convex set and \(f \in C^1(M)\). Then \(f\) is convex if and only if
 \[
     f(x) \ge f(y) + \gradient {f(y)}^T (x - y)
-\]
+\]  
 for all \(x, y \in M \). 
 
 \proof{}
@@ -30,17 +30,17 @@ in \( d \)
 Now let \( x, y \in M \) and  \( 0 \le \lambda \le 1 \). For \( z = \lambda x + (1 - \lambda) y \in M \) it follows that
 \[
     \begin{split}
-    \lambda f(x) & \ge \lambda f(z) + \lambda \gradient {f(z)}^T (x - z) \\
-    (1 - \lambda) f(y) & \ge (1 - \lambda) f(z) + (1 - \lambda) \gradient {f(z)}^T (y - z)
+        \lambda f(x) & \ge \lambda f(z) + \lambda \gradient {f(z)}^T (x - z) \\
+            (1 - \lambda) f(y) & \ge (1 - \lambda) f(z) + (1 - \lambda) \gradient {f(z)}^T (y - z)
     \end{split}
 \]
 Adding the two inequalities gives
 \[
     \begin{split}
        \lambda f(x) + (1 - \lambda) f(y) 
-        & \ge f(z) + \gradient {f(z)}^T(\lambda x - \lambda z + (1- \lambda) y - (1-\lambda)z) \\
-        & = f(z) + \gradient {f(z)}^T(\lambda x + (1- \lambda) y - z) \\
-        & = f(z)
+            & \ge f(z) + \gradient {f(z)}^T(\lambda x - \lambda z + (1- \lambda) y - (1-\lambda)z) \\
+            & = f(z) + \gradient {f(z)}^T(\lambda x + (1- \lambda) y - z) \\
+            & = f(z)
     \end{split}
 \]
 
@@ -52,10 +52,30 @@ with \( \gradient {f(x)}^T d < 0 \).
 
 \proof{}
 If  \( x + \lambda^* d \) is an optimal solution then FONC holds and \( \gradient {f(x + \lambda^* d)}^T d = 0 \).
-Let \( \gradient {f(x + \lambda^* d)}^T d = 0 \). Then Lemma\ref{lemma_gradient_inequality} gives
+Let \( \gradient {f(x + \lambda^* d)}^T d = 0 \). Then Lemma~\ref{thm:lemma_gradient_inequality} gives 
 \[
     f(x + \lambda d) \ge f(x + \lambda^* d) + (\lambda - \lambda^*) \gradient {f(x + \lambda^* d)}^T d 
         = f(x + \lambda^* d) 
 \]
 and \( x + \lambda^* d \) is an optimal solution.
 
+\exercise{}
+Let 
+\[
+       f(x) = \frac{1}{2} x^T{A}x + b^T x + c
+\]
+with \( A \) symmetrical and positive definite. 
+
+\proof{}
+It is \( x^* = -A^{-1}b \) since \( \gradient {f(x)} = Ax + b \) and \( \gradient^2 {f(x)} = A \) symmetrical and positive definite.
+Let \( v \) be eigenvector with \( Av = \mu v \). Then for \( x_0 = x^* + \theta v \) we have
+\( \gradient {f(x_0)} = Ax^* + \mu \theta v + b = \mu \theta v \) and
+\[
+    \begin{split}
+        s_1                 & = -\mu \theta v \\
+        \lambda_1           & = \text{argmin} \{f(x_0 + \lambda s_0)\}
+                              = \text{argmin} \{f(x^* + \theta v - \lambda \mu \theta v )\} = \mu^{-1} \\
+        x_1                 & = x_0 + \lambda_1 s_1 = x^* + \theta v - \mu^{-1} \mu \theta v = x^*
+    \end{split}
+\]
+and hence \( \gradient {f(x_1)} = 0 \). So the algorithm  stops after the first iteration.
