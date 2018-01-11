@@ -4,8 +4,8 @@
 
 Alternative proof of Lemma 2.10.
 
-\lemma{}\label{thm:lemma_gradient_inequality}
-Let \(M \subseteq \mathbb{R}^n\) be a convex set and \(f \in C^1(M)\). Then \(f\) is convex if and only if
+\lemma[Gradient Inequality]\label{thm:lemma_gradient_inequality}
+Let \(M \subseteq \mathbb{R}^n \) be a convex set and \(f \in C^1(M)\). Then \(f\) is convex if and only if
 \[
     f(x) \ge f(y) + \gradient {f(y)}^T (x - y)
 \]  
@@ -45,7 +45,37 @@ Adding the two inequalities gives
 \]
 
 
-\exercise{}
+\exercise[Convex Functions]
+The sum of convex functions is convex.
+
+\proof{}
+Let \( x, y \in M \). Since \( \alpha_i  > 0 \) we have
+\[
+    \begin{split}
+        f(\lambda x + (1 - \lambda) y) 
+            & = \sum_{i=1}^m \alpha_i f_i(\lambda x + (1 - \lambda) y)) \\
+            & \le \sum_{i=1}^m \alpha_i \lambda f_i(x) + \sum_{i=1}^m \alpha_i (1 - \lambda) f_i(y) 
+                 =  \lambda f(x) + (1 - \lambda) f(y) 
+    \end{split}
+\]
+Let \( f(x) = x^2 \). Then \( -f \) is not convex, e.g. \( x = 1, y = -1 \) and \( \lambda = 0.5 \).
+
+
+\exercise[Solution of Quadratic Inequality]
+Let 
+\[
+    f(x) = x^{T}Ax + b^{T}x + c 
+\]
+\proof{}
+The product rule gives 
+\[ 
+    \gradient {f(x)} = x^{T}A + Ax + b = (A^{T} + A)x + b = 2Ax + b 
+\] 
+Thus \( \gradient^2 {f(x)} = 2A > 0 \) and \( f \) is convex. Hence the level set \( \Gamma_{-c} \) is convex.
+The intersection of convex sets is convex, so \( \Gamma_{-c} \cap \{ x \in \Rn: g^{T}x + h = 0 \} \)
+is convex.
+
+\exercise[Line Search on Compact Convex Sets]
 Let \( S \subset \mathbb{R}^n \) be compact and convex. Furthermore let \( f \in C^1(S) \) be convex,
 \( x \in S \) and \( d \in \mathbb{R}^n \) a descent direction of \( f \) in \( x \) 
 with \( \gradient {f(x)}^T d < 0 \).
@@ -59,23 +89,24 @@ Let \( \gradient {f(x + \lambda^* d)}^T d = 0 \). Then Lemma~\ref{thm:lemma_grad
 \]
 and \( x + \lambda^* d \) is an optimal solution.
 
-\exercise{}
+
+\exercise[Steepest Descent]
 Let 
 \[
        f(x) = \frac{1}{2} x^T{A}x + b^T x + c
 \]
-with \( A \) symmetrical and positive definite. 
+where \( A \) is symmetrical and positive definite. 
 
 \proof{}
-It is \( x^* = -A^{-1}b \) since \( \gradient {f(x)} = Ax + b \) and \( \gradient^2 {f(x)} = A \) symmetrical and positive definite.
+Since \( \gradient {f(x)} = Ax + b \) and \( \gradient^2 {f(x)} = A \ge 0 \) it follows \( x^* = -A^{-1}b \).
 Let \( v \) be eigenvector with \( Av = \mu v \). Then for \( x_0 = x^* + \theta v \) we have
 \( \gradient {f(x_0)} = Ax^* + \mu \theta v + b = \mu \theta v \) and
 \[
     \begin{split}
-        s_1                 & = -\mu \theta v \\
-        \lambda_1           & = \text{argmin} \{f(x_0 + \lambda s_0)\}
-                              = \text{argmin} \{f(x^* + \theta v - \lambda \mu \theta v )\} = \mu^{-1} \\
-        x_1                 & = x_0 + \lambda_1 s_1 = x^* + \theta v - \mu^{-1} \mu \theta v = x^*
+        s_1         & = -\mu \theta v \\
+        \lambda_1   & = \argmin \{f(x_0 + \lambda s_0)\}
+                      = \argmin \{f(x^* + \theta v - \lambda \mu \theta v )\} = \mu^{-1} \\
+        x_1         & = x_0 + \lambda_1 s_1 = x^* + \theta v - \mu^{-1} \mu \theta v = x^*
     \end{split}
 \]
 and hence \( \gradient {f(x_1)} = 0 \). So the algorithm  stops after the first iteration.
