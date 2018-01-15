@@ -2,6 +2,24 @@
 \newpage
 \section{Minimization without Constraints}
 
+\theorem[Fermat - Stationary Point]\label{thm:fermat_stat_point}
+Let \( \Omega \subseteq \R \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is an extremum then
+\( f^\prime(x^*) = 0 \).
+
+\proof{}
+Assume \( x^* \) is the minimum of \( f \) in \( \Omega \) and let \( f^\prime(x^*) > 0 \). 
+Since \( f \in C^1(\Omega) \) there exist \( \eps, \delta > 0 \), so that for \( |h| \le \eps \)
+\[
+    \frac{f(x^* + h) - f(x^*)}{h} > \delta
+\]
+Pick a negative \( h \in [-\eps, 0) \). Then 
+\[
+     f(x^* + h) < f(x^*) +  \delta h < f(x^*) 
+\]
+and \( x^* \) cannot be the minimum. Analog for maximum with a positive \( h \), then apply to \( -f \).
+\bigskip
+
+
 \lemma[Direction Derivative]\label{lemma:direction_derivative}
 Let \( \Omega \subseteq \Rn \) be open, \( f \in C^1(\Omega) \) and \( d \in \Rn \) be a feasable direction 
 at \( x \in \Omega \). Then
@@ -17,7 +35,7 @@ Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). If \( x^* \i
 
 \proof{}
 Let \( h \in \Rn \) and \( \delta > 0 \) so that \( x^* + th \in \Omega \) for all \( t \in (-\delta, \delta) \). 
-Then \( \varphi(t) = f(x^* + th) \) has a local minimizer at \( 0 \) and hence
+Then \( 0 \) is local minimizer for \( \varphi(t) = f(x^* + th) \) and
 \[
     \varphi^\prime(0) = {\gradient f(x^*)}^T h = 0
 \]
@@ -121,7 +139,7 @@ The product rule gives
 \[ 
     \gradient {f(x)} = x^{T}A + Ax + b = (A^{T} + A)x + b = 2Ax + b 
 \] 
-Thus \( \gradient^2 {f(x)} = 2A > 0 \) and \( f \) is convex. Hence the level set \( \Gamma_{-c} \) is convex.
+Thus \( \hessian {f(x)} = 2A > 0 \) and \( f \) is convex. Hence the level set \( \Gamma_{-c} \) is convex.
 Since the intersection of convex sets is convex \( \Gamma_{-c} \cap \{ x \in \Rn: g^{T}x + h = 0 \} \) is convex, too.
 \bigskip
 
@@ -151,7 +169,7 @@ Let
 where \( A \) is symmetrical and positive definite. 
 
 \proof{}
-Since \( \gradient {f(x)} = Ax + b \) and \( \gradient^2 {f(x)} = A > 0 \) it follows \( x^* = -A^{-1}b \).
+Since \( \gradient {f(x)} = Ax + b \) and \( \hessian {f(x)} = A > 0 \) it follows \( x^* = -A^{-1}b \).
 Let \( v \) be eigenvector with \( Av = \mu v \). For \( x_0 = x^* + \theta v \) we have
 \[ 
     \gradient {f(x_0)} = Ax^* + \mu \theta v + b = \mu \theta v 
@@ -164,9 +182,24 @@ and
             & = \mu^{-1} 
     \end{split}
 \]
-Thus        
+Thus         
 \[
     x_1 = x_0 - \mu^{-1} \gradient f(x_0) = x^* + \theta v - \mu^{-1} \mu \theta v = x^*
 \]
 and \( \gradient {f(x_1)} = 0 \). Hence the algorithm stops after the first iteration.
+Now let 
+\[
+    x_0 = x^* + \sum_{i=0}^m \theta_i v_i
+\]
+for orthogonal eigenvectors with \( Av_i = \mu_i\) and \( m \le n \). Then
+\[ 
+    \gradient {f(x_0)} = Ax^* + \sum_{i=0}^m \mu_i \theta_i v_i + b = \sum_{i=0}^m \mu_i \theta_i v_i
+\]
+and
+\[ 
+    x_1 = x_0 - \lambda \sum_{i=0}^m \mu_i \theta_i v_i 
+        = x^* + \sum_{i=0}^m \theta_i v_i - \lambda \sum_{i=0}^m \mu_i \theta_i v_i
+        = x^* + \sum_{i=0}^m (1 - \lambda \mu_i) \theta_i v_i
+\]
+Since \( x^* \) is the minimum we have \( \gradient {f(x_1)} = 0 \) iff \( \lambda = \mu^{-1} \) for all \( 0 \le i \le m \).
 \bigskip
