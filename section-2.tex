@@ -134,13 +134,9 @@ Let \( v \) be eigenvector with \( Av = \mu v \). For \( x_0 = x^* + \theta v \)
 \[ 
     \gradient {f(x_0)} = Ax^* + \mu \theta v + b = \mu \theta v 
 \] 
-and 
+and for \(\lambda \ge 0 \)
 \[
-    \begin{split}
-        \argmin \{ f(x_0 - \lambda \gradient f(x_0) : \lambda \ge 0 \} 
-            & = \argmin \{ f(x^* + \theta v - \lambda \mu \theta v) : \lambda \ge 0 \} \\
-            & = \mu^{-1} 
-    \end{split}
+        \argmin \{ f(x_0 - \lambda \gradient f(x_0) \} =\argmin \{ f(x^* + \theta v - \lambda \mu \theta v)\} = \mu^{-1} 
 \]
 Thus         
 \[
