@@ -31,3 +31,4 @@
 *.tui
 *~
 .DS_Store
+_minted-optimization
