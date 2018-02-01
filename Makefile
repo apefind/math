@@ -8,5 +8,5 @@ optimization.pdf:
 clean:
 	latexmk -c
 run:
-	#latexmk -pvc -e '$pdflatex=q/pdflatex %O -shell-escape %S/' -pdf
-	latexmk -pvc -pdf optimization.tex
+	latexmk -pvc -e '$pdflatex=q/pdflatex %O -shell-escape %S/' -pdf optimization.tex
+	#latexmk -pvc -pdf optimization.tex

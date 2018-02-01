@@ -27,24 +27,19 @@ Let now \( [a_0, b_0] = [a, b] \) and \(a_0 \le x_0 < y_0 \le b_0 \). Furthermor
 \]
 for \( a_k \le x_k < y_k \le b_k \) respectively. It follows that \( [a_k, b_k] \supset [a_{k + 1}, b_{k + 1}] \) 
 is a decreasing series of intervals.
+
+Consider the following partioning of the interval \( [0, 1] \) where the following relations hold 
+\[
+     x = 1 - y \text{ and } \\ \frac{1}{y} = \frac{y}{x}
+\]
+
+Thus \( 1 - y = y^2 \) and
+\[ 
+     y = \frac{\sqrt{5} - 1}{2}
+\]
 \bigskip
 
-\algorithm[Line Search] 
+\algorithm[Line Search]\label{algo:golden_section_search}\hfill
 \bigskip
-\begin{minted}{python}
-    \\
-
-    def gss(f, a, b, tol=1e-5):
-        gr = (math.sqrt(5) + 1) / 2
-        c = b - (b - a) / gr
-        d = a + (b - a) / gr 
-        while abs(c - d) > tol:
-            if f(c) < f(d):
-                b = d
-            else:
-                a = c
-            c = b - (b - a) / gr
-            d = a + (b - a) / gr
-        return (b + a) / 2
-
-\end{minted}
+\inputminted{python}{golden_section.py}
+\bigskip
