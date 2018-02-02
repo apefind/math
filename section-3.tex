@@ -3,9 +3,10 @@
 \section{One Dimensional Minimization and Direct Search}
 
 
-\definition[Unimodal Function]\label{def:unimodal_fnc}
+\begin{definition}[Unimodal Function]\label{def:unimodal_fnc}
 A function \( f : [a,b] \to \R \) is called unimodal if there exists a \( \xi \in [a,b] \), so that
 \( f \) is strictly decreasing in \( [a, \xi] \) and strictly increasing in \( [\xi, b] \).
+\end{definition}
 \bigskip
 
 In fact \( \xi \) is the unique minimum of \( f \) in \( [a, b] \). According to the definition, 
@@ -43,3 +44,44 @@ Thus \( 1 - y = y^2 \) and
 \bigskip
 \inputminted{python}{golden_section.py}
 \bigskip
+
+NO2TEST
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = $x$,
+    ylabel = {$f(x)$},
+]
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=red,
+]
+{x^2 - 2*x - 1};
+\addlegendentry{$x^2 - 2x - 1$}
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=blue,
+    ]
+    {x^2 + 2*x + 1};
+\addlegendentry{$x^2 + 2x + 1$}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+    title=Exmple using the mesh parameter,
+    hide axis,
+    colormap/cool,
+]
+\addplot3[
+    mesh,
+    samples=50,
+    domain=-8:8,
+]
+{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+\addlegendentry{$\frac{sin(r)}{r}$}
+\end{axis}
+\end{tikzpicture}

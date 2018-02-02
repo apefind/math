@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \usepackage{parskip}
 \usepackage{minted}
+\usepackage{pgfplots}
 
 \sloppy
 %\parindent2.5em
@@ -25,13 +26,14 @@
     linkcolor=NavyBlue,
     urlcolor=black,
 }
-\newboolean{frontpage}
-% \setboolean{frontpage}{true}
 \usemintedstyle{arduino}
+\pgfplotsset{width=10cm,compat=1.9}
+\usepgfplotslibrary{external}
+\tikzexternalize
 
 \begin{document}
 \input{macros}
-\iffrontpage\input{frontpage}\fi
+\input{frontpage}
 \input{section-1}
 \input{section-2}
 \input{section-3}

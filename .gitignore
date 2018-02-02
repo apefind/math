@@ -1,3 +1,5 @@
+.DS_Store
+*~
 *.acn
 *.acr
 *.alg
@@ -29,6 +31,7 @@
 *.toc
 *.top
 *.tui
-*~
-.DS_Store
+*.dpth
+*.md5
+*.auxlock
 _minted-optimization
