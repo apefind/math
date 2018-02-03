@@ -1,3 +1,5 @@
+"""Basic implementation of the golden section search
+"""
 
 import math
 
@@ -15,9 +17,8 @@ def golden_section_search(f, I, eps=0.00001):
 
 
 if __name__ == '__main__':
-    p, q, I = 0, 0, (-1, 1)
-    p, q, I = 10, 0, (-100, 100)
-    p, q, I = -14, 0, (-10000, 10000)
+    p, q, I = 0, 0, (-10, 10)
+    p, q, I = -4, 1, (-10, 10)
     f = lambda x: (x + p) ** 2 + q
     x0 = golden_section_search(f, I)
     print(f'arg min f on {I}: {x0}')

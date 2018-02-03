@@ -19,7 +19,7 @@ Thus
     \xi \in [a, y] \text{ if } f(x) < f(y) \text{ and } \xi \in [x, b] \text{ if } f(x) \ge f(y)
 \]
 Let now \( [a_0, b_0] = [a, b] \) and \(a_0 \le x_0 < y_0 \le b_0 \). Furthermore
-\[
+\[  
     [a_{k + 1}, b_{k + 1}] = 
         \begin{cases}
             [a_k, y_k] & \text{ if } f(x_k) < f(y_k)  \\
@@ -29,59 +29,52 @@ Let now \( [a_0, b_0] = [a, b] \) and \(a_0 \le x_0 < y_0 \le b_0 \). Furthermor
 for \( a_k \le x_k < y_k \le b_k \) respectively. It follows that \( [a_k, b_k] \supset [a_{k + 1}, b_{k + 1}] \) 
 is a decreasing series of intervals.
 
-Consider the following partioning of the interval \( [0, 1] \) where the following relations hold 
+Consider a partioning of the interval \( [0, 1] \) where the following relations hold 
 \[
      x = 1 - y \text{ and } \\ \frac{1}{y} = \frac{y}{x}
 \]
 
-Thus \( 1 - y = y^2 \) and
+Then \( 1 - y = y^2 \) and solving the quadratic equation \( y^2 + y = 1 \) gives
 \[ 
-     y = \frac{\sqrt{5} - 1}{2}
+     y = \frac{\sqrt{5} - 1}{2} \approx 0.6180 < 1
 \]
+Furthermore
+\[  
+    (b_{k + 1} - a_{k + 1}) =  y(b_k - a_k)
+\]
+and so the interval converges to \( \xi \).
 \bigskip
 
-\algorithm[Line Search]\label{algo:golden_section_search}\hfill
-\bigskip
-\inputminted{python}{golden_section.py}
-\bigskip
 
-NO2TEST
+\begin{algorithm}[Golden Section Search]\label{algo:golden_section_search}
+Primitive implementation onf the golden section search in Python.
+\hfill\bigskip
+\end{algorithm}
+\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{golden_section.py}
+\bigskip
 
 \begin{tikzpicture}
-\begin{axis}[
-    axis lines = left,
-    xlabel = $x$,
-    ylabel = {$f(x)$},
-]
-\addplot [
-    domain=-10:10, 
-    samples=100, 
-    color=red,
-]
-{x^2 - 2*x - 1};
-\addlegendentry{$x^2 - 2x - 1$}
-\addplot [
-    domain=-10:10, 
-    samples=100, 
-    color=blue,
-    ]
-    {x^2 + 2*x + 1};
-\addlegendentry{$x^2 + 2x + 1$}
+\begin{axis}[axis lines=left, xlabel=$x$, ylabel={$f(x)$}, xmin=-5, xmax=5, ymin=0, ymax=5]
+\addplot[domain=-10:10,samples=100,color=red]{(x - 2)^2 + 1};
+\addlegendentry{$ {(x - 2)}^2 + 1 $}
+\addplot[domain=-10:10, samples=100, color=blue]{x^2};
+\addlegendentry{$ x^2 $}
 \end{axis}
 \end{tikzpicture}
 
-\begin{tikzpicture}
-\begin{axis}[
-    title=Exmple using the mesh parameter,
-    hide axis,
-    colormap/cool,
-]
-\addplot3[
-    mesh,
-    samples=50,
-    domain=-8:8,
-]
-{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
-\addlegendentry{$\frac{sin(r)}{r}$}
-\end{axis}
-\end{tikzpicture}
+
+% \begin{tikzpicture}
+% \begin{axis}[
+%     title=Exmple using the mesh parameter,
+%     hide axis,
+%     colormap/cool,
+% ]
+% \addplot3[
+%     mesh,
+%     samples=50,
+%     domain=-8:8,
+% ]
+% {sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+% \addlegendentry{$\frac{sin(r)}{r}$}
+% \end{axis}
+% \end{tikzpicture}
