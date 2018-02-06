@@ -23,8 +23,8 @@
 \begin{tikzpicture}
 \draw(0,0)--(10,0);
 \draw(0,5pt)--(0,-5pt) node[below] {$ 0 $};
-\draw(3.81,5pt)--(3.81,-5pt) node[below] {$ \sigma \approx 0.381 $};
-\draw(6.18,5pt)--(6.18,-5pt) node[below] {$ \tau \approx 0.618 $};
+\draw(3.81,5pt)--(3.81,-5pt) node[below, align=left] {$ \sigma \approx 0.381 $};
+\draw(6.18,5pt)--(6.18,-5pt) node[below, align=left] {$ \tau \approx 0.618 $};
 \draw(10,5pt)--(10,-5pt) node[below] {$ 1 $};
 \draw[decorate, decoration={brace}, yshift=2ex]  (0,0) -- node[below=0.4ex] {$0$'s}  (2,0);
 \draw[decorate, decoration={brace, mirror}, yshift=2ex]  (10,0) -- node[below=0.4ex] {$l$'s and $0$'s with $l$'s separated by at least two $0$'s}  (4,0);
@@ -40,19 +40,18 @@
 \end{axis}
 \end{tikzpicture}
 
-
-% \begin{tikzpicture}
-% \begin{axis}[
-%     title=Exmple using the mesh parameter,
-%     hide axis,
-%     colormap/cool,
-% ]
-% \addplot3[
-%     mesh,
-%     samples=50,
-%     domain=-8:8,
-% ]
-% {sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
-% \addlegendentry{$\frac{sin(r)}{r}$}
-% \end{axis}
-% \end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[
+    title=Exmple using the mesh parameter,
+    hide axis,
+    colormap/cool,
+]
+\addplot3[
+    mesh,
+    samples=50,
+    domain=-8:8,
+]
+{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+\addlegendentry{$\frac{sin(r)}{r}$}
+\end{axis}
+\end{tikzpicture}
