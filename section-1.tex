@@ -49,6 +49,20 @@ Apply Theorem~\ref{thm:rolle} to
 \end{proof}
 \bigskip
 
+\begin{remark}\hfill
+    \begin{enumerate}
+        \item More generally choose any \( \varphi \in C^1[a,b] \) with \( \varphi(a) = 0 \) and 
+            \( \varphi(b) = f(b) - f(a) \). Set \( g(x) = f(x) - \varphi(x) \) to see there is a \( \xi \in (a,b) \) 
+            with \( f^\prime(\xi) = \varphi^\prime(\xi)\). 
+        \item Another useful generalization: let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). For
+            \( x, y \in \Omega \) define \( \varphi(t) = f(tx + (1 - t)y) \) and apply the chain rule:
+            \[
+                 \varphi^\prime(\xi) = \gradient f(\xi x + (1 - \xi)y)(x - y) = f(x) - f(y)
+            \]
+    \end{enumerate}
+\end{remark}
+\bigskip
+
 
 \begin{lemma}[Direction Derivative]\label{lemma:direction_derivative}
 Let \( \Omega \subseteq \Rn \) be open, \( f \in C^1(\Omega) \) and \( d \in \Rn \) be a feasable direction 
