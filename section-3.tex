@@ -68,12 +68,3 @@ where the interval converges to \( \xi \). This leads to the following algorithm
 \end{algorithm}
 \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{golden_section.py}
 \bigskip
-
-\begin{tikzpicture}
-\begin{axis}[axis lines=left, xlabel=$x$, ylabel={$f(x)$}, xmin=-5, xmax=5, ymin=0, ymax=5]
-\addplot[domain=-10:10,samples=100,color=red]{(x - 2)^2 + 1};
-\addlegendentry{$ {(x - 2)}^2 + 1 $}
-\addplot[domain=-10:10, samples=100, color=blue]{x^2};
-\addlegendentry{$ x^2 $}
-\end{axis}
-\end{tikzpicture}

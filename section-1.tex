@@ -2,9 +2,9 @@
 \newpage
 \section{Introduction}
 
-\begin{theorem}[Fermat Stationary Point]\label{thm:fermat_stationaryl_point}
-Let \( \Omega \subseteq \R \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is an stationary point then
-\( f^\prime(x^*) = 0 \).
+\begin{theorem}[Fermat Stationary Point]\label{thm:fermat_stationary_point}
+Let \( \Omega \subseteq \R \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is local extremum 
+then \( f^\prime(x^*) = 0 \).
 \end{theorem}
 
 \begin{proof}
@@ -18,6 +18,34 @@ Pick a negative \( h \in [-\eps, 0) \). Then
      f(x^* + h) < f(x^*) +  \delta h < f(x^*) 
 \]
 and \( x^* \) cannot be the minimum. Analog for maximum with a positive \( h \), then apply to \( -f \).
+\end{proof}
+\bigskip
+
+
+\begin{theorem}[Rolle]\label{thm:rolle}
+Let \( f \in C[a,b] \) with \( f(a) = f(b) \). If \( f \) is differentiable in \( (a, b) \) then 
+there exists a \( \xi \in (a,b) \) with \( f^\prime(\xi) = 0 \).
+\end{theorem}
+
+\begin{proof}
+Assume \( f \) is not constant. Since \( [a,b] \) is compact there exists a global minimum or maximum 
+\( \xi \in (a,b) \) and Theorem~\ref{thm:fermat_stationary_point} can be applied.
+\end{proof}
+\bigskip
+
+
+\begin{theorem}[Mean Value]\label{thm:mean_value}
+Let \( f \in C[a,b] \) be differentiable in \( (a, b) \). Then there exists a \( \xi \in (a,b) \) with 
+\[
+    f^\prime(\xi) = \frac{f(b) - f(a)}{b - a}
+\]
+\end{theorem}
+
+\begin{proof}
+Apply Theorem~\ref{thm:rolle} to 
+\[
+    g(x) = f(x) - \frac{f(b) - f(a)}{b - a} (x -a) 
+\]
 \end{proof}
 \bigskip
 
