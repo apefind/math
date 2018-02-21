@@ -57,7 +57,7 @@ Apply Theorem~\ref{thm:rolle} to
         \item Another useful generalization: let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). For
             \( x, y \in \Omega \) define \( \varphi(t) = f(tx + (1 - t)y) \) and apply the chain rule for differentiation
             \[
-                 \varphi^\prime(\xi) = \gradient f(\xi x + (1 - \xi)y)^T(x - y) = f(x) - f(y)
+                 \varphi^\prime(\xi) = \gradient {f(\xi x + (1 - \xi)y)}^T(x - y) = f(x) - f(y)
             \]
         \item The Cauhy Schwarz inequality then yields
             \[
@@ -67,6 +67,25 @@ Apply Theorem~\ref{thm:rolle} to
 \end{remark}
 \bigskip
 
+\begin{theorem}[Differentiation Theorem]\label{thm:differentiation}
+Let \( f \in C[a,b] \) and define 
+\[
+    F(x) = \int_a^x f(t)\,dt
+\]
+Then \( F \in C^1[a,b] \) with \( F^\prime(x) = f(x) \) for \( x \in [a,b] \).
+\end{theorem}
+
+\begin{proof}
+Apply the Mean Theorem of Integration.
+\end{proof}
+\bigskip
+
+\begin{theorem}[Fundamental Theorem of Calculus]\label{thm:fund_calculus}
+Let \( f \in C[a,b] \). Then
+\[
+    F(b) -F(a) = \int_a^b f(t)\,dt
+\]
+\end{theorem}
 
 \begin{lemma}[Direction Derivative]\label{lemma:direction_derivative}
 Let \( \Omega \subseteq \Rn \) be open, \( f \in C^1(\Omega) \) and \( d \in \Rn \) be a feasable direction 

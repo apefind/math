@@ -1,5 +1,5 @@
-"""Basic implementation of the golden section search, this easily can be improved 
-by storing and resuing the results of the previous iteration
+"""Basic implementation of the golden section search, this easily can be 
+improved by storing and resuing the results of the previous iteration
 """
 
 import math
