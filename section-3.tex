@@ -72,3 +72,14 @@ where the interval converges to \( \xi \). This leads to the following algorithm
 \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{golden_section.py}
 \bigskip
 
+
+\begin{exercise}[Surprising Convergence]
+Example for \( f \in C^2(\mathbb{R}) \) with a sequence of strict local minima converging to a strict local maximum.
+\end{exercise}
+
+\begin{proof}
+Let \( f \in C[a,b] \) and \( \xi \in (a, b) \) so that \( f \) is strictly increasing in \( (a,\xi] \) and
+strictly decreasing in \( [\xi,b) \). Define
+\[
+    g(x) = \int_{\xi - x}^{\xi + x} f(t)\,dt
+\]

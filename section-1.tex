@@ -76,7 +76,11 @@ Then \( F \in C^1[a,b] \) with \( F^\prime(x) = f(x) \) for \( x \in [a,b] \).
 \end{theorem}
 
 \begin{proof}
-Apply the Mean Theorem of Integration.
+Applying the Mean Value Theorem of Integration gives
+\[
+    F(x + h) - F(x) =  \int_x^{x + h} f(t)\,dt = f(\xi) h
+\]
+for some \( \xi \in (x, x + h) \).
 \end{proof}
 \bigskip
 
