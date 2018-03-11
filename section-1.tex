@@ -91,15 +91,43 @@ Let \( f \in C[a,b] \). Then
 \]
 \end{theorem}
 
-\begin{lemma}[Direction Derivative]\label{lemma:direction_derivative}
-Let \( \Omega \subseteq \Rn \) be open, \( f \in C^1(\Omega) \) and \( d \in \Rn \) be a feasable direction 
-at \( x \in \Omega \). Then
+\begin{lemma}[Directional Derivative]\label{lemma:directional_derivative}
+Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). Then
 \[
     \frac{\partial f}{\partial d}(x) = \gradient{f(x)}^T d
-\] 
+\]
+for any \( d \in \Rn \).
 \end{lemma}
+
+\begin{proof}
+Let \( \varphi(t) = f(x + td) \). Then \( \varphi \in C^1[-\eps, \eps ] \) for some \( \eps > 0 \) 
+and the chain rule yields \[ \varphi^\prime(t) = {\gradient f(x + td)}^T d \]
+Hence
+\[
+    \varphi^\prime(0) = \lim_{t \to 0} \frac{\varphi(x + td) - \varphi(0)}{t} = {\gradient f(x)}^T d
+\]
+\end{proof}
 \bigskip
 
+\begin{remark}\hfill
+    \begin{enumerate}
+        \item A similar proposition holds under the weaker assumption that \( d \) is a only feasable direction 
+            for \( f \) in \( x \)
+
+        \item For \( d = \gradient{f(x)}/\| \gradient{f(x)}\| \) it follows that
+            \[
+                \frac{\partial f}{\partial d}(x) = \|\gradient{f(x)}\| > 0
+            \]
+            and for any other \( d \in \Rn \) with \( \|d\| = 1 \) the Cauchy Schwarz inequality yields
+            \[
+                |\frac{\partial f}{\partial d}(x)| = |\gradient{f(x)}^T d| \le \|\gradient{f(x)}\| \|d\| = 
+                    \|\gradient{f(x)}\|
+            \]
+            Hence \( \gradient{f(x)} \) is the direction of the greatest ascent and respectively, 
+            \( -\gradient{f(x)} \) is the direction of the greatest descent.
+    \end{enumerate}
+\end{remark}
+\bigskip
 
 \begin{theorem}[First Order Necessary Condition]\label{thm:fonc}
 Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is a local minimzer then
