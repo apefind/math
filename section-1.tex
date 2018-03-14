@@ -1,6 +1,25 @@
 
 \newpage
-\section{Introduction}
+\section{Notes on Analysis}
+
+\begin{lemma}[Some small Calculations]\hfill
+    \begin{enumerate}
+        \item For \( 1 = x x^{-1} \) the product rule yields \( 0 = x^{-1} + x(x^{-1})' \). Hence
+            \[
+                \frac{d}{dx} x^{-1} = -\frac{1}{x^2}
+            \]
+        \item Similarly \( x = \sqrt{x}^2 \) and \( 1 = 2 \sqrt{x} \sqrt{x}' \) and so
+            \[
+                \frac{d}{dx} \sqrt{x} = \frac{1}{2\sqrt{x}}
+            \]
+        \item \( (1 - q) (1 + q + q^2 + \ldots + q^n) = 1 - q + q - q^2 + q^2 - q^3 + \ldots + q^{n+1} \) gives
+            \[
+                \sum_{k=0}^n q^k = \frac{1 - q^{n+1}}{1 - q}
+            \]
+
+    \end{enumerate}
+\end{lemma}
+\bigskip
 
 \begin{theorem}[Fermat Stationary Point]\label{thm:fermat_stationary_point}
 Let \( \Omega \subseteq \R \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is local extremum 
@@ -59,7 +78,7 @@ Apply Theorem~\ref{thm:rolle} to
             \[
                  \varphi^\prime(\xi) = \gradient {f(\xi x + (1 - \xi)y)}^T(x - y) = f(x) - f(y)
             \]
-        \item The Cauhy Schwarz inequality then yields
+        \item The Cauchy Schwarz inequality then yields
             \[
                   \|f(x) - f(y)\| \le \|\gradient f(\xi x + (1 - \xi)y)\| \|(x - y)\|
             \]
