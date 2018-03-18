@@ -2,7 +2,7 @@
 \newpage
 \section{Notes on Analysis}
 
-\begin{lemma}[Some small Calculations]\hfill
+\begin{lemma}[Simple Calculations]\hfill
     \begin{enumerate}
         \item For \( 1 = x x^{-1} \) the product rule yields \( 0 = x^{-1} + x(x^{-1})' \). Hence
             \[
@@ -15,7 +15,7 @@
         \item \( (1 - q) (1 + q + q^2 + \ldots + q^n) = 1 - q + q - q^2 + q^2 - q^3 + \ldots + q^{n+1} \) gives
             \[
                 \sum_{k=0}^n q^k = \frac{1 - q^{n+1}}{1 - q} \text { and }
-                \sum_{k=m}^n q^k = \frac{q^m(1 - q^{n-m+1})}{1 - q}
+                \sum_{k=m}^n q^k = \frac{q^m - q^{n+1}}{1 - q}
             \]
 
     \end{enumerate}
@@ -170,3 +170,25 @@ Then \( 0 \) is local minimizer for \( \varphi(t) = f(x^* + th) \) and
 Now let \( h = \gradient f(x^*) \). 
 \end{proof}
 \bigskip
+
+
+\begin{theorem}[Banach Fixed-Point Theorem]\label{thm:banach_fix_point}
+Let \( X \) be a complete metric space and \( f \in C(X,X) \) a contraction
+\[
+    \|f(x) - f(y)\| \le q \|x - y\| \text{ for all } x, y \in X
+\]
+for some \( 0 < q < 1 \). Then there exists a unique fix point \( x^* \in X \) with 
+\[
+     f(x^*) = x^*
+\]
+Furthermore for any \( x_0 \in X \) the sequence defined by
+\[
+     x_{n+1} = f(x_n)
+\]
+converges aganist \( x^* \).
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+\bigskip
+
