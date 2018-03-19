@@ -169,11 +169,11 @@ Then \( 0 \) is local minimizer for \( \varphi(t) = f(x^* + th) \) and
 \]
 Now let \( h = \gradient f(x^*) \). 
 \end{proof}
-\bigskip
+\bigskip 
 
 
 \begin{theorem}[Banach Fixed-Point Theorem]\label{thm:banach_fix_point}
-Let \( X \) be a complete metric space and \( f \in C(X,X) \) a contraction
+Let \( X \) be a Banach space and \( f \in C(X,X) \) a contraction
 \[
     \|f(x) - f(y)\| \le q \|x - y\| \text{ for all } x, y \in X
 \]
@@ -189,6 +189,24 @@ converges aganist \( x^* \).
 \end{theorem}
 
 \begin{proof}
+Since \( \| x_{n+1} - x_n\| =\| f(x_n) - f(x_{n-1})\| \le q\| x_n - x_{n-1}\| \) it follows, that
+\[ 
+    \| x_{n+1} - x_n\| \le q^n  \|x_1 - x_0\| 
+\] 
+Furthermore
+\[ 
+    \| x_n - x_m\| \le \sum_{k=m}^n q^k \|x_1 - x_0\| = \sum_{k=m}^n q^k = \frac{q^m - q^{n+1}}{1 - q} \|x_1 - x_0\| 
+\] 
+and \( (x_n) \) is a Cauchy sequence. For the limit \( x^* \) we have
+\[ 
+   x^* = \lim_{n\to\infty} x_{n+1} = \lim_{n\to\infty} f(x_n) = f(x^*)
+\] 
+and \( x^* \) is a fix point. For any other \( y^* \in X \) with \( f(y^*) = y^* \) it follows, that
+\[
+    \|x^* - y^*\| = \|f(x^*) - f(y^*)\| \le q \|x^* - y^*\|
+\]
+and hence \( x^* = y^*\).
+
 \end{proof}
 \bigskip
 
