@@ -36,3 +36,4 @@
 *.auxlock
 _minted-optimization
 _minted-build
+__latexindent_temp.tex
