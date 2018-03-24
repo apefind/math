@@ -195,13 +195,13 @@ Since \( \| x_{n+1} - x_n\| =\| f(x_n) - f(x_{n-1})\| \le q\| x_n - x_{n-1}\| \)
 \] 
 Furthermore
 \[ 
-    \| x_n - x_m\| \le \sum_{k=m}^n q^k \|x_1 - x_0\| = \sum_{k=m}^n q^k = \frac{q^m - q^{n+1}}{1 - q} \|x_1 - x_0\| 
+    \| x_n - x_m\| \le \sum_{k=m}^n q^k \|x_1 - x_0\| = \frac{q^m - q^{n+1}}{1 - q} \|x_1 - x_0\| 
 \] 
-and \( (x_n) \) is a Cauchy sequence. For the limit \( x^* \) we have
+and \( (x_n) \) is a Cauchy sequence. For its limit \( x^* \) we have
 \[ 
    x^* = \lim_{n\to\infty} x_{n+1} = \lim_{n\to\infty} f(x_n) = f(x^*)
 \] 
-and \( x^* \) is a fix point. For any other \( y^* \in X \) with \( f(y^*) = y^* \) it follows, that
+For any other \( y^* \in X \) with \( f(y^*) = y^* \) it follows, that
 \[
     \|x^* - y^*\| = \|f(x^*) - f(y^*)\| \le q \|x^* - y^*\|
 \]
