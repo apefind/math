@@ -14,9 +14,8 @@ run:
 clean:
 	$(latexmk) -c $(main)
 	rm -f $(main).pdf $(main).pdfsync
-	rm -rf *~ *.tmp _minted-build _minted-notes`
+	rm -rf *~ *.tmp _minted-build _minted-notes
 	rm -f *.pdf *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk *.dvi *.ind *.fls *.md5 *.idx *.auxlock *.dpth
 $(main).pdf: $(main).tex $(sources)
 	$(latexmk) $(latexmkopt) -pdflatex="$(latex) $(latexopt) %O %S" $(main)
 	$(latex) $(latexopt) $(main)
- 
