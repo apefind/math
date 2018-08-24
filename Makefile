@@ -4,8 +4,8 @@ nonstop = --interaction=nonstopmode
 latexmk = latexmk
 latexmkopt = -pdf -quiet
 continuous = -pvc
-main = optimization
-sources = $(main).tex macros.tex frontpage.tex section-1.tex section-2.tex section-3.tex
+main = notes
+sources = $(main).tex macros.tex frontpage.tex section-1.tex section-2.1.tex section-2.2.tex section-3.tex
 
 all: doc
 doc: $(main).pdf
@@ -14,7 +14,7 @@ run:
 clean:
 	$(latexmk) -c $(main)
 	rm -f $(main).pdf $(main).pdfsync
-	rm -rf *~ *.tmp _minted-build _minted-optimization
+	rm -rf *~ *.tmp _minted-build _minted-notes`
 	rm -f *.pdf *.bbl *.blg *.aux *.end *.fls *.log *.out *.fdb_latexmk *.dvi *.ind *.fls *.md5 *.idx *.auxlock *.dpth
 $(main).pdf: $(main).tex $(sources)
 	$(latexmk) $(latexmkopt) -pdflatex="$(latex) $(latexopt) %O %S" $(main)
