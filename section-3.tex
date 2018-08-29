@@ -21,20 +21,42 @@ Since \( A + B = C \) it follows that
 \end{proof}
 \bigskip
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
+% \begin{figure}[H]
+% \centering
+% \begin{tikzpicture}
 
-\coordinate[label={270:$C$}] (C) at (0,0);
-\coordinate[label={150:$A$}] (A) at (135:4);
-\coordinate[label={30:$B$}] (B) at (45:5);
-\draw (C) -- (A)node[midway,below left]{$b$} -- (B)  -- cycle node[midway,below right]{$a$};
-%\draw (C) -- ($(A)!(C)!(B)$) coordinate (P) node[midway,right]{$h$};
-\draw[decorate,decoration={brace,raise=12pt,amplitude=5pt}] (A) -- (B);
-\path (B) -- (P) node[midway,above]{$x$} -- (A) node[midway,above]{$y$} ($($(A)!0.5!(B)$)!0.8cm!90:(B)$) node{$c$};
-%\filldraw[fill=white] (C) -- ($(C)!2mm!(A)$) coordinate (U) -- ($(U)!2mm!90:(C)$) --($(C)!2mm!(B)$) --cycle;
-% \draw ($(P)!2mm!(C)$) coordinate (V) -- ($(V)!2mm!90:(C)$) --($(P)!2mm!(B)$);
-\end{tikzpicture}
-\end{figure}
-\bigskip
-%
+% \coordinate[label={270:$C$}] (C) at (0,0);
+% \coordinate[label={150:$A$}] (A) at (135:4);
+% \coordinate[label={30:$B$}] (B) at (45:5);
+% \draw (C) -- (A)node[midway,below left]{$b$} -- (B)  -- cycle node[midway,below right]{$a$};
+% %\draw (C) -- ($(A)!(C)!(B)$) coordinate (P) node[midway,right]{$h$};
+% \draw[decorate,decoration={brace,raise=12pt,amplitude=5pt}] (A) -- (B);
+% \path (B) -- (P) node[midway,above]{$x$} -- (A) node[midway,above]{$y$} ($($(A)!0.5!(B)$)!0.8cm!90:(B)$) node{$c$};
+% %\filldraw[fill=white] (C) -- ($(C)!2mm!(A)$) coordinate (U) -- ($(U)!2mm!90:(C)$) --($(C)!2mm!(B)$) --cycle;
+% % \draw ($(P)!2mm!(C)$) coordinate (V) -- ($(V)!2mm!90:(C)$) --($(P)!2mm!(B)$);
+% \end{tikzpicture}
+% \end{figure}
+% \bigskip
+
+
+\lemma[Conformal and Projective Representation]
+The mapping between conformal and projective representation of any point is give by the radial expansion 
+of the following factor
+\[
+   \frac{2R}{R^2 + r^2}
+\]  
+
+\begin{proof}
+For any point the distance from the origin with regard to the two representations is given by
+\[
+    \log \frac{R + r}{R - r} = \frac{1}{2} \log \frac{R + r'}{R - r'} = \log \frac{(R + r')^2}{(R - r')^2}
+\]
+This gives
+\[
+   (R - r)^2 (R + r') = (R + r)^2 (R - r') \text{ and } -4R^2r + 2R^2r' + 2r^2r' = 0
+\] 
+Hence
+\[
+   r' = \frac{2R^2}{R^2 + r^2} r
+\] 
+\end{proof}
