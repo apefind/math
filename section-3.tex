@@ -24,22 +24,24 @@ Since \( A + B = C \) it follows that
 \end{proof}
 \bigskip
 
-% \begin{figure}[H]
-% \centering
-% \begin{tikzpicture}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
 
-% \coordinate[label={270:$C$}] (C) at (0,0);
-% \coordinate[label={150:$A$}] (A) at (135:4);
-% \coordinate[label={30:$B$}] (B) at (45:5);
-% \draw (C) -- (A)node[midway,below left]{$b$} -- (B)  -- cycle node[midway,below right]{$a$};
-% %\draw (C) -- ($(A)!(C)!(B)$) coordinate (P) node[midway,right]{$h$};
-% \draw[decorate,decoration={brace,raise=12pt,amplitude=5pt}] (A) -- (B);
-% \path (B) -- (P) node[midway,above]{$x$} -- (A) node[midway,above]{$y$} ($($(A)!0.5!(B)$)!0.8cm!90:(B)$) node{$c$};
-% %\filldraw[fill=white] (C) -- ($(C)!2mm!(A)$) coordinate (U) -- ($(U)!2mm!90:(C)$) --($(C)!2mm!(B)$) --cycle;
-% % \draw ($(P)!2mm!(C)$) coordinate (V) -- ($(V)!2mm!90:(C)$) --($(P)!2mm!(B)$);
-% \end{tikzpicture}
-% \end{figure}
-% \bigskip
+\coordinate[label={150:$A$}] (A) at (135:4);
+\coordinate[label={270:$C$}] (C) at (0:0);
+\coordinate[label={30:$B$}] (B) at (45:5);
+\draw (C) -- (A)node[midway,below left]{$b$} -- (B)  -- cycle node[midway,below right]{$a$};
+\draw (C) -- ($(A)!(C)!(B)$) coordinate (P) node[midway,right]{$h$};
+\draw[decorate,decoration={brace,raise=12pt,amplitude=5pt}] (A) -- (B);
+\path (B) -- (P) node[midway,above]{$x$} -- (A) node[midway,above]{$y$} ($($(A)!0.5!(B)$)!0.8cm!90:(B)$) node{$C$};
+\filldraw[fill=white] (C) -- ($(C)!2mm!(A)$) coordinate (U) -- ($(U)!2mm!90:(C)$) --($(C)!2mm!(B)$) --cycle;
+\draw ($(P)!2mm!(C)$) coordinate (V) -- ($(V)!2mm!90:(C)$) --($(P)!2mm!(B)$);
+
+\end{tikzpicture}
+\caption{Pythagoras}\label{fig:pythagoras} 
+\end{figure}
+\bigskip
 
 
 \lemma[Conformal and Projective Representation]
@@ -99,3 +101,33 @@ Hence
 \end{lemma}
 \bigskip
 
+\begin{lemma}[Binomial Theorem]\hfill
+    \begin{enumerate}
+        \item For the binomial coefficient we have Pascal's identity
+			\[
+				\binom{n}{k - 1} + \binom{n}{k} = \binom{n + 1 }{k }   
+			\]  
+        \item Due to symmetry it is	
+			\[
+				\sum_{k=0}^{n} a^{k} = \sum_{k=0}^{n} a^{n - k}
+			\]  
+        \item The following equation states the binomial identity
+			\[
+				{(a + b)}^n = \sum_{k=0}^{n} \binom{n}{k} a^{k} b^{n - k} = \sum_{k=0}^{n} \binom{n}{k} a^{n -k} b^{k}
+			\]  
+        \item For \( a = 1 \) follows
+			\[
+				{(1 + x)}^n = \sum_{k=0}^{n} \binom{n}{k} x^{k}
+			\]  
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+It is
+\[
+		\binom{n}{k} + \binom{n}{k - 1} = \frac{n!}{k!(n - k)!} + \frac{n!}{(k - 1)!(n - k + 1)!} 
+			 = \frac{n!(n + 1 - k) + n!k! + }{k!(n + 1- k)!}
+			 = \binom{n + 1}{k}
+\]
+\end{proof}
+\bigskip
