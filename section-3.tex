@@ -103,13 +103,9 @@ Hence
 
 \begin{lemma}[Binomial Theorem]\hfill
     \begin{enumerate}
-        \item For the binomial coefficient we have Pascal's identity
+        \item For the binomial coefficient Pascal's identity holds
 			\[
 				\binom{n}{k - 1} + \binom{n}{k} = \binom{n + 1 }{k }   
-			\]  
-        \item Due to symmetry it is	
-			\[
-				\sum_{k=0}^{n} a^{k} = \sum_{k=0}^{n} a^{n - k}
 			\]  
         \item The following equation states the binomial identity
 			\[
@@ -125,9 +121,18 @@ Hence
 \begin{proof}
 It is
 \[
-		\binom{n}{k} + \binom{n}{k - 1} = \frac{n!}{k!(n - k)!} + \frac{n!}{(k - 1)!(n - k + 1)!} 
-			 = \frac{n!(n + 1 - k) + n!k! + }{k!(n + 1- k)!}
-			 = \binom{n + 1}{k}
+	\binom{n}{k} + \binom{n}{k - 1} = \frac{n!}{k!(n - k)!} + \frac{n!}{(k - 1)!(n - k + 1)!}
+		= \frac{n!(n + 1 - k) + n!k!}{k!(n + 1- k)!} = \binom{n + 1}{k}
 \]
+Furthermore by using induction
+\[
+    \begin{split}
+		{(a + b)}^{n + 1}	& = \sum_{k=0}^{n} \binom{n}{k} a^{k + 1} b^{n - k} + 
+								\sum_{k=0}^{n} \binom{n}{k} a^{k} b^{n + 1 - k} \\
+							& = \sum_{k=1}^{n + 1} \binom{n}{k - 1} a^{k} b^{n + 1 - k} + 
+								\sum_{k=0}^{n} \binom{n}{k} a^{k} b^{n + 1 - k} \\
+							& = \sum_{k=0}^{n + 1} \binom{n + 1}{k} a^{k} b^{n + 1 - k}
+    \end{split}
+\]  
 \end{proof}
 \bigskip
