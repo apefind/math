@@ -34,6 +34,8 @@
 *.dpth
 *.md5
 *.auxlock
+.vscode
 _minted-optimization
 _minted-build
+_minted-notes
 __latexindent_temp.tex

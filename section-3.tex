@@ -24,24 +24,24 @@ Since \( A + B = C \) it follows that
 \end{proof}
 \bigskip
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-
-\coordinate[label={150:$A$}] (A) at (135:4);
-\coordinate[label={270:$C$}] (C) at (0:0);
-\coordinate[label={30:$B$}] (B) at (45:5);
-\draw (C) -- (A)node[midway,below left]{$b$} -- (B)  -- cycle node[midway,below right]{$a$};
-\draw (C) -- ($(A)!(C)!(B)$) coordinate (P) node[midway,right]{$h$};
-\draw[decorate,decoration={brace,raise=12pt,amplitude=5pt}] (A) -- (B);
-\path (B) -- (P) node[midway,above]{$x$} -- (A) node[midway,above]{$y$} ($($(A)!0.5!(B)$)!0.8cm!90:(B)$) node{$C$};
-\filldraw[fill=white] (C) -- ($(C)!2mm!(A)$) coordinate (U) -- ($(U)!2mm!90:(C)$) --($(C)!2mm!(B)$) --cycle;
-\draw ($(P)!2mm!(C)$) coordinate (V) -- ($(V)!2mm!90:(C)$) --($(P)!2mm!(B)$);
-
-\end{tikzpicture}
-\caption{Pythagoras}\label{fig:pythagoras} 
-\end{figure}
-\bigskip
+% \begin{figure}[H]
+% \centering
+% \begin{tikzpicture}
+%
+% \coordinate[label={150:$A$}] (A) at (135:4);
+% \coordinate[label={270:$C$}] (C) at (0:0);
+% \coordinate[label={30:$B$}] (B) at (45:5);
+% \draw (C) -- (A)node[midway,below left]{$b$} -- (B)  -- cycle node[midway,below right]{$a$};
+% \draw (C) -- ($(A)!(C)!(B)$) coordinate (P) node[midway,right]{$h$};
+% \draw[decorate,decoration={brace,raise=12pt,amplitude=5pt}] (A) -- (B);
+% \path (B) -- (P) node[midway,above]{$x$} -- (A) node[midway,above]{$y$} ($($(A)!0.5!(B)$)!0.8cm!90:(B)$) node{$C$};
+% \filldraw[fill=white] (C) -- ($(C)!2mm!(A)$) coordinate (U) -- ($(U)!2mm!90:(C)$) --($(C)!2mm!(B)$) --cycle;
+% \draw ($(P)!2mm!(C)$) coordinate (V) -- ($(V)!2mm!90:(C)$) --($(P)!2mm!(B)$);
+%
+% \end{tikzpicture}
+% \caption{Pythagoras}\label{fig:pythagoras}
+% \end{figure}
+% \bigskip
 
 
 \lemma[Conformal and Projective Representation]
@@ -101,6 +101,7 @@ Hence
 \end{lemma}
 \bigskip
 
+
 \begin{lemma}[Binomial Theorem]\hfill
     \begin{enumerate}
         \item For the binomial coefficient Pascal's identity holds
@@ -136,3 +137,50 @@ Furthermore by using induction
 \]  
 \end{proof}
 \bigskip
+
+
+Let \( (r, \varphi) \) the polar representation of \( z \) and \( w = \log r + \ui\varphi \). Then
+\[
+	\eu^z = \eu^{\log r + \varphi\iu} = r\eu^{\varphi\iu}
+\]
+For \( r = 1 \) and \( \varphi = 2\pi \) this yields
+\[
+	\eu^{2\pi\iu} = 1
+\]
+
+\begin{lemma}[Euler Equation]\label{lemma:lemma_euler_equation}
+It is 
+\[
+	\eu^{\pi\iu} + 1 = 0
+\]
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+\bigskip
+
+
+\begin{exercise}[Exponential Function]
+\[
+    \begin{split}
+		\sum_{n=0}^m \frac{1}{n!} {(a + b)}^n	
+			& = \sum_{n=0}^{m} \frac{1}{n!} \sum_{k=0}^{n} \binom{n}{k} a^{k}b^{n - k} \\
+			& = \sum_{n=0}^{m} \sum_{k=0}^{n} \frac{1}{k!(n - k)!} a^{k}b^{n - k} \\
+    \end{split}
+\]  
+\end{exercise}
+\bigskip
+
+
+\begin{exercise}[Euler Equation]
+If \( \log z = w \) then \( z + \pi\iu \) is a logarithm to \( -w \). This is a direct consequence 
+of the Euler equation
+\[
+	\eu^{\pi\iu} + 1 = 0
+\]
+\end{exercise}
+
+\begin{proof}
+It is \( \eu^{z + \pi\iu} = \eu^{z}\eu^{\pi\iu} = - \eu^{z} = -w \).
+
+\end{proof}
