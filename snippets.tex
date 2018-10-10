@@ -68,3 +68,26 @@
 \addlegendentry{$ x^2 $}
 \end{axis}
 \end{tikzpicture}
+
+
+% sort of works
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+
+\coordinate[label={150:$A$}] (A) at (135:4);
+\coordinate[label={270:$C$}] (C) at (0:0);
+\coordinate[label={30:$B$}] (B) at (45:5);
+\draw (C) -- (A)node[midway,below left]{$b$} -- (B)  -- cycle node[midway,below right]{$a$};
+\draw (C) -- ($(A)!(C)!(B)$) coordinate (P) node[midway,right]{$h$};
+\draw[decorate,decoration={brace,raise=12pt,amplitude=5pt}] (A) -- (B);
+\path (B) -- (P) node[midway,above]{$x$} -- (A) node[midway,above]{$y$} ($($(A)!0.5!(B)$)!0.8cm!90:(B)$) node{$C$};
+\filldraw[fill=white] (C) -- ($(C)!2mm!(A)$) coordinate (U) -- ($(U)!2mm!90:(C)$) --($(C)!2mm!(B)$) --cycle;
+\draw ($(P)!2mm!(C)$) coordinate (V) -- ($(V)!2mm!90:(C)$) --($(P)!2mm!(B)$);
+
+\end{tikzpicture}
+\caption{Pythagoras}\label{fig:pythagoras} 
+\end{figure}
+\bigskip
+
+

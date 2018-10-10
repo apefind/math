@@ -24,26 +24,6 @@ Since \( A + B = C \) it follows that
 \end{proof}
 \bigskip
 
-% \begin{figure}[H]
-% \centering
-% \begin{tikzpicture}
-%
-% \coordinate[label={150:$A$}] (A) at (135:4);
-% \coordinate[label={270:$C$}] (C) at (0:0);
-% \coordinate[label={30:$B$}] (B) at (45:5);
-% \draw (C) -- (A)node[midway,below left]{$b$} -- (B)  -- cycle node[midway,below right]{$a$};
-% \draw (C) -- ($(A)!(C)!(B)$) coordinate (P) node[midway,right]{$h$};
-% \draw[decorate,decoration={brace,raise=12pt,amplitude=5pt}] (A) -- (B);
-% \path (B) -- (P) node[midway,above]{$x$} -- (A) node[midway,above]{$y$} ($($(A)!0.5!(B)$)!0.8cm!90:(B)$) node{$C$};
-% \filldraw[fill=white] (C) -- ($(C)!2mm!(A)$) coordinate (U) -- ($(U)!2mm!90:(C)$) --($(C)!2mm!(B)$) --cycle;
-% \draw ($(P)!2mm!(C)$) coordinate (V) -- ($(V)!2mm!90:(C)$) --($(P)!2mm!(B)$);
-%
-% \end{tikzpicture}
-% \caption{Pythagoras}\label{fig:pythagoras}
-% \end{figure}
-% \bigskip
-
-
 \lemma[Conformal and Projective Representation]
 The mapping from conformal and projective representation of any point is given by the radial expansion 
 of the following factor
@@ -139,26 +119,7 @@ Furthermore by using induction
 \bigskip
 
 
-Let \( (r, \varphi) \) the polar representation of \( z \) and \( w = \log r + \ui\varphi \). Then
-\[
-	\eu^z = \eu^{\log r + \varphi\iu} = r\eu^{\varphi\iu}
-\]
-For \( r = 1 \) and \( \varphi = 2\pi \) this yields
-\[
-	\eu^{2\pi\iu} = 1
-\]
-
-\begin{lemma}[Euler Equation]\label{lemma:lemma_euler_equation}
-It is 
-\[
-	\eu^{\pi\iu} + 1 = 0
-\]
-\end{lemma}
-
-\begin{proof}
-\end{proof}
-\bigskip
-
+\subsection{Exponential Function and Logarithms}
 
 \begin{exercise}[Exponential Function]
 \[
@@ -172,15 +133,40 @@ It is
 \bigskip
 
 
-\begin{exercise}[Euler Equation]
-If \( \log z = w \) then \( z + \pi\iu \) is a logarithm to \( -w \). This is a direct consequence 
-of the Euler equation
+Let \( t \in \R \). Then
+\[
+    \begin{split}
+		\eu^{\iu t}
+			& = \sum_{k=0}^\infty \frac{1}{k!} {(\iu t)}^k \\
+			& = \sum_{k=0}^\infty \frac{1}{2k!} {(\iu t)}^{2k} + 
+				\sum_{k=0}^\infty \frac{1}{(2k + 1)!} {(\iu t)}^{2k + 1} \\
+			& = \sum_{k=0}^\infty \frac{(-1)^k}{2k!} t^{2k} + 
+				\iu\sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} t^{2k + 1} \\
+			& = \cos{t} + \iu\sin{t}
+    \end{split}
+\]
+
+More generally for \( z = \log r + \iu t\) follows
+\[
+	\eu^z = \eu^{\log r + \iu t} = r\eu^{\iu t} = r(\cos{t} + \iu\sin{t})
+\]
+
+For \( r = 1 \) and \( t = 2\pi \) this yields
+\[
+	\eu^{2\pi\iu} = \cos{2\pi} + \iu \sin{2\pi} = 1
+\]
+and for \( t = 2\pi \) we get
+\bigskip
+
+\begin{lemma}[Euler Equation]\label{lemma:lemma_euler_equation}
 \[
 	\eu^{\pi\iu} + 1 = 0
 \]
-\end{exercise}
+\end{lemma}
+\bigskip
 
-\begin{proof}
-It is \( \eu^{z + \pi\iu} = \eu^{z}\eu^{\pi\iu} = - \eu^{z} = -w \).
 
-\end{proof}
+\begin{exercise}
+If \( \eu^z = w \) then \( z + \pi\iu \) is a logarithm to \( -w \):
+\( \eu^{z + \pi\iu} = \eu^{z}\eu^{\pi\iu} = - \eu^{z} = -w \).
+\bigskip
