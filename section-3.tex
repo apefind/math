@@ -146,7 +146,7 @@ Let \( t \in \R \). Then
     \end{split}
 \]
 
-More generally for \( z = \log r + \iu t\) follows
+More generally for \( z = \log r + \iu t\)
 \[
 	\eu^z = \eu^{\log r + \iu t} = r\eu^{\iu t} = r(\cos{t} + \iu\sin{t})
 \]
@@ -166,7 +166,24 @@ and for \( t = 2\pi \) we get
 \bigskip
 
 
-\begin{exercise}
-If \( \eu^z = w \) then \( z + \pi\iu \) is a logarithm to \( -w \):
-\( \eu^{z + \pi\iu} = \eu^{z}\eu^{\pi\iu} = - \eu^{z} = -w \).
+\begin{exercise}\hfill
+    \begin{enumerate}
+        \item If \( \eu^z = w \) then \( z + \pi\iu \) is a logarithm to \( -w \):
+			\( \eu^{z + \pi\iu} = \eu^{z}\eu^{\pi\iu} = - \eu^{z} = -w \).
+		\item Since \( \eu^{i(s + t)} = \eu^{is} \eu^{it} \) it follows
+			\[
+				\begin{split}
+					\cos{(s + t)} + \iu \sin{(s + t)} 
+						& = (\cos{s} + \iu\sin{s})(\cos{t} + \iu\sin{t}) \\
+						& = \cos{s}\cos{t} - \sin{s}\sin{t} + \iu(\cos{s}\sin{t} + \sin{s}\cos{t})
+				\end{split}
+			\]
+			Hence
+			\[
+				\begin{split}
+					\cos{(s + t)} & = \cos{s}\cos{t} - \sin{s}\sin{t} \\
+					\sin{(s + t)} & = \cos{s}\sin{t} + \sin{s}\cos{t}
+				\end{split}
+			\]
+    \end{enumerate}
 \bigskip
