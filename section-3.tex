@@ -2,7 +2,13 @@
 \newpage
 \section{The Road to Reality}
 
+
 \subsection{Hyperbolic Geometry}
+The ratio between the area \( A \) and \( A' \) of two similar shapes is given by
+\[
+	A' = k^2A
+\]
+\bigskip
 
 \begin{theorem}[Pythagoras]\label{thm:thm_pythagoras}
 \[
@@ -12,7 +18,7 @@
 
 
 \begin{proof}
-All triangles are similar, hence
+Let \( A, B \) and \( C \) be the areas of the three triangles respectively. All triangles are similar, hence
 \[
     B = \frac{b^2}{a^2} A \text{ and }  C =  \frac{c^2}{b^2} B 
 \]
@@ -22,6 +28,16 @@ Since \( A + B = C \) it follows that
 \]
 \end{proof}
 \bigskip
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\rectriangle[black]{(0,0)}{(3,3)}{6cm}
+\end{tikzpicture}
+\caption{Pythagoras}\label{fig:pythagoras}
+\end{figure}
+\bigskip
+
 
 \lemma[Conformal and Projective Representation]
 The mapping from conformal and projective representation of any point is given by the radial expansion 

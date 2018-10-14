@@ -70,7 +70,7 @@
 \end{tikzpicture}
 
 
-% sort of works
+% triangles
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
@@ -91,3 +91,72 @@
 \bigskip
 
 
+\newcommand\RectTri[4][thick,green!50!black,text=black]{%
+\coordinate [label=left:$C$] (C) at #2;
+\coordinate [label=below right:$B$] (B) at #3;
+\coordinate (aux) at ($ #2 ! 1 ! 90:#3 $);
+\coordinate [label=above:$A$] (A) at ($ #2 !#4!(aux) $);
+
+\coordinate (perp) at ($(A)!(C)!(B)$);
+\draw[purple!70!black,thick,dashed] (C) -- (perp);
+
+\draw[#1] 
+  (C) -- 
+  node[auto] {$b$} (A) -- 
+  node[auto] {$c$} (B) --
+  node[auto] {$a$} 
+  (C)
+  pic ["$\alpha$",draw,cyan,thick,angle radius=1cm] {angle = C--A--B} 
+  pic ["$\alpha$",draw,cyan,thick,angle radius=1cm] {angle = B--C--perp}
+  pic ["$\beta$",draw,orange!70!black,thick,angle radius=1cm] {angle = A--B--C}
+  pic ["$\beta$",draw,orange!70!black,thick,angle radius=1cm] {angle = perp--C--A};
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+\RectTri{(0,3)}{(1,0)}{6cm}
+\begin{scope}[xshift=8.5cm]
+\RectTri[black]{(0,0)}{(4,2)}{4cm}
+\end{scope}
+\end{tikzpicture}
+
+\end{document}
+
+
+\documentclass{article}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+
+\begin{document}
+
+\begin{tikzpicture}
+\tkzDefPoint(0,1){A}
+\tkzDefPoint(2,4){C}
+\tkzDefPointWith[orthogonal normed,K=7](C,A)
+\tkzGetPoint{B}
+
+\tkzLabelPoint[left](A){$A$}
+\tkzLabelPoint[right](B){$B$}
+\tkzLabelPoint[above](C){$C$}
+
+\tkzMarkRightAngle(A,C,B)
+
+\tkzDrawSegment[green!60!black](A,C)
+\tkzDrawSegment[green!60!black](C,B)
+\tkzDrawSegment[green!60!black](B,A)
+
+\tkzLabelSegment[auto](B,A){$c$}
+\tkzLabelSegment[auto,swap](B,C){$a$}
+\tkzLabelSegment[auto,swap](C,A){$b$}
+
+\tkzDrawAltitude[dashed,color=magenta](A,B)(C)
+\tkzGetPoint{D}
+
+\tkzMarkAngle[size=1cm,color=cyan,mark=|](C,B,A)
+\tkzMarkAngle[size=1cm,color=cyan,mark=|](A,C,D)
+\tkzMarkAngle[size=0.75cm,color=orange,mark=||](D,C,B)
+\tkzMarkAngle[size=0.75cm,color=orange,mark=||](B,A,C)
+\end{tikzpicture}
+
+\end{document}
