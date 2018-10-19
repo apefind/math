@@ -20,9 +20,49 @@
                 \sum_{k=0}^n q^k = \frac{1 - q^{n+1}}{1 - q} \text{ and }
                 \sum_{k=m}^n q^k = \frac{q^m - q^{n+1}}{1 - q}
             \]
+        \item It is 
+            \[
+                \frac{d}{dx} x^n = nx^{n - 1}
+            \]
+			since the product rule yields
+            \[
+                \frac{d}{dx} x^n = \frac{d}{dx} xx^{n -1} = x^{n -1} + \frac{d}{dx} x^{n - 1} = 
+					x^{n -1} + (n - 1)x^{n - 1}  = nx^{n - 1}
+            \]
+			via induction.
     \end{enumerate}
 \end{lemma}
 \bigskip
+
+
+\begin{lemma}[Sinus and Cosinus]\hfill
+    \begin{enumerate}
+        \item Sinus and Cosinus power series
+			\[
+				\begin{split}
+					\cos(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} x^{2k} \\
+					\sin(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} x^{2k + 1}
+				\end{split}
+			\]
+        \item Symmetry
+			\[
+				\begin{split}
+					\cos(-x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} {(-x)}^{2k} = \cos(x) \\
+					\sin(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} {(-x)}^{2k + 1} = -\sin(x)
+				\end{split}
+			\]
+        \item Derivatives
+			\[
+				\begin{align}
+					\cos'(x) &= \sum_{k=1}^\infty \frac{(-1)^k}{(2k - 1)!} x^{2k - 1} 
+						= \sum_{k=0}^\infty \frac{(-1)^{k + 1}}{(2k + 1)!} x^{2k + 1} = -\sin(x) \\
+					\sin'(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} {x}^{2k} = \cos(x)
+				\end{align}
+			\]
+    \end{enumerate}
+\end{lemma}
+\bigskip
+
 
 \begin{theorem}[Fermat Stationary Point]\label{thm:fermat_stationary_point}
 Let \( \Omega \subseteq \R \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is local extremum 
