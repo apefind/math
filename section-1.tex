@@ -15,21 +15,29 @@
             \[
                 \frac{d}{dx} \sqrt{x} = \frac{1}{2\sqrt{x}}
             \]
+        \item It is 
+            \[
+                \frac{d}{dx} x^n = nx^{n - 1}
+            \]
+			since via induction the product rule yields
+            \[
+                \frac{d}{dx} x^n = \frac{d}{dx} xx^{n -1} = x^{n -1} + \frac{d}{dx} x^{n - 1} = 
+					x^{n -1} + (n - 1)x^{n - 1}  = nx^{n - 1}
+            \]
+        \item Also \( x = f \circ f^{-1} \) and \( 1 = (f^{-1})'f' \circ f^{-1} \). Thus
+            \[
+                (f^{-1})' = \frac{1}{f' \circ f^{-1}}
+            \]
+			where defined. Especially for \( x \ne 0 \) 
+            \[
+                \log'(x) = \frac{1}{\exp'(\log(x)} = \frac{1}{x}
+            \]
+			
         \item \( (1 - q) (1 + q + q^2 + \cdots + q^n) = 1 - q + q - q^2 + q^2 - q^3 + \cdots + q^{n+1} \) gives
             \[
                 \sum_{k=0}^n q^k = \frac{1 - q^{n+1}}{1 - q} \text{ and }
                 \sum_{k=m}^n q^k = \frac{q^m - q^{n+1}}{1 - q}
             \]
-        \item It is 
-            \[
-                \frac{d}{dx} x^n = nx^{n - 1}
-            \]
-			since the product rule yields
-            \[
-                \frac{d}{dx} x^n = \frac{d}{dx} xx^{n -1} = x^{n -1} + \frac{d}{dx} x^{n - 1} = 
-					x^{n -1} + (n - 1)x^{n - 1}  = nx^{n - 1}
-            \]
-			via induction.
     \end{enumerate}
 \end{lemma}
 \bigskip
