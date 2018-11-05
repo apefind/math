@@ -137,11 +137,17 @@ Furthermore by using induction
 \subsection{Exponential Function and Logarithms}
 
 \begin{exercise}[Exponential Function]
+The Cauchy product yields
+\[
+	\sum_{n=0}^\infty a_n \sum_{n=0}^\infty b_n = \sum_{n=0}^\infty \sum_{k=0}^n a_k b_{n-k}
+\]  
+if at least one of the series is absolutely convergent. Henve
 \[
     \begin{split}
-		\sum_{n=0}^m \frac{1}{n!} {(a + b)}^n	
-			& = \sum_{n=0}^{m} \frac{1}{n!} \sum_{k=0}^{n} \binom{n}{k} a^{k}b^{n - k} \\
-			& = \sum_{n=0}^{m} \sum_{k=0}^{n} \frac{1}{k!(n - k)!} a^{k}b^{n - k} \\
+		\sum_{n=0}^\infty \frac{1}{n!} a^n \sum_{n=0}^\infty \frac{1}{n!} b^n 
+			& = \sum_{n=0}^{\infty } \sum_{k=0}^{n} \frac{1}{k!} a^{k} \frac{1}{(n - k)!} b^{n - k} \\
+			& = \sum_{n=0}^{\infty } \frac{1}{n!} \sum_{k=0}^{n} \binom{n}{k} a^{k}b^{n - k} \\
+			& = \sum_{n=0}^\infty \frac{1}{n!} {(a + b)}^n	
     \end{split}
 \]  
 \end{exercise}
@@ -206,6 +212,15 @@ and for \( t = 2\pi \) we get
 					= (\cos{t} + \iu\sin{t})^3
 					= \cos^3{t} - 3\cos{t}\sin^2(t) + \iu(\cos^2{t}\sin{t} -\sin^3{t})
 			\]
+        \item Fun facts
+			\[ 
+				\eu^{1 - 4\pi^2} = \eu^{1 + (2\iu\pi)^2} = \eu \eu^{2\pi\iu}\eu^{2\pi\iu} = \eu
+			\]
+			and \( \iu = \eu^{\iu\pi/2} \) gives
+			\[
+				\iu^\iu = \eu^{\iu\log\iu} = \eu^{\iu\iu\pi/2} = \eu^{-\pi/2} \in \R
+			\]
+			
     \end{enumerate}
 \end{exercise}
 \bigskip
