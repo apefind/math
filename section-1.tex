@@ -24,6 +24,15 @@
                 \frac{d}{dx} x^n = \frac{d}{dx} xx^{n -1} = x^{n -1} + \frac{d}{dx} x^{n - 1} = 
 					x^{n -1} + (n - 1)x^{n - 1}  = nx^{n - 1}
             \]
+        \item Again, applying the product rule, gives
+			\[
+            	\left(\frac{1}{g}\right)' = \left(\frac{1}{x} \circ g\right)' = -\frac{g'}{g^2}
+			\]
+			and the quotient rule
+			\[
+            	\left(\frac{f}{g}\right)' = \frac{f'}{g} + f \left(\frac{1}{g} \right)' = 
+					\frac{f'}{g} -\frac{fg'}{g^2} = \frac{gf'- fg'}{g^2} 
+			\]
         \item Also \( x = f \circ f^{-1} \) and \( 1 = (f^{-1})'f' \circ f^{-1} \). Thus
             \[
                 (f^{-1})' = \frac{1}{f' \circ f^{-1}}
@@ -38,6 +47,32 @@
                 \sum_{k=0}^n q^k = \frac{1 - q^{n+1}}{1 - q} \text{ and }
                 \sum_{k=m}^n q^k = \frac{q^m - q^{n+1}}{1 - q}
             \]
+    \end{enumerate}
+\end{lemma}
+\bigskip
+
+
+\begin{lemma}[Exponential Function]\hfill
+    \begin{enumerate}
+        \item It is 
+			\[ 
+				\exp(x + y) = \exp(x)\exp(y) 
+			\] 
+			Hence 
+			\[
+				\exp(0) = 1
+			\]
+			\[
+				\exp(-x) = \exp(x)^{-1}
+			\]
+			\[
+				\exp(nx) = \exp(x)^n 
+			\]
+        \item For the derivative
+			\[
+				\exp'(x) = \sum_{k=0}^\infty \frac{1}{k!} (x^k)' = \sum_{k=0}^\infty \frac{1}{k!} kx^{k-1} 
+					= \sum_{k=1}^\infty \frac{1}{(k-1)!} x^{k-1} = \exp(x)
+			\]
     \end{enumerate}
 \end{lemma}
 \bigskip
