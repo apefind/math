@@ -220,7 +220,50 @@ and for \( t = 2\pi \) we get
 			\[
 				\iu^\iu = \eu^{\iu\log\iu} = \eu^{\iu\iu\pi/2} = \eu^{-\pi/2} \in \R
 			\]
-			
+    \end{enumerate}
+\end{exercise}
+\bigskip
+
+
+\subsection{Complex Number Calculus}
+
+
+\begin{theorem}[Cauchy Riemann Equations]\label{thm:thm_cauchy_riemann_eqations}
+Let \( f = u + \iu v \) be holomorphic. Then \( f \) satisfies the Cauchy Riemann equations
+\[
+		\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
+\]
+\[
+		\frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x}
+\]
+\end{theorem}
+
+\begin{proof}
+For \( h \in \R \) follows
+\[
+	\lim_{h \to 0}\frac{f(z + h) - f(z)}{h} = \frac{\partial u}{\partial x}(z) + \iu \frac{\partial v}{\partial x}(z)
+\]	
+and
+\[
+	\lim_{h \to 0}\frac{f(z + \iu h) - f(z)}{\iu h}
+		= \frac{\partial u}{\iu\partial y}(z) + \frac{\partial v}{\partial y}(z)
+		= \frac{\partial v}{\partial y}(z) - \iu\frac{\partial u}{\partial y}(z)
+\]	
+
+\end{proof}
+\bigskip
+
+
+\begin{exercise}\hfill
+    \begin{enumerate}
+        \item Let \( z_0 \in \C \) and \( \gamma(t) = z_0 + \eu^{\iu t} \) for \( t \in [0, 2\pi] \). Then
+			\[
+				\int_\gamma \frac{1}{z - z_0}\,dz 
+					= \int_0^{2\pi} \frac{\iu \eu^{\iu t}}{z_0 + \eu^{\iu t} - z_0}\,dt
+					= \int_0^{2\pi} \iu\,dt
+					= 2\pi\iu
+			\]
+			and thus \( 1/ (z - z_0 ) \) is not holomorphic on \( \C \setminus \{z_0\} \)
     \end{enumerate}
 \end{exercise}
 \bigskip
