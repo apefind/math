@@ -24,7 +24,6 @@
 *.mtc
 *.mtc1
 *.out
-*.pdf
 *.swp
 *.synctex.gz
 *.tmp
