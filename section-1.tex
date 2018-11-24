@@ -96,11 +96,11 @@
 			\]
         \item Derivatives
 			\[
-				\begin{align}
-					\cos'(x) &= \sum_{k=1}^\infty \frac{(-1)^k}{(2k - 1)!} x^{2k - 1} 
+				\begin{split}
+					\cos'(x) &= \sum_{k=1}^\infty \frac{(-1)^k}{(2k - 1)!} x^{2k - 1}
 						= \sum_{k=0}^\infty \frac{(-1)^{k + 1}}{(2k + 1)!} x^{2k + 1} = -\sin(x) \\
 					\sin'(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} {x}^{2k} = \cos(x)
-				\end{align}
+				\end{split}
 			\]
     \end{enumerate}
 \end{lemma}
@@ -154,6 +154,7 @@ Apply Theorem~\ref{thm:rolle} to
 \end{proof}
 \bigskip
 
+
 \begin{remark}\hfill
     \begin{enumerate}
         \item More generally choose any \( \varphi \in C^1[a,b] \) with \( \varphi(a) = 0 \) and 
@@ -171,6 +172,7 @@ Apply Theorem~\ref{thm:rolle} to
     \end{enumerate}
 \end{remark}
 \bigskip
+
 
 \begin{theorem}[Differentiation Theorem]\label{thm:differentiation}
 Let \( f \in C[a,b] \) and define 
@@ -190,7 +192,7 @@ for some \( \xi \in (x, x + h) \).
 \bigskip
 
 \begin{theorem}[Fundamental Theorem of Calculus]\label{thm:fund_calculus}
-Let \( f \in C[a,b] \). Then
+Let \( F \in C^1[a,b] \) with \( F^\prime = f \)  Then
 \[
     F(b) -F(a) = \int_a^b f(t)\,dt
 \]
