@@ -3,7 +3,7 @@ latexopt = --shell-escape
 nonstop = --interaction=nonstopmode
 latexmk = latexmk
 latexmkopt = -pdf -quiet
-latexmkopt = -pdf
+#latexmkopt = -pdf
 continuous = -pvc
 main = notes
 sources = $(main).tex macros.tex frontpage.tex section-1.tex section-2.1.tex section-2.2.tex section-3.tex

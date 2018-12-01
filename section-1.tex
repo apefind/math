@@ -109,11 +109,11 @@
 
 \begin{theorem}[Fermat Stationary Point]\label{thm:fermat_stationary_point}
 Let \( \Omega \subseteq \R \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is local extremum 
-then \( f^\prime(x^*) = 0 \).
+then \( f'(x^*) = 0 \).
 \end{theorem}
 
 \begin{proof}
-Assume \( x^* \) is the minimum of \( f \) in \( \Omega \) and let \( f^\prime(x^*) > 0 \). 
+Assume \( x^* \) is the minimum of \( f \) in \( \Omega \) and let \( f}}{(x^*) > 0 \). 
 Since \( f \in C^1(\Omega) \) there exist \( \eps, \delta > 0 \), so that for \( |h| \le \eps \)
 \[
     \frac{f(x^* + h) - f(x^*)}{h} > \delta
@@ -129,7 +129,7 @@ and \( x^* \) cannot be the minimum. Analog for maximum with a positive \( h \),
 
 \begin{theorem}[Rolle]\label{thm:rolle}
 Let \( f \in C[a,b] \) with \( f(a) = f(b) \). If \( f \) is differentiable in \( (a, b) \) then 
-there exists a \( \xi \in (a,b) \) with \( f^\prime(\xi) = 0 \).
+there exists a \( \xi \in (a,b) \) with \( f'(\xi) = 0 \).
 \end{theorem}
 
 \begin{proof}
@@ -142,7 +142,7 @@ Assume \( f \) is not constant. Since \( [a,b] \) is compact there exists either
 \begin{theorem}[Mean Value]\label{thm:mean_value}
 Let \( f \in C[a,b] \) be differentiable in \( (a, b) \). Then there exists a \( \xi \in (a,b) \) with 
 \[
-    f^\prime(\xi) = \frac{f(b) - f(a)}{b - a}
+    f'(\xi) = \frac{f(b) - f(a)}{b - a}
 \]
 \end{theorem}
 
@@ -159,11 +159,11 @@ Apply Theorem~\ref{thm:rolle} to
     \begin{enumerate}
         \item More generally choose any \( \varphi \in C^1[a,b] \) with \( \varphi(a) = 0 \) and 
             \( \varphi(b) = f(b) - f(a) \). Set \( g(x) = f(x) - \varphi(x) \) to see there is a \( \xi \in (a,b) \) 
-            with \( f^\prime(\xi) = \varphi^\prime(\xi)\). 
+            with \( f'(\xi) = \varphi'(\xi)\). 
         \item Another useful generalization: let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). For
             \( x, y \in \Omega \) define \( \varphi(t) = f(tx + (1 - t)y) \) and apply the chain rule for differentiation
             \[
-                 \varphi^\prime(\xi) = \gradient {f(\xi x + (1 - \xi)y)}^T(x - y) = f(x) - f(y)
+                 \varphi'(\xi) = \gradient {f(\xi x + (1 - \xi)y)}^T(x - y) = f(x) - f(y)
             \]
         \item The Cauchy Schwarz inequality then yields
             \[
@@ -179,7 +179,7 @@ Let \( f \in C[a,b] \) and define
 \[
     F(x) = \int_a^x f(t)\,dt
 \]
-Then \( F \in C^1[a,b] \) with \( F^\prime(x) = f(x) \) for \( x \in [a,b] \).
+Then \( F \in C^1[a,b] \) with \( F'(x) = f(x) \) for \( x \in [a,b] \).
 \end{theorem}
 
 \begin{proof}
@@ -192,11 +192,55 @@ for some \( \xi \in (x, x + h) \).
 \bigskip
 
 \begin{theorem}[Fundamental Theorem of Calculus]\label{thm:fund_calculus}
-Let \( F \in C^1[a,b] \) with \( F^\prime = f \)  Then
+Let \( F \in C^1[a,b] \) with \( F' = f \)  Then
 \[
     F(b) -F(a) = \int_a^b f(t)\,dt
 \]
 \end{theorem}
+\bigskip
+
+
+\begin{lemma}[Substitution for Integrals]
+Let \( I \subseteq \R \) be an interval and \( f \in C(I) \). For \( \varphi \in C([a,b], I) \) it follows
+\[
+	\int_{\varphi(a)}^{\varphi(b)} f(x)\,dx = \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt
+\]
+\end{lemma}
+\begin{proof}
+Let \( F \in C^(I) \) with \( F' = f \). Then the chain rule for differentiation yields
+\[
+	\begin{split}
+		\int_{\varphi(a)}^{\varphi(b)} f(x)\,dx 
+			&= F(\varphi(b)) - F(\varphi(a)) \\
+			&= F\circ\varphi(b) - F\circ\varphi(a) \\
+			&= \int_{a}^{b} (F\circ\varphi)'(t)\,dt \\
+			&= \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt
+	\end{split}
+
+\]
+\end{proof}
+\bigskip
+
+\begin{examples}\hfill
+    \begin{enumerate}
+        \item For \( \varphi(x) = x^2 + 1 \) it is \( \varphi(0) = 1 \) and \( \varphi(2) = 5 \). Thus
+			\[
+				\int_0^2 x\cos(x^2 + 1)\,dx = 
+					\frac{1}{2} \int_0^2 2x\cos(x^2 + 1)\,dx =
+					\frac{1}{2} \int_1^5 \cos(t)\,dt =
+					\frac{1}{2} (\sin(5) - \sin(1))
+			\]
+        \item Consider \( \varphi(x) = \sin(x) \) where \( \varphi(0) = 0 \) and \( \varphi(\pi / 2) = 1 \). 
+			Since \( \cos(t) = \sqrt{1 - \sin^2(t) }\) it follows
+			\[
+				\int_0^1 \sqrt{1 - x^2}\,dx =
+					\int_{\cos(0)}^{\cos(\pi/2)} \sqrt{1 - x^2}\,dx = 
+					\int_0^{\pi/2} \sqrt{1 - \sin^2(t)}\cos(t)\,dt = 
+					\int_0^{\pi/2} \cos^2(t)\,dt
+			\]
+    \end{enumerate}
+\end{examples}
+\bigskip
 
 
 \subsection{Directional Derivative and Gradients}
@@ -214,11 +258,11 @@ for any \( d \in \Rn \).
 Let \( \varphi(t) = f(x + td) \). Then \( \varphi \in C^1[-\eps, \eps ] \) for some \( \eps > 0 \) 
 and the chain rule yields 
 \[ 
-    \varphi^\prime(t) = {\gradient f(x + td)}^T d 
+    \varphi'(t) = {\gradient f(x + td)}^T d 
 \]
 Hence
 \[
-    \varphi^\prime(0) = \lim_{t \to 0} \frac{\varphi(x + td) - \varphi(0)}{t} = 
+    \varphi'(0) = \lim_{t \to 0} \frac{\varphi(x + td) - \varphi(0)}{t} = 
         \lim_{t \to 0} \frac{f(x + td) - f(x)}{t} = {\gradient f(x)}^T d
 \]
 \end{proof}
@@ -256,7 +300,7 @@ Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). If \( x^* \i
 Let \( h \in \Rn \) and \( \delta > 0 \) so that \( x^* + th \in \Omega \) for all \( t \in (-\delta, \delta) \). 
 Then \( 0 \) is local minimizer for \( \varphi(t) = f(x^* + th) \) and
 \[
-    \varphi^\prime(0) = {\gradient f(x^*)}^T h = 0
+    \varphi'(0) = {\gradient f(x^*)}^T h = 0
 \]
 Now let \( h = \gradient f(x^*) \). 
 \end{proof}
