@@ -113,7 +113,7 @@ then \( f'(x^*) = 0 \).
 \end{theorem}
 
 \begin{proof}
-Assume \( x^* \) is the minimum of \( f \) in \( \Omega \) and let \( f}}{(x^*) > 0 \). 
+Assume \( x^* \) is the minimum of \( f \) in \( \Omega \) and let \( f(x^*) > 0 \). 
 Since \( f \in C^1(\Omega) \) there exist \( \eps, \delta > 0 \), so that for \( |h| \le \eps \)
 \[
     \frac{f(x^* + h) - f(x^*)}{h} > \delta
@@ -216,31 +216,38 @@ Let \( F \in C^(I) \) with \( F' = f \). Then the chain rule for differentiation
 			&= \int_{a}^{b} (F\circ\varphi)'(t)\,dt \\
 			&= \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt
 	\end{split}
-
 \]
 \end{proof}
 \bigskip
 
 \begin{examples}\hfill
     \begin{enumerate}
-        \item For \( \varphi(x) = x^2 + 1 \) it is \( \varphi(0) = 1 \) and \( \varphi(2) = 5 \). Thus
+		\item For \( \varphi(x) = x^2 + 1 \) it is \( \varphi(0) = 1 \) and \( \varphi(2) = 5 \). Thus
 			\[
-				\int_0^2 x\cos(x^2 + 1)\,dx = 
-					\frac{1}{2} \int_0^2 2x\cos(x^2 + 1)\,dx =
-					\frac{1}{2} \int_1^5 \cos(t)\,dt =
-					\frac{1}{2} (\sin(5) - \sin(1))
+				\int_0^2 x\cos(x^2 + 1)\,dx
+					= \frac{1}{2} \int_0^2 2x\cos(x^2 + 1)\,dx
+					= \frac{1}{2} \int_1^5 \cos(t)\,dt
+					= \frac{1}{2} (\sin(5) - \sin(1))
 			\]
-        \item Consider \( \varphi(x) = \sin(x) \) where \( \varphi(0) = 0 \) and \( \varphi(\pi / 2) = 1 \). 
-			Since \( \cos(t) = \sqrt{1 - \sin^2(t) }\) it follows
+		\item Consider \( \varphi(x) = \sin(x) \) where \( \varphi(0) = 0 \) and \( \varphi(\pi / 2) = 1 \).
+			Since \( \cos(t) = \sqrt{1 - \sin^2(t)} \) it follows
 			\[
-				\int_0^1 \sqrt{1 - x^2}\,dx =
-					\int_{\cos(0)}^{\cos(\pi/2)} \sqrt{1 - x^2}\,dx = 
-					\int_0^{\pi/2} \sqrt{1 - \sin^2(t)}\cos(t)\,dt = 
-					\int_0^{\pi/2} \cos^2(t)\,dt
+				\int_0^1 \sqrt{1 - x^2}\,dx
+					= \int_{\cos(0)}^{\cos(\pi/2)} \sqrt{1 - x^2}\,dx
+					= \int_0^{\pi/2} \sqrt{1 - \sin^2(t)}\cos(t)\,dt
+					= \int_0^{\pi/2} \cos^2(t)\,dt
 			\]
-        \item Let \(f \in C[a,b] \) and \( \varphi(x) = (1 - t)a + bt \). Then
+		\item Let \(f \in C[a,b] \) and \( \varphi(x) = (1 - t)a + bt \). Then
 			\[
 				\int_a^b f(x)\,dx = (b - a)\int_0^1 f((1 - t)a + bt)\,dt
+			\]
+		\item Let \(f(x) = x^n \) and \( \varphi(x) = t^m \). Then as expected
+			\[
+				\int_0^1 x^n\,dx
+					= m\int_0^1 t^{nm} t^{m - 1}\,dt
+					= m\int_0^1 t^{m(n + 1) - 1}\,dt
+					= \frac{m}{m(n + 1)} t^{m(n + 1)}\bigg|_0^1 
+					= \frac{1}{n + 1}
 			\]
     \end{enumerate}
 \end{examples}
