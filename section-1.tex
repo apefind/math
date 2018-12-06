@@ -237,14 +237,14 @@ Let \( F \in C^(I) \) with \( F' = f \). Then the chain rule for differentiation
 					= \int_0^{\pi/2} \sqrt{1 - \sin^2(t)}\cos(t)\,dt
 					= \int_0^{\pi/2} \cos^2(t)\,dt
 			\]
-		\item Let \(f \in C[a,b] \) and \( \varphi(x) = (1 - t)a + bt \). Then
+		\item Let \(f \in C[a,b] \) and \( \varphi(x) = a + t(b - a) \). Then
 			\[
-				\int_a^b f(x)\,dx = (b - a)\int_0^1 f((1 - t)a + bt)\,dt
+				\int_a^b f(x)\,dx = (b - a)\int_0^1 f(a + t(b - a))\,dt
 			\]
-		\item Let \(f(x) = x^n \) and \( \varphi(x) = t^m \). Then as expected
+		\item Let \(f(x) = x^n \) and \( \varphi(x) = t^m \). As expected
 			\[
 				\int_0^1 x^n\,dx
-					= m\int_0^1 t^{nm} t^{m - 1}\,dt
+					= \int_0^1 t^{nm} m t^{m - 1}\,dt
 					= m\int_0^1 t^{m(n + 1) - 1}\,dt
 					= \frac{m}{m(n + 1)} t^{m(n + 1)}\bigg|_0^1 
 					= \frac{1}{n + 1}
