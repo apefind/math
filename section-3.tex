@@ -256,6 +256,13 @@ and
 
 \begin{exercise}\hfill
     \begin{enumerate}
+        \item Let \( f(z) = z^3 \). Then \( u(x,y) + \iu v(x,y) = x^3 - 3xy^2 + \iu (3x^2y -y^3) \) and as expected
+			\[
+				\frac{\partial u}{\partial x}(x,y) = x^3 - 3y^2 \quad 
+				\frac{\partial u}{\partial y}(x,y) = -6xy \quad\text{ and }\quad
+				\frac{\partial v}{\partial x}(x,y) = 6xy \quad
+				\frac{\partial v}{\partial y}(x,y) = x^3 - 3y^2
+			\]
         \item Let \( z_0 \in \C \) and \( \gamma(t) = z_0 + \eu^{\iu t} \) for \( t \in [0, 2\pi] \). Then
 			\[
 				\int_\gamma \frac{1}{z - z_0}\,dz 
@@ -263,7 +270,7 @@ and
 					= \int_0^{2\pi} \iu\,dt
 					= 2\pi\iu
 			\]
-			and thus \( 1/ (z - z_0 ) \) has no antiderivative on \( \C \setminus \{z_0\} \)
+			and thus \( 1/ (z - z_0 ) \) has no anti-derivative on \( \C \setminus \{z_0\} \)
     \end{enumerate}
 \end{exercise}
 \bigskip
