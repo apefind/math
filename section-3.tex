@@ -271,20 +271,40 @@ and
 
 
 \begin{lemma}
-Let \( \gamma: [a,b] \to \C \) a smooth path and \( \psi: [c,d] \to [a,b] \) a smooth and increasing bijection.
-For \( f \in C[a,b] \) 			
+Let \( \gamma: [a,b] \to \C \) a smooth path, \( \psi: [c,d] \to [a,b] \) a smooth and increasing bijection 
+and \( f \) continous.
 	\[
-				\int_{\gamma} f(z)\,dz = \int_{\gamma\circ\psi} f(z)\,dz
+		\int_{\gamma} f = \int_{\gamma\circ\psi} f
 	\]
 \end{lemma}
 
 \begin{proof} It is 
 	\[
 		\begin{split}
-				\int_{\gamma\circ\psi} f(z)\,dz
-					 & = \int_c^d f(\gamma\circ\psi(s))(\gamma\circ\psi)'(s)) \,ds \\
-					 & = \int_{\psi(a)}^{\psi(b)} f(\gamma(\psi(s))\gamma'(\psi(s))\psi'(s) \,ds \\
-					 & = \int_a^b f(\gamma(t))\gamma'(t) \,dt
+			\int_{\gamma\circ\psi} f
+				 & = \int_c^d f(\gamma\circ\psi(t))(\gamma\circ\psi)'(t)) \,dt \\
+				 & = \int_{\psi(a)}^{\psi(b)} f(\gamma(\psi(t))\gamma'(\psi(t))\psi'(t) \,dt \\
+				 & = \int_a^b f(\gamma(s))\gamma'(t) \,ds = \int_{\gamma} f
+		\end{split}
+	\]
+\end{proof}
+\bigskip
+
+\begin{corollary}
+For a smooth path \( \gamma: [a,b] \to \C \) define \(-\gamma(t) = a + b - t \).
+Then
+	\[
+		\int_{-\gamma} f = -\int_{\gamma} f
+	\]
+\end{corollary}
+
+\begin{proof} Using integration by substitution	 
+	\[
+		\begin{split}
+			\int_{-\gamma} f
+				  = - \int_a^b f(\gamma(a + b - t))\gamma'(a + b - t)) \,dt 
+				  = \int_b^a f(\gamma(s))\gamma'(s)) \,ds 
+				  = - \int_{\gamma} f
 		\end{split}
 	\]
 \end{proof}
