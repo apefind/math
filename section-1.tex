@@ -2,7 +2,7 @@
 \newpage
 \section{Calculus}
 
-\subsection{Differentation and Integration}
+\section{Differentation and Integration}
 
 
 \begin{lemma}[Simple Calculations]\hfill
@@ -200,14 +200,14 @@ Let \( F \in C^1[a,b] \) with \( F' = f \)  Then
 \bigskip
 
 
-\begin{lemma}[Substitution for Integrals]
+\begin{lemma}[Differentiation for Integrals]
 Let \( I \subseteq \R \) be an interval and \( f \in C(I) \). For \( \varphi \in C([a,b], I) \) it follows
 \[
 	\int_{\varphi(a)}^{\varphi(b)} f(x)\,dx = \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt
 \]
 \end{lemma}
 \begin{proof}
-Let \( F \in C^(I) \) with \( F' = f \). Then the chain rule for differentiation yields
+Let \( F \in C^1(I) \) with \( F' = f \). Then the chain rule for differentiation yields
 \[
 	\begin{split}
 		\int_{\varphi(a)}^{\varphi(b)} f(x)\,dx 
@@ -246,7 +246,7 @@ Let \( F \in C^(I) \) with \( F' = f \). Then the chain rule for differentiation
 				\int_0^1 x^n\,dx
 					= \int_0^1 t^{nm} m t^{m - 1}\,dt
 					= m\int_0^1 t^{m(n + 1) - 1}\,dt
-					= \frac{m}{m(n + 1)} t^{m(n + 1)}\bigg|_0^1 
+					= \left[\frac{m}{m(n + 1)} t^{m(n + 1)}\right]_0^1 
 					= \frac{1}{n + 1}
 			\]
     \end{enumerate}

@@ -265,17 +265,43 @@ and
 						\frac{\partial v}{\partial y}(x,y) = x^3 - 3y^2
 				\end{split}
 			\]
-        \item For \( \gamma(t) = t + \iu t \) 
+    \end{enumerate}
+\end{examples}
+\bigskip
+
+
+\begin{lemma}
+Let \( \gamma: [a,b] \to \C \) a smooth path and \( \psi: [c,d] \to [a,b] \) a smooth and increasing bijection.
+For \( f \in C[a,b] \) 			
+	\[
+				\int_{\gamma} f(z)\,dz = \int_{\gamma\circ\psi} f(z)\,dz
+	\]
+\end{lemma}
+
+\begin{proof} It is 
+	\[
+		\begin{split}
+				\int_{\gamma\circ\psi} f(z)\,dz
+					 & = \int_c^d f(\gamma\circ\psi(s))(\gamma\circ\psi)'(s)) \,ds \\
+					 & = \int_{\psi(a)}^{\psi(b)} f(\gamma(\psi(s))\gamma'(\psi(s))\psi'(s) \,ds \\
+					 & = \int_a^b f(\gamma(t))\gamma'(t) \,dt
+		\end{split}
+	\]
+\end{proof}
+\bigskip
+
+
+\begin{examples}\hfill
+    \begin{enumerate}
+        \item Let \( \gamma(t) = t + \iu t \). Then
 			\[
-				\begin{split}
-					\int_{\gamma} z^2\,dz
-						& = \int_0^1 (t + \iu t)^2(1 + \iu)\,dt
-							= (1 + \iu)\int_0^1 2\iu t^2\,dt 
-							= \left[ (-2 + 2\iu) t^2 \right]_0^1
-						  = -\frac{2}{3} + \iu \frac{2}{3}
-				\end{split}
+				\int_{\gamma} z^2\,dz
+					= \int_0^1 (t + \iu t)^2(1 + \iu)\,dt
+					= (1 + \iu)\int_0^1 2\iu t^2\,dt 
+					= \left[ (-2 + 2\iu) t^2 \right]_0^1 
+					= -\frac{2}{3} + \iu \frac{2}{3}
 			\]
-			and for \( \gamma(t) = t^2 + \iu t \) 
+		\item For \( \gamma(t) = t^2 + \iu t \) 
 			\[
 				\begin{split}
 					\int_\gamma z^2\,dz
@@ -284,6 +310,18 @@ and
 						& = \left[ \frac{1}{3} t^6 - t^4 \right]_0^1 + 
 								\iu\left[ t^5 - \frac{1}{3}t^3 \right]_0^1
 						  = -\frac{2}{3} + \iu \frac{2}{3}
+				\end{split}
+			\]
+		\item And \( \gamma(t) = \iu + \eu^{\iu t} \)
+			\[
+				\begin{split}
+					\int_\gamma z^2\,dz
+						& = \int_{3/2\pi}^{2\pi} (\iu + \eu^{\iu t})^2\iu\eu^{\iu t}\,dt
+							= \int_{3/2\pi}^{2\pi} (-1 + 2\iu\eu^{\iu t} + \eu^{2\iu t})\iu\eu^{\iu t}\,dt \\
+						& = \int_{3/2\pi}^{2\pi} -\iu\eu^{\iu t} - 2\eu^{2\iu t} + \iu\eu^{3\iu t}\,dt
+							= \left[(-\eu^{\iu t} + \iu\eu^{2\iu t} + \frac{1}{3}\eu^{3\iu t}\right]_{3/2\pi}^{2\pi} \\
+						& = \left( -1 + \iu + \frac{1}{3} \right) - \left( \iu - \iu + \frac{1}{3}\iu \right)
+							= -\frac{2}{3} + \iu \frac{2}{3}
 				\end{split}
 			\]
         \item Let \( z_0 \in \C \) and \( \gamma(t) = z_0 + \eu^{\iu t} \) for \( t \in [0, 2\pi] \). Then
