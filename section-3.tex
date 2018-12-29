@@ -225,8 +225,7 @@ and for \( t = 2\pi \) we get
 \bigskip
 
 
-\subsection{Complex Number Calculus}
-
+\subsection{Complex Analysis}
 
 \begin{theorem}[Cauchy Riemann Equations]\label{thm:thm_cauchy_riemann_eqations}
 Let \( f = u + \iu v \) be holomorphic. Then \( f \) satisfies the Cauchy Riemann equations
@@ -274,17 +273,17 @@ and
 Let \( \gamma: [a,b] \to \C \) a smooth path, \( \psi: [c,d] \to [a,b] \) a smooth and increasing bijection 
 and \( f \) continous.
 	\[
-		\int_{\gamma} f = \int_{\gamma\circ\psi} f
+		\int_{\gamma} f(z)\,dz = \int_{\gamma\circ\psi} f(z)\,dz
 	\]
 \end{lemma}
 
 \begin{proof} It is 
 	\[
 		\begin{split}
-			\int_{\gamma\circ\psi} f
+			\int_{\gamma\circ\psi} f(z)\,dz
 				 & = \int_c^d f(\gamma\circ\psi(t))(\gamma\circ\psi)'(t)) \,dt \\
 				 & = \int_{\psi(a)}^{\psi(b)} f(\gamma(\psi(t))\gamma'(\psi(t))\psi'(t) \,dt \\
-				 & = \int_a^b f(\gamma(s))\gamma'(t) \,ds = \int_{\gamma} f
+				 & = \int_a^b f(\gamma(s))\gamma'(s) \,ds = \int_{\gamma} f(z)\,dz
 		\end{split}
 	\]
 \end{proof}
@@ -294,17 +293,17 @@ and \( f \) continous.
 For a smooth path \( \gamma: [a,b] \to \C \) define \(-\gamma(t) = a + b - t \).
 Then
 	\[
-		\int_{-\gamma} f = -\int_{\gamma} f
+		\int_{-\gamma} f(z)\,dz = -\int_{\gamma} f(z)\,dz
 	\]
 \end{corollary}
 
 \begin{proof} Using integration by substitution	 
 	\[
 		\begin{split}
-			\int_{-\gamma} f
+			\int_{-\gamma} f(z)\,dz
 				  = - \int_a^b f(\gamma(a + b - t))\gamma'(a + b - t)) \,dt 
 				  = \int_b^a f(\gamma(s))\gamma'(s)) \,ds 
-				  = - \int_{\gamma} f
+				  = - \int_{\gamma} f(z)\,dz
 		\end{split}
 	\]
 \end{proof}
@@ -344,6 +343,55 @@ Then
 							= -\frac{2}{3} + \iu \frac{2}{3}
 				\end{split}
 			\]
+    \end{enumerate}
+\end{examples}
+\bigskip
+
+
+\begin{theorem}
+Let \( D \subseteq \C \) a connected domain and \( f \in C(D)\). Then the following assertions are equivalent
+\begin{enumerate}
+	\item \( f \) has an anti-derivative
+	\item For every closd path \( \gamma \)
+		\[
+			\int_{\gamma} f(z)\,dz = 0
+		\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof} Let \( F' = f \). Since \( \gamma \) is closed
+	\[
+		\int_\gamma f(z)\,dz
+			  = \int_a^b f(\gamma(t))\gamma'(t)\,dt 
+			  = \int_a^b (F\circ\gamma)'(t)\,dt 
+			  = F(\gamma(b)) - F(\gamma(a)) = 0
+	\]
+Now fix some arbitrary \( a \in D \). For \( z \in D \) let \( \gamma_z \) be a path from \( a \) to \( z \) 
+and define
+\[
+	F(z) = \int_{\gamma_z} f(\zeta)\,d\zeta
+\]
+This is well defined since the integral of \( f \) vanishes over each closed path. Moreover, since
+\( \gamma_{z + h} + [z + h,z] - \gamma_z \) defines a closed path
+\[
+	F(z + h) - F(z)
+		= \int_{\gamma_{z + h}} f(z)\,dz - \int_{\gamma_z} f(z)\,dz
+		= \int_{[z,z + h]} f(z)\,dz
+		= h\int_0^1 f(z + th)\,dt
+\]
+Now
+\[
+	\left|\int_0^1 f(z + th) - f(z)\,dt\right| 
+		\le \int_0^1 |f(z + th) - f(z)|\,dt 
+		\le \max_{t \in [0,1]}|f(z + th) - f(z)| \to 0
+\]
+for \( h \to 0 \) since \( f \) is continous.
+\end{proof}
+\bigskip
+
+
+\begin{examples}\hfill
+    \begin{enumerate}
         \item Let \( z_0 \in \C \) and \( \gamma(t) = z_0 + \eu^{\iu t} \) for \( t \in [0, 2\pi] \). Then
 			\[
 				\int_\gamma \frac{1}{z - z_0}\,dz 
@@ -355,3 +403,5 @@ Then
     \end{enumerate}
 \end{examples}
 \bigskip
+
+
