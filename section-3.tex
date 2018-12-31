@@ -320,27 +320,28 @@ Then
 \bigskip
 
 
+In order to use the results from real calculus remember the fact, that for every \( z \in \C \) 
+there exists a \( t \in [0,2\pi] \), so that \( z = |z|e^{\iu t} \) and hence \( |z| = ze^{-\iu t} \).
+\bigskip
+
+
 \begin{lemma}
-Let \( f \in C([a,b]) \). Then
+Let \( f \in C[a,b] \). Then
 	\[
 		\left|\int_a^b f(x)\,dx \right| \le \int_a^b |f(x)|\,dx
 	\]
 \end{lemma}
 
-\begin{proof} Using the results from real calculus
+\begin{proof} Using the estimation for integrals from real calculus
 	\[
 		\left|\int_a^b f(x)\,dx \right|  = e^{-\iu t}\int_a^b f(x)\,dx \le \int_a^b |e^{-\iu t}f(x)|\,dx
 			= \int_a^b |f(x)|\,dx
-	\]
-Here \( t \) is chosen, so that
-	\[
-		\left|\int_a^b f(x)\,dx \right|e^{\iu t} = \int_a^b f(x)\,dx
 	\]
 \end{proof}
 \bigskip
 
 
-\begin{lemma}
+\begin{lemma}[Estimation Lemma]
 Let \( \gamma: [a,b] \to \C \) be a smooth path. Then
 	\[
 		\left|\int_{\gamma} f(z)\,dz\right| \le L(\gamma}) \max_{\gamma[a.b]} f 
