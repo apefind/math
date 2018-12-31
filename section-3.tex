@@ -270,6 +270,17 @@ and
 
 
 \begin{lemma}
+Let \( D \subseteq \C \) be connected. For arbitrary \( z, w \in D \) there exists a polygonal path from
+\( z \) to \( w \).
+\end{lemma}
+\begin{proof} 
+For any path from \( z \) to \( w \) the image is compact, which can be used to define a finite subcover of balls. 
+Use the center points to define the polygonal path.
+\end{proof}
+\bigskip
+
+
+\begin{lemma}
 Let \( \gamma: [a,b] \to \C \) a smooth path, \( \psi: [c,d] \to [a,b] \) a smooth and increasing bijection 
 and \( f \) continous.
 	\[
@@ -289,22 +300,59 @@ and \( f \) continous.
 \end{proof}
 \bigskip
 
-\begin{corollary}
+
+\begin{lemma}
 For a smooth path \( \gamma: [a,b] \to \C \) define \(-\gamma(t) = a + b - t \).
 Then
 	\[
 		\int_{-\gamma} f(z)\,dz = -\int_{\gamma} f(z)\,dz
 	\]
-\end{corollary}
+\end{lemma}
 
 \begin{proof} Using integration by substitution	 
 	\[
-		\begin{split}
-			\int_{-\gamma} f(z)\,dz
-				  = - \int_a^b f(\gamma(a + b - t))\gamma'(a + b - t)) \,dt 
-				  = \int_b^a f(\gamma(s))\gamma'(s)) \,ds 
-				  = - \int_{\gamma} f(z)\,dz
-		\end{split}
+		\int_{-\gamma} f(z)\,dz
+			  = - \int_a^b f(\gamma(a + b - t))\gamma'(a + b - t)) \,dt 
+			  = \int_b^a f(\gamma(s))\gamma'(s)) \,ds 
+			  = - \int_{\gamma} f(z)\,dz
+	\]
+\end{proof}
+\bigskip
+
+
+\begin{lemma}
+Let \( f \in C([a,b]) \). Then
+	\[
+		\left|\int_a^b f(x)\,dx \right| \le \int_a^b |f(x)|\,dx
+	\]
+\end{lemma}
+
+\begin{proof} Using the results from real calculus
+	\[
+		\left|\int_a^b f(x)\,dx \right|  = e^{-\iu t}\int_a^b f(x)\,dx \le \int_a^b |e^{-\iu t}f(x)|\,dx
+			= \int_a^b |f(x)|\,dx
+	\]
+Here \( t \) is chosen, so that
+	\[
+		\left|\int_a^b f(x)\,dx \right|e^{\iu t} = \int_a^b f(x)\,dx
+	\]
+\end{proof}
+\bigskip
+
+
+\begin{lemma}
+Let \( \gamma: [a,b] \to \C \) be a smooth path. Then
+	\[
+		\left|\int_{\gamma} f(z)\,dz\right| \le L(\gamma}) \max_{\gamma[a.b]} f 
+	\]
+\end{lemma}
+
+\begin{proof} Using the estimation above
+	\[
+		\left| \int_{\gamma} f(z)\,dz \right|
+			  = \left| \int_a^b f(\gamma(t))\gamma'(t))\,dt \right|
+			  \le \int_a^b |f(\gamma(t))\gamma'(t))|\,dt 
+			  \le  \max_{\gamma[a.b]}f \int_a^b |\gamma'(t)|\,dt 
 	\]
 \end{proof}
 \bigskip
@@ -351,7 +399,7 @@ Then
 \begin{theorem}
 Let \( D \subseteq \C \) a connected domain and \( f \in C(D)\). Then the following assertions are equivalent
 \begin{enumerate}
-	\item \( f \) has an anti-derivative
+	\item \( f \) has an antiderivative
 	\item For every closd path \( \gamma \)
 		\[
 			\int_{\gamma} f(z)\,dz = 0
@@ -379,14 +427,27 @@ This is well defined since the integral of \( f \) vanishes over each closed pat
 		= \int_{[z,z + h]} f(z)\,dz
 		= h\int_0^1 f(z + th)\,dt
 \]
-Now
+Here the latter integral is continous at \( 0 \) with respect to \( h \)
 \[
 	\left|\int_0^1 f(z + th) - f(z)\,dt\right| 
 		\le \int_0^1 |f(z + th) - f(z)|\,dt 
-		\le \max_{t \in [0,1]}|f(z + th) - f(z)| \to 0
+		\le \max_{t \in [0,1]}|f(z + th) - f(z)|
 \]
-for \( h \to 0 \) since \( f \) is continous.
 \end{proof}
+\bigskip
+
+
+\begin{corollary}The second assertion can be weakend to 
+\[
+	\int_{\partial\Delta} f(z)\,dz = 0
+\]
+for every triangle \( \Delta \subset D\), where e.g. \( D \) is convex or star shaped. Here the anti derivative
+can directly be defined as 
+\[
+	F(z) = \int_{[a,z]} f(\zeta)\,d\zeta
+\]
+similarly to the real calculus approach. Note, that under this conditions \( f \) always has a local anit-derivative.
+\end{corollary}
 \bigskip
 
 
@@ -399,7 +460,7 @@ for \( h \to 0 \) since \( f \) is continous.
 					= \int_0^{2\pi} \iu\,dt
 					= 2\pi\iu
 			\]
-			and thus \( 1/ (z - z_0 ) \) has no anti-derivative on \( \C \setminus \{z_0\} \)
+			and thus \( 1/ (z - z_0 ) \) has no antiderivative on \( \C \setminus \{z_0\} \)
     \end{enumerate}
 \end{examples}
 \bigskip
