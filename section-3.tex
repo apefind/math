@@ -398,7 +398,7 @@ Let \( \gamma: [a,b] \to \C \) be a smooth path. Then
 
 
 \begin{theorem}
-Let \( D \subseteq \C \) a connected domain and \( f \in C(D)\). Then the following assertions are equivalent
+Let \( D \subseteq \C \) be a connected domain and \( f \in C(D)\). Then the following assertions are equivalent
 \begin{enumerate}
 	\item \( f \) has an antiderivative
 	\item For every closd path \( \gamma \)
@@ -464,6 +464,30 @@ similarly to the real calculus approach. Note, that under this conditions \( f \
 			and thus \( 1/ (z - z_0 ) \) has no antiderivative on \( \C \setminus \{z_0\} \)
     \end{enumerate}
 \end{examples}
+\bigskip
+
+
+\begin{theorem}[Cauchy's Intergral Formula]
+Let \( \Omega \subseteq \C \) be open and \( f \) holomorphic on \( \Omega \). Further let \( D \subset \Omega \) 
+be a disc. Then
+	\[
+		f(z) = \frac{1}{2\pi\iu} \int_{\partial D} \frac{f(\zeta)}{\zeta - z}\,dz% \text{ for } z \in D
+	\]
+for \( z \in D \).
+\end{theorem}
+
+\begin{proof}
+For \( z \in D \) define
+\[
+	h(\zeta) = \frac{f(\zeta)- f(z)}{\zeta - z} % \text{ for } \zeta \ne z \text{ and } f'(z) \text{ for } \zeta = z
+\]
+for \( \zeta \ne z \) and \( f'(z)  \) for \( \zeta = z \). Then \( h \) is holomorphic on \( D \) and
+\[
+	0 = \int_{\partial D} h(\zeta) \,d\zeta 
+		= \int_{\partial D} \frac{f(\zeta)}{\zeta - z}\,d\zeta - f(z)\int_{\partial D} \frac{1}{\zeta - z}\,d\zeta
+		= \int_{\partial D} \frac{f(\zeta)}{\zeta - z}\,d\zeta - 2\pi\iu f(z)
+\]
+\end{proof}
 \bigskip
 
 

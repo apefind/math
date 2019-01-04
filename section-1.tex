@@ -160,6 +160,11 @@ Apply Theorem~\ref{thm:rolle} to
         \item More generally choose any \( \varphi \in C^1[a,b] \) with \( \varphi(a) = 0 \) and 
             \( \varphi(b) = f(b) - f(a) \). Set \( g(x) = f(x) - \varphi(x) \) to see there is a \( \xi \in (a,b) \) 
             with \( f'(\xi) = \varphi'(\xi)\). 
+        \item Let \( f \) be differentiable in \( (a, b) \) with \( f' = 0 \). For \( x, y \in (a, b) \)
+			\[
+				0 = f'(\xi) = \frac{f(y) - f(x)}{y - x}
+			\]
+			and \( f \) is a constant.
         \item Another useful generalization: let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). For
             \( x, y \in \Omega \) define \( \varphi(t) = f(tx + (1 - t)y) \) and apply the chain rule for differentiation
             \[
