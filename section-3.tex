@@ -440,14 +440,14 @@ Here the latter integral is continous at \( 0 \) with respect to \( h \)
 
 \begin{corollary}The second assertion can be weakend to 
 \[
-	\int_{\partial\Delta} f(z)\,dz = 0
+	\int_{\boundary\Delta} f(z)\,dz = 0
 \]
-for every triangle \( \Delta \subset D\), where e.g. \( D \) is convex or star shaped. Here the anti derivative
+for every triangle \( \Delta \subset D\), where e.g. \( D \) is convex or star shaped. Here the antiderivative
 can directly be defined as 
 \[
 	F(z) = \int_{[a,z]} f(\zeta)\,d\zeta
 \]
-similarly to the real calculus approach. Note, that under this conditions \( f \) always has a local anit-derivative.
+similarly to the real calculus approach. Note, that under this conditions \( f \) always has a local antiderivative.
 \end{corollary}
 \bigskip
 
@@ -462,6 +462,12 @@ similarly to the real calculus approach. Note, that under this conditions \( f \
 					= 2\pi\iu
 			\]
 			and thus \( 1/ (z - z_0 ) \) has no antiderivative on \( \C \setminus \{z_0\} \)
+        \item Let \( z_0 \in \C \) and \( z \in D = D_r(z_0) \). Then
+			\[
+				\int_{\boundary D} \frac{1}{\zeta - z}\,d\zeta
+					= \int_{\boundary D} \frac{1}{\zeta - z_0}\,d\zeta
+					= 2\pi\iu
+			\]
     \end{enumerate}
 \end{examples}
 \bigskip
@@ -471,7 +477,7 @@ similarly to the real calculus approach. Note, that under this conditions \( f \
 Let \( \Omega \subseteq \C \) be open and \( f \) holomorphic on \( \Omega \). Further let \( D \subset \Omega \) 
 be a disc. Then
 	\[
-		f(z) = \frac{1}{2\pi\iu} \int_{\partial D} \frac{f(\zeta)}{\zeta - z}\,dz% \text{ for } z \in D
+		f(z) = \frac{1}{2\pi\iu} \int_{\boundary D} \frac{f(\zeta)}{\zeta - z}\,dz% \text{ for } z \in D
 	\]
 for \( z \in D \).
 \end{theorem}
@@ -483,9 +489,9 @@ For \( z \in D \) define
 \]
 for \( \zeta \ne z \) and \( f'(z)  \) for \( \zeta = z \). Then \( h \) is holomorphic on \( D \) and
 \[
-	0 = \int_{\partial D} h(\zeta) \,d\zeta 
-		= \int_{\partial D} \frac{f(\zeta)}{\zeta - z}\,d\zeta - f(z)\int_{\partial D} \frac{1}{\zeta - z}\,d\zeta
-		= \int_{\partial D} \frac{f(\zeta)}{\zeta - z}\,d\zeta - 2\pi\iu f(z)
+	0 = \int_{\boundary D} h(\zeta) \,d\zeta 
+		= \int_{\boundary D} \frac{f(\zeta)}{\zeta - z}\,d\zeta - f(z)\int_{\boundary D} \frac{1}{\zeta - z}\,d\zeta
+		= \int_{\boundary D} \frac{f(\zeta)}{\zeta - z}\,d\zeta - 2\pi\iu f(z)
 \]
 \end{proof}
 \bigskip
