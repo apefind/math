@@ -237,6 +237,23 @@ exists. \( f \) is called holomorphic on \( \Omega \) if \( f \) is complex diff
 at all points of \( \Omega \) and \( f': \Omega \to \C \) is called the derivative of \( f \).
 \bigskip
 
+\begin{remarks}\hfill
+    \begin{enumerate}
+        \item \( f \) is holomorphic at \( z_0 \in \Omega \) iff the limit 
+			\[
+				f'(z_0) = \lim_{z \to z_0}  \frac{f(z) - f(z_0)}{z - z_0}  
+			\]
+			exists
+		\item
+			If \( f \) is holomorphic at \( z_0 \in \Omega \) and \( \eps > 0 \) then there exists a small
+			enough environment of \( z_0 \), so that
+			\[
+				| f(z) - f(z_0)} - f'(z_0)(z - z_0)| < \eps
+			\]
+    \end{enumerate}
+\end{remarks}
+\bigskip
+
 
 \begin{theorem}[Cauchy Riemann Equations]\label{thm:thm_cauchy_riemann_eqations}
 Let \( f = u + \iu v \) be holomorphic. Then \( f \) satisfies the Cauchy Riemann equations
