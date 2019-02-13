@@ -248,7 +248,7 @@ at all points of \( \Omega \) and \( f': \Omega \to \C \) is called the derivati
 			If \( f \) is holomorphic at \( z_0 \in \Omega \) and \( \eps > 0 \) then there exists a small
 			enough environment of \( z_0 \), so that
 			\[
-				| f(z) - f(z_0)} - f'(z_0)(z - z_0)| < \eps
+				| f(z) - f(z_0)} - f'(z_0)(z - z_0)| < \eps |z - z_0|
 			\]
     \end{enumerate}
 \end{remarks}
@@ -502,6 +502,58 @@ similarly to the real calculus approach. Note, that under this conditions \( f \
 \bigskip
 
 
+\begin{theorem}[Goursat]\label{thm:thm_goursat}
+Let \( \Omega \subseteq \C \) be open and \( f \) holomorphic on \( \Omega \). 
+Then
+	\[
+		\int_{\boundary\triangle} f(z)\,dz = 0
+	\]
+for every triangle \( \triangle \subset \Omega \).
+\end{theorem}
+
+\begin{proof}
+Choose a sequence of triangles \( \triangle \supset \triangle_0 \supset \triangle_1 \dots \supset \triangle_k \) 
+as depicted. Since all the triangles are compact with a vainishing diameter there exists a unique \( z_0 \in \Omega \) with \( \bigcap \triangle_k = \{ z_0 \}  \). Thus
+\[
+	\left| \int_{\boundary\triangle} f(z)\,dz \right| 
+		\le 4^k \left| \int_{\boundary\triangle_k} f(z)\,dz \right| \\
+		= 4^k \left| \int_{\boundary\triangle_k} f(z) - f(z_0) - f'(z_0)(z - z_0)\,dz \right| \\
+\]
+Furthermore \( L(\boundary\triangle) = 2^{-k} L(\boundary\triangle_k) \) and 
+\[
+	|z - z_0| < L(\boundary\triangle_k) = 2^{-k} L(\boundary\triangle)
+\]
+for any \( z \in \triangle_k \). Since \( f \) is holomorphic at \( z_0 \) for any given \( \eps > 0 \) 
+there exists a sufficiently large enough \( k \), so that
+\[
+	\begin{split}
+		\left| \int_{\boundary\triangle} f(z)\,dz \right| 
+			% & \le 4^k \left| \int_{\boundary\triangle_k} f(z)\,dz \right| \\
+			% & = 4^k \left| \int_{\boundary\triangle_k} f(z) - f(z_0) - f'(z_0)(z - z_0)\,dz \right| \\
+			& \le 4^k L(\boundary\triangle_k) \max_{z \in \triangle_k} |f(z) - f(z_0) - f'(z_0)(z - z_0)| \\
+			& \le 4^k L(\boundary\triangle_k) \,\eps \max_{z \in \triangle_k} |z - z_0| \\
+			& \le L(\boundary\triangle)^2 \,\eps
+	\end{split}
+\]
+\end{proof}
+\bigskip
+
+
+\begin{corollary}\hfill
+    \begin{enumerate}
+        \item A holomorphic function always has a local antiderivative 
+        \item A holomorphic function on a star shaped domain has a global antiderivative and 
+			\[
+				\int_{\gamma} f(z)\,dz = 0
+			\]
+			for any closed path
+        \item The prerequites of Goursat theorem can be weakened to continous and holomorphic with 
+			the exception of a finite number of points: adequate partioning of the original triangle
+    \end{enumerate}
+\end{corollary}
+\bigskip
+
+
 \begin{theorem}[Cauchy's Intergral Formula]
 Let \( \Omega \subseteq \C \) be open and \( f \) holomorphic on \( \Omega \). Further let \( D \subset \Omega \) 
 be a disc. Then
@@ -516,7 +568,8 @@ For \( z \in D \) define
 \[
 	h(\zeta) = \frac{f(\zeta)- f(z)}{\zeta - z} % \text{ for } \zeta \ne z \text{ and } f'(z) \text{ for } \zeta = z
 \]
-for \( \zeta \ne z \) and \( f'(z)  \) for \( \zeta = z \). Then \( h \) is holomorphic on \( D \) and
+for \( \zeta \ne z \) and \( f'(z)  \) for \( \zeta = z \). Then \( h \) is holomorphic on \( D \setminus \{ z \} \) and
+continous at \( z \)
 \[
 	0 = \int_{\boundary D} h(\zeta) \,d\zeta 
 		= \int_{\boundary D} \frac{f(\zeta)}{\zeta - z}\,d\zeta - f(z)\int_{\boundary D} \frac{1}{\zeta - z}\,d\zeta
