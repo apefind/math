@@ -369,7 +369,28 @@ Let \( f \in C[a,b] \). Then
 \bigskip
 
 
-\begin{lemma}[Estimation Lemma]
+Let \( \gamma: [a,b] \to \C \) be a smooth path and \( a = t_0 < t_1 < \dots < t_n = b \) 
+a partioning of \( [a,b] \). Then 
+\[
+	\sum_{k = 1}^n |\gamma(t_k) - \gamma(t_{k - 1})|
+		= \sum_{k = 1}^n \left| \frac{\gamma(t_k) - \gamma(t_{k - 1})}{t_k - t_{k - 1}} \right| (t_k - t_{k - 1})
+		= \sum_{k = 1}^n | \gamma'(\xi_k)| (t_k - t_{k - 1})
+\]
+yields a reasonable approximation of the length of the path. Hence
+\bigskip
+
+
+\begin{definition}
+For a smooth path \( \gamma: [a,b] \to \C \) 
+\[
+	L(\gamma) = \int_a^b |\gamma'(t)|\,dt 
+\]
+is called the length of \( \gamma \).
+\end{definition}
+\bigskip
+
+
+\begin{lemma}[definition Lemma]
 Let \( \gamma: [a,b] \to \C \) be a smooth path. Then
 	\[
 		\left|\int_{\gamma} f(z)\,dz\right| \le L(\gamma}) \max_{\gamma[a.b]} f 
@@ -419,6 +440,12 @@ Let \( \gamma: [a,b] \to \C \) be a smooth path. Then
 						& = \left( -1 + \iu + \frac{1}{3} \right) - \left( \iu - \iu + \frac{1}{3}\iu \right)
 							= -\frac{2}{3} + \iu \frac{2}{3}
 				\end{split}
+			\]
+		\item Let \( \gamma(t) = \eu^{\iu t} \) and \( k \ne -1 \). Then
+			\[
+				\int_\gamma z^k\,dz = 
+					\int_0^{2\pi} \eu^{\iu kt}\iu\eu^{\iu t}\,dt = 
+					\int_0^{2\pi} \iu\eu^{\iu (k + 1) t}\,dt = 0
 			\]
     \end{enumerate}
 \end{examples}
