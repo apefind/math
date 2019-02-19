@@ -227,25 +227,25 @@ and for \( t = 2\pi \) we get
 
 \subsection{Complex Analysis}
 
-\begin{definition}[Holomorphic Function]\label{def:holomorphic_fnc}
-Let \( \Omega \subseteq \C \) be open. A function \( f : \Omega \to \C \) is called differentiable at 
+\begin{definition}[holomorphic Function]\label{def:holomorphic_fnc}
+Let \( \Omega \subseteq \C \) be open. A function \( f : \Omega \to \C \) is called \emph{differentiable} at 
 \( z \in \Omega \) if the limit 
 \[
 	f'(z) = \lim_{h \to 0} \frac{f(z + h) - f(z)}{h}
 \]
-exists. \( f \) is called holomorphic on \( \Omega \) if \( f \) is complex differentiable 
-at all points of \( \Omega \) and \( f': \Omega \to \C \) is called the derivative of \( f \).
+exists. \( f \) is called \emph{holomorphic} on \( \Omega \) if \( f \) is complex differentiable 
+at all points of \( \Omega \) and \( f': \Omega \to \C \) is called the \emph{derivative} of \( f \).
 \bigskip
 
 \begin{remarks}\hfill
     \begin{enumerate}
-        \item \( f \) is holomorphic at \( z_0 \in \Omega \) iff the limit 
+        \item \( f \) is differentiable at \( z_0 \in \Omega \) iff the limit 
 			\[
 				f'(z_0) = \lim_{z \to z_0}  \frac{f(z) - f(z_0)}{z - z_0}  
 			\]
 			exists
 		\item
-			If \( f \) is holomorphic at \( z_0 \in \Omega \) and \( \eps > 0 \) then there exists a small
+			If \( f \) is differentiable at \( z_0 \in \Omega \) and \( \eps > 0 \) then there exists a small
 			enough environment of \( z_0 \), so that
 			\[
 				| f(z) - f(z_0)} - f'(z_0)(z - z_0)| < \eps |z - z_0|
@@ -302,7 +302,7 @@ Let \( D \subseteq \C \) be connected. For arbitrary \( z, w \in D \) there exis
 \( z \) to \( w \).
 \end{lemma}
 \begin{proof} 
-For any path from \( z \) to \( w \) the image is compact, which can be used to define a finite subcover of balls. 
+For any path from \( z \) to \( w \) the image is compact, which can be used to define a finite subcover of disks. 
 Use the center points to define the polygonal path.
 \end{proof}
 \bigskip
@@ -502,7 +502,7 @@ can directly be defined as
 \[
 	F(z) = \int_{[a,z]} f(\zeta)\,d\zeta
 \]
-similarly to the real calculus approach. Note, that under this conditions \( f \) always has a local antiderivative.
+similar to the real calculus approach. Note, that under this conditions \( f \) always has a local antiderivative.
 \end{corollary}
 \bigskip
 

@@ -2,6 +2,41 @@
 \newpage
 \section{Neural Networks}
 
+\subsection{The Perceptron}
+\begin{definition}
+The \emph{Heavyside} function \( H: \R \to \{ 0, 1 \} \) is defined as
+\[
+	H(x) = \left\{
+		\begin{array}{ll}
+			1 & x \ge 0 \\
+			0 & x < 0 \\
+		\end{array} 
+	\right.
+\]
+\end{definition}
+\bigskip
+
+Let \( w = (w_1, w_2, \dots, w_n) \in \R^n \) and \( b \in \R \). Consider \( f \in C^\infty(\R^n) \)
+\[
+	f_{w, b}(x) = wx + b = \sum_{k = 1}^n w_k x_k + b
+\]
+and \( p = H \circ f: \R^n \to \{0, 1 \} \). 
+
+Let \( M = \{ x_0, x_1, \dots \x_n \} \subset \R^n \) be a discrete subset and \( f: M \to \{ 0, 1 \} \).
+We search \( w \in \R^n \) and \( b \in \R \), so that 
+\[
+	f(x_i) = H(wx_i + b)
+\]
+for all \( x_i \in M \).
+\bigskip
+
+
+\begin{algorithm}[Perceptron]\label{algo:perceptron}
+\end{algorithm}
+\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{perceptron.py}
+\bigskip
+
+
 \subsection{The Backtracking Algorithm}
 
 
