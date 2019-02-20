@@ -1,33 +1,83 @@
-
 \newpage
 \section{Neural Networks}
 
 \subsection{The Perceptron}
-\begin{definition}
-The \emph{Heavyside} function \( H: \R \to \{ 0, 1 \} \) is defined as
-\[
-	H(x) = \left\{
-		\begin{array}{ll}
-			1 & x \ge 0 \\
-			0 & x < 0 \\
-		\end{array} 
-	\right.
-\]
+
+\begin{definition}[Activation Functions]\hfill
+    \begin{enumerate}
+		\item The \emph{Heaviside} function \( H: \R \to \{ 0, 1 \} \) is defined as
+			\[
+				H(x) = \left\{
+					\begin{array}{ll}
+						1 & x > 0 \\
+						0 & x \le 0 \\
+					\end{array} 
+				\right.
+			\]
+		\item The \emph{Sigmoid} function \( \sigmoid \in C^\infty(\R) \) is defined as 
+			\[
+				\sigmoid(x) = \frac{1}{1 + e^{-x}}
+			\]
+    \end{enumerate}
 \end{definition}
 \bigskip
 
-Let \( w = (w_1, w_2, \dots, w_n) \in \R^n \) and \( b \in \R \). Consider \( f \in C^\infty(\R^n) \)
-\[
-	f_{w, b}(x) = wx + b = \sum_{k = 1}^n w_k x_k + b
-\]
-and \( p = H \circ f: \R^n \to \{0, 1 \} \). 
 
-Let \( M = \{ x_0, x_1, \dots \x_n \} \subset \R^n \) be a discrete subset and \( f: M \to \{ 0, 1 \} \).
-We search \( w \in \R^n \) and \( b \in \R \), so that 
+\begin{figure}[H]
+	\centering
+	\plotsigmoid
+	\caption{The Sigmoid function $ \sigmoid(x) = \frac{1}{1 + e^{-x}} $}\label{fig:sigmoid}
+\end{figure}
+\bigskip
+
+
+\begin{remarks}\hfill
+    \begin{enumerate}
+		\item Since the Heaviside function is not continous and therefore not differentiable at \( 0 \), 
+			the Sigmoid function is often considered as its smooth counterpart
+		\item The definition of the Sigmoid function yields \( 0 < \sigmoid(x) <  1 \) as well as 
+			\( \sigmoid(x) \to 0 \) for \( x \to -\infty \) and \( \sigmoid(x) \to 1 \) for \( x \to \infty \)
+		\item The quotient rule yields
+			\[
+				\sigmoid'(x) 
+					= -\frac{-e^{-x}}{(1 + e^{-x})^2}
+					= \sigmoid(x) \frac{1 + e^{-x} - 1}{1 + e^{-x}}
+					= \sigmoid(x)(1 - \sigmoid(x))
+			\]
+			and \( \sigmoid \) is monotonically increasing over its domain
+    \end{enumerate}
+\end{remarks}
+\bigskip
+
+\begin{definition}[Binary Classification]
+Let \( M = \{ x_0, x_1, \dots x_m \} \subset \R^n \) and \( f: M \to \{ 0, 1 \} \).
+We search \( w = (w_1, w_2, \dots, w_n) \in \R^n \) and \( b \in \R \), so that 
 \[
-	f(x_i) = H(wx_i + b)
+	f(x) = H(wx + b) = H(\sum_{i=1}^n x_i w_i + b)
 \]
-for all \( x_i \in M \).
+for all \( x \in M \).
+\end{definition}
+\bigskip
+
+
+\begin{examples}\hfill
+    \begin{enumerate}
+        \item Let \( M = \{ 0, 1 \} \times \{ 0, 1 \} \) and consider the \emph{and} operator 
+		    \( f(1, 1) = 1 \) and \( f(x, y) = 0 \) elsewhere. Then \( w = (3, 3) \) and \( b = -5 \) 
+			yields a solution
+        \item Again let \( M = \{ 0, 1 \} \times \{ 0, 1 \} \) and \( f(1, 0) = f(0, 1) = 1 \) and 
+			\( f(0, 0) = f(1, 1) = 0 \), the \emph{xor} operator. Thus
+				\[
+					\begin{split}
+						w_1 + b & > 0 \\
+						w_2 + b & > 0 \\
+						w_1 + w_2 + b & \le 0 \\
+						b & \le 0 \\
+					\end{split}
+				\]
+			Adding two equations respectively shows that there cannot be a solution
+	\end{enumerate}
+\end{examples}
 \bigskip
 
 

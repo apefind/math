@@ -31,16 +31,8 @@ Then \( 1 - \tau = \tau^2 \) and solving the quadratic equation \( \tau^2 + \tau
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}%\caption{Golden Section}\label{fig:golden_section}
-        \draw(0,0)--(10,0);
-        \draw(0,-5pt)--(0,5pt) node[above] {$ 0 $};
-        \draw(3.81,-5pt)--(3.81,5pt) node[above] {$ \sigma \approx 0.38196 $};
-        \draw(6.18,-5pt)--(6.18,5pt) node[above] {$ \tau \approx 0.61803 $};
-        \draw(10,-5pt)--(10,5pt) node[above] {$ 1 $};
-        \draw[decorate, decoration={brace, mirror, amplitude=6pt}, yshift=-2.5ex] (0,0) -- node[below=1.8ex] {$ \sigma = 1 - \tau $} (3.81,0);
-        \draw[decorate, decoration={brace, mirror, amplitude=6pt}, yshift=-2.5ex] (3.81,0) -- node[below=1.8ex] {$ \tau $} (10,0);
-    \end{tikzpicture}
-     \caption{Golden Section}\label{fig:golden_section} 
+	\plotgoldensection
+	\caption{Golden Section}\label{fig:golden_section} 
 \end{figure}
 \bigskip
 
