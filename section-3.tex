@@ -233,6 +233,7 @@ Let \( \Omega \subseteq \C \) be open. A function \( f : \Omega \to \C \) is cal
 \]
 exists. \( f \) is called \emph{holomorphic} on \( \Omega \) if \( f \) is complex differentiable 
 at all points of \( \Omega \) and \( f': \Omega \to \C \) is called the \emph{derivative} of \( f \).
+\end{definition}
 \bigskip
 
 \begin{remarks}\hfill
@@ -246,7 +247,7 @@ at all points of \( \Omega \) and \( f': \Omega \to \C \) is called the \emph{de
 			If \( f \) is differentiable at \( z_0 \in \Omega \) and \( \eps > 0 \) then there exists a small
 			enough environment of \( z_0 \), so that
 			\[
-				| f(z) - f(z_0)} - f'(z_0)(z - z_0)| < \eps |z - z_0|
+				| f(z) - f(z_0) - f'(z_0)(z - z_0)| < \eps |z - z_0|
 			\]
     \end{enumerate}
 \end{remarks}
@@ -339,7 +340,7 @@ Then
 	\[
 		\int_{-\gamma} f(z)\,dz
 			  = - \int_a^b f(\gamma(a + b - t))\gamma'(a + b - t)) \,dt 
-			  = \int_b^a f(\gamma(s))\gamma'(s)) \,ds 
+			  = \int_b^a f(\gamma(s))\gamma'(s) \,ds 
 			  = - \int_{\gamma} f(z)\,dz
 	\]
 \end{proof}
@@ -391,7 +392,7 @@ is called the length of \( \gamma \).
 \begin{lemma}[Estimation Lemma]
 Let \( \gamma: [a,b] \to \C \) be a smooth path. Then
 	\[
-		\left|\int_{\gamma} f(z)\,dz\right| \le L(\gamma}) \max_{\gamma[a.b]} f 
+		\left| \int_{\gamma} f(z)\,dz \right| \le L(\gamma) \max_{\gamma[a.b]} f 
 	\]
 \end{lemma}
 

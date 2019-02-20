@@ -5,7 +5,7 @@
 
 \begin{definition}[Activation Functions]\hfill
     \begin{enumerate}
-		\item The \emph{Heaviside} function \( H: \R \to \{ 0, 1 \} \) is defined as
+		\item The \emph{heaviside} function \( H: \R \to \{ 0, 1 \} \) is defined as
 			\[
 				H(x) = \left\{
 					\begin{array}{ll}
@@ -14,7 +14,7 @@
 					\end{array} 
 				\right.
 			\]
-		\item The \emph{Sigmoid} function \( \sigmoid \in C^\infty(\R) \) is defined as 
+		\item The \emph{sigmoid} function \( \sigmoid \in C^\infty(\R) \) is defined as 
 			\[
 				\sigmoid(x) = \frac{1}{1 + e^{-x}}
 			\]
@@ -26,16 +26,16 @@
 \begin{figure}[H]
 	\centering
 	\plotsigmoid
-	\caption{The Sigmoid function $ \sigmoid(x) = \frac{1}{1 + e^{-x}} $}\label{fig:sigmoid}
+	\caption{The sigmoid function $ \sigmoid(x) = \frac{1}{1 + e^{-x}} $}\label{fig:sigmoid}
 \end{figure}
 \bigskip
 
 
 \begin{remarks}\hfill
     \begin{enumerate}
-		\item Since the Heaviside function is not continous and therefore not differentiable at \( 0 \), 
-			the Sigmoid function is often considered as its smooth counterpart
-		\item The definition of the Sigmoid function yields \( 0 < \sigmoid(x) <  1 \) as well as 
+		\item Since the heaviside function is not continous and therefore not differentiable at \( 0 \), 
+			so the sigmoid function is often considered as its smooth counterpart
+		\item The definition of the sigmoid function yields \( 0 < \sigmoid(x) <  1 \) as well as 
 			\( \sigmoid(x) \to 0 \) for \( x \to -\infty \) and \( \sigmoid(x) \to 1 \) for \( x \to \infty \)
 		\item The quotient rule yields
 			\[
@@ -49,12 +49,13 @@
 \end{remarks}
 \bigskip
 
+
 \begin{definition}[Binary Classification]
 Let \( M = \{ x_0, x_1, \dots x_m \} \subset \R^n \) and \( f: M \to \{ 0, 1 \} \).
-We search \( w = (w_1, w_2, \dots, w_n) \in \R^n \) and \( b \in \R \), so that 
-\[
-	f(x) = H(wx + b) = H(\sum_{i=1}^n x_i w_i + b)
-\]
+A vector \( w = (w_1, w_2, \dots, w_n) \in \R^n \) and \( b \in \R \) is called a \emph{binary classifier} 
+	\[
+		f(x) = H(wx + b) = H(\sum_{i=1}^n x_i w_i + b)
+	\]
 for all \( x \in M \).
 \end{definition}
 \bigskip
