@@ -33,8 +33,8 @@
 
 \begin{remarks}\hfill
     \begin{enumerate}
-		\item Since the heaviside function is not continous and therefore not differentiable at \( 0 \), 
-			so the sigmoid function is often considered as its smooth counterpart
+		\item Since the heaviside function is not continous and therefore not differentiable at \( 0 \)
+			the sigmoid function is often considered its smooth counterpart
 		\item The definition of the sigmoid function yields \( 0 < \sigmoid(x) <  1 \) as well as 
 			\( \sigmoid(x) \to 0 \) for \( x \to -\infty \) and \( \sigmoid(x) \to 1 \) for \( x \to \infty \)
 		\item The quotient rule yields
@@ -50,13 +50,20 @@
 \bigskip
 
 
-\begin{definition}[Binary Classification]
-Let \( M = \{ x_0, x_1, \dots x_m \} \subset \R^n \) and \( f: M \to \{ 0, 1 \} \).
-A vector \( w = (w_1, w_2, \dots, w_n) \in \R^n \) and \( b \in \R \) is called a \emph{binary classifier} 
-	\[
-		f(x) = H(wx + b) = H(\sum_{i=1}^n x_i w_i + b)
-	\]
-for all \( x \in M \).
+\begin{definition}[Binary Classifiers]\hfill
+    \begin{enumerate}
+		\item Let \( M \subset \R^n \). A function \( f: M \to \{ 0, 1 \} \) is called a \emph{binary classifier} 
+		\item A \emph{weight} \( w \in \R^n \) and a \emph{bias} \( b \in \R \) define \emph{binary classifier} via
+			\[
+				f(x) = H(wx + b) = H(\sum_{i=1}^n x_i w_i + b)
+			\]
+		\item Let \( f \) be a binary classifier. A weight \( w \in \R^n \) and a bias \( b \) are called a
+			\emph{solution for the classification problem} if 
+				\[
+					f(x) = H(wx + b)
+				\]
+			for \( x \in M \)
+    \end{enumerate}
 \end{definition}
 \bigskip
 
@@ -84,7 +91,8 @@ for all \( x \in M \).
 
 \begin{algorithm}[Perceptron]\label{algo:perceptron}
 \end{algorithm}
-\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{perceptron.py}
+% \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{perceptron.py}
+\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/perceptron.py}
 \bigskip
 
 
