@@ -52,7 +52,7 @@
 
 \begin{definition}[Binary Classifiers]\hfill
     \begin{enumerate}
-		\item Let \( M \subset \R^n \). A function \( f: M \to \{ 0, 1 \} \) is called a \emph{binary classifier} 
+		\item Let \( M \subset \R^n \). A mapping \( f: M \to \{ 0, 1 \} \) is called a \emph{binary classifier} 
 		\item A \emph{weight} \( w \in \R^n \) and a \emph{bias} \( b \in \R \) define \emph{binary classifier} via
 			\[
 				f(x) = H(wx + b) = H(\sum_{i=1}^n x_i w_i + b)
@@ -60,7 +60,7 @@
 		\item Let \( f \) be a binary classifier. A weight \( w \in \R^n \) and a bias \( b \) are called a
 			\emph{solution for the classification problem} if 
 				\[
-					f(x) = H(wx + b)
+					H(wx + b) = f(x)
 				\]
 			for \( x \in M \)
     \end{enumerate}
