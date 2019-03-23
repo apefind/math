@@ -61,3 +61,19 @@
 	\end{tikzpicture}
 }
 
+\newcommand\plotvectorangle{
+	\begin{tikzpicture}
+		\draw[thin,gray!40] (-2,-1) grid(3,3);
+		\draw[-stealth](0,0) -- (-1,1) node[anchor=north east]{$\boldsymbol{x}$};
+		\draw[-stealth](0,0) -- (2,1) node[anchor=south west]{$\boldsymbol{y}$};
+		\draw[-stealth](0,0) -- (1,2) node[anchor=south west]{$\boldsymbol{w = x + y}$};
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\draw[thin,gray!40] (-2,-1) grid(3,3);
+		\draw[-stealth](0,0) -- (-1,0.5) node[anchor=north east]{$\boldsymbol{x}$};
+		\draw[-stealth](0,0) -- (3,1) node[anchor=south east]{$\boldsymbol{y}$};
+		\draw[-stealth](0,0) -- (2,1.5) node[anchor=south east]{$\boldsymbol{w = x + y}$};
+		\draw [black] (56.30:0.5) arc [start angle=56.30, end angle=153.43, radius=0.5cm]
+ 		   node [above right] {$ \alpha_1 > \ang{90} $}; 
+    \end{tikzpicture}
+}

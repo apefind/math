@@ -27,6 +27,7 @@ Since \( A + B = C \) it follows that
 \end{proof}
 \bigskip
 
+
 % \begin{figure}[H]
 % \centering
 % \begin{tikzpicture}
@@ -36,13 +37,12 @@ Since \( A + B = C \) it follows that
 % \end{figure}
 % \bigskip
 
-
-\lemma[Conformal and Projective Representation]
-The mapping from conformal and projective representation of any point is given by the radial expansion 
-of the following factor
+\begin{lemma}[label and Projective Representation]\hfill
+The mapping from conformal and projective representation of any point is given by the radial expansion of the following factor
 \[
    \frac{2R}{R^2 + r^2}
 \]  
+\end{lemma}
 
 \begin{proof}
 For any point the distance from the origin with regard to the two representations is given by
@@ -347,7 +347,7 @@ Then
 \bigskip
 
 
-In order to use the results from real calculus remember the fact, that for every \( z \in \C \) 
+In order to use the results from real calculus recall the fact, that for every \( z \in \C \) 
 there exists a \( t \in [0,2\pi] \), so that \( z = |z|e^{\iu t} \) and hence \( |z| = ze^{-\iu t} \).
 \bigskip
 
@@ -516,7 +516,8 @@ similar to the real calculus approach. Note, that under this conditions \( f \) 
 					= 2\pi\iu
 			\]
 			and thus \( 1/ (z - z_0 ) \) has no antiderivative on \( \C \setminus \{z_0\} \)
-        \item Let \( z_0 \in \C \) and \( z \in D = D_r(z_0) \). Applying Theorem~\ref{thm:thm_antiderivative} 
+        \item Let \( z_0 \in \C \) and \( z \in D = D_r(z_0) \). Applying 
+			\hyperref[thm:thm_antiderivative]{Theorem \ref*{thm:thm_antiderivative}}. 
 			to \( \boundary D \) and a small enough circle around \( z \) gives
 			\[
 				\int_{\boundary D} \frac{1}{\zeta - z}\,d\zeta
@@ -554,8 +555,6 @@ there exists a sufficiently large enough \( k \), so that
 \[
 	\begin{split}
 		\left| \int_{\boundary\triangle} f(z)\,dz \right| 
-			% & \le 4^k \left| \int_{\boundary\triangle_k} f(z)\,dz \right| \\
-			% & = 4^k \left| \int_{\boundary\triangle_k} f(z) - f(z_0) - f'(z_0)(z - z_0)\,dz \right| \\
 			& \le 4^k L(\boundary\triangle_k) \max_{z \in \triangle_k} |f(z) - f(z_0) - f'(z_0)(z - z_0)| \\
 			& \le 4^k L(\boundary\triangle_k) \,\eps \max_{z \in \triangle_k} |z - z_0| \\
 			& \le L(\boundary\triangle)^2 \,\eps
@@ -603,5 +602,3 @@ continous at \( z \)
 \]
 \end{proof}
 \bigskip
-
-

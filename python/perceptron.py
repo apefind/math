@@ -1,4 +1,3 @@
-
 def heaviside(x):
     return 0 if x < 0.0 else 1
 
@@ -14,14 +13,14 @@ def perceptron(f, M, t=0.1, max_iterations=50):
         done = True
         for x, y in M:
             z = heaviside(crossprod(w, x) + b)
-            w = [w[i] - t*(z - y)*x[i] for i in range(n)]
-            b = b - t*(z -y)
+            w = [w[i] - t * (z - y) * x[i] for i in range(n)]
+            b = b - t * (z - y)
             if not y == z:
                 done = False
         if done:
             break
     return lambda x: heaviside(crossprod(w, x) + b)
-    
+
 
 def and_(x, y):
     return int(x and y)
