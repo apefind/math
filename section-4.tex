@@ -4,6 +4,138 @@
 
 \subsection{The Perceptron}
 
+\begin{definition}[Binary Classifiers]
+	Let \( X \subset \R^n \) be the union of two disjoint finite sets \( X = M \cup N \).
+    \begin{enumerate}
+		\item A \emph{binary classification problem} is the task to find a mapping \( f: X \to \{ 0, 1 \} \) with
+			\[
+				% f(x) = 1 \text{ for } x \in M \text{ and } f(x) = 0 \text{ for } x \in N
+		        f(x) = \left\{
+		            \begin{array}{ll}
+		                1& \text{for } x \in M \\
+		                0& \text{for } x \in N
+		            \end{array}
+			\]
+			\( f \) then is called a \emph{binary classifier} for \( X \)
+		\item \( X \) is called \emph{separable} if there exists a \emph{weight vector} \( w \in \R^n \) 
+			and a \emph{bias} \( b \in \R \) so that
+				\[
+					\begin{split}
+						wx + b & > 0 \text{ for } x \in M \\
+						wx + b & < 0 \text{ for } x \in N
+					\end{split}
+				\]
+		\item The weight \( w \) and the bias \( b \) are called \emph{solution to the classification problem}. 
+		    They implicitely define a binary classifier via
+				\[
+		        f(x) = \left\{
+		            \begin{array}{ll}
+		                1& \text{ if } wx + b > 0 \\
+		                0& \text{ if } wx + b < 0
+		            \end{array}
+				\]
+    \end{enumerate}
+\end{definition}
+\bigskip
+
+
+\begin{examples}\hfill
+    \begin{enumerate}
+        \item Let \( X = \{ 0, 1 \} \times \{ 0, 1 \} \) and consider the \emph{and} operator 
+		    \( f(1, 1) = 1 \) and \( f(x, y) = 0 \) elsewhere. Then \( w = (3, 3) \) and \( b = -5 \) 
+			yield a solution to the classification problem \( M = f^{-1}(1) \) and \( N = f^{-1}(0) \)
+        \item Again let \( X = \{ 0, 1 \} \times \{ 0, 1 \} \) and \( f(1, 0) = f(0, 1) = 1 \) and 
+			\( f(0, 0) = f(1, 1) = 0 \), the \emph{xor} operator. Thus for any weight \( (w_1, w_2) \) and 
+			any bias \( b \)
+				\[
+					\begin{split}
+						w_1 + b & > 0 \\ 
+						w_2 + b & > 0 \\
+						\\
+						w_1 + w_2 + b & \le 0 \\
+					    b & \le 0
+					\end{split}
+				\]
+			Adding two equations respectively shows that there is no solution
+		\item The bias can be integrated into the weight vector via \( w' = (w, b) \in \R^{n + 1} \) and 
+			\( x' = (x, 1) \in \R^{n + 1} \). Separability then reduces to
+				\[
+					w'x' > 0
+				\]
+	\end{enumerate}
+\end{examples}
+\bigskip
+
+
+\subsubsection*{Geometrical Interpretation}
+The idea for the perceptron most likely has its origin in a simple geometrical observation.
+Recall that for \( x, y \in \R^n \) the dot product can be expressed as 
+\[
+	xy = \|x\| \|y\| \cos \alpha 
+\]
+where \( \alpha \) is the angle between the two vectors. Hence the product is positive 
+if the angle is less than \( \ang{90} \) degrees and negative if the angle is between \( \ang{90} \) 
+and \( \ang{180} \) degrees
+\[
+	xy > 0 \text{ for } 0 \le \alpha < \pi / 2 \text{ and } xy < 0 \text{ for } \pi / 2 < \alpha \le \pi
+\]
+Note, that the sign does not dependend on lengths of the vectors, but solely on the angle.
+
+For any two vectors it is easy enough to find a weight that satisfies \( wx > 0 \) and \( wy > 0 \). 
+Generally \( w = x + y \) is a good guess, but not always correct as shown below in 
+\hyperref[fig:vectorangle]{Figure \ref*{fig:vectorangle}}. 
+
+\bigskip
+\begin{figure}[H]
+	\centering
+	\plotvectorangle
+	\caption{Dot Product and Angle}\label{fig:vectorangle}
+\end{figure}
+\bigskip
+
+But, the more similar the lengths of the two vectors are the more likely \( x + y \) works. 
+Actually the threshold is tbd.
+An iterative approach is to increase \( w = x + y \) in the direction of vector with the angle greater 
+than \( \ang{90} \) degrees.
+
+\begin{examples}\hfill
+    \begin{enumerate}
+        \item Let \( x = (-1, 1) \) and \( y = (6, 1) \). Then 
+			\[ 
+				\begin{align*}
+					w_0 &= (5, 2) & w_0x &= -3 < 0 & w_0y &= 32 > 0 \\
+					w_1 &= (4, 3) & w_1x &= -1 < 0 & w_1y &= 27 > 0 \\
+					w_2 &= (3, 4) & w_2x &= 1 > 0 & w_2y &= 22 > 0 \\
+				\end{align*}
+			\]
+        \item Let \( x = (4, -6) \) and \( y = (-10, 5) \). Then 
+			\[ 
+				\begin{align*}
+					w_0 &= (-6, -1) & w_0x &= -18 < 0 & w_0y &= 55 > 0 \\
+					w_1 &= (-2, -7) & w_1x &= 34 > 0 & w_1y &= -15 < 0 \\
+					w_2 &= (-12, -2) & w_2x &= -36 < 0 & w_2y &= 110 > 0 \\
+					w_3 &= (-8, -8) & w_3x &= 16 > 0 & w_3y &= 40 > 0 \\
+   				\end{align*}
+			\]
+    \end{enumerate}
+\end{examples}
+	
+
+\begin{algorithm}[Weight]\label{algo:weight}
+\end{algorithm}
+\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/weight.py}
+\bigskip
+
+
+
+\begin{algorithm}[Perceptron]\label{algo:perceptron}
+\end{algorithm}
+\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/perceptron.py}
+\bigskip
+
+
+\subsection{The Backtracking Algorithm}
+
 \begin{definition}[Activation Functions]\hfill
     \begin{enumerate}
 		\item The \emph{Heaviside} function \( H: \R \to \{ 0, 1 \} \) is defined as
@@ -49,137 +181,5 @@
     \end{enumerate}
 \end{remarks}
 \bigskip
-
-
-\begin{definition}[Binary Classifiers]
-	Let \( X \subset \R^n \) be the union of two disjoint finite sets \( X = M \uplus N \).
-    \begin{enumerate}
-		\item A \emph{binary classification problem} is the task to find a mapping \( f: X \to \{ 0, 1 \} \) with
-			\[
-				f(x) = 1 \text{ for } x \in M \text{ and } f(x) = 0 \text{ for } x \in N
-			\]
-			\( f \) then is called a \emph{binary classifier} for \( X \)
-		\item \( X \) is called \emph{separable} if there exists a \emph{weight vector} \( w \in \R^n \) 
-			and a \emph{bias} \( b \in \R \) so that
-				\[
-						wx + b > 0 \text{ for } x \in M  \text{ and } 
-						wx + b < 0 \text{ for } x \in N
-				\]
-		\item The weight \( w \) and the bias \( b \) are called \emph{solution to the classification problem}. 
-		    They implicitely define a binary classifier via
-				\[
-					f(x) = H(wx + b)
-				\]
-		\item The set \( \{ x \in \R^n | wx + b = 0 \} \) is called a \emph{hyperplane}
-    \end{enumerate}
-\end{definition}
-\bigskip
-
-
-\begin{examples}\hfill
-    \begin{enumerate}
-        \item Let \( X = \{ 0, 1 \} \times \{ 0, 1 \} \) and consider the \emph{and} operator 
-		    \( f(1, 1) = 1 \) and \( f(x, y) = 0 \) elsewhere. Then \( w = (3, 3) \) and \( b = -5 \) 
-			yield a solution
-        \item Again let \( X = \{ 0, 1 \} \times \{ 0, 1 \} \) and \( f(1, 0) = f(0, 1) = 1 \) and 
-			\( f(0, 0) = f(1, 1) = 0 \), the \emph{xor} operator. Thus for any weight \( (w_1, w_2) \) and 
-			any bias \( b \)
-				\[
-					\begin{split}
-						w_1 + b > 0 & \text{ and } w_2 + b > 0 \\
-						w_1 + w_2 + b \le 0 & \text{ and } b \le 0
-					\end{split}
-				\]
-			Adding two equations respectively shows that there is no solution
-		\item The bias can be integrated into the weight vector via \( w' = (w, b) \in \R^{n + 1} \) and 
-			\( x' = (x, 1) \in \R^{n + 1} \). Separability then reduces to
-				\[
-					w'x' > 0
-				\]
-	\end{enumerate}
-\end{examples}
-\bigskip
-
-
-\subsubsection*{Geometrical Interpretation}
-The idea for the perceptron most likely has its origin in a simple geometrical observation.
-Recall that for \( x, y \in \R^n \) the dot product can be expressed as 
-\[
-	xy = \|x\| \|y\| \cos \alpha 
-\]
-where \( \alpha \) is the angle between the two vectors. Hence the product is positive 
-if the angle is less than \( \ang{90} \) degrees and negative if the angle is between \( \ang{90} \) 
-and \( \ang{180} \) degrees
-\[
-	xy > 0 \text{ for } 0 \le \alpha < \pi / 2 \text{ and } xy < 0 \text{ for } \pi / 2 < \alpha \le \pi
-\]
-Note, that the sign does not dependend on lengths of the vectors, but solely on the angle.
-
-For any two vectors it is easy enough to find a weight that satisfies \( wx > 0 \) and \( wy > 0 \). 
-Generally \( w = x + y \) is a good guess, but not always correct as shown below in 
-\hyperref[fig:vectorangle]{Figure \ref*{fig:vectorangle}}. 
-
-\bigskip
-\begin{figure}[H]
-	\centering
-	\plotvectorangle
-	\caption{Dot Product and Angle}\label{fig:vectorangle}
-\end{figure}
-\bigskip
-
-But, the more similar the lengths of the two vectors are the more likely \( x + y \) works. 
-An iterative approach is to increase \( w = x + y \) in the direction of vector with the angle greater 
-than \( \ang{90} \) degrees.
-
-\begin{examples}\hfill
-    \begin{enumerate}
-        \item Let \( x = (-1, 1) \) and \( y = (6, 1) \). Then 
-			\[ 
-				\begin{align*}
-					w_0 &= (5, 2) & w_0x &= -3 < 0 & w_0y &= 32 > 0 \\
-					w_1 &= (4, 3) & w_1x &= -1 < 0 & w_1y &= 27 > 0 \\
-					w_2 &= (3, 4) & w_2x &= 1 > 0 & w_2y &= 22 > 0 \\
-				\end{align*}
-			\]
-        \item Let \( x = (4, -6) \) and \( y = (-10, 5) \). Then 
-			\[ 
-				\begin{align*}
-					w_0 &= (-6, -1) & w_0x &= -18 < 0 & w_0y &= 55 > 0 \\
-					w_1 &= (-2, -7) & w_1x &= 34 > 0 & w_1y &= -15 < 0 \\
-					w_2 &= (-12, -2) & w_2x &= -36 < 0 & w_2y &= 110 > 0 \\
-					w_3 &= (-8, -8) & w_3x &= 16 > 0 & w_3y &= 40 > 0 \\
-   				\end{align*}
-			\]
-    \end{enumerate}
-\end{examples}
-	
-
-\begin{algorithm}[Weight]\label{algo:weight}
-\end{algorithm}
-\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/weight.py}
-\bigskip
-
-
-% \[
-% 	wx = \left( \frac{x}{\|x\|} + \frac{y}{\|y\|)} \right)x = \|x\| + \|x\|\cos\alpha > 0
-% \]
-% The same is true for \( wy \).
-
-
-% Let \( X = M \uplus N \) be separable. Then
-% \[
-% 	w = \sum_{x \in N} \frac{x}{\|x\|} - \sum_{y \in M} \frac{y}{\|y\|}
-% \]
-% is a weight that is a solution to the classification problem.
-\bigskip
-
-
-\begin{algorithm}[Perceptron]\label{algo:perceptron}
-\end{algorithm}
-\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/perceptron.py}
-\bigskip
-
-
-%\subsection{The Backtracking Algorithm}
 
 
