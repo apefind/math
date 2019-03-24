@@ -2,24 +2,27 @@ def heaviside(x):
     return 0 if x < 0.0 else 1
 
 
-def crossprod(v, w):
+def dotproduct(v, w):
     return sum(x * y for x, y in zip(v, w))
 
 
-def perceptron(f, M, t=0.1, max_iterations=50):
+def perceptron(M, t=0.1, max_iterations=50):
     n = len(M[0])
     w, b = n * [0.0], 0.0
     for _ in range(max_iterations):
         done = True
         for x, y in M:
-            z = heaviside(crossprod(w, x) + b)
+            if dotproduct(w, x) + b >= 0:
+                z = 1
+            else:
+                z = 0
             w = [w[i] - t * (z - y) * x[i] for i in range(n)]
             b = b - t * (z - y)
             if not y == z:
                 done = False
         if done:
             break
-    return lambda x: heaviside(crossprod(w, x) + b)
+    return lambda x: heaviside(dotproduct(w, x) + b)
 
 
 def and_(x, y):
@@ -40,7 +43,7 @@ def nand(x, y):
 
 def test_perceptron(f, X):
     M = [(x, f(*x)) for x in X]
-    p = perceptron(f, M)
+    p = perceptron(M)
     for x, y in M:
         print(f'{x} -> {p(x)}: {y}')
     print(f'{f.__name__}: {all(p(x) == y for x, y in M)}')

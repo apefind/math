@@ -8,45 +8,45 @@
 \begin{lemma}[Simple Calculations]\hfill
     \begin{enumerate}
         \item For \( 1 = x x^{-1} \) the product rule yields \( 0 = x^{-1} + x(x^{-1})' \). Hence
-            \[
-                \frac{d}{dx} x^{-1} = -\frac{1}{x^2}
-            \]
+              \[
+                  \frac{d}{dx} x^{-1} = -\frac{1}{x^2}
+              \]
         \item Similarly \( x = \sqrt{x}^2 \) and \( 1 = 2 \sqrt{x} \sqrt{x}' \) and so
-            \[
-                \frac{d}{dx} \sqrt{x} = \frac{1}{2\sqrt{x}}
-            \]
-        \item It is 
-            \[
-                \frac{d}{dx} x^n = nx^{n - 1}
-            \]
-			since via induction the product rule yields
-            \[
-                \frac{d}{dx} x^n = \frac{d}{dx} xx^{n -1} = x^{n -1} + \frac{d}{dx} x^{n - 1} = 
-					x^{n -1} + (n - 1)x^{n - 1}  = nx^{n - 1}
-            \]
+              \[
+                  \frac{d}{dx} \sqrt{x} = \frac{1}{2\sqrt{x}}
+              \]
+        \item It is
+              \[
+                  \frac{d}{dx} x^n = nx^{n - 1}
+              \]
+              since via induction the product rule yields
+              \[
+                  \frac{d}{dx} x^n = \frac{d}{dx} xx^{n -1} = x^{n -1} + \frac{d}{dx} x^{n - 1} =
+                  x^{n -1} + (n - 1)x^{n - 1}  = nx^{n - 1}
+              \]
         \item Again, applying the product rule gives
-			\[
-            	\left(\frac{1}{g}\right)' = \left(\frac{1}{x} \circ g\right)' = -\frac{g'}{g^2}
-			\]
-			and the quotient rule
-			\[
-            	\left(\frac{f}{g}\right)' = \frac{f'}{g} + f \left(\frac{1}{g} \right)' = 
-					\frac{f'}{g} -\frac{fg'}{g^2} = \frac{gf'- fg'}{g^2} 
-			\]
+              \[
+                  \left(\frac{1}{g}\right)' = \left(\frac{1}{x} \circ g\right)' = -\frac{g'}{g^2}
+              \]
+              and the quotient rule
+              \[
+                  \left(\frac{f}{g}\right)' = \frac{f'}{g} + f \left(\frac{1}{g} \right)' =
+                  \frac{f'}{g} -\frac{fg'}{g^2} = \frac{gf'- fg'}{g^2}
+              \]
         \item Also \( x = f \circ f^{-1} \) and \( 1 = (f^{-1})'f' \circ f^{-1} \). Thus
-            \[
-                (f^{-1})' = \frac{1}{f' \circ f^{-1}}
-            \]
-			where defined. Especially for \( x \ne 0 \) 
-            \[
-                \log'(x) = \frac{1}{\exp'(\log(x)} = \frac{1}{x}
-            \]
-			
+              \[
+                  (f^{-1})' = \frac{1}{f' \circ f^{-1}}
+              \]
+              where defined. Especially for \( x \ne 0 \)
+              \[
+                  \log'(x) = \frac{1}{\exp'(\log(x)} = \frac{1}{x}
+              \]
+
         \item \( (1 - q) (1 + q + q^2 + \cdots + q^n) = 1 - q + q - q^2 + q^2 - q^3 + \cdots + q^{n+1} \) gives
-            \[
-                \sum_{k=0}^n q^k = \frac{1 - q^{n+1}}{1 - q} \text{ and }
-                \sum_{k=m}^n q^k = \frac{q^m - q^{n+1}}{1 - q}
-            \]
+              \[
+                  \sum_{k=0}^n q^k = \frac{1 - q^{n+1}}{1 - q} \text{ and }
+                  \sum_{k=m}^n q^k = \frac{q^m - q^{n+1}}{1 - q}
+              \]
     \end{enumerate}
 \end{lemma}
 \bigskip
@@ -54,25 +54,25 @@
 
 \begin{lemma}[Exponential Function]\hfill
     \begin{enumerate}
-        \item It is 
-			\[ 
-				\exp(x + y) = \exp(x)\exp(y) 
-			\] 
-			Hence 
-			\[
-				\exp(0) = 1
-			\]
-			\[
-				\exp(-x) = \exp(x)^{-1}
-			\]
-			\[
-				\exp(nx) = \exp(x)^n 
-			\]
+        \item It is
+              \[
+                  \exp(x + y) = \exp(x)\exp(y)
+              \]
+              Hence
+              \[
+                  \exp(0) = 1
+              \]
+              \[
+                  \exp(-x) = \exp(x)^{-1}
+              \]
+              \[
+                  \exp(nx) = \exp(x)^n
+              \]
         \item For the derivative
-			\[
-				\exp'(x) = \sum_{k=0}^\infty \frac{1}{k!} (x^k)' = \sum_{k=0}^\infty \frac{1}{k!} kx^{k-1} 
-					= \sum_{k=1}^\infty \frac{1}{(k-1)!} x^{k-1} = \exp(x)
-			\]
+              \[
+                  \exp'(x) = \sum_{k=0}^\infty \frac{1}{k!} (x^k)' = \sum_{k=0}^\infty \frac{1}{k!} kx^{k-1}
+                  = \sum_{k=1}^\infty \frac{1}{(k-1)!} x^{k-1} = \exp(x)
+              \]
     \end{enumerate}
 \end{lemma}
 \bigskip
@@ -81,179 +81,179 @@
 \begin{lemma}[Sinus and Cosinus]\hfill
     \begin{enumerate}
         \item Sinus and Cosinus power series
-			\[
-				\begin{split}
-					\cos(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} x^{2k} \\
-					\sin(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} x^{2k + 1}
-				\end{split}
-			\]
+              \[
+                  \begin{split}
+                      \cos(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} x^{2k} \\
+                      \sin(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} x^{2k + 1}
+                  \end{split}
+              \]
         \item Symmetry
-			\[
-				\begin{split}
-					\cos(-x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} {(-x)}^{2k} = \cos(x) \\
-					\sin(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} {(-x)}^{2k + 1} = -\sin(x)
-				\end{split}
-			\]
+              \[
+                  \begin{split}
+                      \cos(-x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} {(-x)}^{2k} = \cos(x) \\
+                      \sin(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} {(-x)}^{2k + 1} = -\sin(x)
+                  \end{split}
+              \]
         \item Derivatives
-			\[
-				\begin{split}
-					\cos'(x) &= \sum_{k=1}^\infty \frac{(-1)^k}{(2k - 1)!} x^{2k - 1}
-						= \sum_{k=0}^\infty \frac{(-1)^{k + 1}}{(2k + 1)!} x^{2k + 1} = -\sin(x) \\
-					\sin'(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} {x}^{2k} = \cos(x)
-				\end{split}
-			\]
+              \[
+                  \begin{split}
+                      \cos'(x) &= \sum_{k=1}^\infty \frac{(-1)^k}{(2k - 1)!} x^{2k - 1}
+                      = \sum_{k=0}^\infty \frac{(-1)^{k + 1}}{(2k + 1)!} x^{2k + 1} = -\sin(x) \\
+                      \sin'(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} {x}^{2k} = \cos(x)
+                  \end{split}
+              \]
     \end{enumerate}
 \end{lemma}
 \bigskip
 
 
 \begin{theorem}[Fermat Stationary Point]\label{thm:fermat_stationary_point}
-Let \( \Omega \subseteq \R \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is local extremum 
-then \( f'(x^*) = 0 \).
+    Let \( \Omega \subseteq \R \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is local extremum
+    then \( f'(x^*) = 0 \).
 \end{theorem}
 
 \begin{proof}
-Assume \( x^* \) is the minimum of \( f \) in \( \Omega \) and let \( f(x^*) > 0 \). 
-Since \( f \in C^1(\Omega) \) there exist \( \eps, \delta > 0 \), so that for \( |h| \le \eps \)
-\[
-    \frac{f(x^* + h) - f(x^*)}{h} > \delta
-\]
-Pick a negative \( h \in [-\eps, 0) \). Then 
-\[
-     f(x^* + h) < f(x^*) +  \delta h < f(x^*) 
-\]
-and \( x^* \) cannot be the minimum. Analog for maximum with a positive \( h \), then apply to \( -f \).
+    Assume \( x^* \) is the minimum of \( f \) in \( \Omega \) and let \( f(x^*) > 0 \).
+    Since \( f \in C^1(\Omega) \) there exist \( \eps, \delta > 0 \), so that for \( |h| \le \eps \)
+    \[
+        \frac{f(x^* + h) - f(x^*)}{h} > \delta
+    \]
+    Pick a negative \( h \in [-\eps, 0) \). Then
+    \[
+        f(x^* + h) < f(x^*) +  \delta h < f(x^*)
+    \]
+    and \( x^* \) cannot be the minimum. Analog for maximum with a positive \( h \), then apply to \( -f \).
 \end{proof}
 \bigskip
 
 
 \begin{theorem}[Rolle]\label{thm:rolle}
-Let \( f \in C[a,b] \) with \( f(a) = f(b) \). If \( f \) is differentiable in \( (a, b) \) then 
-there exists a \( \xi \in (a,b) \) with \( f'(\xi) = 0 \).
+    Let \( f \in C[a,b] \) with \( f(a) = f(b) \). If \( f \) is differentiable in \( (a, b) \) then
+    there exists a \( \xi \in (a,b) \) with \( f'(\xi) = 0 \).
 \end{theorem}
 
 \begin{proof}
-Assume \( f \) is not constant. Since \( [a,b] \) is compact there exists either a global minimum or maximum 
-\( \xi \in (a,b) \) and Theorem~\ref{thm:fermat_stationary_point} can be applied.
+    Assume \( f \) is not constant. Since \( [a,b] \) is compact there exists either a global minimum or maximum
+    \( \xi \in (a,b) \) and Theorem~\ref{thm:fermat_stationary_point} can be applied.
 \end{proof}
 \bigskip
 
 
 \begin{theorem}[Mean Value]\label{thm:mean_value}
-Let \( f \in C[a,b] \) be differentiable in \( (a, b) \). Then there exists a \( \xi \in (a,b) \) with 
-\[
-    f'(\xi) = \frac{f(b) - f(a)}{b - a}
-\]
+    Let \( f \in C[a,b] \) be differentiable in \( (a, b) \). Then there exists a \( \xi \in (a,b) \) with
+    \[
+        f'(\xi) = \frac{f(b) - f(a)}{b - a}
+    \]
 \end{theorem}
 
 \begin{proof}
-Apply Theorem~\ref{thm:rolle} to 
-\[
-    g(x) = f(x) - \frac{f(b) - f(a)}{b - a} (x -a) 
-\]
+    Apply Theorem~\ref{thm:rolle} to
+    \[
+        g(x) = f(x) - \frac{f(b) - f(a)}{b - a} (x -a)
+    \]
 \end{proof}
 \bigskip
 
 
 \begin{remark}\hfill
     \begin{enumerate}
-        \item More generally choose any \( \varphi \in C^1[a,b] \) with \( \varphi(a) = 0 \) and 
-            \( \varphi(b) = f(b) - f(a) \). Set \( g(x) = f(x) - \varphi(x) \) to see there is a \( \xi \in (a,b) \) 
-            with \( f'(\xi) = \varphi'(\xi)\). 
+        \item More generally choose any \( \varphi \in C^1[a,b] \) with \( \varphi(a) = 0 \) and
+              \( \varphi(b) = f(b) - f(a) \). Set \( g(x) = f(x) - \varphi(x) \) to see there is a \( \xi \in (a,b) \)
+              with \( f'(\xi) = \varphi'(\xi)\).
         \item Let \( f \) be differentiable in \( (a, b) \) with \( f' = 0 \). For \( x, y \in (a, b) \)
-			\[
-				0 = f'(\xi) = \frac{f(y) - f(x)}{y - x}
-			\]
-			and \( f \) is a constant.
+              \[
+                  0 = f'(\xi) = \frac{f(y) - f(x)}{y - x}
+              \]
+              and \( f \) is a constant.
         \item Another useful generalization: let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). For
-            \( x, y \in \Omega \) define \( \varphi(t) = f(tx + (1 - t)y) \) and apply the chain rule for differentiation
-            \[
-                 \varphi'(\xi) = \gradient {f(\xi x + (1 - \xi)y)}^T(x - y) = f(x) - f(y)
-            \]
+              \( x, y \in \Omega \) define \( \varphi(t) = f(tx + (1 - t)y) \) and apply the chain rule for differentiation
+              \[
+                  \varphi'(\xi) = \gradient {f(\xi x + (1 - \xi)y)}^T(x - y) = f(x) - f(y)
+              \]
         \item The Cauchy Schwarz inequality then yields
-            \[
+              \[
                   \|f(x) - f(y)\| \le \|\gradient f(\xi x + (1 - \xi)y)\| \|(x - y)\|
-            \]
+              \]
     \end{enumerate}
 \end{remark}
 \bigskip
 
 
 \begin{theorem}[Differentiation Theorem]\label{thm:differentiation}
-Let \( f \in C[a,b] \) and define 
-\[
-    F(x) = \int_a^x f(t)\,dt
-\]
-Then \( F \in C^1[a,b] \) with \( F'(x) = f(x) \) for \( x \in [a,b] \).
+    Let \( f \in C[a,b] \) and define
+    \[
+        F(x) = \int_a^x f(t)\,dt
+    \]
+    Then \( F \in C^1[a,b] \) with \( F'(x) = f(x) \) for \( x \in [a,b] \).
 \end{theorem}
 
 \begin{proof}
-Applying the Mean Value Theorem of Integration gives
-\[
-    F(x + h) - F(x) =  \int_x^{x + h} f(t)\,dt = f(\xi) h
-\]
-for some \( \xi \in (x, x + h) \).
+    Applying the Mean Value Theorem of Integration gives
+    \[
+        F(x + h) - F(x) =  \int_x^{x + h} f(t)\,dt = f(\xi) h
+    \]
+    for some \( \xi \in (x, x + h) \).
 \end{proof}
 \bigskip
 
 \begin{theorem}[Fundamental Theorem of Calculus]\label{thm:fund_calculus}
-Let \( F \in C^1[a,b] \) with \( F' = f \)  Then
-\[
-    F(b) -F(a) = \int_a^b f(t)\,dt
-\]
+    Let \( F \in C^1[a,b] \) with \( F' = f \)  Then
+    \[
+        F(b) -F(a) = \int_a^b f(t)\,dt
+    \]
 \end{theorem}
 \bigskip
 
 
 \begin{lemma}[Integration by Substitution]
-Let \( I \subseteq \R \) be an interval and \( f \in C(I) \). For \( \varphi \in C([a,b], I) \) it follows
-\[
-	\int_{\varphi(a)}^{\varphi(b)} f(x)\,dx = \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt
-\]
+    Let \( I \subseteq \R \) be an interval and \( f \in C(I) \). For \( \varphi \in C([a,b], I) \) it follows
+    \[
+        \int_{\varphi(a)}^{\varphi(b)} f(x)\,dx = \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt
+    \]
 \end{lemma}
 \begin{proof}
-Let \( F \in C^1(I) \) with \( F' = f \). Then the chain rule for differentiation yields
-\[
-	\begin{split}
-		\int_{\varphi(a)}^{\varphi(b)} f(x)\,dx 
-			&= F(\varphi(b)) - F(\varphi(a)) \\
-			&= F\circ\varphi(b) - F\circ\varphi(a) \\
-			&= \int_{a}^{b} (F\circ\varphi)'(t)\,dt \\
-			&= \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt
-	\end{split}
-\]
+    Let \( F \in C^1(I) \) with \( F' = f \). Then the chain rule for differentiation yields
+    \[
+        \begin{split}
+            \int_{\varphi(a)}^{\varphi(b)} f(x)\,dx
+            &= F(\varphi(b)) - F(\varphi(a)) \\
+            &= F\circ\varphi(b) - F\circ\varphi(a) \\
+            &= \int_{a}^{b} (F\circ\varphi)'(t)\,dt \\
+            &= \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt
+        \end{split}
+    \]
 \end{proof}
 \bigskip
 
 \begin{examples}\hfill
     \begin{enumerate}
-		\item For \( \varphi(x) = x^2 + 1 \) it is \( \varphi(0) = 1 \) and \( \varphi(2) = 5 \). Thus
-			\[
-				\int_0^2 x\cos(x^2 + 1)\,dx
-					= \frac{1}{2} \int_0^2 2x\cos(x^2 + 1)\,dx
-					= \frac{1}{2} \int_1^5 \cos(t)\,dt
-					= \frac{1}{2} (\sin(5) - \sin(1))
-			\]
-		\item Consider \( \varphi(x) = \sin(x) \) where \( \varphi(0) = 0 \) and \( \varphi(\pi / 2) = 1 \).
-			Since \( \cos(t) = \sqrt{1 - \sin^2(t)} \) it follows
-			\[
-				\int_0^1 \sqrt{1 - x^2}\,dx
-					= \int_{\cos(0)}^{\cos(\pi/2)} \sqrt{1 - x^2}\,dx
-					= \int_0^{\pi/2} \sqrt{1 - \sin^2(t)}\cos(t)\,dt
-					= \int_0^{\pi/2} \cos^2(t)\,dt
-			\]
-		\item Let \(f \in C[a,b] \) and \( \varphi(x) = a + t(b - a) \). Then
-			\[
-				\int_a^b f(x)\,dx = (b - a)\int_0^1 f(a + t(b - a))\,dt
-			\]
-		\item Let \(f(x) = x^n \) and \( \varphi(x) = t^m \). As expected
-			\[
-				\int_0^1 x^n\,dx
-					= \int_0^1 t^{nm} m t^{m - 1}\,dt
-					= m\int_0^1 t^{m(n + 1) - 1}\,dt
-					= \left[\frac{m}{m(n + 1)} t^{m(n + 1)}\right]_0^1 
-					= \frac{1}{n + 1}
-			\]
+        \item For \( \varphi(x) = x^2 + 1 \) it is \( \varphi(0) = 1 \) and \( \varphi(2) = 5 \). Thus
+              \[
+                  \int_0^2 x\cos(x^2 + 1)\,dx
+                  = \frac{1}{2} \int_0^2 2x\cos(x^2 + 1)\,dx
+                  = \frac{1}{2} \int_1^5 \cos(t)\,dt
+                  = \frac{1}{2} (\sin(5) - \sin(1))
+              \]
+        \item Consider \( \varphi(x) = \sin(x) \) where \( \varphi(0) = 0 \) and \( \varphi(\pi / 2) = 1 \).
+              Since \( \cos(t) = \sqrt{1 - \sin^2(t)} \) it follows
+              \[
+                  \int_0^1 \sqrt{1 - x^2}\,dx
+                  = \int_{\cos(0)}^{\cos(\pi/2)} \sqrt{1 - x^2}\,dx
+                  = \int_0^{\pi/2} \sqrt{1 - \sin^2(t)}\cos(t)\,dt
+                  = \int_0^{\pi/2} \cos^2(t)\,dt
+              \]
+        \item Let \(f \in C[a,b] \) and \( \varphi(x) = a + t(b - a) \). Then
+              \[
+                  \int_a^b f(x)\,dx = (b - a)\int_0^1 f(a + t(b - a))\,dt
+              \]
+        \item Let \(f(x) = x^n \) and \( \varphi(x) = t^m \). As expected
+              \[
+                  \int_0^1 x^n\,dx
+                  = \int_0^1 t^{nm} m t^{m - 1}\,dt
+                  = m\int_0^1 t^{m(n + 1) - 1}\,dt
+                  = \left[\frac{m}{m(n + 1)} t^{m(n + 1)}\right]_0^1
+                  = \frac{1}{n + 1}
+              \]
     \end{enumerate}
 \end{examples}
 \bigskip
@@ -263,101 +263,101 @@ Let \( F \in C^1(I) \) with \( F' = f \). Then the chain rule for differentiatio
 
 
 \begin{lemma}[Directional Derivative]\label{lemma:directional_derivative}
-Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). Then
-\[
-    \frac{\partial f}{\partial d}(x) = \gradient{f(x)}^T d
-\]
-for any \( d \in \Rn \).
+    Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). Then
+    \[
+        \frac{\partial f}{\partial d}(x) = \gradient{f(x)}^T d
+    \]
+    for any \( d \in \Rn \).
 \end{lemma}
 
 \begin{proof}
-Let \( \varphi(t) = f(x + td) \). Then \( \varphi \in C^1[-\eps, \eps ] \) for some \( \eps > 0 \) 
-and the chain rule yields 
-\[ 
-    \varphi'(t) = {\gradient f(x + td)}^T d 
-\]
-Hence
-\[
-    \varphi'(0) = \lim_{t \to 0} \frac{\varphi(x + td) - \varphi(0)}{t} = 
+    Let \( \varphi(t) = f(x + td) \). Then \( \varphi \in C^1[-\eps, \eps ] \) for some \( \eps > 0 \)
+    and the chain rule yields
+    \[
+        \varphi'(t) = {\gradient f(x + td)}^T d
+    \]
+    Hence
+    \[
+        \varphi'(0) = \lim_{t \to 0} \frac{\varphi(x + td) - \varphi(0)}{t} =
         \lim_{t \to 0} \frac{f(x + td) - f(x)}{t} = {\gradient f(x)}^T d
-\]
+    \]
 \end{proof}
 \bigskip
 
 \begin{remarks}\hfill
     \begin{enumerate}
-        \item Note that by definition the directional derivative is invariant under multiplication 
-            with any \( \lambda \ne 0 \).
+        \item Note that by definition the directional derivative is invariant under multiplication
+              with any \( \lambda \ne 0 \).
 
-        \item A similar proposition holds under the weaker assumption that \( d \) is a only feasable direction 
-            for \( f \) in \( x \)
+        \item A similar proposition holds under the weaker assumption that \( d \) is a only feasable direction
+              for \( f \) in \( x \)
 
         \item For \( d = \gradient{f(x)}/\| \gradient{f(x)}\| \) it follows that
-            \[
-                \frac{\partial f}{\partial d}(x) = \|\gradient{f(x)}\| > 0
-            \]
-            and for any other \( d \in \Rn \) with \( \|d\| = 1 \) the Cauchy Schwarz inequality yields
-            \[
-                |\frac{\partial f}{\partial d}(x)| = |\gradient{f(x)}^T d| \le \|\gradient{f(x)}\| \|d\| = 
-                    \|\gradient{f(x)}\|
-            \]
-            Hence \( \gradient{f(x)} \) is the direction of the greatest ascent and respectively, 
-            \( -\gradient{f(x)} \) is the direction of the greatest descent.
+              \[
+                  \frac{\partial f}{\partial d}(x) = \|\gradient{f(x)}\| > 0
+              \]
+              and for any other \( d \in \Rn \) with \( \|d\| = 1 \) the Cauchy Schwarz inequality yields
+              \[
+                  |\frac{\partial f}{\partial d}(x)| = |\gradient{f(x)}^T d| \le \|\gradient{f(x)}\| \|d\| =
+                  \|\gradient{f(x)}\|
+              \]
+              Hence \( \gradient{f(x)} \) is the direction of the greatest ascent and respectively,
+              \( -\gradient{f(x)} \) is the direction of the greatest descent.
     \end{enumerate}
 \end{remarks}
 \bigskip
 
 
 \begin{theorem}[First Order Necessary Condition]\label{thm:fonc}
-Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is a local minimzer then
-\( \gradient f(x^*) = 0 \).
+    Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). If \( x^* \in \Omega \) is a local minimzer then
+    \( \gradient f(x^*) = 0 \).
 \end{theorem}
 
 \begin{proof}
-Let \( h \in \Rn \) and \( \delta > 0 \) so that \( x^* + th \in \Omega \) for all \( t \in (-\delta, \delta) \). 
-Then \( 0 \) is local minimizer for \( \varphi(t) = f(x^* + th) \) and
-\[
-    \varphi'(0) = {\gradient f(x^*)}^T h = 0
-\]
-Now let \( h = \gradient f(x^*) \). 
+    Let \( h \in \Rn \) and \( \delta > 0 \) so that \( x^* + th \in \Omega \) for all \( t \in (-\delta, \delta) \).
+    Then \( 0 \) is local minimizer for \( \varphi(t) = f(x^* + th) \) and
+    \[
+        \varphi'(0) = {\gradient f(x^*)}^T h = 0
+    \]
+    Now let \( h = \gradient f(x^*) \).
 \end{proof}
-\bigskip 
+\bigskip
 
 
 \begin{theorem}[Banach Fixed-Point Theorem]\label{thm:banach_fix_point}
-Let \( X \) be a Banach space and \( f \in C(X,X) \) a contraction
-\[
-    \|f(x) - f(y)\| \le q \|x - y\| \text{ for all } x, y \in X
-\]
-for some \( 0 < q < 1 \). Then there exists a unique fix point \( x^* \in X \) with 
-\[
-     f(x^*) = x^*
-\]
-Furthermore for any \( x_0 \in X \) the sequence defined by
-\[
-     x_{n+1} = f(x_n)
-\]
-converges aganist \( x^* \).
+    Let \( X \) be a Banach space and \( f \in C(X,X) \) a contraction
+    \[
+        \|f(x) - f(y)\| \le q \|x - y\| \text{ for all } x, y \in X
+    \]
+    for some \( 0 < q < 1 \). Then there exists a unique fix point \( x^* \in X \) with
+    \[
+        f(x^*) = x^*
+    \]
+    Furthermore for any \( x_0 \in X \) the sequence defined by
+    \[
+        x_{n+1} = f(x_n)
+    \]
+    converges aganist \( x^* \).
 \end{theorem}
 
 \begin{proof}
-Since \( \| x_{n+1} - x_n\| =\| f(x_n) - f(x_{n-1})\| \le q\| x_n - x_{n-1}\| \) it follows, that
-\[ 
-    \| x_{n+1} - x_n\| \le q^n  \|x_1 - x_0\| 
-\] 
-Furthermore
-\[ 
-    \| x_n - x_m\| \le \sum_{k=m}^n q^k \|x_1 - x_0\| = \frac{q^m - q^{n+1}}{1 - q} \|x_1 - x_0\| 
-\] 
-and \( (x_n) \) is a Cauchy sequence. For its limit \( x^* \) we have
-\[ 
-   x^* = \lim_{n\to\infty} x_{n+1} = \lim_{n\to\infty} f(x_n) = f(x^*)
-\] 
-For any other \( y^* \in X \) with \( f(y^*) = y^* \) it follows, that
-\[
-    \|x^* - y^*\| = \|f(x^*) - f(y^*)\| \le q \|x^* - y^*\|
-\]
-and therefore \( x^* = y^*\).
+    Since \( \| x_{n+1} - x_n\| =\| f(x_n) - f(x_{n-1})\| \le q\| x_n - x_{n-1}\| \) it follows, that
+    \[
+        \| x_{n+1} - x_n\| \le q^n  \|x_1 - x_0\|
+    \]
+    Furthermore
+    \[
+        \| x_n - x_m\| \le \sum_{k=m}^n q^k \|x_1 - x_0\| = \frac{q^m - q^{n+1}}{1 - q} \|x_1 - x_0\|
+    \]
+    and \( (x_n) \) is a Cauchy sequence. For its limit \( x^* \) we have
+    \[
+        x^* = \lim_{n\to\infty} x_{n+1} = \lim_{n\to\infty} f(x_n) = f(x^*)
+    \]
+    For any other \( y^* \in X \) with \( f(y^*) = y^* \) it follows, that
+    \[
+        \|x^* - y^*\| = \|f(x^*) - f(y^*)\| \le q \|x^* - y^*\|
+    \]
+    and therefore \( x^* = y^*\).
 
 \end{proof}
 \bigskip

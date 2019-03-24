@@ -8,56 +8,56 @@
 	\coordinate (perp) at ($(A)!(C)!(B)$);
 	\draw[purple!70!black,thick,dashed] (C) -- (perp);
 
-	\draw[#1] 
-	  (C) -- 
-	  node[auto] {$b$} (A) -- 
-	  node[auto] {$c$} (B) --
-	  node[auto] {$a$} 
-	  (C)
-	  pic ["$\alpha$",draw,cyan,thick,angle radius=1cm] {angle = C--A--B} 
-	  pic ["$\alpha$",draw,cyan,thick,angle radius=1cm] {angle = B--C--perp}
-	  pic ["$\beta$",draw,orange!70!black,thick,angle radius=1cm] {angle = A--B--C}
-	  pic ["$\beta$",draw,orange!70!black,thick,angle radius=1cm] {angle = perp--C--A};
+	\draw[#1]
+	(C) --
+	node[auto] {$b$} (A) --
+	node[auto] {$c$} (B) --
+	node[auto] {$a$}
+	(C)
+	pic ["$\alpha$",draw,cyan,thick,angle radius=1cm] {angle = C--A--B}
+	pic ["$\alpha$",draw,cyan,thick,angle radius=1cm] {angle = B--C--perp}
+	pic ["$\beta$",draw,orange!70!black,thick,angle radius=1cm] {angle = A--B--C}
+	pic ["$\beta$",draw,orange!70!black,thick,angle radius=1cm] {angle = perp--C--A};
 }
 
 \newcommand\plotgoldensection{
-    \begin{tikzpicture}
-        \draw(0,0)--(10,0);
-        \draw(0,-5pt)--(0,5pt) node[above] {$ 0 $};
-        \draw(3.81,-5pt)--(3.81,5pt) node[above] {$ \sigma \approx 0.38196 $};
-        \draw(6.18,-5pt)--(6.18,5pt) node[above] {$ \tau \approx 0.61803 $};
-        \draw(10,-5pt)--(10,5pt) node[above] {$ 1 $};
-        \draw[decorate, decoration={brace, mirror, amplitude=6pt}, yshift=-2.5ex] (0,0) -- node[below=1.8ex] {$ \sigma = 1 - \tau $} (3.81,0);
-        \draw[decorate, decoration={brace, mirror, amplitude=6pt}, yshift=-2.5ex] (3.81,0) -- node[below=1.8ex] {$ \tau $} (10,0);
-    \end{tikzpicture}
+	\begin{tikzpicture}
+		\draw(0,0)--(10,0);
+		\draw(0,-5pt)--(0,5pt) node[above] {$ 0 $};
+		\draw(3.81,-5pt)--(3.81,5pt) node[above] {$ \sigma \approx 0.38196 $};
+		\draw(6.18,-5pt)--(6.18,5pt) node[above] {$ \tau \approx 0.61803 $};
+		\draw(10,-5pt)--(10,5pt) node[above] {$ 1 $};
+		\draw[decorate, decoration={brace, mirror, amplitude=6pt}, yshift=-2.5ex] (0,0) -- node[below=1.8ex] {$ \sigma = 1 - \tau $} (3.81,0);
+		\draw[decorate, decoration={brace, mirror, amplitude=6pt}, yshift=-2.5ex] (3.81,0) -- node[below=1.8ex] {$ \tau $} (10,0);
+	\end{tikzpicture}
 }
 
 \newcommand\plotsigmoid{
 	\begin{tikzpicture}
-	    \begin{axis}[
-	    	legend pos=north west,
-	        axis x line=middle,
-	        axis y line=middle,
-	        x tick label style={/pgf/number format/fixed, /pgf/number format/fixed zerofill,
-	                            /pgf/number format/precision=1},
-	        y tick label style={/pgf/number format/fixed, /pgf/number format/fixed zerofill,
-	                            /pgf/number format/precision=1},
-	        grid = major,
-	        width=10cm,
-	        height=5cm,
-	        grid style={dashed, gray!30},
-	        xmin=-1,
-	        xmax= 1,
-	        ymin= 0,
-	        ymax= 1,
-	        axis background/.style={fill=white},
-	        xlabel=x,
-	        ylabel=y,
-	        tick align=outside,
-	        enlargelimits=false]
-	      \addplot[domain=-1:1,samples=500] {1/(1+exp(-10*x))};
-	      % \addlegendentry{$ \sigmoid(x) = \frac{1}{1+e^{-x}} $}
-	    \end{axis}
+		\begin{axis}[
+				legend pos=north west,
+				axis x line=middle,
+				axis y line=middle,
+				x tick label style={/pgf/number format/fixed, /pgf/number format/fixed zerofill,
+						/pgf/number format/precision=1},
+				y tick label style={/pgf/number format/fixed, /pgf/number format/fixed zerofill,
+						/pgf/number format/precision=1},
+				grid = major,
+				width=10cm,
+				height=5cm,
+				grid style={dashed, gray!30},
+				xmin=-1,
+				xmax= 1,
+				ymin= 0,
+				ymax= 1,
+				axis background/.style={fill=white},
+				xlabel=x,
+				ylabel=y,
+				tick align=outside,
+				enlargelimits=false]
+			\addplot[domain=-1:1,samples=500] {1/(1+exp(-10*x))};
+			% \addlegendentry{$ \sigmoid(x) = \frac{1}{1+e^{-x}} $}
+		\end{axis}
 	\end{tikzpicture}
 }
 
@@ -74,6 +74,6 @@
 		\draw[-stealth](0,0) -- (3,1) node[anchor=south east]{$\boldsymbol{y}$};
 		\draw[-stealth](0,0) -- (2,1.5) node[anchor=south east]{$\boldsymbol{w = x + y}$};
 		\draw [black] (56.30:0.5) arc [start angle=56.30, end angle=153.43, radius=0.5cm]
- 		   node [above right] {$ \alpha_1 > \ang{90} $}; 
-    \end{tikzpicture}
+		node [above right] {$ > \ang{90} $};
+	\end{tikzpicture}
 }

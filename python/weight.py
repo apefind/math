@@ -1,4 +1,3 @@
-import math
 from random import randint
 
 
@@ -6,24 +5,16 @@ def add(v, w):
     return tuple(x + y for x, y in zip(v, w))
 
 
-def crossprod(v, w):
+def dotproduct(v, w):
     return sum(x * y for x, y in zip(v, w))
 
 
-def norm(v):
-    return math.sqrt(crossprod(v, v))
-
-
-def angle(v, w):
-    return math.degrees(math.acos(crossprod(v, w) / (norm(v) * norm(w))))
-    
-    
 def weight(x, y):
     w = add(x, y)
     while True:
-        if crossprod(w, x) < 0:
+        if dotproduct(w, x) < 0:
             w = add(w, x)
-        elif crossprod(w, y) < 0:
+        elif dotproduct(w, y) < 0:
             w = add(w, y)
         else:
             return w
@@ -33,7 +24,7 @@ def test_weight(x, y):
     print(f'x = {x}, y = {y}')
     i, w = 0, add(x, y)
     while True:
-        a, b = crossprod(w, x), crossprod(w, y)
+        a, b = dotproduct(w, x), dotproduct(w, y)
         print(f'    w{i} = {w}, w{i} * x = {a}, w{i} * y = {b}')
         if a < 0:
             w = add(w, x)
