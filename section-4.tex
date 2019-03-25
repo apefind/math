@@ -8,7 +8,7 @@
     \begin{enumerate}
         \item A \emph{binary classification problem} is the task to find a mapping \( f: X \to \{ 0, 1 \} \) with
               \[
-                  f(x) = \left\{
+                  f(x) = \left \{
                   \begin{array}{ll}
                       1 & \text{ for } x \in M \\
                       0 & \text{ for } x \in N
@@ -26,7 +26,7 @@
         \item The weight \( w \) and the bias \( b \) are called \emph{solution to the classification problem}.
               They implicitly define a binary classifier via
               \[
-                  f(x) = \left\{
+                  f(x) = \left \{
                   \begin{array}{ll}
                       1 & \text{ if } wx + b > 0 \\
                       0 & \text{ if } wx + b < 0
@@ -85,7 +85,7 @@ Note, that the sign does not depend on the vector lengths, but solely on the ang
 
 For any two vectors it is easy enough to find a weight that satisfies \( wx > 0 \) and \( wy > 0 \).
 Generally \( w = x + y \) is a good guess, but not always correct as shown below in
-\hyperref[fig:vectorangle]{Figure \ref*{fig:vectorangle}}.
+\hyperref[fig:vectorangle]{Figure~\ref*{fig:vectorangle}}.
 
 \bigskip
 \begin{figure}[H]
@@ -100,10 +100,10 @@ Actually the threshold is tbd.
 An iterative approach is to increase \( w = x + y \) in the direction of vector with the angle greater
 than \( \ang{90} \) degrees.
 \[
-    w_{n + 1} = \left\{
+    w_{n + 1} = \left \{
     \begin{array}{ll}
-        w_n + x & \text{ if } w_nx < 0 \\
-        w_n + y & \text{ if } w_ny < 0 \\
+        w_n + x & \text{ if } w_n x < 0 \\
+        w_n + y & \text{ if } w_n y < 0 \\
     \end{array}
 \]
 \bigskip
@@ -132,16 +132,14 @@ than \( \ang{90} \) degrees.
 \end{examples}
 
 
-\begin{algorithm}[Weight]
-    \label{algo:weight}
+\begin{algorithm}[Weight]\label{algo:weight}
 \end{algorithm}
 \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/weight.py}
 \bigskip
 
 
 
-\begin{algorithm}[Perceptron]
-    \label{algo:perceptron}
+\begin{algorithm}[Perceptron]\label{algo:perceptron}
 \end{algorithm}
 \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/perceptron.py}
 \bigskip
@@ -154,7 +152,7 @@ than \( \ang{90} \) degrees.
     \begin{enumerate}
         \item The \emph{Heaviside} function \( H: \R \to \{ 0, 1 \} \) is defined as
               \[
-                  H(x) = \left\{
+                  H(x) = \left \{
                   \begin{array}{ll}
                       1 & \text{ for } x > 0  \\
                       0 & \text{ for }x \le 0
@@ -173,7 +171,7 @@ than \( \ang{90} \) degrees.
 \begin{figure}[H]
     \centering
     \plotsigmoid
-    \caption{The sigmoid function $ \sigmoid(x) = \frac{1}{1 + e^{-x}} $}\label{fig:sigmoid}
+    \caption{The sigmoid function \( \sigmoid(x) = \frac{1}{1 + e^{-x}} \)}\label{fig:sigmoid}
 \end{figure}
 \bigskip
 
@@ -188,7 +186,7 @@ than \( \ang{90} \) degrees.
         \item The quotient rule yields
               \[
                   \sigmoid'(x)
-                  = -\frac{-e^{-x}}{(1 + e^{-x})^2}
+                  = -\frac{-e^{-x}}{{(1 + e^{-x})}^2}
                   = \sigmoid(x) \frac{1 + e^{-x} - 1}{1 + e^{-x}}
                   = \sigmoid(x)(1 - \sigmoid(x))
               \]
@@ -196,6 +194,3 @@ than \( \ang{90} \) degrees.
     \end{enumerate}
 \end{remarks}
 \bigskip
-
-
-``''

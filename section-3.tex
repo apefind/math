@@ -47,7 +47,7 @@ The ratio between the area \( A \) and \( A' \) of two similar shapes is given b
 \begin{proof}
 	For any point the distance from the origin with regard to the two representations is given by
 	\[
-		\log \frac{R + r}{R - r} = \frac{1}{2} \log \frac{R + r'}{R - r'} = \log \frac{(R + r')^2}{(R - r')^2}
+		\log \frac{R + r}{R - r} = \frac{1}{2} \log \frac{R + r'}{R - r'} = \log \frac{{(R + r')}^2}{{(R - r')}^2}
 	\]
 	This gives
 	\[
@@ -159,8 +159,8 @@ Let \( t \in \R \). Then
 		& = \sum_{k=0}^\infty \frac{1}{k!} {(\iu t)}^k \\
 		& = \sum_{k=0}^\infty \frac{1}{2k!} {(\iu t)}^{2k} +
 		\sum_{k=0}^\infty \frac{1}{(2k + 1)!} {(\iu t)}^{2k + 1} \\
-		& = \sum_{k=0}^\infty \frac{(-1)^k}{2k!} t^{2k} +
-		\iu\sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} t^{2k + 1} \\
+		& = \sum_{k=0}^\infty \frac{{(-1)}^k}{2k!} t^{2k} +
+		\iu\sum_{k=0}^\infty \frac{{(-1)}^k}{(2k + 1)!} t^{2k + 1} \\
 		& = \cos{t} + \iu\sin{t}
 	\end{split}
 \]
@@ -204,15 +204,15 @@ and for \( t = 2\pi \) we get
 				      \sin{(s + t)} & = \cos{s}\sin{t} + \sin{s}\cos{t}
 			      \end{split}
 		      \]
-		\item It is \( \eu^{3it} = (\eu^{it})^3 \) and thus
+		\item It is \( \eu^{3it} = {(\eu^{it})}^3 \) and thus
 		      \[
 			      \cos{3t} + \iu \sin{3t}
-			      = (\cos{t} + \iu\sin{t})^3
+			      = {(\cos{t} + \iu\sin{t})}^3
 			      = \cos^3{t} - 3\cos{t}\sin^2(t) + \iu(\cos^2{t}\sin{t} -\sin^3{t})
 		      \]
 		\item Fun facts
 		      \[
-			      \eu^{1 - 4\pi^2} = \eu^{1 + (2\iu\pi)^2} = \eu \eu^{2\pi\iu}\eu^{2\pi\iu} = \eu
+			      \eu^{1 - 4\pi^2} = \eu^{1 + {(2\iu\pi)}^2} = \eu \eu^{2\pi\iu}\eu^{2\pi\iu} = \eu
 		      \]
 		      and \( \iu = \eu^{\iu\pi/2} \) gives
 		      \[
@@ -368,7 +368,7 @@ there exists a \( t \in [0,2\pi] \), so that \( z = |z|e^{\iu t} \) and hence \(
 \bigskip
 
 
-Let \( \gamma: [a,b] \to \C \) be a smooth path and \( a = t_0 < t_1 < \dots < t_n = b \)
+Let \( \gamma: [a,b] \to \C \) be a smooth path and \( a = t_0 < t_1 < \cdots < t_n = b \)
 a partioning of \( [a,b] \). Then
 \[
 	\sum_{k = 1}^n |\gamma(t_k) - \gamma(t_{k - 1})|
@@ -399,8 +399,8 @@ yields a reasonable approximation of the length of the path. Hence
 \begin{proof} Using the definition above
 	\[
 		\left| \int_{\gamma} f(z)\,dz \right|
-		= \left| \int_a^b f(\gamma(t))\gamma'(t))\,dt \right|
-		\le \int_a^b |f(\gamma(t))\gamma'(t))|\,dt
+		= \left| \int_a^b f(\gamma(t))\gamma'(t)\,dt \right|
+		\le \int_a^b |f(\gamma(t))\gamma'(t)|\,dt
 		\le  \max_{\gamma[a.b]}f \int_a^b |\gamma'(t)|\,dt
 	\]
 \end{proof}
@@ -412,19 +412,17 @@ yields a reasonable approximation of the length of the path. Hence
 		\item Let \( \gamma(t) = t + \iu t \). Then
 		      \[
 			      \int_{\gamma} z^2\,dz
-			      = \int_0^1 (t + \iu t)^2(1 + \iu)\,dt
+			      = \int_0^1 {(t + \iu t)}^2(1 + \iu)\,dt
 			      = (1 + \iu)\int_0^1 2\iu t^2\,dt
-			      = \left[ (-2 + 2\iu) t^2 \right]_0^1
+				      = {\left[ (-2 + 2\iu) t^2 \right]}_0^1
 			      = -\frac{2}{3} + \iu \frac{2}{3}
 		      \]
 		\item For \( \gamma(t) = t^2 + \iu t \)
 		      \[
 			      \begin{split}
 				      \int_\gamma z^2\,dz
-				      & = \int_0^1 (t^2 + \iu t)^2(2 + \iu t)\,dt
-				      = \int_0^1 (2t^5 -  4t^3) + \iu(5t^4 - t^2t)\,dt \\
-				      & = \left[ \frac{1}{3} t^6 - t^4 \right]_0^1 +
-				      \iu\left[ t^5 - \frac{1}{3}t^3 \right]_0^1
+				      & = \int_0^1 {(t^2 + \iu t)}^2(2 + \iu t)\,dt = \int_0^1 (2t^5 - 4t^3) + \iu(5t^4 - t^2t)\,dt \\
+				      & = {\left[ \frac{1}{3} t^6 - t^4 \right]}_0^1 + \iu {\left[ t^5 - \frac{1}{3}t^3 \right]}_0^1
 				      = -\frac{2}{3} + \iu \frac{2}{3}
 			      \end{split}
 		      \]
@@ -432,10 +430,10 @@ yields a reasonable approximation of the length of the path. Hence
 		      \[
 			      \begin{split}
 				      \int_\gamma z^2\,dz
-				      & = \int_{3/2\pi}^{2\pi} (\iu + \eu^{\iu t})^2\iu\eu^{\iu t}\,dt
+				      & = \int_{3/2\pi}^{2\pi} {(\iu + \eu^{\iu t})}^2\iu\eu^{\iu t}\,dt
 				      = \int_{3/2\pi}^{2\pi} (-1 + 2\iu\eu^{\iu t} + \eu^{2\iu t})\iu\eu^{\iu t}\,dt \\
 				      & = \int_{3/2\pi}^{2\pi} -\iu\eu^{\iu t} - 2\eu^{2\iu t} + \iu\eu^{3\iu t}\,dt
-				      = \left[(-\eu^{\iu t} + \iu\eu^{2\iu t} + \frac{1}{3}\eu^{3\iu t}\right]_{3/2\pi}^{2\pi} \\
+					      = {\left[ -\eu^{\iu t} + \iu\eu^{2\iu t} + \frac{1}{3}\eu^{3\iu t}\right]}_{3/2\pi}^{2\pi} \\
 				      & = \left( -1 + \iu + \frac{1}{3} \right) - \left( \iu - \iu + \frac{1}{3}\iu \right)
 				      = -\frac{2}{3} + \iu \frac{2}{3}
 			      \end{split}
@@ -512,12 +510,12 @@ yields a reasonable approximation of the length of the path. Hence
 		      \[
 			      \int_\gamma \frac{1}{z - z_0}\,dz
 			      = \int_0^{2\pi} \frac{\iu \eu^{\iu t}}{z_0 + \eu^{\iu t} - z_0}\,dt
-			      = \int_0^{2\pi} \iu\,dt
+			      = \int_0^{2\pi} \iu \, dt
 			      = 2\pi\iu
 		      \]
 		      and thus \( 1/ (z - z_0 ) \) has no antiderivative on \( \C \setminus \{z_0\} \)
 		\item Let \( z_0 \in \C \) and \( z \in D = D_r(z_0) \). Applying
-		      \hyperref[thm:thm_antiderivative]{Theorem \ref*{thm:thm_antiderivative}}.
+		      \hyperref[thm:thm_antiderivative]{Theorem~\ref*{thm:thm_antiderivative}}.
 		      to \( \boundary D \) and a small enough circle around \( z \) gives
 		      \[
 			      \int_{\boundary D} \frac{1}{\zeta - z}\,d\zeta
@@ -557,7 +555,7 @@ yields a reasonable approximation of the length of the path. Hence
 			\left| \int_{\boundary\triangle} f(z)\,dz \right|
 			& \le 4^k L(\boundary\triangle_k) \max_{z \in \triangle_k} |f(z) - f(z_0) - f'(z_0)(z - z_0)| \\
 			& \le 4^k L(\boundary\triangle_k) \,\eps \max_{z \in \triangle_k} |z - z_0| \\
-			& \le L(\boundary\triangle)^2 \,\eps
+			& \le {L(\boundary\triangle)}^2 \,\eps
 		\end{split}
 	\]
 \end{proof}

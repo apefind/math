@@ -39,7 +39,7 @@
               \]
               where defined. Especially for \( x \ne 0 \)
               \[
-                  \log'(x) = \frac{1}{\exp'(\log(x)} = \frac{1}{x}
+                  \log'(x) = \frac{1}{\exp'(\log(x))} = \frac{1}{x}
               \]
 
         \item \( (1 - q) (1 + q + q^2 + \cdots + q^n) = 1 - q + q - q^2 + q^2 - q^3 + \cdots + q^{n+1} \) gives
@@ -63,10 +63,10 @@
                   \exp(0) = 1
               \]
               \[
-                  \exp(-x) = \exp(x)^{-1}
+                  \exp(-x) = {\exp(x)}^{-1}
               \]
               \[
-                  \exp(nx) = \exp(x)^n
+                  \exp(nx) = {\exp(x)}^n
               \]
         \item For the derivative
               \[
@@ -83,23 +83,23 @@
         \item Sinus and Cosinus power series
               \[
                   \begin{split}
-                      \cos(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} x^{2k} \\
-                      \sin(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} x^{2k + 1}
+                      \cos(x) &= \sum_{k=0}^\infty \frac{{(-1)}^k}{2k!} x^{2k} \\
+                      \sin(x) &= \sum_{k=0}^\infty \frac{{(-1)}^k}{(2k + 1)!} x^{2k + 1}
                   \end{split}
               \]
         \item Symmetry
               \[
                   \begin{split}
-                      \cos(-x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} {(-x)}^{2k} = \cos(x) \\
-                      \sin(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{(2k + 1)!} {(-x)}^{2k + 1} = -\sin(x)
+                      \cos(-x) &= \sum_{k=0}^\infty \frac{{(-1)}^k}{2k!} {(-x)}^{2k} = \cos(x) \\
+                      \sin(x) &= \sum_{k=0}^\infty \frac{{(-1)}^k}{(2k + 1)!} {(-x)}^{2k + 1} = -\sin(x)
                   \end{split}
               \]
         \item Derivatives
               \[
                   \begin{split}
-                      \cos'(x) &= \sum_{k=1}^\infty \frac{(-1)^k}{(2k - 1)!} x^{2k - 1}
-                      = \sum_{k=0}^\infty \frac{(-1)^{k + 1}}{(2k + 1)!} x^{2k + 1} = -\sin(x) \\
-                      \sin'(x) &= \sum_{k=0}^\infty \frac{(-1)^k}{2k!} {x}^{2k} = \cos(x)
+                      \cos'(x) &= \sum_{k=1}^\infty \frac{{(-1)}^k}{(2k - 1)!} x^{2k - 1}
+                      = \sum_{k=0}^\infty \frac{{(-1)}^{k + 1}}{(2k + 1)!} x^{2k + 1} = -\sin(x) \\
+                      \sin'(x) &= \sum_{k=0}^\infty \frac{{(-1)}^k}{2k!} {x}^{2k} = \cos(x)
                   \end{split}
               \]
     \end{enumerate}
@@ -118,7 +118,7 @@
     \[
         \frac{f(x^* + h) - f(x^*)}{h} > \delta
     \]
-    Pick a negative \( h \in [-\eps, 0) \). Then
+    Pick a negative \( h \in [-\eps, 0) \). Then   % chktex 9
     \[
         f(x^* + h) < f(x^*) +  \delta h < f(x^*)
     \]
@@ -251,7 +251,7 @@
                   \int_0^1 x^n\,dx
                   = \int_0^1 t^{nm} m t^{m - 1}\,dt
                   = m\int_0^1 t^{m(n + 1) - 1}\,dt
-                  = \left[\frac{m}{m(n + 1)} t^{m(n + 1)}\right]_0^1
+                  = {\left[\frac{m}{m(n + 1)} t^{m(n + 1)}\right]}_0^1
                   = \frac{1}{n + 1}
               \]
     \end{enumerate}
