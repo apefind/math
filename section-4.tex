@@ -18,7 +18,7 @@
               \( f \) then is called a \emph{binary classifier} for \( X \)
         \item \( X \) is called \emph{separable} if there exists a \emph{weight vector} \( w \in \R^n \)
               and a \emph{bias} \( b \in \R \) so that
-              \[ 
+              \[
                   \begin{split}
                       wx + b & > 0 \hspace{1em}\text{ for } x \in M \\
                       wx + b & < 0 \hspace{1em}\text{ for } x \in N
@@ -92,13 +92,13 @@ Generally \( w = x + y \) is a good guess, but not always correct as shown below
 \bigskip
 \begin{figure}[H]
     \centering
-    \plotvectorangle
+    \plotvectorangle{}
     \caption{Dot Product and Angle}\label{fig:vectorangle}
 \end{figure}
 \bigskip
 
 But, the more similar the lengths of the two vectors are the more likely \( x + y \) works.
-Actually the threshold is TBD.
+Actually the threshold is tbd.
 An iterative approach is to increase \( w = x + y \) in the direction of vector with the angle greater
 than \( \ang{90} \) degrees.
 \[
@@ -115,7 +115,7 @@ than \( \ang{90} \) degrees.
     \hfill
     \begin{enumerate}
         \item Let \( x = (-1, 1) \) and \( y = (6, 1) \). Then
-        \[
+              \[
                   \begin{aligned}
                       w_0 & = (5, 2) & w_0x & = -3 & w_0y & = 32 \\
                       w_1 & = (4, 3) & w_1x & = -1 & w_1y & = 27 \\
@@ -123,12 +123,12 @@ than \( \ang{90} \) degrees.
                   \end{aligned}
               \]
         \item Let \( x = (4, -6) \) and \( y = (-10, 5) \). Then
-            \[
-                \begin{aligned}
-                      w_0 & = (-6, -1)  & w_0x & = -18 & w_0y & = 55 \\
+              \[
+                  \begin{aligned}
+                      w_0 & = (-6, -1)  & w_0x & = -18 & w_0y & = 55  \\
                       w_1 & = (-2, -7)  & w_1x & = 34  & w_1y & = -15 \\
                       w_2 & = (-12, -2) & w_2x & = -36 & w_2y & = 110 \\
-                      w_3 & = (-8, -8)  & w_3x & = 16  & w_3y & = 40 \\
+                      w_3 & = (-8, -8)  & w_3x & = 16  & w_3y & = 40  \\
                   \end{aligned}
               \]
     \end{enumerate}
@@ -173,7 +173,7 @@ than \( \ang{90} \) degrees.
 
 \begin{figure}[H]
     \centering
-    \plotsigmoid
+    \plotsigmoid{}
     \caption{The sigmoid function \( \sigmoid(x) = \frac{1}{1 + e^{-x}} \)}\label{fig:sigmoid}
 \end{figure}
 \bigskip

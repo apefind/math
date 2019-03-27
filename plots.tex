@@ -1,5 +1,5 @@
 
-\newcommand\plotrectriangle[4][thick,green!50!black,text=black]{%
+\newcommand{\plotrectriangle}[4][thick,green!50!black,text=black]{%
 	\coordinate [label=left:$C$] (C) at #2;
 	\coordinate [label=below right:$B$] (B) at #3;
 	\coordinate (aux) at ($ #2 ! 1 ! 90:#3 $);
@@ -20,7 +20,7 @@
 	pic ["$\beta$",draw,orange!70!black,thick,angle radius=1cm] {angle = perp--C--A};
 }
 
-\newcommand\plotgoldensection{
+\newcommand{\plotgoldensection}{
 	\begin{tikzpicture}
 		\draw(0,0)--(10,0);
 		\draw(0,-5pt)--(0,5pt) node[above] {$ 0 $};
@@ -32,7 +32,7 @@
 	\end{tikzpicture}
 }
 
-\newcommand\plotsigmoid{
+\newcommand{\plotsigmoid}{
 	\begin{tikzpicture}
 		\begin{axis}[
 				legend pos=north west,
@@ -61,7 +61,7 @@
 	\end{tikzpicture}
 }
 
-\newcommand\plotvectorangle{
+\newcommand{\plotvectorangle}{
 	\begin{tikzpicture}
 		\draw[thin,gray!40] (-2,-1) grid(3,3);
 		\draw[-stealth](0,0) -- (-1,1) node[anchor=north east]{$\boldsymbol{x}$};
