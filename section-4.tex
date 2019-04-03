@@ -135,6 +135,21 @@ than \( \ang{90} \) degrees.
 \end{examples}
 
 
+\begin{remarks}
+    \hfill
+    \begin{enumerate}
+        \item Let \( \|x\| = \|y\| \). Then \( x + y \) obviously divides the angle equally. It is
+            \[
+                x(x + y) = \|x\| \|x + y\| \cos\beta = \|y\|\|x + y\| \cos\gamma = y(x + y)
+            \]
+            and hence \( \beta = \gamma \). Furthermore
+            \[
+                x(x + y) = xx + xy = {\|x\|}^2 + \|x\| \|y\| \cos\alpha = {\|y\|}^2 + \|x\| \|y\| \cos\alpha = y(x + y)
+            \]
+    \end{enumerate}
+\end{remarks}
+\bigskip
+
 \begin{algorithm}[Weight]\label{algo:weight}
 \end{algorithm}
 \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/weight.py}
