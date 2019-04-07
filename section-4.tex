@@ -72,7 +72,7 @@
 The idea for the perceptron most likely has its origin in a simple geometrical observation.
 Recall that for \( x, y \in \R^n \) the dot product can be expressed as
 \[
-    xy = \|x\| \|y\| \cos \alpha
+    xy = \|x\| \|y\| \cos\alpha
 \]
 where \( \alpha \) is the angle between the two vectors. Hence the product is positive
 if the angle is less than \( \ang{90} \) degrees and negative if the angle is between \( \ang{90} \)
@@ -98,7 +98,6 @@ Generally \( w = x + y \) is a good guess, but not always correct as shown below
 \bigskip
 
 But, the more similar the lengths of the two vectors are the more likely \( x + y \) works.
-Actually the threshold is tbd.
 An iterative approach is to increase \( w = x + y \) in the direction of vector with the angle greater
 than \( \ang{90} \) degrees.
 \[
@@ -131,23 +130,23 @@ than \( \ang{90} \) degrees.
                       w_3 & = (-8, -8)  & w_3x & = 16  & w_3y & = 40  \\
                   \end{aligned}
               \]
+        \item Let \( \|x\| < \|y\| \) and \( \cos\alpha < 0 \). Then
+              \[
+                  \begin{split}
+                      x(x + y) & = xx + xy = {\|x\|}^2 + \|x\| \|y\| \cos\alpha \\
+                      x(x + y) & = \|x\| \|x + y\| \cos\beta
+                  \end{split}
+              \]
+              and
+              \[
+                  {\|x + y\|}\cos\beta = \|x\| + \|y\|\cos\alpha > 0
+              \]
+              Hence \( \cos\beta > 0 \) if
+              \[
+                  \|x\| > -\|y\|\cos\alpha
+              \] 
     \end{enumerate}
 \end{examples}
-
-
-\begin{remarks}
-    \hfill
-    \begin{enumerate}
-        \item Let \( \|x\| = \|y\| \). Then \( x + y \) obviously divides the angle equally. It is
-            \[
-                x(x + y) = \|x\| \|x + y\| \cos\beta = \|y\|\|x + y\| \cos\gamma = y(x + y)
-            \]
-            and hence \( \beta = \gamma \). Furthermore
-            \[
-                x(x + y) = xx + xy = {\|x\|}^2 + \|x\| \|y\| \cos\alpha = {\|y\|}^2 + \|x\| \|y\| \cos\alpha = y(x + y)
-            \]
-    \end{enumerate}
-\end{remarks}
 \bigskip
 
 \begin{algorithm}[Weight]\label{algo:weight}

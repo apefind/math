@@ -13,7 +13,7 @@ all: doc
 new: clean doc
 doc: $(main).pdf
 run:
-	echo $(latexmk) $(latexmkopt) $(continuous) -pdflatex="$(latex) $(latexopt) $(nonstop) %O %S" $(main)
+	$(latexmk) $(latexmkopt) $(continuous) -pdflatex="$(latex) $(latexopt) $(nonstop) %O %S" $(main)
 clean:
 	$(latexmk) -c $(main)
 	rm -f $(main).pdf $(main).pdfsync
