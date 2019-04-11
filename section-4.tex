@@ -97,9 +97,35 @@ Generally \( w = x + y \) is a good guess, but not always correct as shown below
 \end{figure}
 \bigskip
 
-But, the more similar the lengths of the two vectors are the more likely \( x + y \) works.
-An iterative approach is to increase \( w = x + y \) in the direction of vector with the angle greater
-than \( \ang{90} \) degrees.
+But, the more similar the lengths of the two vectors are the more likely \( x + y \) works. 
+The actual theshold is given by the following lemma.
+
+\begin{lemma}
+    Let \( x, y \in \Rn \) with \( \|x\| < \|y\| \) and \( xy = \|x\| \|y\| \cos\alpha < 0\). If 
+    \[
+        \|x\| > -\|y\|\cos\alpha 
+    \]
+    then \( x(x + y) = \|x\| \|x + y\| \cos\beta> 0 \).
+\end{lemma}
+
+\begin{proof}
+It is 
+\[
+    x(x + y) = xx + xy = {\|x\|}^2 + \|x\| \|y\| \cos\alpha = \|x\| \|x + y\| \cos\beta
+\]
+and thus
+\[
+    {\|x + y\|}\cos\beta = \|x\| + \|y\|\cos\alpha
+\]
+Hence \( \cos\beta > 0 \) if
+\[
+    \|x\| > -\|y\|\cos\alpha
+\] 
+\end{proof}
+\bigskip
+
+An iterative approach is to increase \( w = x + y \) in the direction of the shorter vector aka the one 
+with the angle greater than \( \ang{90} \) degrees.
 \[
     w_{n + 1} = \left \{
     \begin{array}{ll}
@@ -130,21 +156,6 @@ than \( \ang{90} \) degrees.
                       w_3 & = (-8, -8)  & w_3x & = 16  & w_3y & = 40  \\
                   \end{aligned}
               \]
-        \item Let \( \|x\| < \|y\| \) and \( \cos\alpha < 0 \). Then
-              \[
-                  \begin{split}
-                      x(x + y) & = xx + xy = {\|x\|}^2 + \|x\| \|y\| \cos\alpha \\
-                      x(x + y) & = \|x\| \|x + y\| \cos\beta
-                  \end{split}
-              \]
-              and
-              \[
-                  {\|x + y\|}\cos\beta = \|x\| + \|y\|\cos\alpha > 0
-              \]
-              Hence \( \cos\beta > 0 \) if
-              \[
-                  \|x\| > -\|y\|\cos\alpha
-              \] 
     \end{enumerate}
 \end{examples}
 \bigskip
