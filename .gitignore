@@ -1,5 +1,7 @@
+__pycache__
 .DS_Store
 *~
+*.4tc
 *.acn
 *.acr
 *.alg
@@ -12,10 +14,12 @@
 *.glg
 *.glo
 *.gls
+*.idv
 *.idx
 *.ilg
 *.ind
 *.ist
+*.lg
 *.lof
 *.log
 *.lot
@@ -33,6 +37,8 @@
 *.dpth
 *.md5
 *.auxlock
+*.xref
+*.css
 .vscode
 _minted-optimization
 _minted-build

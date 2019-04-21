@@ -51,8 +51,7 @@ def get_test_data():
     #return [((-1, 1), (6, 1))]
     return [((4, -6), (-10, 5))]
     n = 10
-    return [((randint(-n, n), randint(-n, n)),
-             (randint(-n, n), randint(-n, n))) for _ in range(3)]
+    return [((randint(-n, n), randint(-n, n)), (randint(-n, n), randint(-n, n))) for _ in range(3)]
 
 
 if __name__ == '__main__':
