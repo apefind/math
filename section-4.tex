@@ -97,34 +97,52 @@ Generally \( w = x + y \) is a good guess, but not always correct as shown below
 \end{figure}
 \bigskip
 
-But, the more similar the lengths of the two vectors are the more likely \( x + y \) works. 
-The actual theshold is given by the following lemma.
+But, the more similar the lengths of the two vectors are the more likely \( x + y \) works.
+The actual threshold is given by the following
+\bigskip
 
 \begin{lemma}
-    Let \( x, y \in \Rn \) with \( \|x\| < \|y\| \) and \( xy = \|x\| \|y\| \cos\alpha < 0\). If 
+    Let \( x, y \in \Rn \) with \( \|x\| < \|y\| \) and \( xy = \|x\| \|y\| \cos\alpha \). If
     \[
-        \|x\| > -\|y\|\cos\alpha 
+        \|x\| > -\|y\|\cos\alpha
     \]
-    then \( x(x + y) = \|x\| \|x + y\| \cos\beta> 0 \).
+    then \( x(x + y) > 0 \).
 \end{lemma}
 
 \begin{proof}
-It is 
-\[
-    x(x + y) = xx + xy = {\|x\|}^2 + \|x\| \|y\| \cos\alpha = \|x\| \|x + y\| \cos\beta
-\]
-and thus
-\[
-    {\|x + y\|}\cos\beta = \|x\| + \|y\|\cos\alpha
-\]
-Hence \( \cos\beta > 0 \) if
-\[
-    \|x\| > -\|y\|\cos\alpha
-\] 
+    Let \( x(x + y) = \|x\| \|x + y\| \cos\beta \). Since
+    \[
+        x(x + y) = xx + xy = {\|x\|}^2 + \|x\| \|y\| \cos\alpha
+    \]
+    it follows
+    \[
+        {\|x + y\|}\cos\beta = \|x\| + \|y\|\cos\alpha
+    \]
+    Hence \( \cos\beta > 0 \) if the inequality above holds.
 \end{proof}
 \bigskip
 
-An iterative approach is to increase \( w = x + y \) in the direction of the shorter vector aka the one 
+
+\begin{example}
+    \hfill
+    \begin{enumerate}
+        \item Let \( w = x / \|x\| + y/ \|y\| \). Then
+              \[
+                  wx = \frac{{\|x\|}^2}{\|x\|} + \frac{yx}{\|y\|}
+                        = \|x\| + \|x\|\cos\alpha = (1 + \cos\alpha)\|x\|
+              \]
+              on the other hand \( wx = \|w\| \|x\| \cos\beta \). Similarily 
+              \( wy = (1 + \cos\alpha)\|y\| = \|w\| \|y\| \cos\gamma \). Hence
+              \[
+                1 + \cos\alpha = \|w\|\cos\beta = \|w\|\cos\gamma
+              \]
+              and thus \( \beta = \gamma \)
+    \end{enumerate}
+\end{example}
+\bigskip
+
+
+An iterative approach is to increase \( w = x + y \) in the direction of the shorter vector aka the one
 with the angle greater than \( \ang{90} \) degrees.
 \[
     w_{n + 1} = \left \{
@@ -160,11 +178,13 @@ with the angle greater than \( \ang{90} \) degrees.
 \end{examples}
 \bigskip
 
+The more interesting task to find a weight that satisfies \( wx > 0 \) and \( wy < 0 \) can be approached by
+using \( x - y \).
+
 \begin{algorithm}[Weight]\label{algo:weight}
 \end{algorithm}
 \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/weight.py}
 \bigskip
-
 
 
 \begin{algorithm}[Perceptron]\label{algo:perceptron}

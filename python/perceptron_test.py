@@ -1,4 +1,4 @@
-from perceptron import dotproduct, perceptron
+from perceptron import dotprod, perceptron
 
 
 def heaviside(x):
@@ -24,7 +24,7 @@ def nand(x, y):
 def test_perceptron(f, X):
     M = [(x, f(*x)) for x in X]
     w, b = perceptron(M)
-    p = lambda x: heaviside(dotproduct(w, x) + b)
+    p = lambda x: heaviside(dotprod(w, x) + b)
     for x, y in M:
         print(f'{f.__name__}{x} -> {p(x)}: {y}')
     print(f'{f.__name__}: {all(p(x) == y for x, y in M)}')
