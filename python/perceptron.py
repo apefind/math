@@ -4,7 +4,7 @@ def dotprod(v, w):
 
 def perceptron(M, t=0.1, max_iterations=50):
     n = len(M[0])
-    w, b = n * (0.0, ), 0.0
+    w, b = n * (0.0,), 0.0
     for _ in range(max_iterations):
         done = True
         for x, y in M:
