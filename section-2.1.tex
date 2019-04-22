@@ -28,7 +28,8 @@
         \frac{\partial f}{\partial d}(y) = \gradient{f(y)}^T d = \gradient{f(y)}^T (x - y)
     \]
 
-    Now let \( x, y \in M \) and  \( 0 \le \lambda \le 1 \). For \( z = \lambda x + (1 - \lambda) y \in M \) it follows that
+    Now let \( x, y \in M \) and  \( 0 \le \lambda \le 1 \). For \( z = \lambda x + (1 - \lambda) y \in M \) 
+    it follows that
     \[
         \begin{split}
             \lambda f(x) & \ge \lambda f(z) + \lambda \gradient {f(z)}^T (x - z) \\
@@ -105,7 +106,8 @@ The product rule gives
     \gradient {f(x)} = x^{T}A + Ax + b = (A^{T} + A)x + b = 2Ax + b
 \]
 Thus \( \hessian {f(x)} = 2A > 0 \) and \( f \) is convex. Hence the level set \( \Gamma_{-c} \) is convex.
-Since the intersection of convex sets is convex \( \Gamma_{-c} \cap \{ x \in \Rn: g^{T}x + h = 0 \} \) is convex, too.
+Since the intersection of convex sets is convex \( \Gamma_{-c} \cap \{ x \in \Rn: g^{T}x + h = 0 \} \) 
+is convex, too.
 \bigskip
 
 
@@ -142,7 +144,8 @@ and \( x + \lambda^* d \) is an optimal solution.
     \]
     and for \(\lambda \ge 0 \)
     \[
-        \argmin \{ f(x_0 - \lambda \gradient f(x_0) \} =\argmin \{ f(x^* + \theta v - \lambda \mu \theta v)\} = \mu^{-1}
+        \argmin \{ f(x_0 - \lambda \gradient f(x_0) \} =
+            \argmin \{ f(x^* + \theta v - \lambda \mu \theta v)\} = \mu^{-1}
     \]
     Thus
     \[
@@ -163,6 +166,7 @@ and \( x + \lambda^* d \) is an optimal solution.
         = x^* + \sum_{i=0}^m \theta_i v_i - \lambda \sum_{i=0}^m \mu_i \theta_i v_i
         = x^* + \sum_{i=0}^m (1 - \lambda \mu_i) \theta_i v_i
     \]
-    Since \( x^* \) is the minimum we have \( \gradient {f(x_1)} = 0 \) iff \( \lambda = \mu^{-1} \) for all \( 0 \le i \le m \).
+    Since \( x^* \) is the minimum we have \( \gradient {f(x_1)} = 0 \) iff \( \lambda = \mu^{-1} \) 
+    for all \( 0 \le i \le m \).
 \end{proof}
 \bigskip

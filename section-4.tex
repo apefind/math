@@ -124,20 +124,16 @@ The actual threshold is given by the following
 
 
 \begin{example}
-    \hfill
-    \begin{enumerate}
-        \item Let \( w = x / \|x\| + y/ \|y\| \). Then
-              \[
-                  wx = \frac{{\|x\|}^2}{\|x\|} + \frac{yx}{\|y\|}
-                        = \|x\| + \|x\|\cos\alpha = (1 + \cos\alpha)\|x\|
-              \]
-              on the other hand \( wx = \|w\| \|x\| \cos\beta \). Similarily 
-              \( wy = (1 + \cos\alpha)\|y\| = \|w\| \|y\| \cos\gamma \). Hence
-              \[
-                1 + \cos\alpha = \|w\|\cos\beta = \|w\|\cos\gamma
-              \]
-              and thus \( \beta = \gamma \)
-    \end{enumerate}
+    Let \( w = x / \|x\| + y/ \|y\| \). Then
+    \[
+        wx = \frac{{\|x\|}^2}{\|x\|} + \frac{yx}{\|y\|} = \|x\| + \|x\|\cos\alpha = (1 + \cos\alpha)\|x\|
+    \]
+    and on the other hand \( wx = \|w\| \|x\| \cos\beta \). Similarily
+    \( wy = (1 + \cos\alpha)\|y\| = \|w\| \|y\| \cos\gamma \). Hence
+    \[
+        1 + \cos\alpha = \|w\|\cos\beta = \|w\|\cos\gamma
+    \]
+    and thus \( \beta = \gamma \)
 \end{example}
 \bigskip
 
@@ -145,14 +141,86 @@ The actual threshold is given by the following
 An iterative approach is to increase \( w = x + y \) in the direction of the shorter vector aka the one
 with the angle greater than \( \ang{90} \) degrees.
 \[
-    w_{n + 1} = \left \{
+    w' = \left \{
     \begin{array}{ll}
-        w_n + x & \text{ if } w_n x < 0 \\
-        w_n + y & \text{ if } w_n y < 0 \\
+        w + x & \text{ if } w x \le 0 \\
+        w + y & \text{ if } w y \le 0 \\
     \end{array}
     \right.
 \]
+
+As an algorithm, start off with \( w_0 = 0 \) and define
+\[
+    w_{k + 1} = \left \{
+    \begin{array}{ll}
+        w_k + x & \text{ if } w_k x < 0 \\
+        w_k + y & \text{ if } w_k y < 0 \\
+    \end{array}
+    \right.
+\]
+
+Assume \( w^*\in \Rn \) with \( \|w^*\| = 1\) separates \(x \) and \( y\).
+Let \( \|x\| \le \|y\| < r \). Then
+\[
+    w^*w_k = w^*w_{k - 1} + w^*x > w^*w_{k - 1} + \delta > \cdots > k\delta
+\]
+And
+\[
+    \|w_k\|^2 = \|w_{k - 1} + x\|^2 = \|w_{k - 1}\|^2 + 2w_{k - 1}x + \|x\|^2
+    \le \|w_{k - 1}\|^2 + r^2 \le \cdots \le kr^2
+\]
+Thus
+\[
+    k^2\delta^2 \le \|w_k\|^2 \le kr^2
+\]
+So \( k \) is limited by the following inequality
+\[
+    k\le \frac{r^2}{\delta^2}
+\]
 \bigskip
+
+
+\begin{theorem}[Perceptron Convergence Theorem]
+    Let \( X = M \cup N \) be separable with \( w^*\in \Rn \).
+    Define \( w_0 = 0 \) and iterate over \( x \in X \) via
+    \[
+        w_{k + 1} = \left \{
+        \begin{array}{ll}
+            w_k + x & \text{ if } x \in N \text{ and } w_k x \le 0 \\
+            w_k - x & \text{ if } x \in M \text{ and } w_k x \ge 0 \\
+            w_k     & \text{ else }                                \\
+        \end{array}
+        \right.
+    \]
+    until no more changes occurr.  Suppose \( w^*x > \delta > 0 \) and \( \|x\| < r \) for \( x \in X \).
+    Then the algorithm stops after at most 
+    \[
+        k\le \frac{r^2}{\delta^2}
+    \]
+    steps
+\end{theorem}
+
+\begin{proof}
+    Then
+    \[
+        w^*w_k = w^*w_{k - 1} + w^*x > w^*w_{k - 1} + \delta > \cdots > k\delta
+    \]
+    For \( w_{k - 1} x < 0 \) it is
+    \[
+        \|w_k\|^2 = \|w_{k - 1} + x\|^2 = \|w_{k - 1}\|^2 + 2w_{k - 1}x + \|x\|^2
+        \le \|w_{k - 1}\|^2 + r^2 \le \cdots \le kr^2
+    \]
+    Without loss of generality assume \( \|w^*\| = 1\). Then
+    \[
+        k^2\delta^2 \le \|w_k\|^2 \le kr^2
+    \]
+    So \( k \) is limited by the following inequality
+    \[
+        k\le \frac{r^2}{\delta^2}
+    \]
+\end{proof}
+\bigskip
+
 
 \begin{examples}
     \hfill
@@ -174,6 +242,7 @@ with the angle greater than \( \ang{90} \) degrees.
                       w_3 & = (-8, -8)  & w_3x & = 16  & w_3y & = 40  \\
                   \end{aligned}
               \]
+        \item For any given integer \( k \) find two vectors so that more than \( k \) steps are needed
     \end{enumerate}
 \end{examples}
 \bigskip
