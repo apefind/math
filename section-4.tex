@@ -57,7 +57,7 @@
                       b & \le 0
                   \end{split}
               \]
-              Adding two equations respectively shows that there is no solution
+              Adding two equations respectively shows that there cannot be a solution
         \item The bias can be integrated into the weight vector via \( w' = (w, b) \in \R^{n + 1} \) and
               \( x' = (x, 1) \in \R^{n + 1} \). Separability then reduces to
               \[
@@ -134,8 +134,15 @@ with the angle greater than \( \ang{90} \) degrees.
     \right.
 \]
 
-While this seems reasonable, it is unclear whether the algorithm always yields a result 
-after a finite number of iterations.
+While this seems reasonable it is unclear whether the algorithm always yields a result after a finite number 
+of iterations. The answer to this question will be given later as a special case of the 
+\hyperref[thm:perceptron_convergence]{Perceptron Convergence Theorem~\ref*{thm:perceptron_convergence}}
+\bigskip
+
+
+\begin{algorithm}[Weight]\label{algo:weight}
+\end{algorithm}
+\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/weight.py}
 \bigskip
 
 
@@ -162,30 +169,24 @@ after a finite number of iterations.
         \item
               Let \( w = x / \|x\| + y/ \|y\| \). Then
               \[
-                  wx = \frac{{\|x\|}^2}{\|x\|} + \frac{yx}{\|y\|} = \|x\| + \|x\|\cos\alpha = (1 + \cos\alpha)\|x\|
+                  wx = \frac{{\|x\|}^2}{\|x\|} + \frac{yx}{\|y\|} = \|x\| + \|x\|\cos\alpha = (1 + \cos\alpha)\|x\| > 0
               \]
               and on the other hand \( wx = \|w\| \|x\| \cos\beta \). Similarily
               \( wy = (1 + \cos\alpha)\|y\| = \|w\| \|y\| \cos\gamma \). Hence
               \[
                   1 + \cos\alpha = \|w\|\cos\beta = \|w\|\cos\gamma
               \]
-              and thus \( \beta = \gamma \)
-        \item For any given integer \( k \) find two vectors so that more than \( k \) steps are needed
+              and thus \( \beta = \gamma \). Also, as expected, \( wx > 0 \) and \( wy > 0 \)
+        \item Task: for any given integer \( k \) find two vectors so that more than \( k \) steps are needed
     \end{enumerate}
 \end{examples}
 \bigskip
 
-\begin{algorithm}[Weight]\label{algo:weight}
-\end{algorithm}
-\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/weight.py}
+
+The following theorem is the generalization of the approach above for binary classifiers. Roughly sepaking 
+the algorithm changes the weight only for misqualified vectors. The proof measures the change of angle against 
+the change of length of the weight vector and provides an estimation for the maximumn number of required steps.
 \bigskip
-
-
-% The more interesting task to find a weight that satisfies \( wx > 0 \) for \( x \in M \)
-% and \( wx < 0 \) for \( x \in N \). The question of convergence is answered 
-% by the \hyperref[thm:perceptron_convergence]{Perceptron Convergence Theorem~\ref*{thm:perceptron_convergence}}.
-% The proof estimates the change of angle against the change of lengths.
-
 
 \begin{theorem}[Perceptron Convergence Theorem]\label{thm:perceptron_convergence}
     Let \( X = M \cup N \) be separable by \( w^*\in \Rn \). Define \( w_0 = 0 \)
@@ -216,7 +217,7 @@ after a finite number of iterations.
         \|w_{k + 1}\|^2 = \|w_k + x\|^2 = \|w_k\|^2 + 2w_k x + \|x\|^2 \le \|w_k\|^2 + r^2
     \]
 
-    The same estimations hold for \( x \in N \) with \( w_k x \ge 0 \) and induction yields
+    The same estimations hold for \( x \in N \) with \( w_k x \ge 0 \) and using induction yields
     \[
         w^*w_k \ge k\delta \text{ and } \|w_k\|^2 \le kr^2
     \]
@@ -235,11 +236,18 @@ after a finite number of iterations.
 \bigskip
 
 
+\begin{remark}
+    Check \hyperref[thm:banach_fix_point]{Banach Fixed-Point Theorem~\ref*{thm:banach_fix_point}} 
+    for an alternative proof?!
+\end{remark}
+\bigskip
+
+
 \subsection{The Backtracking Algorithm}
 
 \begin{definition}[Activation Functions]
     \hfill
-    \begin{enumerate}
+    \begin{enumerate}`'
         \item The \emph{Heaviside} function \( H: \R \to \{ 0, 1 \} \) is defined as
               \[
                   H(x) = \left \{

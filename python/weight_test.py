@@ -24,7 +24,7 @@ def test_weight(x, y):
     print(f"x = {x}, y = {y}")
     print(f"|x| = {norm(x)}, |y| = {norm(y)}")
     print(f"a = {math.degrees(angle(x, y))} deg")
-    w = add(normed(x), normed(y))
+    w = normed(add(normed(x), normed(y)))
     print(f"w = {w}")
     print(f"wx = {dotprod(w, x)}, b = {math.degrees(angle(w, x))} deg")
     print(f"wy = {dotprod(w, y)}, a = {math.degrees(angle(w, y))} deg")
@@ -41,7 +41,6 @@ def test_weight(x, y):
         else:
             break
         i = i + 1
-    w = normed(w)
     a, b = dotprod(w, x), dotprod(w, y)
     print(f"w / |w| = {w}")
     print(f"w = {w}, w * x = {a}, w * y = {b}")
