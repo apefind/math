@@ -3,6 +3,33 @@
 
 \subsection{The Hahn-Banach Theorem}
 
+\begin{theorem}[Hahn-Banach Theorem]\label{thm:hahn_banach}
+    Let \( E \) be a normed space and \( F \) a linear subspace. For any linear functional 
+    \( f \in F^* \) there exists a \( \tilde{f} \in E^* \) so that
+    \[
+        \tilde{f}|_F = f \text{ and } \|\tilde{f}\| = \|f\|
+    \]
+\end{theorem}
+
+\begin{proof}
+    Assume that \( f: E \to \R \) is a real valued linear functional and \( x' \in E \setminus F \).
+    Consider the subspace \( F' = \{x + \lambda x' | x \in F \} \) and define 
+    \[
+        f'(x + \lambda x') = f(x) + \lambda r 
+    \]
+    As sum of two linear functionals \( f' \) again is a linear functional.
+\end{proof}
+\bigskip
+
 
 \subsection{The Riesz Representation Theorem}
 
+\begin{theorem}[The Riesz Representation Theorem]\label{thm:riesz_representation}
+Let \( X \) be a locally compact Hausdorff space and \( L \in C_c(X) \) a positive linear functional. Then there
+exists a \( \sigma \)-algebra \( M \) in \( X \) and a unique positive measure \( \mu \) on \( M \) so that
+\[
+    L(f) = \int_X f\,d\mu
+\]
+for every \( f \in C_c(X) \).
+\end{theorem}
+\bigskip

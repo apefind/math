@@ -123,8 +123,8 @@ The actual threshold is given by the following
 \bigskip
 
 
-An iterative approach is to repeatedly increase \( w = x + y \) in the direction of the shorter vector aka the one
-with the angle greater than \( \ang{90} \) degrees.
+An iterative approach is to repeatedly increase \( w = x + y \) in the direction of the shorter vector 
+aka the one with the angle greater than \( \ang{90} \) degrees.
 \[
     w' = \left \{
     \begin{array}{ll}
@@ -134,9 +134,9 @@ with the angle greater than \( \ang{90} \) degrees.
     \right.
 \]
 
-While this seems reasonable it is unclear whether the algorithm always yields a result after a finite number 
-of iterations. The answer to this question will be given later as a special case of the 
-\hyperref[thm:perceptron_convergence]{Perceptron Convergence Theorem~\ref*{thm:perceptron_convergence}}
+While this seems reasonable it is unclear whether the algorithm always yields a result after 
+a finite number of iterations. The answer to this question will be given later as a special case 
+of the \hyperref[thm:perceptron_convergence]{Perceptron Convergence Theorem~\ref*{thm:perceptron_convergence}}
 \bigskip
 
 
@@ -183,9 +183,10 @@ of iterations. The answer to this question will be given later as a special case
 \bigskip
 
 
-The following theorem is the generalization of the approach above for binary classifiers. Roughly sepaking 
-the algorithm changes the weight only for misqualified vectors. The proof measures the change of angle against 
-the change of length of the weight vector and provides an estimation for the maximumn number of required steps.
+The following theorem is the generalization of the approach above for binary classifiers. 
+Roughly sepaking the algorithm changes the weight only for misqualified vectors. The proof measures 
+the change of angle against the change of length of the weight vector and provides an estimation 
+for the maximumn number of required steps.
 \bigskip
 
 \begin{theorem}[Perceptron Convergence Theorem]\label{thm:perceptron_convergence}
@@ -200,8 +201,8 @@ the change of length of the weight vector and provides an estimation for the max
         \end{array}
         \right.
     \]
-    until no further changes occurr. Suppose \( \|x\| \le r \)  and \( w^*x \ge \delta > 0 \) for \( x \in X \).
-    Then the number of iterations before the algorithm stops is limited by
+    until no further changes occurr. Suppose \( \|x\| \le r \)  and \( w^*x \ge \delta > 0 \) 
+    for \( x \in X \). Then the number of iterations before the algorithm stops is limited by
     \[
         k\le \frac{r^2}{\delta^2}
     \]
@@ -247,7 +248,7 @@ the change of length of the weight vector and provides an estimation for the max
 
 \begin{definition}[Activation Functions]
     \hfill
-    \begin{enumerate}`'
+    \begin{enumerate}
         \item The \emph{Heaviside} function \( H: \R \to \{ 0, 1 \} \) is defined as
               \[
                   H(x) = \left \{
@@ -277,10 +278,11 @@ the change of length of the weight vector and provides an estimation for the max
 \begin{remarks}
     \hfill
     \begin{enumerate}
-        \item Since the heaviside function is not continuous and therefore not differentiable at \( 0 \)
-              the sigmoid function is often considered its smooth counterpart
+        \item Since the heaviside function is not continuous and therefore not differentiable 
+            at \( 0 \) the sigmoid function is often considered its smooth counterpart
         \item The definition of the sigmoid function yields \( 0 < \sigmoid(x) < 1 \) as well as
-              \( \sigmoid(x) \to 0 \) for \( x \to -\infty \) and \( \sigmoid(x) \to 1 \) for \( x \to \infty \)
+              \( \sigmoid(x) \to 0 \) for \( x \to -\infty \) and \( \sigmoid(x) \to 1 \) 
+              for \( x \to \infty \)
         \item The quotient rule yields
               \[
                   \sigmoid'(x)
