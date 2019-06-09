@@ -3,6 +3,30 @@
 
 \subsection{The Hahn-Banach Theorem}
 
+\begin{remark}
+    Let \( f = u + \iu v\) be a complex valued linear functional. Then \( f(\iu x) = \iu f(x) \) gives 
+    % \[
+    %     u(\iu x) + \iu v(\iu x) = - v(x) + \iu u(x)
+    % \] 
+    % and
+    % \[
+    %     \begin{split}
+    %         u(\iu x) & = -v(x) \\
+    %         v(\iu x) & = \iu u(x) 
+    %     \end{split}
+    % \] 
+    \[
+            u(\iu x) = -v(x) \text{ and } v(\iu x) = \iu u(x) 
+    \] 
+    Thus 
+    \[
+        f(x) = u(x) - \iu u(\iu x)
+    \]
+    See also \hyperref[thm:thm_cauchy_riemann_eqations]{Theorem~\ref*{thm:thm_cauchy_riemann_eqations}}.
+\end{remark}
+\bigskip
+
+
 \begin{theorem}[Hahn-Banach Theorem]\label{thm:hahn_banach}
     Let \( E \) be a normed space and \( F \) a linear subspace. For any linear functional 
     \( f \in F^* \) there exists a \( \tilde{f} \in E^* \) so that
@@ -17,7 +41,11 @@
     \[
         f'(x + \lambda x') = f(x) + \lambda r 
     \]
-    As sum of two linear functionals \( f' \) again is a linear functional.
+    for some \( r \in \R \).  As sum of two linear functionals \( f' \) again is a linear functional with 
+    \( \|f'\| \ge \|f\| \).
+    
+    Using Zorn's Lemma allows the extension to \( E \) while the remark above can be used to extend 
+    to complex valued linear functionals.
 \end{proof}
 \bigskip
 
