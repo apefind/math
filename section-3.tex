@@ -3,32 +3,32 @@
 
 \subsection{The Hahn-Banach Theorem}
 
-\begin{remark}
-    Let \( f = u + \iu v\) be a complex valued linear functional. Then \( f(\iu x) = \iu f(x) \) gives 
-    % \[
-    %     u(\iu x) + \iu v(\iu x) = - v(x) + \iu u(x)
-    % \] 
-    % and
-    % \[
-    %     \begin{split}
-    %         u(\iu x) & = -v(x) \\
-    %         v(\iu x) & = \iu u(x) 
-    %     \end{split}
-    % \] 
-    \[
-            u(\iu x) = -v(x) \text{ and } v(\iu x) = \iu u(x) 
-    \] 
-    Thus 
-    \[
-        f(x) = u(x) - \iu u(\iu x)
-    \]
-    See also \hyperref[thm:thm_cauchy_riemann_eqations]{Theorem~\ref*{thm:thm_cauchy_riemann_eqations}}.
-\end{remark}
+\begin{remarks}
+    \hfill
+    \begin{enumerate}
+        \item Let \( f = u + \iu v\) be a complex valued linear functional.
+              Then \( f(\iu x) = \iu f(x) \) gives
+              \[
+                  u(\iu x) = -v(x) \text{ and } v(\iu x) = \iu u(x)
+              \]
+              Thus
+              \[
+                  f(x) = u(x) - \iu u(\iu x)
+              \]
+        \item Assume \( |u(x)| \le C\|x\| \) and choose \( t \in \R \) so that \( |f(x)| = e^{\iu t}f(x) \).
+              Then
+              \[
+                  |f(x)| = e^{\iu t}f(x) = f(e^{\iu t}x) = u(e^{\iu t}x) \le C\|e^{\iu t}x\| = C\|x\|
+              \]
+        \item
+              See also the \hyperref[thm:thm_cauchy_riemann_eqations]{Cauchy-Rieman Eqautions~\ref*{thm:thm_cauchy_riemann_eqations}}.
+    \end{enumerate}
+\end{remarks}
 \bigskip
 
 
 \begin{theorem}[Hahn-Banach Theorem]\label{thm:hahn_banach}
-    Let \( E \) be a normed space and \( F \) a linear subspace. For any linear functional 
+    Let \( E \) be a normed space and \( F \) a linear subspace. For any linear functional
     \( f \in F^* \) there exists a \( \tilde{f} \in E^* \) so that
     \[
         \tilde{f}|_F = f \text{ and } \|\tilde{f}\| = \|f\|
@@ -37,14 +37,14 @@
 
 \begin{proof}
     Assume that \( f: E \to \R \) is a real valued linear functional and \( x' \in E \setminus F \).
-    Consider the subspace \( F' = \{x + \lambda x' | x \in F \} \) and define 
+    Consider the subspace \( F' = \{x + \lambda x' | x \in F \} \) and define
     \[
-        f'(x + \lambda x') = f(x) + \lambda r 
+        f'(x + \lambda x') = f(x) + \lambda r
     \]
-    for some \( r \in \R \).  As sum of two linear functionals \( f' \) again is a linear functional with 
+    for some \( r \in \R \).  As sum of two linear functionals \( f' \) again is a linear functional with
     \( \|f'\| \ge \|f\| \).
-    
-    Using Zorn's Lemma allows the extension to \( E \) while the remark above can be used to extend 
+
+    Using Zorn's Lemma allows the extension to \( E \) while the remark above can be used to extend
     to complex valued linear functionals.
 \end{proof}
 \bigskip
@@ -53,11 +53,11 @@
 \subsection{The Riesz Representation Theorem}
 
 \begin{theorem}[The Riesz Representation Theorem]\label{thm:riesz_representation}
-Let \( X \) be a locally compact Hausdorff space and \( L \in C_c(X) \) a positive linear functional. Then there
-exists a \( \sigma \)-algebra \( M \) in \( X \) and a unique positive measure \( \mu \) on \( M \) so that
-\[
-    L(f) = \int_X f\,d\mu
-\]
-for every \( f \in C_c(X) \).
+    Let \( X \) be a locally compact Hausdorff space and \( L \in C_c(X) \) a positive linear functional. Then there
+    exists a \( \sigma \)-algebra \( M \) in \( X \) and a unique positive measure \( \mu \) on \( M \) so that
+    \[
+        L(f) = \int_X f\,d\mu
+    \]
+    for every \( f \in C_c(X) \).
 \end{theorem}
 \bigskip
