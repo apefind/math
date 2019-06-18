@@ -262,16 +262,11 @@ for the maximumn number of required steps.
               \[
                   \sigmoid(x) = \frac{1}{1 + e^{-x}}
               \]
-    \end{enumerate}
+        \item A function \( s: \R \to \R \) with \( s(x) \to 0 \) 
+              for \( x \to -\infty \) and \( s(x) \to 1 \) for \( x \to \infty \) is called a 
+              \emph{sigmoidal activation function}
+      \end{enumerate}
 \end{definition}
-\bigskip
-
-
-\begin{figure}[H]
-    \centering
-    \plotsigmoid{}
-    \caption{The sigmoid function \( \sigmoid(x) = \frac{1}{1 + e^{-x}} \)}\label{fig:sigmoid}
-\end{figure}
 \bigskip
 
 
@@ -279,7 +274,7 @@ for the maximumn number of required steps.
     \hfill
     \begin{enumerate}
         \item Since the heaviside function is not continuous and therefore not differentiable 
-            at \( 0 \) the sigmoid function is often considered its smooth counterpart
+            at \( 0 \) the sigmoid function can be considered its smooth counterpart
         \item The definition of the sigmoid function yields \( 0 < \sigmoid(x) < 1 \) as well as
               \( \sigmoid(x) \to 0 \) for \( x \to -\infty \) and \( \sigmoid(x) \to 1 \) 
               for \( x \to \infty \)
@@ -296,17 +291,25 @@ for the maximumn number of required steps.
 \bigskip
 
 
+\begin{figure}[H]
+    \centering
+    \plotsigmoid{}
+    \caption{The sigmoid function \( \sigmoid(x) = \frac{1}{1 + e^{-x}} \)}\label{fig:sigmoid}
+\end{figure}
+\bigskip
+
+
 \begin{definition}[Single Layer Neural Network]
-    Let \( w_k \in \R^n \) and \( a_k, b_k \in \R \). Define \( f : \Rn \to \R \) as
+    Let \( w_k \in \R^n \) and \( b_k \in \R \). For \( \alpha_k \in \R \) define \( f : \Rn \to \R \)
     \[
-        f(x) = \sum_{k = 0}^m a_k \sigmoid(w_k x + b_k)
+        f(x) = \sum_{k = 0}^m \alpha_k \sigmoid(w_k x + b_k)
     \]
     The \( f \) is called a \emph{feedforward neural network} of \( m \) units.
 \end{definition}
 \bigskip
 
 \begin{theorem}[The Universal Approximation Theorem]\label{thm:universal_approximation}
-    The set of all single layer feedforward neural networks is dense in \( C(I^n) \).
+    The subspace of all single layer feedforward neural networks is dense in \( C(I^n) \).
 \end{theorem}
 
 \subsection{The Backtracking Algorithm}
