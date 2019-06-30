@@ -312,4 +312,14 @@ for the maximumn number of required steps.
     The subspace of all single layer feedforward neural networks is dense in \( C(I^n) \).
 \end{theorem}
 
-\subsection{The Backtracking Algorithm}
+
+\begin{definition}[Error Function]
+    Let \( w \in \R^{n \times m} \) and \( b \in \Rm \). For a finite \emph{test set} \( T \subset \Rn \times \Rm \) 
+    define the \emph{error function}
+    \[
+        E(w,b) = \sum_{(x,y) \in T} \|\sigmoid(wx + b )- y\|^2
+    \]
+\end{definition}
+\bigskip
+
+\subsection{The Backpropagation Algorithm}
