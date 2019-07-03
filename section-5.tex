@@ -313,6 +313,29 @@ for the maximumn number of required steps.
 \end{theorem}
 
 
+\begin{remarks}
+    \hfill
+    \begin{enumerate}
+        \item Let \( f = (f_1, f_2, \dots f_n) : \Rn \to \Rm \) and 
+            \[ 
+                g(x) = \|f(x)\|^2 = \sum_{j = 1}^m {f_j(x)}^2 
+            \] 
+        Then
+            \[ 
+                \frac{\partial g_j}{\partial x_i}(x)
+                    = \sum_{j = 1}^m \frac{\partial f_j^2}{\partial x_i}(x)
+                    = 2 \sum_{j = 1}^m \frac{\partial f_j}{\partial x_i}(x) f_j(x)
+            \] 
+        Hence
+        \[ 
+            \gradient g(x) = 2 \sum_{j = 1}^m \gradient f_j(x) f_j(x)
+        \] 
+
+    \end{enumerate}
+\end{remarks}
+\bigskip
+
+
 \begin{definition}[Error Function]
     Let \( w \in \R^{n \times m} \) and \( b \in \Rm \). For a finite \emph{test set} \( T \subset \Rn \times \Rm \) 
     define the \emph{error function}
