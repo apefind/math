@@ -244,7 +244,7 @@ for the maximumn number of required steps.
 \bigskip
 
 
-\subsection{Feedforward Neural Networks}
+\subsection{Feedforward Neural Networks and the Delta Rule}
 
 \begin{definition}[Activation Functions]
     \hfill
@@ -298,25 +298,20 @@ for the maximumn number of required steps.
 \end{figure}
 \bigskip
 
-
-\begin{definition}[Single Layer Neural Network]
-    Let \( w_k \in \R^n \) and \( b_k \in \R \). For \( \alpha_k \in \R \) define \( f : \Rn \to \R \)
-    \[
-        f(x) = \sum_{k = 0}^m \alpha_k \sigmoid(w_k x + b_k)
-    \]
-    The \( f \) is called a \emph{feedforward neural network} of \( m \) units.
-\end{definition}
-\bigskip
-
-\begin{theorem}[The Universal Approximation Theorem]\label{thm:universal_approximation}
-    The subspace of all single layer feedforward neural networks is dense in \( C(I^n) \).
-\end{theorem}
-
-
 \begin{remarks}
     \hfill
     \begin{enumerate}
-        \item Let \( f = (f_1, f_2, \dots f_n) : \Rn \to \Rm \) and 
+        \item Let \( f: \Rn \to \R \) and \( g(x) = f(x|^2 \). The multidemnsional  chain rule yields
+            \[ 
+                \frac{\partial g}{\partial x_i}(x) 
+                    = \frac{\partial f^2}{\partial x_i}(x)
+                    = 2 f(x) \frac{\partial f}{\partial x_i}(x) 
+            \] 
+        Hence
+        \[ 
+            \gradient g(x) = 2 f(x) \gradient f(x) 
+        \] 
+        \item More genearally Let \( f = (f_1, f_2, \dots f_n) : \Rn \to \Rm \) and 
             \[ 
                 g(x) = \|f(x)\|^2 = \sum_{j = 1}^m {f_j(x)}^2 
             \] 
@@ -344,5 +339,24 @@ for the maximumn number of required steps.
     \]
 \end{definition}
 \bigskip
+
+
+
+\subsection{Feedforward Neural Networks and the Univeral Approximation Theorem}
+
+\begin{definition}[Single Layer Neural Network]
+    Let \( w_k \in \R^n \) and \( b_k \in \R \). For \( \alpha_k \in \R \) define \( f : \Rn \to \R \)
+    \[
+        f(x) = \sum_{k = 0}^m \alpha_k \sigmoid(w_k x + b_k)
+    \]
+    Then \( f \) is called a \emph{single layer feedforward neural network} of \( m \) units.
+\end{definition}
+\bigskip
+
+\begin{theorem}[The Universal Approximation Theorem]\label{thm:universal_approximation}
+    The subspace of all single layer feedforward neural networks is dense in \( C(I^n) \).
+\end{theorem}
+
+
 
 \subsection{The Backpropagation Algorithm}
