@@ -343,7 +343,7 @@ for the maximumn number of required steps.
               \[
                   \gradient q(w, b) = (x_1, x_2, \dots, x_n, 1)
               \]
-        \item Let \( \alpha : \in C^1(\R) \) be an activation function and define
+        \item Let \( \alpha \in C^1(\R) \) be an activation function and define
               \( p(w,b) = (y - \alpha(wx + b))^2 \).
               Then
               \[
@@ -352,7 +352,7 @@ for the maximumn number of required steps.
                       \frac{\partial p}{\partial b}(w, b) &= -2 (y - \alpha(wx + b)) \alpha'(wx + b)
                   \end{split}
               \]
-              or
+              and
               \[
                   \gradient p(w, b) = -2 (y - \alpha(wx + b)) \alpha'(wx + b)\gradient q(w, b)
               \]
@@ -361,11 +361,24 @@ for the maximumn number of required steps.
 \bigskip
 
 
-\begin{definition}[Error Function]
-    Let \( \alpha : \in C^1(\R) \) be an activation function, \( w \in \Rn\) and \( b \in \R \).
-    For a finite \emph{test set} \( T \subset \Rn \times \R \) define the \emph{error function}
+\begin{definition}[Single Layer Feedforward Neural Network]    
+    Let \( \alpha \in C^1(\R) \) be an activation function, \( w \in \R^n \)  and \( b \in \R \)
+    be weight and bias. Define \( f \in C^1(\Rn) \) as 
     \[
-        E(w,b) = \frac{1}{2} \sum_{(x,y) \in T} (y - \alpha(wx + b ))^2
+        f(x) = \alpha(w x + b)
+    \]
+    Then \( f = \alpha(wx + b) \) is called a \emph{single layer feedforward neural network}.
+\end{definition}
+\bigskip
+
+
+\begin{definition}[Error Function]
+    Let \( f = \alpha(wx + b) \) be a single layer feedforward neural network.
+    For a finite \emph{test set} \( T \subset \Rn \times \R \) define the \emph{error function} 
+    as the mean squared error over the samples
+    \[
+        E(w,b) = \frac{1}{2} \sum_{(x,y) \in T} (y - f(x)))^2 
+            = \frac{1}{2} \sum_{(x,y) \in T} (y - \alpha(wx + b))^2
     \]
 \end{definition}
 \bigskip
@@ -386,6 +399,18 @@ for the maximumn number of required steps.
 \end{proof}
 \bigskip
 
+\begin{algorithm}[Delta Rule]\label{algo:delta_rule}
+    Let \( f = \alpha(wx + b) \) be a single layer feedforward neural network and  \( T \) a test set. 
+    The delta rule modifies weight and bias in the direction of the greatest descent \( -\gradient E(w,b) \) 
+    at a given \emph{learning rate} \( \eta > 0 \).  For \( (x, y) \in T \) this yields
+    \[
+        \begin{split}
+            \Delta w_i & = \eta (y - f(x)) \alpha'(wx + b) x_i \\
+            \Delta b & = \eta (y - f(x)) \alpha'(wx + b) 
+        \end{split}
+    \]
+\end{algorithm}
+\bigskip
 
 
 \subsection{The Univeral Approximation Theorem}
