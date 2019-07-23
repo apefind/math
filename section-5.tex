@@ -388,8 +388,12 @@ for the maximumn number of required steps.
     It is
     \[
         \begin{split}
-            \frac{\partial E}{\partial w_i}(w, b) &= \sum_{(x,y) \in T} -(y - \alpha(wx + b)) \alpha'(wx + b) x_i \\
-            \frac{\partial E}{\partial b}(w, b) &= \sum_{(x,y) \in T} -(y - \alpha(wx + b)) \alpha'(wx + b)
+            \frac{\partial E}{\partial w_i}(w, b) 
+                &= \sum_{(x,y) \in T} -(y - \alpha(wx + b)) \alpha'(wx + b) x_i 
+                = \sum_{(x,y) \in T} -(y - f(x) \alpha'(wx + b) x_i\\
+            \frac{\partial E}{\partial b}(w, b) 
+                &= \sum_{(x,y) \in T} -(y - \alpha(wx + b)) \alpha'(wx + b)
+                =\sum_{(x,y) \in T} -(y - f(x) \alpha'(wx + b)
         \end{split}
     \]
 \end{lemma}
@@ -400,9 +404,9 @@ for the maximumn number of required steps.
 \bigskip
 
 \begin{algorithm}[Delta Rule]\label{algo:delta_rule}
-    Let \( f = \alpha(wx + b) \) be a single layer feedforward neural network and  \( T \) a test set. 
+    Let \( f = \alpha(wx + b) \) be a single layer feedforward neural network .
     The delta rule modifies weight and bias in the direction of the greatest descent \( -\gradient E(w,b) \) 
-    at a given \emph{learning rate} \( \eta > 0 \).  For \( (x, y) \in T \) this yields
+    at a given \emph{learning rate} \( \eta > 0 \) over a test set \( T \).  For \( (x, y) \in T \) this yields
     \[
         \begin{split}
             \Delta w_i & = \eta (y - f(x)) \alpha'(wx + b) x_i \\
