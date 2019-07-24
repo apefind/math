@@ -244,7 +244,7 @@ for the maximumn number of required steps.
 \bigskip
 
 
-\subsection{Feedforward Neural Networks and the Delta Rule}
+\subsection{Single Layer Feedforward Neural Networks and the Delta Rule}
 \bigskip
 
 \begin{definition}[Activation Function]
@@ -361,9 +361,9 @@ for the maximumn number of required steps.
 \bigskip
 
 
-\begin{definition}[Single Layer Feedforward Neural Network]    
+\begin{definition}[Single Layer Feedforward Neural Network]
     Let \( \alpha \in C^1(\R) \) be an activation function, \( w \in \R^n \)  and \( b \in \R \)
-    be weight and bias. Define \( f \in C^1(\Rn) \) as 
+    be weight and bias. Define \( f \in C^1(\Rn) \) as
     \[
         f(x) = \alpha(w x + b)
     \]
@@ -374,12 +374,13 @@ for the maximumn number of required steps.
 
 \begin{definition}[Error Function]
     Let \( f = \alpha(wx + b) \) be a single layer feedforward neural network.
-    For a finite \emph{test set} \( T \subset \Rn \times \R \) define the \emph{error function} 
-    as the mean squared error over the samples
-    \[
-        E(w,b) = \frac{1}{2} \sum_{(x,y) \in T} (y - f(x)))^2 
-            = \frac{1}{2} \sum_{(x,y) \in T} (y - \alpha(wx + b))^2
-    \]
+    \begin{enumerate}
+        \item A finite set \( T \subset \Rn \times \R \) is called  \emph{test set}
+        \item The \emph{error function} is defined as the mean squared error over the samples
+              \[
+                  E(w,b) = \frac{1}{2} \sum_{(x,y) \in T} (y - f(x)))^2
+              \]
+    \end{enumerate}
 \end{definition}
 \bigskip
 
@@ -388,12 +389,8 @@ for the maximumn number of required steps.
     It is
     \[
         \begin{split}
-            \frac{\partial E}{\partial w_i}(w, b) 
-                &= \sum_{(x,y) \in T} -(y - \alpha(wx + b)) \alpha'(wx + b) x_i 
-                = \sum_{(x,y) \in T} -(y - f(x) \alpha'(wx + b) x_i\\
-            \frac{\partial E}{\partial b}(w, b) 
-                &= \sum_{(x,y) \in T} -(y - \alpha(wx + b)) \alpha'(wx + b)
-                =\sum_{(x,y) \in T} -(y - f(x) \alpha'(wx + b)
+            \frac{\partial E}{\partial w_i}(w, b) &= \sum_{(x,y) \in T} - (y - f(x)) \alpha'(wx + b) x_i\\
+            \frac{\partial E}{\partial b}(w, b) &= \sum_{(x,y) \in T} - (y - f(x)) \alpha'(wx + b)
         \end{split}
     \]
 \end{lemma}
@@ -403,14 +400,20 @@ for the maximumn number of required steps.
 \end{proof}
 \bigskip
 
+
+The Delta Rule applies the method of the Steepest Descent to the error function of a neural network.
+\bigskip
+
+
 \begin{algorithm}[Delta Rule]\label{algo:delta_rule}
-    Let \( f = \alpha(wx + b) \) be a single layer feedforward neural network .
-    The delta rule modifies weight and bias in the direction of the greatest descent \( -\gradient E(w,b) \) 
-    at a given \emph{learning rate} \( \eta > 0 \) over a test set \( T \).  For \( (x, y) \in T \) this yields
+    Let \( f = \alpha(wx + b) \) be a single layer feedforward neural network
+    and \( T \) a test set.
+    The delta rule modifies weight and bias in the direction of the greatest descent \( - \eta \gradient E(w,b) \)
+    at a given \emph{learning rate} \( \eta > 0 \).  For \( (x, y) \in T \) this is
     \[
         \begin{split}
             \Delta w_i & = \eta (y - f(x)) \alpha'(wx + b) x_i \\
-            \Delta b & = \eta (y - f(x)) \alpha'(wx + b) 
+            \Delta b & = \eta (y - f(x)) \alpha'(wx + b)
         \end{split}
     \]
 \end{algorithm}
