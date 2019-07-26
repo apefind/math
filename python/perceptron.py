@@ -1,9 +1,4 @@
-def add(v, w):
-    return tuple(x + y for x, y in zip(v, w))
-
-
-def dotprod(v, w):
-    return sum(x * y for x, y in zip(v, w))
+from .weight import dotprod
 
 
 def perceptron(M, t=0.1, epochs=50):

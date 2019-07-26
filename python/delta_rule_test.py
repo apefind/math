@@ -1,24 +1,5 @@
 from delta_rule import dotprod, delta_rule
-
-
-def heaviside(x):
-    return 0 if x < 0.0 else 1
-
-
-def and_(x, y):
-    return int(x and y)
-
-
-def or_(x, y):
-    return int(x or y)
-
-
-def xor(x, y):
-    return int(x and not y or not x and y)
-
-
-def nand(x, y):
-    return int(not x and not y)
+from perceptron_test import and_, or_, xor, nand
 
 
 def test_delta_rule(f, X, a, da):
