@@ -1,12 +1,12 @@
-from .weight import dotprod
+from weight import dotprod
 
 
-def perceptron(M, t=0.1, epochs=50):
-    n = len(M[0])
+def perceptron(T, t=0.01, epochs=50):
+    n = len(T[0])
     w, b = n * (0.0,), 0.0
     for _ in range(epochs):
         done = True
-        for x, y in M:
+        for x, y in T:
             if dotprod(w, x) + b >= 0:
                 z = 1
             else:

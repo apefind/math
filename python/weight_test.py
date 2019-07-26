@@ -1,23 +1,6 @@
 import math
 from random import randint
-from weight import add, dotprod
-
-
-def invert(v):
-    return tuple(-x for x in v)
-
-
-def norm(v):
-    return math.sqrt(dotprod(v, v))
-
-
-def normed(v):
-    n = norm(v)
-    return tuple(x / n for x in v)
-
-
-def angle(v, w):
-    return math.acos(dotprod(v, w) / (norm(v) * norm(w)))
+from vector import norm, normed, angle, add, dotprod
 
 
 def test_weight(x, y):
