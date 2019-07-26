@@ -1,11 +1,15 @@
+def add(v, w):
+    return tuple(x + y for x, y in zip(v, w))
+
+
 def dotprod(v, w):
     return sum(x * y for x, y in zip(v, w))
 
 
-def perceptron(M, t=0.1, max_iterations=50):
+def perceptron(M, t=0.1, epochs=50):
     n = len(M[0])
     w, b = n * (0.0,), 0.0
-    for _ in range(max_iterations):
+    for _ in range(epochs):
         done = True
         for x, y in M:
             if dotprod(w, x) + b >= 0:
