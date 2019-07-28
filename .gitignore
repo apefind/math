@@ -40,6 +40,7 @@ __pycache__
 *.xref
 *.css
 .vscode
+.idea
 _minted-optimization
 _minted-build
 _minted-notes
