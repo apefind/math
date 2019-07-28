@@ -20,6 +20,7 @@ def sigmoid(x):
 def dx_sigmoid(x):
     return sigmoid(x) * (1 - sigmoid(x))
 
+
 # def sigmoid(x):  # numerically stable
 #     if x >= 0:
 #         return 1.0 / (1.0 + math.exp(-x))
