@@ -201,7 +201,7 @@ for the maximumn number of required steps.
         \end{array}
         \right.
     \]
-    until no further changes occurr. Suppose \( \|x\| \le r \)  and \( w^*x \ge \delta > 0 \)
+    until no further changes occurr. Suppose \( \|x\| \le r \)  and \( |w^*x| \ge \delta > 0 \)
     for \( x \in X \). Then the number of iterations before the algorithm stops is limited by
     \[
         k\le \frac{r^2}{\delta^2}
@@ -218,7 +218,7 @@ for the maximumn number of required steps.
         \|w_{k + 1}\|^2 = \|w_k + x\|^2 = \|w_k\|^2 + 2w_k x + \|x\|^2 \le \|w_k\|^2 + r^2
     \]
 
-    The same estimations hold for \( x \in N \) with \( w_k x \ge 0 \) and using induction yields
+    The same estimations holds for \( x \in N \) with \( w_k x \ge 0 \) and using induction yields
     \[
         w^*w_k \ge k\delta \text{ and } \|w_k\|^2 \le kr^2
     \]
