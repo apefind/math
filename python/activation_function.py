@@ -1,3 +1,14 @@
+"""Numerically stable version of sigmoid::
+
+    def sigmoid(x):
+        if x >= 0:
+            return 1.0 / (1.0 + math.exp(-x))
+        else:
+            y = math.exp(x)
+            return y / (1 + y)
+
+"""
+
 import math
 
 
@@ -19,11 +30,3 @@ def sigmoid(x):
 
 def dx_sigmoid(x):
     return sigmoid(x) * (1 - sigmoid(x))
-
-
-# def sigmoid(x):  # numerically stable
-#     if x >= 0:
-#         return 1.0 / (1.0 + math.exp(-x))
-#     else:
-#         y = math.exp(x)
-#         return y / (1 + y)

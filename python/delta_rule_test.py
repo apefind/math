@@ -32,17 +32,21 @@ def one_third(x, s=0.3):
     return x
 
 
+def get_boolean_approx(T, a, da, fire, t=0.01, eps=0.05, epochs=50):
+    w, b = delta_rule(T, a=a, da=da, t=t, eps=eps, epochs=epochs)
+    return lambda x: fire(dotprod(w, x) + b)
+
+
 class DeltaRuleTestCase(unittest.TestCase):
     def test_separable_boolean_operators(self):
         for f in separable_boolean_operators:
             T = [(x, f(*x)) for x in boolean_domain]
-            t, eps, epochs = 0.01, 0.05, 500
-            w, b = delta_rule(T, a=linear, da=dx_linear, t=t, eps=eps, epochs=epochs)
-            f = lambda x: one_third(dotprod(w, x) + b)
-            self.assertTrue(all(f(x) == y for x, y in T))
+            t, eps, epochs = 0.01, 0.05, 1000
+            f = get_boolean_approx(T, a=linear, da=dx_linear, fire=one_third, t=t, eps=eps, epochs=epochs)
+            for x, y in T:
+                self.assertEqual(f(x), y)
             t, eps, epochs = 0.01, 0.05, 5000
-            w, b = delta_rule(T, a=sigmoid, da=dx_sigmoid, t=t, eps=eps, epochs=epochs)
-            f = lambda x: heaviside(dotprod(w, x) + b)
+            f = get_boolean_approx(T, a=sigmoid, da=dx_sigmoid, fire=heaviside, t=t, eps=eps, epochs=epochs)
             for x, y in T:
                 self.assertEqual(f(x), y)
 
@@ -50,12 +54,10 @@ class DeltaRuleTestCase(unittest.TestCase):
         for f in non_separable_boolean_operators:
             t, eps, epochs = 0.01, 0.05, 5000
             T = [(x, f(*x)) for x in boolean_domain]
-            w, b = delta_rule(T, a=linear, da=dx_linear, t=t, eps=eps, epochs=epochs)
-            f = lambda x: one_third(dotprod(w, x) + b)
+            f = get_boolean_approx(T, a=linear, da=dx_linear, fire=one_third, t=t, eps=eps, epochs=epochs)
             self.assertTrue(any(f(x) != y for x, y in T))
             t, eps, epochs = 0.01, 0.05, 5000
-            w, b = delta_rule(T, a=dx_sigmoid, da=dx_sigmoid, t=t, eps=eps, epochs=epochs)
-            f = lambda x: heaviside(dotprod(w, x) + b)
+            f = get_boolean_approx(T, a=sigmoid, da=dx_sigmoid, fire=heaviside, t=t, eps=eps, epochs=epochs)
             self.assertTrue(any(f(x) != y for x, y in T))
 
 
