@@ -28,6 +28,7 @@ __pycache__
 *.mtc
 *.mtc1
 *.out
+*.pdf
 *.swp
 *.synctex.gz
 *.tmp
@@ -45,4 +46,3 @@ _minted-optimization
 _minted-build
 _minted-notes
 __latexindent_temp.tex
-notes.pdf
