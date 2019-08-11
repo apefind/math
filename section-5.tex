@@ -136,7 +136,10 @@ aka the one with the angle greater than \( \ang{90} \) degrees.
 
 While this seems reasonable it is unclear whether the algorithm always yields a result after
 a finite number of iterations. The answer to this question will be given later as a special case
-of the \hyperref[thm:perceptron_convergence]{Perceptron Convergence Theorem~\ref*{thm:perceptron_convergence}}
+of the \hyperref[thm:perceptron_convergence]{Perceptron Convergence Theorem~\ref*{thm:perceptron_convergence}}.
+
+This approach can be used to find a weight to separate two vectors.  Finding a common weight for 
+\( x \) and \( -y \) now yields \( wx > 0 \) and \( -wy > 0 \), hence \( wy < 0 \).
 \bigskip
 
 
@@ -166,8 +169,8 @@ of the \hyperref[thm:perceptron_convergence]{Perceptron Convergence Theorem~\ref
                       w_3 & = (-8, -8)  & w_3x & = 16  & w_3y & = 40  \\
                   \end{aligned}
               \]
-        \item
-              Let \( w = x / \|x\| + y/ \|y\| \). Then
+        \item Task: for any given integer \( k \) find two vectors so that more than \( k \) steps are needed
+        \item Let \( w = x / \|x\| + y/ \|y\| \). Then
               \[
                   wx = \frac{{\|x\|}^2}{\|x\|} + \frac{yx}{\|y\|} = \|x\| + \|x\|\cos\alpha = (1 + \cos\alpha)\|x\| > 0
               \]
@@ -177,7 +180,6 @@ of the \hyperref[thm:perceptron_convergence]{Perceptron Convergence Theorem~\ref
                   1 + \cos\alpha = \|w\|\cos\beta = \|w\|\cos\gamma
               \]
               and thus \( \beta = \gamma \). Also, as expected, \( wx > 0 \) and \( wy > 0 \)
-        \item Task: for any given integer \( k \) find two vectors so that more than \( k \) steps are needed
     \end{enumerate}
 \end{examples}
 \bigskip
