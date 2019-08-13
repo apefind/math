@@ -427,20 +427,23 @@ The Delta Rule applies the method of the Steepest Descent to the error function 
         \end{split}
     \]
 \end{algorithm}
+\bigskip
+
+
 \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/delta_rule.py}
 \bigskip
 
 
 \subsection{The Univeral Approximation Theorem}
 
-\begin{definition}[Single Layer Neural Network]
-    Let \( w_k \in \R^n \) and \( b_k \in \R \). For \( \alpha_k \in \R \) define \( f : \Rn \to \R \)
-    \[
-        f(x) = \sum_{k = 0}^m \alpha_k \sigmoid(w_k x + b_k)
-    \]
-    Then \( f \) is called a \emph{single layer feedforward neural network} of \( m \) units.
-\end{definition}
-\bigskip
+% \begin{definition}[Single Layer Neural Network]
+%     Let \( w_k \in \R^n \) and \( b_k \in \R \). For \( \alpha_k \in \R \) define \( f : \Rn \to \R \)
+%     \[
+%         f(x) = \sum_{k = 0}^m \alpha_k \sigmoid(w_k x + b_k)
+%     \]
+%     Then \( f \) is called a \emph{single layer feedforward neural network} of \( m \) units.
+% \end{definition}
+% \bigskip
 
 \begin{theorem}[The Universal Approximation Theorem]\label{thm:universal_approximation}
     The subspace of all single layer feedforward neural networks is dense in \( C(I^n) \).
