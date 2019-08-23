@@ -1,4 +1,4 @@
-from weight import dotprod
+from vector import dotprod
 
 
 def perceptron(T, t=0.01, epochs=50):

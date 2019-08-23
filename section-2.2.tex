@@ -1,5 +1,6 @@
 
 \subsection{One Dimensional Minimization and Direct Search}
+\bigskip
 
 
 \begin{definition}[Unimodal Function]\label{def:unimodal_fnc}
@@ -63,20 +64,55 @@ where the interval converges to \( \xi \). This leads to the following algorithm
 \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{python/golden_section.py}
 \bigskip
 
-% \begin{algorithm}[Steepest Descent]\label{algo:steepest_descent}
-% \end{algorithm}
-% Let \( f \in C^1(\Rn) \) and \( x_0 \in \Rn \). For \( 0 < \alpha \le \beta < 1 \) and \( \gamma < 1 \) let
-
-
-
 \begin{exercise}[Surprising Convergence]
     Example for \( f \in C^2(\mathbb{R}) \) with a sequence of strict local minima converging to a strict local maximum.
 \end{exercise}
+\bigskip
 
-% \begin{proof}
-%     Let \( f \in C[a,b] \) and \( \xi \in (a, b) \) so that \( f \) is strictly increasing in \( (a,\xi] \) and   % chktex 9
-%     strictly decreasing in \( [\xi,b) \). Define   % chktex 9
-%     \[
-%         g(x) = \int_{\xi - x}^{\xi + x} f(t)\,dt
-%     \]
-% \end{proof}
+
+
+\subsection{Methods of Steepest Descent}
+\bigskip
+
+
+\begin{definition}
+    Let \( f \in C^1(\Rn) \) and \( x_0 \in \Rn \). For sequences \( \lambda_k > 0 \) and
+    unit vectors \( s_k \in \Rn \) define
+    \[
+        x_{k + 1} = x_k + \lambda_k s_k
+    \]
+    Then \( \lambda_k \) and  \( s_k \) are called \emph{step lengths} and \emph{search directions}.
+\end{definition}
+\bigskip
+
+
+\begin{remark}
+    It is
+    \[
+        - \gradient f(x_k) s_k = \|\gradient f(x_k)\| \|s_k\| \cos\varphi =
+        \cos\varphi \|\gradient f(x_k)\| \ge \gamma \|\gradient f(x_k)\|
+    \]
+    and so angle between \( -\gradient f(x_k) \) and \( s_k \) is strictly smaller then \( \ang{90} \) degrees
+\end{remark}
+\bigskip
+
+
+\begin{theorem}[Steepest Descent Method]\label{thm:steepest_descent}
+    Let \( f \in C^1(\Rn) \) as well as \( \lambda_k \) and \( s_k \) step lengths and search directions.
+    Furthermore assume that for \( 0 < \gamma \le 1 \) and some \( 0 < \alpha \le \beta < 1 \) 
+    the following inequalities hold
+    \[
+        - \gradient f(x_k) s_k \ge \gamma \|\gradient f(x_k)\|
+    \]
+    \[
+        f(x_{k + 1}) \le f(x_k) + \alpha \lambda_k \gradient f(x_k) s_k
+    \]
+    \[
+        \gradient f(x_{k + 1}) s_k \ge \beta \gradient f(x_k) s_k
+    \]
+    Then every accumulation point of \( x_k \) is a stationary point of \( f \).
+\end{theorem}
+
+\begin{proof}
+    Since \( \gradient f(x_k) s_k \le 0 \) the sequence \( f(x_k) \) is monotonically decreasing.
+\end{proof}

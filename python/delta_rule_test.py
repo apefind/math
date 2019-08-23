@@ -1,6 +1,7 @@
 import unittest
 from activation_function import heaviside, linear, dx_linear, sigmoid, dx_sigmoid
-from delta_rule import dotprod, delta_rule
+from vector import dotprod
+from delta_rule import delta_rule
 
 
 def and_(x, y):
