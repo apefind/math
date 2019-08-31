@@ -76,43 +76,60 @@ where the interval converges to \( \xi \). This leads to the following algorithm
 
 
 \begin{definition}
-    Let \( f \in C^1(\Rn) \) and \( x_0 \in \Rn \). For sequences \( \lambda_k > 0 \) and
-    unit vectors \( s_k \in \Rn \) define
-    \[
-        x_{k + 1} = x_k + \lambda_k s_k
-    \]
-    Then \( \lambda_k \) and  \( s_k \) are called \emph{step lengths} and \emph{search directions} if there
-    exists a \( 0 < \gamma \le 1 \), so that
-    \[
-        - \gradient f(x_k) s_k \ge \gamma \|\gradient f(x_k)\|
-    \]
+    Let \( f \in C^1(\Rn) \) and \( x_0 \in \Rn \) an arbitraty starting point.
+    \begin{enumerate}
+        \item For sequences \( \lambda_k > 0 \) and unit vectors \( s_k \in \Rn \) define
+              \[
+                  x_{k + 1} = x_k + \lambda_k s_k
+              \]
+        \item Assume there exists a \( 0 < \alpha \le 1 \) so that
+              \[
+                  - \gradient f(x_k) s_k \ge \alpha \|\gradient f(x_k)\|
+              \]
+        \item Furthermore assume that for some \( 0 < \beta \le \gamma < 1 \) the following inequalities hold
+              \[
+                  \begin{split}
+                      f(x_{k + 1}) & \le f(x_k) + \lambda_k \beta \gradient f(x_k) s_k \\
+                      \gradient f(x_{k + 1}) s_k & \ge \gamma \gradient f(x_k) s_k
+                  \end{split}
+              \]
+    \end{enumerate}
+    Then \( \lambda_k \) and  \( s_k \) are called \emph{step lengths} and \emph{search directions},
+    \( x_k \) is called a \emph{sequence of descent} for \( f \).
 \end{definition}
 \bigskip
 
 
-\begin{remark}
-    It is
-    \[
-        - \gradient f(x_k) s_k = \|\gradient f(x_k)\| \|s_k\| \cos\varphi =
-        \cos\varphi \|\gradient f(x_k)\| \ge \gamma \|\gradient f(x_k)\|
-    \]
-    and so angle between \( -\gradient f(x_k) \) and \( s_k \) is strictly smaller then \( \ang{90} \) degrees
-\end{remark}
+\begin{remarks}\hfill
+    \begin{enumerate}
+        \item  It is
+              \[
+                  - \gradient f(x_k) s_k = \cos\varphi \|\gradient f(x_k)\| \|s_k\| =
+                  \cos\varphi \|\gradient f(x_k)\| \ge \alpha \|\gradient f(x_k)\|
+              \]
+              Hence angle between the direction of the steepest descent \( -\gradient f(x_k) \)
+              and \( s_k \) is strictly smaller then \( \ang{90} \) degrees.
+        \item  Since \( \gradient f(x_k) s_k \le 0 \) it follows
+              \[
+                  f(x_{k + 1}) \le f(x_k) + \beta \lambda_k \gradient f(x_k) s_k \le f(x_k)
+              \]
+              and \( f(x_k) \) is monotonically decreasing.
+        \item Furthermore
+              \[
+                  \gradient f(x_{k + 1}) s_k = \gradient f(x_k + \lambda_k s_k) s_k
+                  \ge \gamma \gradient f(x_k) s_k
+              \]
+              Hence the step length cannot be chosen too small due to the continuity of the dervative.
+
+    \end{enumerate}
+\end{remarks}
 \bigskip
 
 
 \begin{theorem}[Steepest Descent Method]\label{thm:steepest_descent}
-    Let \( f \in C^1(\Rn) \) as well as \( \lambda_k \) and \( s_k \) step lengths and search directions.
-    Furthermore assume that for some \( 0 < \alpha \le \beta < 1 \) the following inequalities hold
-    \[
-        \begin{split}
-            f(x_{k + 1}) & \le f(x_k) + \alpha \gamma_k \gradient f(x_k) s_k \\
-            \gradient f(x_{k + 1}) s_k & \ge \beta f(x_k) s_k
-        \end{split}
-    \]
+    Let \( f \in C^2(\Rn) \) and \( x_k \) a sequence of descent.
     Then every accumulation point of \( x_k \) is a stationary point of \( f \).
 \end{theorem}
 
 \begin{proof}
-    Since \( \gradient f(x_k) s_k \le 0 \) the sequence \( f(x_k) \) is monotonically decreasing.
 \end{proof}
