@@ -1,5 +1,5 @@
 from random import random
-from perceptron import dotprod
+from vector import dotprod
 
 
 def delta_rule(T, a, da, t=0.01, eps=0.05, epochs=50):

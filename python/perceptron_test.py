@@ -1,6 +1,7 @@
 from activation_function import heaviside
 from boolean import boolean_domain, boolean_operators
-from perceptron import dotprod, perceptron
+from vector import dotprod
+from perceptron import perceptron
 
 
 def test_perceptron(f, X, t=0.01, epochs=50):
