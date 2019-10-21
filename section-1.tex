@@ -252,7 +252,7 @@
                   \int_0^1 x^n\,dx
                   = \int_0^1 t^{nm} m t^{m - 1}\,dt
                   = m\int_0^1 t^{m(n + 1) - 1}\,dt
-                  = {\left[\frac{m}{m(n + 1)} t^{m(n + 1)}\right]}_0^1
+                      = {\left[\frac{m}{m(n + 1)} t^{m(n + 1)}\right]}_0^1
                   = \frac{1}{n + 1}
               \]
     \end{enumerate}
@@ -260,8 +260,23 @@
 \bigskip
 
 
-\subsection{Directional Derivative and Gradients}
+\subsection{Partial Derivatives, Directional Derivative and Gradients}
 \bigskip
+
+\begin{examples}\hfill
+    \begin{enumerate}
+        \item Consider the norm \( r(x) = \|x\| = \sqrt{x_1^2 + x_2^2 \dots x_n^2} \). Then the chain rule yields
+              \[
+                  \frac{\partial r}{\partial x_j}(x) = \frac{2 x_j}{2 \sqrt{x_1^2 + x_2^2 \dots x_n^2}}
+                  = \frac{x_j}{\|x\|}
+              \]
+              and \( r \) is differentiable on \( \Rn {\setminus} \{ 0 \} \).
+        \item For \( f \) differentiable follows
+              \[
+                  \frac{\partial f}{\partial x_j}(r(x)) = x_j \frac{f'(r(x))}{\|x\|}
+              \]
+    \end{enumerate}
+\end{examples}
 
 
 \begin{lemma}[Directional Derivative]\label{lemma:directional_derivative}
@@ -285,6 +300,7 @@
     \]
 \end{proof}
 \bigskip
+
 
 \begin{remarks}\hfill
     \begin{enumerate}
