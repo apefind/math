@@ -1,6 +1,6 @@
 
 \newpage
-\section{Calculus} 
+\section{Calculus}
 
 \subsection{Differentation and Integration}
 \bigskip
@@ -16,7 +16,7 @@
               \[
                   \frac{d}{dx} \sqrt{x} = \frac{1}{2\sqrt{x}}
               \]
-        \item It is
+        \item It is ok
               \[
                   \frac{d}{dx} x^n = nx^{n - 1}
               \]
@@ -36,15 +36,22 @@
               \]
         \item Let \( f \) be differentiable at \( x_0 \). From the definition follows that \( f \)
               is \emph{Lipschitz continous}, e.g. there exists a \( L > 0 \), so that
-              \( |f(x) - f(x_0)| < L|x - x_0| \) in some small enough environment of \( x_0 \). Furthermote
-              if there exists a sequence \( x_n \to x_0 \) with \( f(x_n) = f(x_0) \) then \( f'(x) = 0\).
-        \item The chain rule: \( (f \circ g)' = (f' \circ g)\, g' \). For \( g(x) \ne g(x_0) \) follows
+              \( |f(x) - f(x_0)| < L|x - x_0| \) in some small enough environment of \( x_0 \)
+        \item Let \( f \) be differentiable at \( x_0 \) and  \( x_n \to x_0 \) with \( f(x_n) = f(x_0) \).
+              Then \( f'(x) = 0 \). Consequently, if \( f'(x) \ne 0 \) then \( f(x) \ne f(x_0) \)
+              in some local environment of \( x_0 \).
+        \item The chain rule: \( (f \circ g)' = (f' \circ g)\, g' \). For \( g'(x_0) \ne 0 \) there exists
+              a local environment with \( g(x) \ne g(x_0) \) and
               \[
                   \frac{f(g(x)) - f(g(x_0))}{x - x_0} =
                   \frac{f(g(x)) - f(g(x_0))}{g(x) - g(x_0)} \frac{g(x) - g(x_0)}{x - x_0}
               \]
-              In case there exists a sequence \( x_n \to x_0 \) with \( g(x_n) = g(x_0) \) the remarks above give
-              \( (f \circ g)'(x_0) = 0 \).
+              Otherwise the remark above gives
+              \[
+                  \left| \frac{f(g(x)) - f(g(x_0))}{x - x_0} \right| \le
+                  L\left| \frac{g(x) - g(x_0)}{x - x_0}  \right|
+              \]
+              and \( (f \circ g)'(x_0) = 0 \).
         \item Also \( x = f \circ f^{-1} \) and \( 1 = (f^{-1})'f' \circ f^{-1} \). Thus
               \[
                   (f^{-1})' = \frac{1}{f' \circ f^{-1}}
@@ -60,6 +67,38 @@
                   \sum_{k=m}^n q^k = \frac{q^m - q^{n+1}}{1 - q}
               \]
     \end{enumerate}
+\end{lemma}
+\bigskip
+
+\begin{remarks}Let \( f \) be differentiable at \( x_0 \). From the definition follows
+    \begin{enumerate}
+        \item \( f \) is \emph{Lipschitz continous} at \( x_0 \), e.g. there exists a \( L > 0 \), so that
+              \( |f(x) - f(x_0)| < L|x - x_0| \) in some small enough environment of \( x_0 \).
+        \item If there exists a sequence  \( x_n \to x_0 \) with \( f(x_n) = f(x_0) \) then \( f'(x) = 0 \).
+              Consequently, if \( f'(x) \ne 0 \) then \( f(x) \ne f(x_0) \) in some local environment of \( x_0 \).
+    \end{enumerate}
+\end{remarks}
+\bigskip
+
+\begin{lemma}[Chain Rule]
+    The chain rule for differentiable functions \( f \) and \( g \) yields
+    \[ 
+        (f \circ g)'(x) = f'(g(x))\, g'(x) 
+    \]
+
+    \begin{proof}
+        For \( g'(x_0) \ne 0 \) there exists a local environment of \( x_0 \) where
+        \[
+            \frac{f(g(x)) - f(g(x_0))}{x - x_0} =
+            \frac{f(g(x)) - f(g(x_0))}{g(x) - g(x_0)} \frac{g(x) - g(x_0)}{x - x_0}
+        \]
+        Otherwise the remark above gives
+        \[
+            \left| \frac{f(g(x)) - f(g(x_0))}{x - x_0} \right| \le
+            L\left| \frac{g(x) - g(x_0)}{x - x_0}  \right|
+        \]
+        and \( (f \circ g)'(x_0) = 0 \).
+    \end{proof}
 \end{lemma}
 \bigskip
 
