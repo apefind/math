@@ -34,24 +34,6 @@
                   \left(\frac{f}{g}\right)' = \frac{f'}{g} + f \left(\frac{1}{g} \right)' =
                   \frac{f'}{g} -\frac{fg'}{g^2} = \frac{gf'- fg'}{g^2}
               \]
-        \item Let \( f \) be differentiable at \( x_0 \). From the definition follows that \( f \)
-              is \emph{Lipschitz continous}, e.g. there exists a \( L > 0 \), so that
-              \( |f(x) - f(x_0)| < L|x - x_0| \) in some small enough environment of \( x_0 \)
-        \item Let \( f \) be differentiable at \( x_0 \) and  \( x_n \to x_0 \) with \( f(x_n) = f(x_0) \).
-              Then \( f'(x) = 0 \). Consequently, if \( f'(x) \ne 0 \) then \( f(x) \ne f(x_0) \)
-              in some local environment of \( x_0 \).
-        \item The chain rule: \( (f \circ g)' = (f' \circ g)\, g' \). For \( g'(x_0) \ne 0 \) there exists
-              a local environment with \( g(x) \ne g(x_0) \) and
-              \[
-                  \frac{f(g(x)) - f(g(x_0))}{x - x_0} =
-                  \frac{f(g(x)) - f(g(x_0))}{g(x) - g(x_0)} \frac{g(x) - g(x_0)}{x - x_0}
-              \]
-              Otherwise the remark above gives
-              \[
-                  \left| \frac{f(g(x)) - f(g(x_0))}{x - x_0} \right| \le
-                  L\left| \frac{g(x) - g(x_0)}{x - x_0}  \right|
-              \]
-              and \( (f \circ g)'(x_0) = 0 \).
         \item Also \( x = f \circ f^{-1} \) and \( 1 = (f^{-1})'f' \circ f^{-1} \). Thus
               \[
                   (f^{-1})' = \frac{1}{f' \circ f^{-1}}
