@@ -1,6 +1,6 @@
 
 \newpage
-\section{Calculus}
+\section{Calculus} 
 
 \subsection{Differentation and Integration}
 \bigskip
@@ -34,6 +34,17 @@
                   \left(\frac{f}{g}\right)' = \frac{f'}{g} + f \left(\frac{1}{g} \right)' =
                   \frac{f'}{g} -\frac{fg'}{g^2} = \frac{gf'- fg'}{g^2}
               \]
+        \item Let \( f \) be differentiable at \( x_0 \). From the definition follows that \( f \)
+              is \emph{Lipschitz continous}, e.g. there exists a \( L > 0 \), so that
+              \( |f(x) - f(x_0)| < L|x - x_0| \) in some small enough environment of \( x_0 \). Furthermote
+              if there exists a sequence \( x_n \to x_0 \) with \( f(x_n) = f(x_0) \) then \( f'(x) = 0\).
+        \item The chain rule: \( (f \circ g)' = (f' \circ g)\, g' \). For \( g(x) \ne g(x_0) \) follows
+              \[
+                  \frac{f(g(x)) - f(g(x_0))}{x - x_0} =
+                  \frac{f(g(x)) - f(g(x_0))}{g(x) - g(x_0)} \frac{g(x) - g(x_0)}{x - x_0}
+              \]
+              In case there exists a sequence \( x_n \to x_0 \) with \( g(x_n) = g(x_0) \) the remarks above give
+              \( (f \circ g)'(x_0) = 0 \).
         \item Also \( x = f \circ f^{-1} \) and \( 1 = (f^{-1})'f' \circ f^{-1} \). Thus
               \[
                   (f^{-1})' = \frac{1}{f' \circ f^{-1}}
@@ -263,6 +274,25 @@
 \subsection{Partial Derivatives, Directional Derivative and Gradients}
 \bigskip
 
+\begin{definition}
+    Let \( \Omega \subseteq \Rn \) be open and \( f : \Omega \to \R \).
+    \begin{enumerate}
+        \item For \( x \in \Omega \) and \( d \in \Rn \) assume \( \varphi(h) = f(x + hd) \) is differentiable
+              at the origin. Then
+              \[
+                  \frac{\partial f}{\partial d}(x) = \lim_{h \to 0} \frac{f(x + hd) - f(x)}{h} = \varphi'(0)
+              \]
+              is called the \emph{directional derivative} of \( f \) at \( x \) with respect to the direction \( d \).
+        \item The \emph{partial derivates} are the directional derivatives with respect to the
+              unit vectors \( e_j \)
+              \[
+                  \frac{\partial f}{\partial x_j}(x) = \frac{\partial f}{\partial e_j}(x)
+              \]
+    \end{enumerate}
+\end{definition}
+\bigskip
+
+
 \begin{examples}\hfill
     \begin{enumerate}
         \item Consider the norm \( r(x) = \|x\| = \sqrt{x_1^2 + x_2^2 \dots x_n^2} \). Then the chain rule yields
@@ -277,6 +307,7 @@
               \]
     \end{enumerate}
 \end{examples}
+\bigskip
 
 
 \begin{lemma}[Directional Derivative]\label{lemma:directional_derivative}
