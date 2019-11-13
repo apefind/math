@@ -64,8 +64,8 @@
 
 \begin{lemma}[Chain Rule]
     The chain rule for differentiable functions \( f \) and \( g \) yields
-    \[ 
-        (f \circ g)'(x) = f'(g(x))\, g'(x) 
+    \[
+        (f \circ g)'(x) = f'(g(x))\, g'(x)
     \]
 
     \begin{proof}
@@ -188,12 +188,12 @@
 \bigskip
 
 
-\begin{remark}\hfill
+\begin{remarks}\hfill
     \begin{enumerate}
         \item More generally choose any \( \varphi \in C^1[a,b] \) with \( \varphi(a) = 0 \) and
               \( \varphi(b) = f(b) - f(a) \). Set \( g(x) = f(x) - \varphi(x) \) to see there is a \( \xi \in (a,b) \)
               with \( f'(\xi) = \varphi'(\xi)\).
-        \item Let \( f \) be differentiable in \( (a, b) \) with \( f' = 0 \). For \( x, y \in (a, b) \)
+        \item Let \( f \) be differentiable in \( (a, b) \) with \( f' = 0 \). For any \( x, y \in (a, b) \)
               \[
                   0 = f'(\xi) = \frac{f(y) - f(x)}{y - x}
               \]
@@ -208,7 +208,7 @@
                   \|f(x) - f(y)\| \le \|\gradient f(\xi x + (1 - \xi)y)\| \|(x - y)\|
               \]
     \end{enumerate}
-\end{remark}
+\end{remarks}
 \bigskip
 
 
@@ -292,18 +292,59 @@
 \bigskip
 
 
-\subsection{Partial Derivatives, Directional Derivative and Gradients}
+\subsection{Multivariable Derivative}
 \bigskip
+
+\begin{definition}
+    Let \( \Omega \subseteq \Rn \) be open and \( x \in \Omega \).
+    \begin{enumerate}
+        \item \( f : \Omega \to \Rm \) is called \emph{differentiable} at \( x \) if there exists
+              a linear mapping \( A: \Rn \to \Rm \), so that
+              \[
+                  \lim_{h \to 0} \frac{\|f(x + h) - f(x) - Ah\|}{\|h\|} = 0
+              \]
+              Here \( Df(x) = A \)
+              is called the \emph{derivative} of \( f \) at \( x \).
+        \item In this context linear mappings are used synonymously with their corresponding \emph{Jacobian matrices}.
+        \item For \( f : \Omega \to \R \) the derivative is called the \emph{gradient} of \( f \) at \( x \)
+              \[
+                  \gradient f(x) = Df(x)
+              \]
+    \end{enumerate}
+\end{definition}
+\bigskip
+
+
+\begin{remarks}\hfill
+    \begin{enumerate}
+        \item For a linear mapping \( A \) and an arbitrary \( y = th \in \Rn \) it is
+              \[
+                  \frac{\|Ay\|}{\|y\|} = \frac{\|Ah\|}{\|h\|}
+              \]
+              Hence
+              \[
+                  \frac{\|Ay - By\|}{\|y\|} = \frac{\|Ah - Bh\|}{\|h\|}\le
+                  \frac{\|f(x + h) - f(x) - Ah\|}{\|h\|} + \frac{\|f(x + h) - f(x) - Bh\|}{\|h\|}
+              \]
+              and the derivative is well defined.
+        \item As a consequence, if already \( f(x + h) - f(x) - Ah = 0 \) then \( Df(x) = A \).
+              Hence \( Df(x) = 0 \) for a constant \( f \) and \( f(x) = Ax \) gives \( Df(x) = A \).
+        \item Since all norms on \( \Rn \) are equivalent the differentiability of \( f = (f_1, f_2, \dots, f_n) \)
+              is eqivalent to the differentiability of all its components.
+    \end{enumerate}
+\end{remarks}
+\bigskip
+
 
 \begin{definition}
     Let \( \Omega \subseteq \Rn \) be open and \( f : \Omega \to \R \).
     \begin{enumerate}
-        \item For \( x \in \Omega \) and \( d \in \Rn \) assume \( \varphi(h) = f(x + hd) \) is differentiable
-              at the origin. Then
+        \item For \( x \in \Omega \) and \( d \in \Rn \) assume the limit
               \[
-                  \frac{\partial f}{\partial d}(x) = \lim_{h \to 0} \frac{f(x + hd) - f(x)}{h} = \varphi'(0)
+                  \frac{\partial f}{\partial d}(x) = \lim_{t \to 0} \frac{f(x + td) - f(x)}{t}
               \]
-              is called the \emph{directional derivative} of \( f \) at \( x \) with respect to the direction \( d \).
+              exists. Then this called the \emph{directional derivative} of \( f \) at \( x \)
+              with respect to the direction \( d \).
         \item The \emph{partial derivates} are the directional derivatives with respect to the
               unit vectors \( e_j \)
               \[
@@ -356,20 +397,18 @@
 
 \begin{remarks}\hfill
     \begin{enumerate}
-        \item Note that by definition the directional derivative is invariant under multiplication
-              with any \( \lambda \ne 0 \).
-
+        % \item Note that by definition the directional derivative is invariant under multiplication
+        %       with any \( \lambda \ne 0 \).
         \item A similar proposition holds under the weaker assumption that \( d \) is a only feasable direction
               for \( f \) in \( x \)
-
         \item For \( d = \gradient{f(x)}/\| \gradient{f(x)}\| \) it follows that
               \[
                   \frac{\partial f}{\partial d}(x) = \|\gradient{f(x)}\| > 0
               \]
               and for any other \( d \in \Rn \) with \( \|d\| = 1 \) the Cauchy Schwarz inequality yields
               \[
-                  |\frac{\partial f}{\partial d}(x)| = |\gradient{f(x)}^T d| \le \|\gradient{f(x)}\| \|d\| =
-                  \|\gradient{f(x)}\|
+                  \left|\frac{\partial f}{\partial d}(x)\right| = |\gradient{f(x)}^T d|
+                  \le \|\gradient{f(x)}\| \|d\| =\|\gradient{f(x)}\|
               \]
               Hence \( \gradient{f(x)} \) is the direction of the greatest ascent and respectively,
               \( -\gradient{f(x)} \) is the direction of the greatest descent.
