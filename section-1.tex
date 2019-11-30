@@ -317,18 +317,18 @@
 
 \begin{remarks}\hfill
     \begin{enumerate}
-        \item For a linear mapping \( A \) and an arbitrary \( y = th \in \Rn \) it is
+        \item For a linear mapping \( A \) and an arbitrary \( v = th \in \Rn \) it is
               \[
-                  \frac{\|Ay\|}{\|y\|} = \frac{\|Ah\|}{\|h\|}
+                  \frac{\|Av\|}{\|v\|} = \frac{\|Ah\|}{\|h\|}
               \]
               Hence
               \[
-                  \frac{\|Ay - By\|}{\|y\|} = \frac{\|Ah - Bh\|}{\|h\|}\le
+                  \frac{\|Av - Bv\|}{\|v\|} = \frac{\|Ah - Bh\|}{\|h\|}\le
                   \frac{\|f(x + h) - f(x) - Ah\|}{\|h\|} + \frac{\|f(x + h) - f(x) - Bh\|}{\|h\|}
               \]
               and the derivative is well defined.
         \item As a consequence, if already \( f(x + h) - f(x) - Ah = 0 \) then \( Df(x) = A \).
-              Hence \( Df(x) = 0 \) for \( f = const \) and \( f(x) = Ax \) gives \( Df(x) = A \).
+              Hence \( Df(x) = 0 \) for a constant  \( f \) and \( f(x) = Ax \) gives \( Df(x) = A \).
         \item Since all norms on \( \Rn \) are equivalent the differentiability of \( f = (f_1, f_2, \dots, f_n) \)
               is eqivalent to the differentiability of all its components.
     \end{enumerate}
@@ -337,14 +337,14 @@
 
 
 \begin{definition}
-    Let \( \Omega \subseteq \Rn \) be open and \( f : \Omega \to \R \).
+    Let \( \Omega \subseteq \Rn \) be open and \( x \in \Omega \).
     \begin{enumerate}
-        \item For \( x \in \Omega \) and \( d \in \Rn \) assume the limit
+        \item For \( f : \Omega \to \R \) and a normed vector \( v \in \Rn \) the limit
               \[
-                  \frac{\partial f}{\partial d}(x) = \lim_{t \to 0} \frac{f(x + td) - f(x)}{t}
+                  \frac{\partial f}{\partial v}(x) = \lim_{t \to 0} \frac{f(x + tv) - f(x)}{t}
               \]
-              exists. Then this called the \emph{directional derivative} of \( f \) at \( x \)
-              with respect to the direction \( d \).
+              is called the \emph{directional derivative} of \( f \) at \( x \)
+              with respect to the direction \( v \). 
         \item The \emph{partial derivates} are the directional derivatives with respect to the
               unit vectors \( e_j \)
               \[
@@ -352,6 +352,28 @@
               \]
     \end{enumerate}
 \end{definition}
+\bigskip
+
+
+\begin{examples}\hfill
+    \begin{enumerate}
+        \item Let
+              \[
+                  f(x,y) = \frac{xy(x^2 - y^2)}{x^2 + y^2} = \frac{y(x^3 - xy^2)}{x^2 + y^2}
+              \]
+              Then
+              \[
+                  \frac{\partial f}{\partial x}(x,y)
+                  = \frac{(3yx^2 - y^3)(x^2 - y^2) - 2xy(x^3 - xy^2)}{{(x^2 + y^2)}^2}
+                  = \frac{yx^4 + 4y^3x^2 - y^5}{{(x^2 + y^2)}^2}
+              \]
+              Since \( f(y,x) = - f(x,y)\) it follows
+              \[
+                  \frac{\partial f}{\partial y}(x,y) = \frac{x^5 - 4x^3y^2 - xy^4}{{(x^2 + y^2)}^2}
+              \]
+
+    \end{enumerate}
+\end{examples}
 \bigskip
 
 
@@ -397,8 +419,6 @@
 
 \begin{remarks}\hfill
     \begin{enumerate}
-        % \item Note that by definition the directional derivative is invariant under multiplication
-        %       with any \( \lambda \ne 0 \).
         \item A similar proposition holds under the weaker assumption that \( d \) is a only feasable direction
               for \( f \) in \( x \)
         \item For \( d = \gradient{f(x)}/\| \gradient{f(x)}\| \) it follows that
