@@ -54,7 +54,7 @@
 
 \begin{remarks}Let \( f \) be differentiable at \( x_0 \). From the definition follows
     \begin{enumerate}
-        \item \( f \) is \emph{Lipschitz continous} at \( x_0 \), e.g. there exists a \( L > 0 \), so that
+        \item \( f \) is \emph{Lipschitz continous} at \( x_0 \), e.g. there exists a \( L > 0 \) so that
               \( |f(x) - f(x_0)| < L|x - x_0| \) in some small enough environment of \( x_0 \).
         \item If there exists a sequence  \( x_n \to x_0 \) with \( f(x_n) = f(x_0) \) then \( f'(x) = 0 \).
               Consequently, if \( f'(x) \ne 0 \) then \( f(x) \ne f(x_0) \) in some local environment of \( x_0 \).
@@ -147,7 +147,7 @@
 
 \begin{proof}
     Assume \( x^* \) is the minimum of \( f \) in \( \Omega \) and let \( f(x^*) > 0 \).
-    Since \( f \in C^1(\Omega) \) there exist \( \eps, \delta > 0 \), so that for \( |h| \le \eps \)
+    Since \( f \in C^1(\Omega) \) there exist \( \eps, \delta > 0 \) so that for \( |h| \le \eps \)
     \[
         \frac{f(x^* + h) - f(x^*)}{h} > \delta
     \]
@@ -296,21 +296,12 @@
 \bigskip
 
 \begin{definition}
-    Let \( \Omega \subseteq \Rn \) be open and \( x \in \Omega \).
-    \begin{enumerate}
-        \item \( f : \Omega \to \Rm \) is called \emph{differentiable} at \( x \) if there exists
-              a linear mapping \( A: \Rn \to \Rm \), so that
-              \[
-                  \lim_{h \to 0} \frac{\|f(x + h) - f(x) - Ah\|}{\|h\|} = 0
-              \]
-              Here \( Df(x) = A \)
-              is called the \emph{derivative} of \( f \) at \( x \).
-        \item In this context linear mappings are used synonymously with their corresponding \emph{Jacobian matrices}.
-        \item For \( f : \Omega \to \R \) the derivative is called the \emph{gradient} of \( f \) at \( x \)
-              \[
-                  \gradient f(x) = Df(x)
-              \]
-    \end{enumerate}
+    Let \( \Omega \subseteq \Rn \) be open. \( f : \Omega \to \Rm \) is called \emph{differentiable}
+    at \( x \in \Omega \) if there exists a linear mapping \( A: \Rn \to \Rm \) so that
+    \[
+        \lim_{h \to 0} \frac{\|f(x + h) - f(x) - Ah\|}{\|h\|} = 0
+    \]
+    \( Df(x) = A \) is called the \emph{derivative} of \( f \) at \( x \).
 \end{definition}
 \bigskip
 
@@ -329,7 +320,7 @@
               and the derivative is well defined.
         \item As a consequence, if already \( f(x + h) - f(x) - Ah = 0 \) then \( Df(x) = A \).
               Hence \( Df(x) = 0 \) for a constant  \( f \) and \( f(x) = Ax \) gives \( Df(x) = A \).
-        \item Since all norms on \( \Rn \) are equivalent the differentiability of \( f = (f_1, f_2, \dots, f_n) \)
+        \item Since all norms on \( \Rm \) are equivalent the differentiability of \( f = (f_1, f_2, \dots, f_m) \)
               is eqivalent to the differentiability of all its components.
     \end{enumerate}
 \end{remarks}
@@ -344,12 +335,22 @@
                   \frac{\partial f}{\partial v}(x) = \lim_{t \to 0} \frac{f(x + tv) - f(x)}{t}
               \]
               is called the \emph{directional derivative} of \( f \) at \( x \)
-              with respect to the direction \( v \). 
+              with respect to the direction \( v \).
         \item The \emph{partial derivates} are the directional derivatives with respect to the
               unit vectors \( e_j \)
               \[
                   \frac{\partial f}{\partial x_j}(x) = \frac{\partial f}{\partial e_j}(x)
               \]
+              and the  \emph{gradient} is defined as
+              \[
+                  \gradient f(x) = \left(\frac{\partial f}{\partial x_1}(x),
+                  \frac{\partial f}{\partial x_2}(x), \dots , \frac{\partial f}{\partial x_n}(x)\right)
+              \]
+        \item More generally for \( f = (f_1, f_2, \dots, f_m): \Rn \to \Rm \) the \emph{Jacobian matrices} 
+        is the matrix of its partial derivatives of all its components
+        \[
+            Jf(x) = \frac{\partial f_k}{\partial x_j}(x)
+        \]
     \end{enumerate}
 \end{definition}
 \bigskip
