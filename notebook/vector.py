@@ -14,13 +14,13 @@ def normed(v):
     return tuple(x / n for x in v)
 
 
-def add(v, w):
-    return tuple(x + y for x, y in zip(v, w))
+def add(u, v):
+    return tuple(x + y for x, y in zip(u, v))
 
 
-def dotprod(v, w):
-    return sum(x * y for x, y in zip(v, w))
+def dotprod(u, v):
+    return sum(x * y for x, y in zip(u, v))
 
 
-def angle(v, w):
-    return math.acos(dotprod(v, w) / (norm(v) * norm(w)))
+def angle(u, v):
+    return math.acos(dotprod(u, v) / (norm(u) * norm(v)))

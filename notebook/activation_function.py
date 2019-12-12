@@ -1,11 +1,11 @@
+# %load activation_function.py
 """Numerically stable version of sigmoid::
 
     def sigmoid(x):
         if x >= 0:
             return 1.0 / (1.0 + math.exp(-x))
-        else:
-            y = math.exp(x)
-            return y / (1 + y)
+        y = math.exp(x)
+        return y / (1 + y)
 
 """
 
@@ -30,3 +30,10 @@ def sigmoid(x):
 
 def dx_sigmoid(x):
     return sigmoid(x) * (1 - sigmoid(x))
+
+
+tanh = math.tanh
+
+
+def dx_tanh(x):
+    return 1 - tanh(x) ** 2
