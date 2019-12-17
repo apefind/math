@@ -2,7 +2,7 @@ from random import random
 from vector import dotprod
 
 
-def delta_rule(T, a, da, t=0.01, epochs=50):
+def delta_rule(T, a, da, s=0.01, epochs=50):
     n = len(T[0])
     w, b = n * (random(),), random()
     for _ in range(epochs):
@@ -10,6 +10,6 @@ def delta_rule(T, a, da, t=0.01, epochs=50):
             z = dotprod(w, x) + b
             az, daz = a(z), da(z)
             d = y - az
-            w = tuple(w[i] + t * d * daz * x[i] for i in range(n))
-            b = b + t * d * daz
+            w = tuple(w[i] + s * d * daz * x[i] for i in range(n))
+            b = b + s * d * daz
     return w, b

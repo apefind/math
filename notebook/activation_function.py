@@ -1,4 +1,3 @@
-# %load activation_function.py
 """Numerically stable version of sigmoid::
 
     def sigmoid(x):
@@ -16,12 +15,20 @@ def heaviside(x):
     return 0 if x < 0.0 else 1
 
 
-def linear(x, a=1.0):
-    return a * x
+def step(x, d=0.5):
+    return 0 if x < d else 1
 
 
-def dx_linear(_, a=1.0):
-    return a
+def relu(x):
+    return max(0.0, x)
+
+
+def linear(x, r=1.0):
+    return r * x
+
+
+def dx_linear(_, r=1.0):
+    return r
 
 
 def sigmoid(x):

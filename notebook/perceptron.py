@@ -1,7 +1,7 @@
 from vector import dotprod
 
 
-def perceptron(T, t=0.01, epochs=50):
+def perceptron(T, s=0.01, epochs=50):
     n = len(T[0])
     w, b = n * (0.0,), 0.0
     for _ in range(epochs):
@@ -11,8 +11,8 @@ def perceptron(T, t=0.01, epochs=50):
                 z = 1
             else:
                 z = 0
-            w = tuple(w[i] - t * (z - y) * x[i] for i in range(n))
-            b = b - t * (z - y)
+            w = tuple(w[i] - s * (z - y) * x[i] for i in range(n))
+            b = b - s * (z - y)
             if not y == z:
                 done = False
         if done:
