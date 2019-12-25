@@ -1,3 +1,4 @@
+# %load activation_function.py
 """Numerically stable version of sigmoid::
 
     def sigmoid(x):
@@ -11,16 +12,16 @@
 import math
 
 
-def heaviside(x):
-    return 0 if x < 0.0 else 1
+def heaviside(x, offset=0.0):
+    return 0 if x < offset else 1
 
 
-def step(x, d=0.5):
-    return 0 if x < d else 1
+def relu(x, r=1.0):
+    return max(0.0, r * x)
 
 
-def relu(x):
-    return max(0.0, x)
+def dx_relu(x, r=1.0):
+    return 0.0 if x < 0.0 else r
 
 
 def linear(x, r=1.0):
@@ -36,11 +37,12 @@ def sigmoid(x):
 
 
 def dx_sigmoid(x):
-    return sigmoid(x) * (1 - sigmoid(x))
+    return sigmoid(x) * (1.0 - sigmoid(x))
 
 
 tanh = math.tanh
 
 
 def dx_tanh(x):
-    return 1 - tanh(x) ** 2
+    return 1.0 - tanh(x) ** 2
+
