@@ -471,22 +471,25 @@
 
 \begin{lemma}[Directional Derivative]\label{lemma:directional_derivative}
     Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). Then
+    % \[
+    %     \frac{\partial f}{\partial v}(x) = \gradient{f(x)}^T v
+    % \]
     \[
-        \frac{\partial f}{\partial d}(x) = \gradient{f(x)}^T d
+        \partial_v f(x) = \gradient{f(x)}^T v
     \]
-    for any \( d \in \Rn \).
+    for any \( v \in \Rn \).
 \end{lemma}
 
 \begin{proof}
     Let \( \varphi(t) = f(x + td) \). Then \( \varphi \in C^1[-\eps, \eps ] \) for some \( \eps > 0 \)
     and the chain rule yields
     \[
-        \varphi'(t) = {\gradient f(x + td)}^T d
+        \varphi'(t) = {\gradient f(x + tv)}^T v
     \]
     Hence
     \[
-        \varphi'(0) = \lim_{t \to 0} \frac{\varphi(x + td) - \varphi(0)}{t} =
-        \lim_{t \to 0} \frac{f(x + td) - f(x)}{t} = {\gradient f(x)}^T d
+        \varphi'(0) = \lim_{t \to 0} \frac{\varphi(x + tv) - \varphi(0)}{t} =
+        \lim_{t \to 0} \frac{f(x + tv) - f(x)}{t} = {\gradient f(x)}^T v
     \]
 \end{proof}
 \bigskip
@@ -494,17 +497,24 @@
 
 \begin{remarks}\hfill
     \begin{enumerate}
-        \item A similar proposition holds under the weaker assumption that \( d \) is a only feasable direction
+        \item A similar proposition holds under the weaker assumption that \( v \) is a only feasable direction
               for \( f \) in \( x \)
-        \item For \( d = \gradient{f(x)}/\| \gradient{f(x)}\| \) it follows that
+        \item For \( v = \gradient{f(x)}/\| \gradient{f(x)}\| \) it follows that
+            %   \[
+            %       \frac{\partial f}{\partial v}(x) = \|\gradient{f(x)}\| > 0
+            %   \]
               \[
-                  \frac{\partial f}{\partial d}(x) = \|\gradient{f(x)}\| > 0
+                  \partial_v f (x) = \|\gradient{f(x)}\| > 0
               \]
-              and for any other \( d \in \Rn \) with \( \|d\| = 1 \) the Cauchy Schwarz inequality yields
+              and for any other \( v \in \Rn \) with \( \|v\| = 1 \) the Cauchy Schwarz inequality yields
               \[
-                  \left|\frac{\partial f}{\partial d}(x)\right| = |\gradient{f(x)}^T d|
-                  \le \|\gradient{f(x)}\| \|d\| =\|\gradient{f(x)}\|
+                  \left|\partial_v f(x)\right| = |\gradient{f(x)}^T v|
+                  \le \|\gradient{f(x)}\| \|v\| =\|\gradient{f(x)}\|
               \]
+            %   \[
+            %       \left|\frac{\partial f}{\partial v}(x)\right| = |\gradient{f(x)}^T v|
+            %       \le \|\gradient{f(x)}\| \|v\| =\|\gradient{f(x)}\|
+            %   \]
               Hence \( \gradient{f(x)} \) is the direction of the greatest ascent and respectively,
               \( -\gradient{f(x)} \) is the direction of the greatest descent.
     \end{enumerate}
@@ -518,12 +528,12 @@
 \end{theorem}
 
 \begin{proof}
-    Let \( h \in \Rn \) and \( \delta > 0 \) so that \( x^* + th \in \Omega \) for all \( t \in (-\delta, \delta) \).
-    Then \( 0 \) is local minimizer for \( \varphi(t) = f(x^* + th) \) and
+    Let \( v \in \Rn \) and \( \delta > 0 \) so that \( x^* + tv \in \Omega \) for all \( t \in (-\delta, \delta) \).
+    Then \( 0 \) is local minimizer for \( \varphi(t) = f(x^* + tv) \) and
     \[
-        \varphi'(0) = {\gradient f(x^*)}^T h = 0
+        \varphi'(0) = {\gradient f(x^*)}^T v = 0
     \]
-    Now let \( h = \gradient f(x^*) \).
+    Now let \( v = \gradient f(x^*) \).
 \end{proof}
 \bigskip
 
