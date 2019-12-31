@@ -30,6 +30,9 @@ class matrix(tuple):
     def __sub__(self, M):
         return matrix(*(tuple(x - y for x, y in zip(row0, row1)) for row0, row1 in zip(self, M)))
 
+#     def __str__(self):
+#         return "\n".join(["	".join(str(_rnd(x)) for x in row) for row in self])
+
     @property
     def dim(self):
         return self.num_rows, self.num_cols
