@@ -481,7 +481,7 @@
 \end{lemma}
 
 \begin{proof}
-    Let \( \varphi(t) = f(x + td) \). Then \( \varphi \in C^1[-\eps, \eps ] \) for some \( \eps > 0 \)
+    Let \( \varphi(t) = f(x + tv) \). Then \( \varphi \in C^1[-\eps, \eps ] \) for some \( \eps > 0 \)
     and the chain rule yields
     \[
         \varphi'(t) = {\gradient f(x + tv)}^T v
@@ -515,7 +515,7 @@
             %       \left|\frac{\partial f}{\partial v}(x)\right| = |\gradient{f(x)}^T v|
             %       \le \|\gradient{f(x)}\| \|v\| =\|\gradient{f(x)}\|
             %   \]
-              Hence \( \gradient{f(x)} \) is the direction of the greatest ascent and respectively,
+              Hence \( \gradient{f(x)} \) is the direction of the greatest ascent and respectively 
               \( -\gradient{f(x)} \) is the direction of the greatest descent.
     \end{enumerate}
 \end{remarks}
