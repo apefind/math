@@ -2,7 +2,7 @@ from vector import dotprod
 
 
 def perceptron(T, s=0.01, epochs=50):
-    n = len(T[0])
+    n = len(T[0][0])
     w, b = n * (0.0,), 0.0
     for _ in range(epochs):
         done = True
