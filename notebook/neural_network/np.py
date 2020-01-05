@@ -13,21 +13,24 @@ def _relu(x):
     return np.maximum(0.0, x)
 
 
-# def dx_relu(x, r=1.0):
-#     return 0.0 if x < 0.0 else r
+def _dx_relu(x):
+    return np.vector(*(0.0 if t < 0.0 else 1.0 for t in x))
 
 
 def _linear(x, r=1.0):
     return np.multiply(x, r)
 
 
-# def _dx_linear(x, r=1.0):
-#     return
+def _dx_linear(x, r=1.0):
+    return r * np.ones(len(x))
+
 
 np.sigmoid = _sigmoid
 np.dx_sigmoid = _dx_sigmoid
 np.relu = _relu
+np.dx_relu = _dx_relu
 np.linear = _linear
+np.dx_linear = _dx_linear
 
 
 def _vector(*args):
