@@ -1,3 +1,4 @@
+import random
 import np as _np
 import numpy as np
 
@@ -20,6 +21,7 @@ def get_random_weights_and_biases(k, l, m=None, layers=0):
 class FeedForward:
 
     def __init__(self, dim, layers, a):
+        self.dim = dim
         self.N = get_random_weights_and_biases(*dim, layers)
         self.a = a
 
@@ -41,11 +43,11 @@ class FeedForwardSingleLayer(FeedForward):
 
     def train(self, T, s=0.01, epochs=50):
         for _ in range(epochs):
-            for x, y in T:
+            for x, y in random.sample(T, len(T)):
                 z = feedforward(np.linear, self.N, x)
                 az, daz = self.a(z), self.da(z)
                 d = y - az
                 for W, B in self.N:
-                    for i, (w, b) in enumerate(zip(W, B)):
+                    for i, w in enumerate(W):
                         w += s * d[i] * daz[i] * x
-                        b += s * d[i] * daz[i]
+                    B += s * d * daz

@@ -4,7 +4,7 @@ from vector import dotprod
 
 def delta_rule(T, a, da, s=0.01, epochs=50):
     n = len(T[0][0])
-    w, b = n * (random.random(),), random.random()
+    w, b = tuple(random.random() for _ in range(n)), random.random()
     for _ in range(epochs):
         for x, y in T:
             z = dotprod(w, x) + b

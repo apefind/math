@@ -1,3 +1,11 @@
+"""Alternative implementations for dx_relu::
+
+    np.where(x > 0.0, 1.0, 0.0)
+    np.heaviside(x, 0.0)
+    np.vector(*(0.0 if t < 0.0 else 1.0 for t in x))
+
+"""
+
 import numpy as np
 
 
@@ -15,9 +23,6 @@ def _relu(x):
 
 def _dx_relu(x):
     return (x > 0.0).astype(x.dtype)
-    return np.where(x > 0.0, 1.0, 0.0)
-    return np.heaviside(x, 0.0)
-    return np.vector(*(0.0 if t < 0.0 else 1.0 for t in x))
 
 
 def _linear(x, r=1.0):
@@ -29,7 +34,7 @@ def _dx_linear(x, r=1.0):
 
 
 def _dx_tanh(x):
-    return 1.0 - np.tanh(x) ** 2
+    return 1.0 - np.tanh(x)**2
 
 
 np.sigmoid = _sigmoid

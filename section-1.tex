@@ -54,7 +54,7 @@
 
 \begin{remarks}Let \( f \) be differentiable at \( x_0 \). From the definition follows
     \begin{enumerate}
-        \item \( f \) is \emph{Lipschitz continous} at \( x_0 \), e.g. there exists a \( L > 0 \) so that
+        \item \( f \) is \emph{Lipschitz continous} at \( x_0 \), e.g.\ there exists a \( L > 0 \) so that
               \( |f(x) - f(x_0)| < L|x - x_0| \) in some small enough environment of \( x_0 \).
         \item If there exists a sequence  \( x_n \to x_0 \) with \( f(x_n) = f(x_0) \) then \( f'(x) = 0 \).
               Consequently, if \( f'(x) \ne 0 \) then \( f(x) \ne f(x_0) \) in some local environment of \( x_0 \).
@@ -301,7 +301,7 @@
     \[
         \lim_{h \to 0} \frac{\|f(x + h) - f(x) - Ah\|}{\|h\|} = 0
     \]
-    \( Df(x) = A \) is called the \emph{derivative} of \( f \) at \( x \).
+    Here \( Df(x) = A \) is called the \emph{derivative} of \( f \) at \( x \).
 \end{definition}
 \bigskip
 
@@ -318,7 +318,7 @@
                   \frac{\|f(x + h) - f(x) - Ah\|}{\|h\|} + \frac{\|f(x + h) - f(x) - Bh\|}{\|h\|}
               \]
               and the derivative is well defined.
-        \item As a consequence, if already \( f(x + h) - f(x) - Ah = 0 \) then \( Df(x) = A \).
+        \item As a consequence if already \( f(x + h) - f(x) - Ah = 0 \) then \( Df(x) = A \).
               Hence \( Df(x) = 0 \) for a constant  \( f \) and \( f(x) = Ax \) gives \( Df(x) = A \).
         \item Since all norms on \( \Rm \) are equivalent the differentiability of \( f = (f_1, f_2, \dots, f_m) \)
               is eqivalent to the differentiability of all its components.
@@ -336,39 +336,10 @@
 \bigskip
 
 
-% \begin{definition}
-%     Let \( \Omega \subseteq \Rn \) be open and \( x \in \Omega \).
-%     \begin{enumerate}
-%         \item For \( f : \Omega \to \R \) and a normed vector \( v \in \Rn \) the limit
-%               \[
-%                   \frac{\partial f}{\partial v}(x) = \lim_{t \to 0} \frac{f(x + tv) - f(x)}{t}
-%               \]
-%               is called the \emph{directional derivative} of \( f \) at \( x \)
-%               with respect to the direction \( v \).
-%         \item The \emph{partial derivates} are the directional derivatives with respect to the
-%               unit vectors \( e_j \)
-%               \[
-%                   \frac{\partial f}{\partial x_j}(x) = \frac{\partial f}{\partial e_j}(x)
-%               \]
-%               and the  \emph{gradient} is defined as
-%               \[
-%                   \gradient f(x) = \left(\frac{\partial f}{\partial x_1}(x),
-%                   \frac{\partial f}{\partial x_2}(x), \dots , \frac{\partial f}{\partial x_n}(x)\right)
-%               \]
-%         \item More generally for \( f = (f_1, f_2, \dots, f_m): \Rn \to \Rm \) the \emph{Jacobian matrices}
-%               is the matrix of its partial derivatives of all its components
-%               \[
-%                   Jf(x) = \frac{\partial f_k}{\partial x_j}(x)
-%               \]
-%     \end{enumerate}
-% \end{definition}
-% \bigskip
-
-
 \begin{definition}
     Let \( \Omega \subseteq \Rn \) be open and \( x \in \Omega \).
     \begin{enumerate}
-        \item For \( f : \Omega \to \R \) and a normed vector \( v \in \Rn \) the limit
+        \item For \( f: \Omega \to \R \) and a normed vector \( v \in \Rn \) the limit
               \[
                   \partial_v f(x) = \lim_{t \to 0} \frac{f(x + tv) - f(x)}{t}
               \]
@@ -379,7 +350,7 @@
               \[
                   \partial_j f(x) = \partial_{e_j} f(x)
               \]
-              and the  \emph{gradient} is defined as
+              and the \emph{gradient} is defined as
               \[
                   \gradient f(x) = \left( \partial_1 f(x), \partial_2 f(x), \dots, \partial_n f(x) \right)
               \]
@@ -390,6 +361,23 @@
               \]
     \end{enumerate}
 \end{definition}
+\bigskip
+
+
+\begin{remarks}
+    Let \( \Omega \subseteq \Rn \) be open and \( x \in \Omega \).
+    \begin{enumerate}
+        \item For \( h = te_j \) it follows
+              \[
+                  \begin{split}
+                      \lim_{t \to 0} \frac{|f(x + te_j) - f(x) - Df(x)te_j|}{\|te_j\|}
+                      & = \lim_{t \to 0} \frac{|f(x + te_j) - f(x) - D_j f(x)|}{|t|} \\
+                      & = \lim_{t \to 0} \left| \frac{f(x + te_j) - f(x)}{|t|} - D_j f(x)| \right|
+                  \end{split}
+              \]
+              and all partial derivatives exist and it is \( Df(x) = \gradient f(x) \).
+    \end{enumerate}
+\end{remarks}
 \bigskip
 
 
@@ -436,23 +424,6 @@
 \bigskip
 
 
-% \begin{examples}\hfill
-%     \begin{enumerate}
-%         \item Consider the norm \( r(x) = \|x\| = \sqrt{x_1^2 + x_2^2 \dots x_n^2} \). Then the chain rule yields
-%               \[
-%                   \frac{\partial r}{\partial x_j}(x) = \frac{2 x_j}{2 \sqrt{x_1^2 + x_2^2 \dots x_n^2}}
-%                   = \frac{x_j}{\|x\|}
-%               \]
-%               and \( r \) is differentiable on \( \Rn {\setminus} \{ 0 \} \).
-%         \item For \( f \) differentiable follows
-%               \[
-%                   \frac{\partial f}{\partial x_j}(r(x)) = x_j \frac{f'(r(x))}{\|x\|}
-%               \]
-%     \end{enumerate}
-% \end{examples}
-% \bigskip
-
-
 \begin{examples}\hfill
     \begin{enumerate}
         \item Consider the norm \( r(x) = \|x\| = \sqrt{x_1^2 + x_2^2 \dots x_n^2} \). Then the chain rule yields
@@ -471,9 +442,6 @@
 
 \begin{lemma}[Directional Derivative]\label{lemma:directional_derivative}
     Let \( \Omega \subseteq \Rn \) be open and \( f \in C^1(\Omega) \). Then
-    % \[
-    %     \frac{\partial f}{\partial v}(x) = \gradient{f(x)}^T v
-    % \]
     \[
         \partial_v f(x) = \gradient{f(x)}^T v
     \]
@@ -500,9 +468,6 @@
         \item A similar proposition holds under the weaker assumption that \( v \) is a only feasable direction
               for \( f \) in \( x \)
         \item For \( v = \gradient{f(x)}/\| \gradient{f(x)}\| \) it follows that
-            %   \[
-            %       \frac{\partial f}{\partial v}(x) = \|\gradient{f(x)}\| > 0
-            %   \]
               \[
                   \partial_v f (x) = \|\gradient{f(x)}\| > 0
               \]
@@ -511,11 +476,7 @@
                   \left|\partial_v f(x)\right| = |\gradient{f(x)}^T v|
                   \le \|\gradient{f(x)}\| \|v\| =\|\gradient{f(x)}\|
               \]
-            %   \[
-            %       \left|\frac{\partial f}{\partial v}(x)\right| = |\gradient{f(x)}^T v|
-            %       \le \|\gradient{f(x)}\| \|v\| =\|\gradient{f(x)}\|
-            %   \]
-              Hence \( \gradient{f(x)} \) is the direction of the greatest ascent and respectively 
+              Hence \( \gradient{f(x)} \) is the direction of the greatest ascent and respectively
               \( -\gradient{f(x)} \) is the direction of the greatest descent.
     \end{enumerate}
 \end{remarks}
