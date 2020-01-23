@@ -354,7 +354,7 @@
               \[
                   \gradient f(x) = \left( \partial_1 f(x), \partial_2 f(x), \dots, \partial_n f(x) \right)
               \]
-        \item More generally for \( f = (f_1, f_2, \dots, f_m): \Rn \to \Rm \) the \emph{Jacobian matrices}
+        \item More generally for \( f = (f_1, f_2, \dots, f_m): \Rn \to \Rm \) the \emph{Jacobian matrix}
               is the matrix of its partial derivatives of its components
               \[
                   J_f(x) = {\left[ \partial_j f_k(x) \right]}_{j=0 \dots n}^{k=0 \dots m}
@@ -370,8 +370,8 @@
         \item For \( h = te_j \) it follows
               \[
                   \begin{split}
-                      \lim_{t \to 0} \frac{|f(x + te_j) - f(x) - Df(x)te_j|}{\|te_j\|}
-                      & = \lim_{t \to 0} \frac{|f(x + te_j) - f(x) - D_j f(x)|}{|t|} \\
+                      \lim_{t \to 0} \frac{|f(x + te_j) - f(x) - Df(x)\,te_j|}{\|te_j\|}
+                      & = \lim_{t \to 0} \frac{|f(x + te_j) - f(x) - D_j f(x)\,te_j|}{|t|} \\
                       & = \lim_{t \to 0} \left| \frac{f(x + te_j) - f(x)}{|t|} - D_j f(x)| \right|
                   \end{split}
               \]

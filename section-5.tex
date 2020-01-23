@@ -446,29 +446,31 @@ The Delta Rule applies the method of the Steepest Descent to the error function 
 
 
 \subsection{Feedforward Neural Networks and Backpropagation}
-\bigskip
 
+For the next paragraphs consider matrices and vectors of the following dimensions
+\begin{enumerate}
+    \item \( W^0 \in \Rnm \), \( W^1, \dots W^N \in \Rmm \) and \( W^{N + 1} \in \R^{m \times l} \)
+    \item \( b^0 \in \R^m \), \( b^1, \dots b^N \in \Rm \) and \( b^{N + 1} \in \R^l \)
+\end{enumerate}
+Furthermore let \( \alpha \) be an activation function to be applied componentwise.
+\bigskip
 
 \begin{definition}[Feedforward Neural Network]
     \hfill
     \begin{enumerate}
-        % \item Let \( W^0 \in \Rnm \), \( W^1 \dots W^N \in \Rmm \) and \( W^{N + 1} \in \R^{m \times l} \)
-        %       be \emph{weight matrices}. Furthermore let \( b^0 \in \R^m \), \( b^1 \dots b^N \in \Rm \)
-        %       and \( b^{N + 1} \in \R^l \) be \emph{biases}.
-        \item Let \( W^0 \in \Rnm \), \( W^1 \dots W^N \in \Rmm \) and
-              \( W^{N + 1} \in \R^{m \times l} \) as well as \( b^0 \in \R^m \), \( b^1 \dots b^N \in \Rm \)
-              and \( b^{N + 1} \in \R^l \). Then \( W = (W^0, W^1, \dots W^{N + 1} ) \) and
-              \( B = (b^0, b^1, \dots b^{N + 1}) \)  are the \emph{weights} and \emph{biases}.
-        \item For an activation function \( \alpha \) and \( x \in \Rn \) define \( y^0 = \alpha(W^0x + b^0) \) and
+        \item For \( x \in \Rn \) define \( x^0 = \alpha(W^0x + b^0) \) and
               \[
-                  y^k = \alpha(W^k y^{k - 1} + b^k)
+                  x^k = \alpha(W^k x^{k - 1} + b^k)
               \]
         \item Then \( f: \Rn \to \R^l \) defined as
               \[
-                  f(x) = y^{N + 1} % = \alpha(W^{N + 1} y^N + b^{N + 1})
+                  f(x) = x^{N + 1}
               \]
               is called a \emph{feedforward neural network of \( N \) hidden layers}.
-        \item The \emph{error function} is defined as
+        \item \( W = (W^0, W^1, \dots, W^{N + 1} ) \) and \( B = (b^0, b^1, \dots, b^{N + 1}) \)
+              are the \emph{weights} and \emph{biases} of the neural network.
+        \item The \emph{error function}
+              is defined as
               \[
                   E(W, B) = \frac{1}{2} \sum_{x, y \in T} {\| y - f(x) \|}^2
               \]
@@ -478,16 +480,45 @@ The Delta Rule applies the method of the Steepest Descent to the error function 
 \bigskip
 
 
+For convenience the following notation is used
+\begin{enumerate}
+    \item \( f = \alpha(Wx + B) \) is the short form for the definition of a neural network.
+    \item Furthermore \( f^k(x) = x^k \) where the dimensions are defined by the respective weights and biases.
+    \item Then \( f^k = \alpha^k(Wx + B) \) is used as a mapping with respect to weights and biases.
+          %   \item Furthermore \( f^k(x) = \alpha^k(Wx + B) = x^k \) within the given dimensions of the
+          %   weights and biases.
+          %   Furthermore \( f_j = \alpha_j(Wx + B) \) for \( f = (f_1, f_2, \dots, f_l) \).
+\end{enumerate}
+\bigskip
+
 \begin{remarks}
     \hfill
     \begin{enumerate}
-        \item Assume \( W^k = (w^k_{ij}) \) and \( b^k = (b^k_i) \) are the entries of the matrices and biasis.
+        \item Assume \( W^k = (w^k_{ij}) \) and \( b^k = (b^k_j) \) are the entries of the matrices and biasis.
               Then
               \[
-                  y^k_{j} = \alpha (\sum_{i} w_{ij} y^{k - 1}_i + b^k_j)
+                  x^k_{j} = \alpha (\sum_{i} w_{ij} x^{k - 1}_i + b^k_j)
               \]
               where \( k \) indicates the layer of the network, \( j \) is the coordinate index and
               \( i \) ranges over the respective column entries of the weight matrix.
+        \item For \( x \in \Rn \) it is
+              \[
+                  \begin{split}
+                      \frac{\partial}{\partial w_{ij}^{N + 1}}\alpha_j^{N + 1}(Wx + B)
+                      & = \frac{\partial}{\partial w_{ij}^{N + 1}} \alpha(\sum_{i} w_{ij}^{N + 1} x^{N}_i + b^{N + 1}_j) \\
+                      & = \alpha'(\sum_{i} w_{ij}^{N + 1} x^{N}_i + b^{N + 1}_j)\, x_i^N \\
+                      & = \alpha'(\sum_{i} w_{ij}^{N + 1} x^{N}_i + b^{N + 1}_j)\, \alpha_i^N(Wx + B)
+                  \end{split}
+              \]
+              \item More generally
+              \[
+                  \begin{split}
+                      \frac{\partial}{\partial w_{ij}^k}\alpha_j^k(Wx + B)
+                      & = \frac{\partial}{\partial w_{ij}^k} \alpha(\sum_{i} w_{ij}^k x^{k - 1}_i + b_j^k) \\
+                      & = \alpha'(\sum_{i} w_{ij}^k x^{k - 1}_i + b_j^k)\, x_i^{k - 1} \\
+                      & = \alpha'(\sum_{i} w_{ij}^k x^{k - 1}_i + b_j^k)\, \alpha_i^{k - 1}(Wx + B)
+                  \end{split}
+              \]
     \end{enumerate}
 \end{remarks}
 \bigskip
