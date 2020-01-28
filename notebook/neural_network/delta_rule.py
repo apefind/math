@@ -10,6 +10,7 @@ def delta_rule(T, a, da, s=0.01, epochs=50):
             z = dotprod(w, x) + b
             az, daz = a(z), da(z)
             d = y - az
-            w = tuple(w[i] + s * d * daz * x[i] for i in range(n))
-            b = b + s * d * daz
+            t = s * d * daz
+            w = tuple(w[i] + t * x[i] for i in range(n))
+            b = b + t
     return w, b

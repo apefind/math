@@ -266,10 +266,10 @@ for the maximumn number of required steps.
               \( \alpha: \R \to Y \subseteq \R \). However, the behaviour of an activation function should
               somehow relate to the fireing behaviour of an actual biological neuron. Continuity,
               differentiability, monotony and the behaviour at infinity are of special interest in order
-              to apply mathematical concepts
+              to apply mathematical concepts.
         \item An activation function \( \alpha: \R \to \R \) with \( \alpha(x) \to 0 \)
               for \( x \to -\infty \) and \( \alpha(x) \to 1 \) for \( x \to \infty \) is called a
-              \emph{sigmoidal activation function}
+              \emph{sigmoidal activation function}.
         \item The \emph{Heaviside} function \( H: \R \to \{ 0, 1 \} \) is defined as
               \[
                   H(x) = \left \{
@@ -278,6 +278,10 @@ for the maximumn number of required steps.
                       0 & \text{ for }x \le 0
                   \end{array}
                   \right.
+              \]
+        \item The \emph{Rectifier (ReLU = Rectified Linear Unit)} is defined as
+              \[
+                  ReLU(x) = \max(0, x)
               \]
         \item The \emph{sigmoid} function \( \sigmoid \in C^\infty(\R) \) is defined as
               \[
@@ -412,7 +416,6 @@ for the maximumn number of required steps.
 \end{proof}
 \bigskip
 
-
 The Delta Rule applies the method of the Steepest Descent to the error function of a neural network.
 \bigskip
 
@@ -433,6 +436,20 @@ The Delta Rule applies the method of the Steepest Descent to the error function 
 
 
 \inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{notebook/neural_network/delta_rule.py}
+\bigskip
+
+
+\begin{examples}
+    \hfill
+    \begin{enumerate}
+        \item The Delta Rule does not always converge to a solution. A counter example is the boolean \emph{NAND}
+              operator together with \emph{ReLU} as activation function. Starting with positive weights
+              \( (w_1, w_2) \) and a negative bias \( b \) the test data \( (0, 0) \to 1 \)
+              never contributes to the changes of weights and biases: \( w_1 0 + w_2 0 + b = b < 0 \) and
+              hence \( ReLU'(b) = 0 \).
+        \item The same operator together with sigmoid as activation function works reasonably well.
+    \end{enumerate}
+\end{examples}
 \bigskip
 
 
@@ -510,7 +527,7 @@ For convenience the following notation is used
                       & = \alpha'(\sum_{i} w_{ij}^{N + 1} x^{N}_i + b^{N + 1}_j)\, \alpha_i^N(Wx + B)
                   \end{split}
               \]
-              \item More generally
+        \item More generally
               \[
                   \begin{split}
                       \frac{\partial}{\partial w_{ij}^k}\alpha_j^k(Wx + B)
