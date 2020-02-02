@@ -443,7 +443,7 @@ The Delta Rule applies the method of the Steepest Descent to the error function 
     \hfill
     \begin{enumerate}
         \item The Delta Rule does not always converge to a solution. A counter example is the boolean \emph{NAND}
-              operator together with \emph{ReLU} as activation function. Starting with positive weights
+              operator in combination with \emph{ReLU} as activation function. Starting with positive weights
               \( (w_1, w_2) \) and a negative bias \( b \) the test data \( (0, 0) \to 1 \)
               never contributes to the changes of weights and biases: \( w_1 0 + w_2 0 + b = b < 0 \) and
               hence \( ReLU'(b) = 0 \).
@@ -500,11 +500,9 @@ Furthermore let \( \alpha \) be an activation function to be applied componentwi
 For convenience the following notation is used
 \begin{enumerate}
     \item \( f = \alpha(Wx + B) \) is the short form for the definition of a neural network.
-    \item Furthermore \( f^k(x) = x^k \) where the dimensions are defined by the respective weights and biases.
-    \item Then \( f^k = \alpha^k(Wx + B) \) is used as a mapping with respect to weights and biases.
-          %   \item Furthermore \( f^k(x) = \alpha^k(Wx + B) = x^k \) within the given dimensions of the
-          %   weights and biases.
-          %   Furthermore \( f_j = \alpha_j(Wx + B) \) for \( f = (f_1, f_2, \dots, f_l) \).
+    \item Define \( f^k(x) = x^k \) where the dimensions are given by the respective weights and biases.
+    \item Furthermore let \( \alpha^k(Wx + B) = f^k\) denote the same mapping but with respect to weights 
+          and biases and for a fixed \( x \in \Rn \).
 \end{enumerate}
 \bigskip
 
@@ -539,4 +537,3 @@ For convenience the following notation is used
     \end{enumerate}
 \end{remarks}
 \bigskip
-
