@@ -3,7 +3,10 @@
     * Proof/investigate failing NN for NAND operator
     * MNIST implementation
     * Proof universal approximation theorem
-- Hahh Banach estimation
-- Proof multivariable chain rule
+- Functional Analysis:
+    * Hahn-Banach estimation
+    * Hahn-Banach separation theorem
+- Caclculus:
+    * Proof multivariable chain rule
 - Road to Reality: 
     * Fourier Transformation
