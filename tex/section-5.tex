@@ -155,7 +155,7 @@ now yields \( wx > 0 \) and \( -wy > 0 \), hence \( wy < 0 \).
 
 \begin{algorithm}[Weight]\label{algo:weight}
 \end{algorithm}
-\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{../notebook/neural_network/weight.py}
+\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{../jupyter/neural_network/weight.py}
 \bigskip
 
 
@@ -245,7 +245,7 @@ for the maximumn number of required steps.
 
 \begin{algorithm}[Perceptron]\label{algo:perceptron}
 \end{algorithm}
-\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{../notebook/neural_network/perceptron.py}
+\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{../jupyter/neural_network/perceptron.py}
 \bigskip
 
 
@@ -435,7 +435,7 @@ The Delta Rule applies the method of the Steepest Descent to the error function 
 \bigskip
 
 
-\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{../notebook/neural_network/delta_rule.py}
+\inputminted[fontsize=\small, framesep=0.35cm, frame=lines, python3=true]{python}{../jupyter/neural_network/delta_rule.py}
 \bigskip
 
 
@@ -533,6 +533,19 @@ For convenience the following notation is used
                       & = \alpha'(\sum_{i} w_{ij}^k x^{k - 1}_i + b_j^k)\, x_i^{k - 1} \\
                       & = \alpha'(\sum_{i} w_{ij}^k x^{k - 1}_i + b_j^k)\, \alpha_i^{k - 1}(Wx + B)
                   \end{split}
+              \]
+    \end{enumerate}
+\end{remarks}
+\bigskip
+
+
+\begin{remarks}
+    \hfill
+    \begin{enumerate}
+        \item The gradient of the error function can be derived from the gradients at each individual data point
+              \[
+                  \gradient E(W, B) = \gradient_{(W, B)} \frac{1}{2} \sum_{x, y \in T} {\| y - f(x) \|}^2
+                  = \frac{1}{2} \sum_{x, y \in T} \gradient_{(W, B)} {\| y - \alpha(Wx + B) \|}^2
               \]
     \end{enumerate}
 \end{remarks}

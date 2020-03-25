@@ -3,10 +3,12 @@
     * Proof/investigate failing NN for NAND operator
     * MNIST implementation
     * Proof universal approximation theorem
+    * Actually calculate gradient for small network
 - Functional Analysis:
     * Hahn-Banach estimation
     * Hahn-Banach separation theorem
 - Caclculus:
     * Proof multivariable chain rule
+    * Measure theory
 - Road to Reality: 
     * Fourier Transformation
