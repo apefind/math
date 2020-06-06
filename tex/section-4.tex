@@ -333,7 +333,7 @@ and for \( t = 2\pi \) it follows
 
 
 \begin{lemma}
-	For a smooth path \( \gamma: [a,b] \to \C \) define \(-\gamma(t) = a + b - t \).
+	For a smooth path \( \gamma: [a,b] \to \C \) define \(-\gamma(t) = \gamma(a + b - t) \).
 	Then
 	\[
 		\int_{-\gamma} f(z)\,dz = -\int_{\gamma} f(z)\,dz
@@ -610,43 +610,50 @@ yields a reasonable approximation of the length of the path. Hence
 \bigskip
 
 \begin{lemma}
-	Consider \( u: [0, \pi] \times [0,\infty] \to \R \)
-	\[
-		u(x, t) = \sin(mx) \cos(nt)
-	\]
-	for some \( m, n \in \N \). Then the following equations hold
-	\begin{gather*}
-		\frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2} \\
-			\frac{\partial u}{\partial t} (x, 0)= 0 \\
-	%    \partial_x^2 u = \partial_t^2 u \\
-	% 	\partial_t u(x, 0) = 0 \\
-		u(0, t) = u(\pi, t) = 0
-	\end{gather*}
-
+	Let \( u(x, t) = \sin(nx) \cos(nt) \) for some \( n \in \N \).
 	\begin{enumerate}
-		\item
+		\item The following partial differential equation (wave equation) holds
 		      \[
 			      \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2}
 		      \]
-		\item
+		\item The initial condition is satisfied
 		      \[
 			      \frac{\partial u}{\partial t}(x, 0) = 0
 		      \]
-		% \item
-		%       \[
-		% 	      \partial_x^2 u = \partial^2_t u
-		%       \]
-		% \item
-		%       \[
-		% 	      \partial_t u(x, 0) = 0
-		%       \]
-		\item \[
-			      u(0, t) = u(\pi, t) = 0
+		\item The boundary conditions hold
+		      \[ u(0, t) = u(\pi, t) = 0 \]
+		      % \item \( \partial_x^2 u = \partial^2_t u \)
+		      % \item \( \partial_t u(x, 0) = 0 \)
+		      % \item \( u(0, t) = u(\pi, t) = 0 \)
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	It is \( \partial_x u(x, t) = n \cos(nx) \cos(nt) \) and \( \partial_t u(x, t) = -n \sin(nx) \sin(nt) \).
+\end{proof}
+\bigskip
+
+
+\begin{lemma}
+	For \( m, n \in \N \)
+	\begin{enumerate}
+		\item
+		      \[
+			      \int_{-\pi}^\pi \cos(nx)\,dx = \int_{-\pi}^\pi \sin(nx)\,dx =  0
+		      \]
+		\item
+		      \[
+			      \int_{-\pi}^\pi \cos^2(nx)\,dx = \int_{-\pi}^\pi \sin^2(nx)\,dx = \pi
+		      \]
+		\item
+		      \[
+			      \int_{-\pi}^\pi \cos(mx)\sin(nx)\,dx = \int_{-\pi}^\pi \sin(mx) \sin(nx)\,dx
+			      = \int_{-\pi}^\pi \cos(mx) \cos(nx)\,dx = 0
 		      \]
 	\end{enumerate}
 \end{lemma}
 
 \begin{proof}
+	The integral of \( \sin(nx) \) vanishes as the integrand is an odd function and \( 1/n \sin(nx) \)
+	is the indefinite integral of \( \cos(nx) \) with zero values at the limits of the integral.
 \end{proof}
-
-

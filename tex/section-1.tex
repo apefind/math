@@ -241,7 +241,7 @@
 \begin{lemma}[Integration by Substitution]
     Let \( I \subseteq \R \) be an interval and \( f \in C(I) \). For \( \varphi \in C([a,b], I) \) it follows
     \[
-        \int_{\varphi(a)}^{\varphi(b)} f(x)\,dx = \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt
+        \int_{a}^{b} f(\varphi(t))\varphi'(t)\,dt = \int_{\varphi(a)}^{\varphi(b)} f(x)\,dx
     \]
 \end{lemma}
 \begin{proof}
@@ -258,6 +258,20 @@
 \end{proof}
 \bigskip
 
+
+\begin{remarks}\hfill
+    \begin{enumerate}
+        \item Using \( \varphi(t) = a + b - t \) the definition (or convention)
+              \[
+                  \int_b^a f(x)\,dx = - \int_a^b f(x)\,dx
+              \]
+              is consistent with the substitution.
+        \item \( \varphi \) does not necessarily have to be bijective or monotonically increasing.
+    \end{enumerate}
+\end{remarks}
+\bigskip
+
+
 \begin{examples}\hfill
     \begin{enumerate}
         \item For \( \varphi(x) = x^2 + 1 \) it is \( \varphi(0) = 1 \) and \( \varphi(2) = 5 \). Thus
@@ -266,7 +280,7 @@
                   = \frac{1}{2} \int_0^2 2x\cos(x^2 + 1)\,dx
                   = \frac{1}{2} \int_1^5 \cos(t)\,dt
                   = \frac{1}{2} (\sin(5) - \sin(1))
-              \]
+              \]y
         \item Consider \( \varphi(x) = \sin(x) \) where \( \varphi(0) = 0 \) and \( \varphi(\pi / 2) = 1 \).
               Since \( \cos(t) = \sqrt{1 - \sin^2(t)} \) it follows
               \[
@@ -277,15 +291,31 @@
               \]
         \item Let \(f \in C[a,b] \) and \( \varphi(x) = a + t(b - a) \). Then
               \[
-                  \int_a^b f(x)\,dx = (b - a)\int_0^1 f(a + t(b - a))\,dt
+                  \int_0^1 f(a + t(b - a))\,dt = \frac{1}{b - a} \int_a^b f(x)\,dx
               \]
         \item Let \(f(x) = x^n \) and \( \varphi(x) = t^m \). As expected
-              \[
+              \[x
                   \int_0^1 x^n\,dx
                   = \int_0^1 t^{nm} m t^{m - 1}\,dt
                   = m\int_0^1 t^{m(n + 1) - 1}\,dt
                       = {\left[\frac{m}{m(n + 1)} t^{m(n + 1)}\right]}_0^1
                   = \frac{1}{n + 1}
+              \]
+        \item Let \( f \in C[-a,a] \) be odd with \( f(-x) = -f(x) \). Then
+              \[
+                  \int_{-a}^0 f(x)\,dx = \int_{-a}^0 -f(-x)\,dx = \int_a^0 f(x)\,dx = - \int_0^a f(x)\,dx
+              \]
+              Hence
+              \[
+                  \int_{-a}^a f(x)\,dx = \int_{-a}^0 f(x)\,dx + \int_0^a f(x)\,dx = 0
+              \]
+        \item Similarly for \( f \in C[-a,a] \) even with \( f(-x) = f(x) \)
+              \[
+                  \int_{-a}^0 f(x)\,dx = \int_{-a}^0 f(-x)\,dx = - \int_a^0 f(x)\,dx = \int_0^a f(x)\,dx
+              \]
+              and
+              \[
+                  \int_{-a}^a f(x)\,dx = 2 \int_0^a f(x)\,dx
               \]
     \end{enumerate}
 \end{examples}
