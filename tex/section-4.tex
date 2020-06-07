@@ -622,9 +622,6 @@ yields a reasonable approximation of the length of the path. Hence
 		      \]
 		\item The boundary conditions hold
 		      \[ u(0, t) = u(\pi, t) = 0 \]
-		      % \item \( \partial_x^2 u = \partial^2_t u \)
-		      % \item \( \partial_t u(x, 0) = 0 \)
-		      % \item \( u(0, t) = u(\pi, t) = 0 \)
 	\end{enumerate}
 \end{lemma}
 
@@ -656,4 +653,9 @@ yields a reasonable approximation of the length of the path. Hence
 \begin{proof}
 	The integral of \( \sin(nx) \) vanishes as the integrand is an odd function and \( 1/n \sin(nx) \)
 	is the indefinite integral of \( \cos(nx) \) with zero values at the limits of the integral.
+	Furthermore
+	\[
+		\int_{-\pi}^\pi \sin^2(nx)\dx = {\left[\frac{1}{2}(x - \frac{1}{n}\cos(nx)\sin(nx))\right]}_{-\pi}^\pi = \pi
+	\]
+
 \end{proof}

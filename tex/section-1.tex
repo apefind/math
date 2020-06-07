@@ -238,6 +238,46 @@
 \bigskip
 
 
+\begin{lemma}
+    For \( F' = f \) the product and chain rule for differentiation yield
+    \begin{enumerate}
+        \item Integration by parts
+              \[
+                  \int fg = Fg - \int Fg'
+              \]
+        \item Integration by substitution
+              \[
+                  F \circ \varphi = \int f\circ \varphi \cdot\varphi'
+              \]
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    It is \( (Fg)' = F'g + Fg' = fg + Fg' \) and
+    \( (F\circ \varphi)' = F'\circ \varphi \cdot\varphi = f\circ \varphi \cdot\varphi \).
+\end{proof}
+\bigskip
+
+
+\begin{examples}\hfill
+    \begin{enumerate}
+        \item Let \( f = g = \sin(nx) \). Then \( F = -1/n \cos(nx) \) and
+              \[
+                  \begin{split}
+                      \int \sin^2(nx)\,dx
+                      & = -\frac{1}{n} \cos(nx)\sin(nx)\,dx + \int \frac{1}{n} \cos(nx) n \cos(nx)\dx \\
+                      & = -\frac{1}{n} \cos(nx)\sin(nx)\,dx + \int \cos^2(nx)\dx \\
+                      & = -\frac{1}{n} \cos(nx)\sin(nx)\,dx + \int 1 - \sin^2(nx)\dx
+                  \end{split}
+              \]
+              Hence
+              \[
+                  \int \sin^2(nx)\,dx = \frac{1}{2}(x - \frac{1}{n}\cos(nx)\sin(nx))
+              \]
+    \end{enumerate}
+\end{examples}
+\bigskip
+
+
 \begin{lemma}[Integration by Substitution]
     Let \( I \subseteq \R \) be an interval and \( f \in C(I) \). For \( \varphi \in C([a,b], I) \) it follows
     \[
@@ -258,12 +298,11 @@
 \end{proof}
 \bigskip
 
-
 \begin{remarks}\hfill
     \begin{enumerate}
-        \item Using \( \varphi(t) = a + b - t \) the definition (or convention)
+        \item Using \( y = a + b - x \) the definition (or convention)
               \[
-                  \int_b^a f(x)\,dx = - \int_a^b f(x)\,dx
+                  \int_b^a f(x)\,dx = - \int_a^b f(y)\,dy
               \]
               is consistent with the substitution.
         \item \( \varphi \) does not necessarily have to be bijective or monotonically increasing.
