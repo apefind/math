@@ -657,5 +657,8 @@ yields a reasonable approximation of the length of the path. Hence
 	\[
 		\int_{-\pi}^\pi \sin^2(nx)\dx = {\left[\frac{1}{2}(x - \frac{1}{n}\cos(nx)\sin(nx))\right]}_{-\pi}^\pi = \pi
 	\]
-
+	From the trigonometric identity \( 2\sin(x)\cos(y) = \sin(x - y) + \sin(x + y) \) follows
+	\[
+		\int_{-\pi}^\pi \cos(mx)\sin(nx)\,dx = \frac{1}{2} \int_{-\pi}^\pi \sin(nx - mx) + \sin(nx + mx)\dx = 0
+	\]
 \end{proof}
