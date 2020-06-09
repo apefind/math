@@ -610,7 +610,7 @@ yields a reasonable approximation of the length of the path. Hence
 \bigskip
 
 \begin{lemma}
-	Let \( u(x, t) = \sin(nx) \cos(nt) \) for some \( n \in \N \).
+	Let \( u(x, t) = \sin(nx) \cos(nt) \) for some \( n \in \Z \).
 	\begin{enumerate}
 		\item The following partial differential equation (wave equation) holds
 		      \[
@@ -632,15 +632,15 @@ yields a reasonable approximation of the length of the path. Hence
 
 
 \begin{lemma}
-	For \( m, n \in \N \)
+	For \( m, n \in \Z \)
 	\begin{enumerate}
 		\item
 		      \[
-			      \int_{-\pi}^\pi \cos(nx)\,dx = \int_{-\pi}^\pi \sin(nx)\,dx =  0
+			      \int_{-\pi}^\pi \cos(mx)\,dx = \int_{-\pi}^\pi \sin(nx)\,dx =  0
 		      \]
-		\item
+		\item Here \( m \ne 0 \)
 		      \[
-			      \int_{-\pi}^\pi \cos^2(nx)\,dx = \int_{-\pi}^\pi \sin^2(nx)\,dx = \pi
+			      \int_{-\pi}^\pi \cos^2(mx)\,dx = \int_{-\pi}^\pi \sin^2(nx)\,dx = \pi
 		      \]
 		\item
 		      \[
@@ -651,14 +651,32 @@ yields a reasonable approximation of the length of the path. Hence
 \end{lemma}
 
 \begin{proof}
-	The integral of \( \sin(nx) \) vanishes as the integrand is an odd function and \( 1/n \sin(nx) \)
-	is the indefinite integral of \( \cos(nx) \) with zero values at the limits of the integral.
-	Furthermore
+	For example
 	\[
 		\int_{-\pi}^\pi \sin^2(nx)\dx = {\left[\frac{1}{2}(x - \frac{1}{n}\cos(nx)\sin(nx))\right]}_{-\pi}^\pi = \pi
 	\]
-	From the trigonometric identity \( 2\sin(x)\cos(y) = \sin(x - y) + \sin(x + y) \) follows
+	The trigonometric identity \( 2\sin(x)\cos(y) = \sin(x - y) + \sin(x + y) \) gives
 	\[
 		\int_{-\pi}^\pi \cos(mx)\sin(nx)\,dx = \frac{1}{2} \int_{-\pi}^\pi \sin(nx - mx) + \sin(nx + mx)\dx = 0
 	\]
 \end{proof}
+\bigskip
+
+
+\begin{lemma}
+	Let \( f \) be of the form
+	\[
+		f(x) = a_0 + \sum_{k = 1}^n a_k \cos(kx) + b_k \sin(kx)
+	\]
+	Then
+	\[
+		a_0 = \frac{1}{2\pi} \int_{-\pi}^\pi f(x)\,dx \mspace{30mu}
+		a_k = \frac{1}{\pi} \int_{-\pi}^\pi f(x)\cos(kx)\,dx \mspace{30mu}
+		b_k = \frac{1}{\pi} \int_{-\pi}^\pi f(x)\sin(kx)\,dx
+	\]
+\end{lemma}
+
+\begin{proof}
+	This follows from the previous lemma.
+\end{proof}
+\bigskip
