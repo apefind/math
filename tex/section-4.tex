@@ -610,19 +610,24 @@ yields a reasonable approximation of the length of the path. Hence
 \bigskip
 
 \begin{lemma}
-	Let \( u(x, t) = \sin(nx) \cos(nt) \) for some \( n \in \Z \).
-	\begin{enumerate}
-		\item The following partial differential equation (wave equation) holds
-		      \[
-			      \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2}
-		      \]
-		\item The initial condition is satisfied
-		      \[
-			      \frac{\partial u}{\partial t}(x, 0) = 0
-		      \]
-		\item The boundary conditions hold
-		      \[ u(0, t) = u(\pi, t) = 0 \]
-	\end{enumerate}
+	Let \( u(x, t) = \sin(nx) \cos(nt) \) for some \( n \in \Z \). Then
+	\[
+		\frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2} \fspace
+		\frac{\partial u}{\partial t}(x, 0) = 0 \fspace
+		u(0, t) = u(\pi, t) = 0
+	\]
+	% \begin{enumerate}
+	% 	\item The following partial differential equation (wave equation) holds
+	% 	      \[
+	% 		      \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2}
+	% 	      \]
+	% 	\item The initial condition is satisfied
+	% 	      \[
+	% 		      \frac{\partial u}{\partial t}(x, 0) = 0
+	% 	      \]
+	% 	\item The boundary conditions hold
+	% 	      \[ u(0, t) = u(\pi, t) = 0 \]
+	% \end{enumerate}
 \end{lemma}
 
 \begin{proof}
@@ -670,8 +675,8 @@ yields a reasonable approximation of the length of the path. Hence
 	\]
 	Then
 	\[
-		a_0 = \frac{1}{2\pi} \int_{-\pi}^\pi f(x)\,dx \mspace{30mu}
-		a_k = \frac{1}{\pi} \int_{-\pi}^\pi f(x)\cos(kx)\,dx \mspace{30mu}
+		a_0 = \frac{1}{2\pi} \int_{-\pi}^\pi f(x)\,dx \fspace
+		a_k = \frac{1}{\pi} \int_{-\pi}^\pi f(x)\cos(kx)\,dx \fspace
 		b_k = \frac{1}{\pi} \int_{-\pi}^\pi f(x)\sin(kx)\,dx
 	\]
 \end{lemma}
@@ -680,3 +685,25 @@ yields a reasonable approximation of the length of the path. Hence
 	This follows from the previous lemma.
 \end{proof}
 \bigskip
+
+
+\begin{example}
+	Consider the even function \( f(x) = |x| \). Then
+	\[
+		a_0 = \frac{1}{2\pi} \int_{-\pi}^\pi |x|\dx = \frac{1}{\pi} \int_0^\pi x\dx
+		= \frac{1}{\pi} {\left[ \frac{x^2}{2} \right]}_{0}^\pi = \frac{\pi}{2}
+	\]
+	and
+	\[
+		a_k = \frac{1}{\pi} \int_{-\pi}^\pi |x|\cos(kx)\dx = \frac{2}{\pi} \int_0^\pi x\cos(kx)\dx
+		= \frac{2}{\pi} {\left[ \frac{x}{n} \sin(nx)\dx + \frac{1}{n^2} \cos(nx)\dx \right]}_0^\pi
+	\]
+	Hence \( a_k = -4/{\pi k^2} \) for \( k \) odd and \( a_k = 0 \) otherwise. Furthermore
+	\[
+		b_k = \frac{1}{\pi} \int_{-\pi}^\pi |x|\sin(kx)\dx = 0
+	\]
+	since the integrand is odd. Thus
+	\[
+		S_n = \frac{\pi}{2} + \frac{4}{\pi} \sum_{k=1}^n \frac{\cos((2k + 1)x)}{(2k + 1)^2} 
+	\]
+\end{example}

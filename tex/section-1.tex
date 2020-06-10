@@ -264,14 +264,20 @@
               \[
                   \begin{split}
                       \int \sin^2(nx)\,dx
-                      & = -\frac{1}{n} \cos(nx)\sin(nx)\,dx + \int \frac{1}{n} \cos(nx) n \cos(nx)\dx \\
-                      & = -\frac{1}{n} \cos(nx)\sin(nx)\,dx + \int \cos^2(nx)\dx \\
-                      & = -\frac{1}{n} \cos(nx)\sin(nx)\,dx + \int 1 - \sin^2(nx)\dx
+                      & = -\frac{1}{n} \cos(nx)\sin(nx)\dx + \int \frac{1}{n} \cos(nx) n \cos(nx)\dx \\
+                      & = -\frac{1}{n} \cos(nx)\sin(nx)\dx + \int \cos^2(nx)\dx \\
+                      & = -\frac{1}{n} \cos(nx)\sin(nx)\dx + \int 1 - \sin^2(nx)\dx
                   \end{split}
               \]
               Hence
               \[
                   \int \sin^2(nx)\,dx = \frac{1}{2}(x - \frac{1}{n}\cos(nx)\sin(nx))
+              \]
+        \item Let \( f = \cos(nx) \) and \(g = x \). Then \( F = 1/n \sin(nx) \) and \( g'= 1 \)
+              \[
+                  \int x\cos(nx)\,dx
+                  = \frac{x}{n} \sin(nx)\dx - \int \frac{1}{n} \sin(nx)\dx
+                  = \frac{x}{n} \sin(nx)\dx + \frac{1}{n^2} \cos(nx)\dx
               \]
     \end{enumerate}
 \end{examples}
