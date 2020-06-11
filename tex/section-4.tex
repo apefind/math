@@ -688,7 +688,7 @@ yields a reasonable approximation of the length of the path. Hence
 
 
 \begin{example}
-	Consider the even function \( f(x) = |x| \). Then
+	Consider the absolute value function \( f(x) = |x| \). Then
 	\[
 		a_0 = \frac{1}{2\pi} \int_{-\pi}^\pi |x|\dx = \frac{1}{\pi} \int_0^\pi x\dx
 		= \frac{1}{\pi} {\left[ \frac{x^2}{2} \right]}_{0}^\pi = \frac{\pi}{2}
@@ -696,14 +696,28 @@ yields a reasonable approximation of the length of the path. Hence
 	and
 	\[
 		a_k = \frac{1}{\pi} \int_{-\pi}^\pi |x|\cos(kx)\dx = \frac{2}{\pi} \int_0^\pi x\cos(kx)\dx
-		= \frac{2}{\pi} {\left[ \frac{x}{n} \sin(nx)\dx + \frac{1}{n^2} \cos(nx)\dx \right]}_0^\pi
+		= \frac{2}{\pi} {\left[ \frac{x}{n} \sin(nx) + \frac{1}{n^2} \cos(nx) \right]}_0^\pi
+		% = \left\{
+		% \begin{array}{ll}
+		% 	-4/{\pi k^2} & k \text{ odd }  \\
+		% 	0            & k \text{ even }
+		% \end{array}
+		% \right.
 	\]
 	Hence \( a_k = -4/{\pi k^2} \) for \( k \) odd and \( a_k = 0 \) otherwise. Furthermore
 	\[
 		b_k = \frac{1}{\pi} \int_{-\pi}^\pi |x|\sin(kx)\dx = 0
 	\]
-	since the integrand is odd. Thus
+	since the integrand is odd. Now let
 	\[
-		S_n = \frac{\pi}{2} + \frac{4}{\pi} \sum_{k=1}^n \frac{\cos((2k + 1)x)}{(2k + 1)^2} 
+		S_n(x) = \frac{\pi}{2} - \frac{4}{\pi} \sum_{k=0}^n \frac{\cos((2k + 1)x)}{{(2k + 1)}^2}
 	\]
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\textwidth]{abs_value_n=2}
+		\includegraphics[width=\textwidth]{abs_value_n=4}
+		\includegraphics[width=\textwidth]{abs_value_n=16}
+		\caption{Approximation absolute value function for \( n = 2, 4, 16 \)}
+	\end{figure}
 \end{example}
+\bigskip
