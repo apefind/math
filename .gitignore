@@ -47,4 +47,4 @@ _minted-build
 _minted-notes
 __latexindent_temp.tex
 .ipynb_checkpoints
-jupyter/plots/*
+jupyter/calculus/plots/*
