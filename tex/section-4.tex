@@ -92,6 +92,10 @@ The ratio between the area \( A \) and \( A' \) of two similar shapes is given b
 			      z^2 = \frac{1}{2}(a + \sqrt{a^2 + b^2}) - \frac{1}{2}(-a + \sqrt{a^2 + b^2}) +
 			      \iu 2\sqrt{\frac{1}{4} (\sqrt{a^2 + b^2}^2) - a^2} = a + \iu b
 		      \]
+		\item The complex conjugation \( \bar{z} = a - \iu b \) gives
+		      \[
+			      \Re z = \frac{z + \bar{z}}{2} \fspace \Im z = \frac{z - \bar{z}}{2\iu}
+		      \]
 	\end{enumerate}
 \end{lemma}
 \bigskip
@@ -610,24 +614,13 @@ yields a reasonable approximation of the length of the path. Hence
 \bigskip
 
 \begin{lemma}
-	Let \( u(x, t) = \sin(nx) \cos(nt) \) for some \( n \in \Z \). Then
+	Let \( u(x, t) = \sin(nx) \cos(nt) \) for some \( n \in \Z \). Then the \emph{wave equation} as well as
+	the \emph{initial condition} and the \emph{boundary conditions} hold.
 	\[
 		\frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2} \fspace
 		\frac{\partial u}{\partial t}(x, 0) = 0 \fspace
 		u(0, t) = u(\pi, t) = 0
 	\]
-	% \begin{enumerate}
-	% 	\item The following partial differential equation (wave equation) holds
-	% 	      \[
-	% 		      \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial t^2}
-	% 	      \]
-	% 	\item The initial condition is satisfied
-	% 	      \[
-	% 		      \frac{\partial u}{\partial t}(x, 0) = 0
-	% 	      \]
-	% 	\item The boundary conditions hold
-	% 	      \[ u(0, t) = u(\pi, t) = 0 \]
-	% \end{enumerate}
 \end{lemma}
 
 \begin{proof}
@@ -721,3 +714,56 @@ yields a reasonable approximation of the length of the path. Hence
 	\end{figure}
 \end{example}
 \bigskip
+
+
+\begin{remarks}\hfill
+	\begin{enumerate}
+		\item
+		      It is
+		      \[
+			      \cos x = \frac{1}{2} (\eu^{\iu x} + \eu^{-\iu x}) \fspace
+			      \sin x = -\frac{\iu}{2} (\eu^{\iu x} - \eu^{-\iu x})
+		      \]
+		      Therefore
+		      \[
+			      \begin{split}
+				      \frac{a_0}{2} + \sum_{k = 1}^n a_k \cos(kx) + b_k \sin(kx)
+				      & = \frac{a_0}{2} + \sum_{k = 1}^n \frac{a_k}{2} (\eu^{\iu kx} + \eu^{-\iu kx}) -
+				      \frac{\iu b_k}{2} (\eu^{\iu kx} - \eu^{-\iu kx}) \\
+				      & = \frac{a_0}{2} + \sum_{k = 1}^n \frac{a_k - \iu b_k}{2} \eu^{\iu kx} +
+				      \sum_{k=1}^n\frac{a_k + \iu b_k}{2} \eu^{-\iu kx} \\
+				      & = \sum_{k=-n}^n c_k \eu^{\iu kx}
+			      \end{split}
+		      \]
+		      where
+		      \[
+			      c_0 = \frac{a_0}{2} \fspace c_k = \frac{a_k - \iu b_k}{2} \fspace c_{-k} = \frac{a_k + \iu b_k}{2}
+		      \]
+		\item Thus for
+		      \[
+			      f(x) = \sum_{k=-n}^n c_k \eu^{\iu kx}
+		      \]
+		      it is
+		      \[
+			      c_k = \frac{1}{2\pi} \int_{-\pi}^\pi f(x) \eu^{-\iu kx}\dx
+		      \]
+
+	\end{enumerate}
+\end{remarks}
+\bigskip
+
+
+\begin{definition}[Fourier Series]
+	Let \( f \) be Riemann integrable over \( [-\pi,\pi] \). Then
+	\[
+		c_k = \frac{1}{2\pi} \int_{-\pi}^\pi f(x) \eu^{-\iu kx}\dx
+	\]
+	are called the \emph{Fourier coefficients} and
+	\[
+		F(x) = \sum_{k=-\infty}^\infty c_k \eu^{\iu kx}
+	\]
+	is called the \emph{Fourier series} of \( f\) wherever limit exists.
+\end{definition}
+\bigskip
+
+
