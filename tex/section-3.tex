@@ -1,6 +1,52 @@
 \newpage
 \section{Functional Analysis}
 
+\subsection{Hilbert Spaces}
+\bigskip
+
+\begin{definition}[Inner Product]
+    Let \( E \) be a vector space with \( x, y, z \in E \) and \( \lambda \in \C \). A mapping
+    \( \innerprod{}{}: E\times E \to \C \) is called \emph{inner product} if
+    \begin{enumerate}
+        \item \( \innerprod{x + y}{z} = \innerprod{x}{z} + \innerprod{y}{z} \)
+        \item \( \innerprod{\lambda x}{y} = \lambda \innerprod{x}{y}\)
+        \item \( \innerprod{x}{y} = \conjugate{\innerprod{y}{x}} \)
+        \item \( \innerprod{x}{x} \ge 0 \) and \( \innerprod{x}{x} = 0 \) iff \( x = 0 \)
+    \end{enumerate}
+\end{definition}
+\bigskip
+
+
+\begin{lemma}
+    \hfill
+    \begin{enumerate}
+        \item \( \|x\| = \innerprod{x}{x}^{1/2} \) defines a norm on \( E \)
+              which makes the inner product is a continous mapping.
+        \item \( |\innerprod{x}{y}| \le \|x\| \|y\| \)
+        \item \( {\|x - y\|}^2 = {\|x\|}^2 - 2\Re\innerprod{x}{y} + {\|y\|}^2 \)
+        \item \( {\|x + y\|}^2 + {\|x - y\|}^2 = 2{\|x\|}^2 + 2{\|y\|}^2 \)
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    It is
+    \[
+        \begin{split}
+            {\|x + y\|}^2 & = \innerprod{x + y}{x + y}  = \innerprod{x}{x + y} + \innerprod{y}{x + y}
+            = \innerprod{x}{x} + \innerprod{x}{y} + \innerprod{y}{x} + \innerprod{y}{y} \\
+            & = {\|x\|}^2 + \innerprod{x}{y} + \conjugate{\innerprod{y}{x}} + {\|y\|}^2
+            = {\|x\|}^2 + 2\Re\innerprod{x}{y} + {\|y\|}^2
+        \end{split}
+    \]
+    Hence
+    \[
+        {\|x + y\|}^2 \le {\|x\|}^2 + 2|\Re\innerprod{x}{y}| + {\|y\|}^2
+        \le {\|x\|}^2 +  2\|x\| \|y\| + {\|y\|}^2 = {(\|x\| + \|y\|)}^2
+    \]
+    which proves the triangle inequality.
+\end{proof}
+\bigskip
+
+
 \subsection{The Hahn-Banach Theorem}
 \bigskip
 

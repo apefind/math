@@ -6,7 +6,7 @@
 \bigskip
 
 
-\begin{lemma}[Simple Calculations]\hfill
+\begin{lemma}[Basic Formulas]\hfill
     \begin{enumerate}
         \item For \( 1 = x x^{-1} \) the product rule yields \( 0 = x^{-1} + x(x^{-1})' \). Hence
               \[
@@ -42,7 +42,6 @@
               \[
                   \log'(x) = \frac{1}{\exp'(\log(x))} = \frac{1}{x}
               \]
-
         \item \( (1 - q) (1 + q + q^2 + \cdots + q^n) = 1 - q + q - q^2 + q^2 - q^3 + \cdots + q^{n+1} \) gives
               \[
                   \sum_{k=0}^n q^k = \frac{1 - q^{n+1}}{1 - q} \text{ and }
@@ -51,6 +50,47 @@
     \end{enumerate}
 \end{lemma}
 \bigskip
+
+
+\begin{lemma}[Cauchy-Schwarz Inequality]\label{thm:cauchy_schwarz_inequality}
+    For \( x, y \in \Rn \) the following inequality holds
+    \[
+        |xy| \le \|x\| \|y\|
+    \]
+\end{lemma}
+\begin{proof}
+    Assume \( xy = x_1 y_1 + \cdots + x_n y_n > 0 \). Then the inequality above is equivalent to
+    \[ 0 \le 1 - \frac{xy}{\|x\| \|y\|} \]
+    Here
+    \[
+        \begin{split}
+            2 - \frac{2xy}{\|x\| \|y\|}
+            & = \frac{x_1^2 + \dots x_n^2}{{\|x\|}^2} +
+            \frac{y_1^2 + \dots y_n^2}{{\|y\|}^2} - \frac{2x_1 y_1 + \cdots + 2x_n y_n}{\|x\| \|y\|} \\
+            & = {\left( \frac{x_1}{\|x\|} - \frac{y_1}{\|y\|} \right)}^2 + \cdots +
+            {\left( \frac{x_n}{\|x\|} - \frac{y_n}{\|y\|} \right)}^2
+        \end{split}
+        \]
+    Similarly for \( xy < 0 \). Equality occurrs iff \( y \) is a multiple of \( x \). 
+    % \( xy > 0 \) implies \( \lambda > 0 \)
+\end{proof}
+\bigskip
+
+\begin{lemma}[Triangle Inequality]\label{thm:triangle_inequality}
+    For \( x, y \in \Rn \) the following inequality holds
+    \[
+        \|x + y\| \le \|x\| + \|y\|
+    \] 
+\end{lemma}
+\begin{proof}
+    It is 
+    \[
+        {\|x + y\|}^2 = {\|x\|}^2 + 2xy + {\|y\|}^2 \le {\|x\|}^2 + 2|xy| + {\|y\|}^2 
+        \le {\|x\|}^2 + 2\|x\| \|y\| + {\|y\|}^2 = {(\|x\| + \|y\|)}^2
+    \]
+\end{proof}
+\bigskip
+
 
 \begin{remarks}Let \( f \) be differentiable at \( x_0 \). From the definition follows
     \begin{enumerate}
