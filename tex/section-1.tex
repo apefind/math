@@ -57,6 +57,7 @@
     \[
         |xy| \le \|x\| \|y\|
     \]
+    Equality occurrs iff \( y \) is a multiple of \( x \).
 \end{lemma}
 \begin{proof}
     Assume \( xy = x_1 y_1 + \cdots + x_n y_n > 0 \). Then the inequality above is equivalent to
@@ -70,22 +71,31 @@
             & = {\left( \frac{x_1}{\|x\|} - \frac{y_1}{\|y\|} \right)}^2 + \cdots +
             {\left( \frac{x_n}{\|x\|} - \frac{y_n}{\|y\|} \right)}^2
         \end{split}
-        \]
-    Similarly for \( xy < 0 \). Equality occurrs iff \( y \) is a multiple of \( x \). 
-    % \( xy > 0 \) implies \( \lambda > 0 \)
+    \]
+    Similarly for \( xy < 0 \). Note, that \( xy > 0 \) implies \( \lambda > 0 \) for \( x = \lambda y\). 
 \end{proof}
 \bigskip
+
+\begin{remark}
+    Using
+    \[
+        xy = \|x\| \|y\| \cos\alpha
+    \]
+    is easier once the formula has been established.
+\end{remark}
+\bigskip
+
 
 \begin{lemma}[Triangle Inequality]\label{thm:triangle_inequality}
     For \( x, y \in \Rn \) the following inequality holds
     \[
         \|x + y\| \le \|x\| + \|y\|
-    \] 
+    \]
 \end{lemma}
 \begin{proof}
-    It is 
+    It is
     \[
-        {\|x + y\|}^2 = {\|x\|}^2 + 2xy + {\|y\|}^2 \le {\|x\|}^2 + 2|xy| + {\|y\|}^2 
+        {\|x + y\|}^2 = {\|x\|}^2 + 2xy + {\|y\|}^2 \le {\|x\|}^2 + 2|xy| + {\|y\|}^2
         \le {\|x\|}^2 + 2\|x\| \|y\| + {\|y\|}^2 = {(\|x\| + \|y\|)}^2
     \]
 \end{proof}
