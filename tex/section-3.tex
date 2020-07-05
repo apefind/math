@@ -22,23 +22,26 @@
     \begin{enumerate}
         \item \( \|x\| = \innerprod{x}{x}^{1/2} \) defines a norm on \( E \)
               which makes the inner product is a continous mapping.
-        \item \( |\innerprod{x}{y}| \le \|x\| \|y\| \)
-        \item \( {\|x - y\|}^2 = {\|x\|}^2 - 2\Re\innerprod{x}{y} + {\|y\|}^2 \)
-        \item \( {\|x + y\|}^2 + {\|x - y\|}^2 = 2{\|x\|}^2 + 2{\|y\|}^2 \)
+        \item The binomial formula \( {\|x + y\|}^2 = {\|x\|}^2 + 2\Re\innerprod{x}{y} + {\|y\|}^2 \),
+              also \( {\|x + y\|}^2 + {\|x - y\|}^2 = 2{\|x\|}^2 + 2{\|y\|}^2 \).
+        \item The Cauchy-Schwarz inequality holds: \( |\innerprod{x}{y}| \le \|x\| \|y\| \).
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    It is
-    \[
+    It is \[
         \begin{split}
             {\|x + y\|}^2 & = \innerprod{x + y}{x + y}  = \innerprod{x}{x + y} + \innerprod{y}{x + y}
             = \innerprod{x}{x} + \innerprod{x}{y} + \innerprod{y}{x} + \innerprod{y}{y} \\
-            & = {\|x\|}^2 + \innerprod{x}{y} + \conjugate{\innerprod{y}{x}} + {\|y\|}^2
+            & = {\|x\|}^2 + \innerprod{x}{y} + \conjugate{\innerprod{x}{y}} + {\|y\|}^2
             = {\|x\|}^2 + 2\Re\innerprod{x}{y} + {\|y\|}^2
         \end{split}
     \]
-    Hence
-    \[
+    For \( \innerprod{x}{y} \in \R \) the inequality follows using the binomial formula as in
+    \hyperref[thm:lem_cauchy_schwarz_inequality]{Lemma~\ref*{thm:lem_cauchy_schwarz_inequality}}.
+    Then use \[
+        |\innerprod{x}{y}| = \eu^{-\iu t} \innerprod{x}{y} = \innerprod{\eu^{-\iu t} x}{y}
+    \]
+    Thus \[
         {\|x + y\|}^2 \le {\|x\|}^2 + 2|\Re\innerprod{x}{y}| + {\|y\|}^2
         \le {\|x\|}^2 +  2\|x\| \|y\| + {\|y\|}^2 = {(\|x\| + \|y\|)}^2
     \]
@@ -54,22 +57,17 @@
     \hfill
     \begin{enumerate}
         \item Let \( f = u + \iu v\) be a complex valued linear functional.
-              Then \( f(\iu x) = \iu f(x) \) gives
-              \[
+              Then \( f(\iu x) = \iu f(x) \) gives \[
                   u(\iu x) = -v(x) \text{ and } v(\iu x) = \iu u(x)
               \]
-              Thus
-              \[
+              Thus \[
                   f(x) = u(x) - \iu u(\iu x)
               \]
         \item Assume \( |u(x)| \le C\|x\| \) and choose \( t \in \R \) so that \( |f(x)| = e^{\iu t}f(x) \).
-              Then
-              \[
+              Then \[
                   |f(x)| = e^{\iu t}f(x) = f(e^{\iu t}x) = u(e^{\iu t}x) \le C\|e^{\iu t}x\| = C\|x\|
               \]
-        \item
-              See also the \hyperref[thm:thm_cauchy_riemann_eqations]{Cauchy-Rieman
-                  Eqautions~\ref*{thm:thm_cauchy_riemann_eqations}}.
+        \item See also the \hyperref[thm:thm_cauchy_riemann_eqations]{Cauchy-Rieman Equations~\ref*{thm:thm_cauchy_riemann_eqations}}.
     \end{enumerate}
 \end{remarks}
 \bigskip
