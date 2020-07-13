@@ -718,8 +718,8 @@ yields a reasonable approximation of the length of the path. Hence
 
 \begin{remarks}\hfill
 	\begin{enumerate}
-		\item
-		      It is
+		\item The coefficients \( a_k \) and \( b_k \) vanish for any even or odd function respectively.
+		\item It is
 		      \[
 			      \cos x = \frac{1}{2} (\eu^{\iu x} + \eu^{-\iu x}) \fspace
 			      \sin x = -\frac{\iu}{2} (\eu^{\iu x} - \eu^{-\iu x})
@@ -745,9 +745,8 @@ yields a reasonable approximation of the length of the path. Hence
 		      \]
 		      it is
 		      \[
-			      c_k = \frac{1}{2\pi} \int_{-\pi}^\pi f(x) \eu^{-\iu kx}\dx
+				c_k = \frac{1}{2\pi} \int_{-\pi}^\pi f(x) \eu^{-\iu kx}\dx
 		      \]
-
 	\end{enumerate}
 \end{remarks}
 \bigskip
@@ -756,14 +755,12 @@ yields a reasonable approximation of the length of the path. Hence
 \begin{definition}[Fourier Series]
 	Let \( f \) be Riemann integrable over \( [-\pi,\pi] \). Then
 	\[
-		c_k = \frac{1}{2\pi} \int_{-\pi}^\pi f(x) \eu^{-\iu kx}\dx
+		\fouriercoeff{f}(k) = \frac{1}{2\pi} \int_{-\pi}^\pi f(x) \eu^{-\iu kx}\dx
 	\]
 	are called the \emph{Fourier coefficients} and
 	\[
-		F(x) = \sum_{k=-\infty}^\infty c_k \eu^{\iu kx}
+		F(x) = \sum_{k=-\infty}^\infty \fouriercoeff{f}(k) \eu^{\iu kx}
 	\]
 	is called the \emph{Fourier series} of \( f\) wherever limit exists.
 \end{definition}
 \bigskip
-
-
