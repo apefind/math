@@ -527,6 +527,37 @@
 \bigskip
 
 
+\begin{example}
+    The order of mixed partial derivatives is not necessarily interchangeable, let
+    \[
+        f(x,y) = \frac{xy^3}{x^2 + y^2} \text{ for } (x, y) \ne (0, 0)
+    \]
+\end{example}
+\bigskip
+
+
+\begin{example}
+    The existence of the partial derivatives does not guarantee differentiability. Let
+    \[
+        f(x,y) = \frac{y^3}{x^2 + y^2} \text{ for } (x, y) \ne (0, 0)
+    \]
+    and \( f(0,0) = 0 \). Then
+    \[
+        \frac{\partial f}{\partial x}(x,y) = \frac{-2xy^3}{{(x^2 + y^2)}^2} \fspace
+        \frac{\partial f}{\partial y}(x,y) = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
+        % \frac{\partial f}{\partial y}(x,y) & = \frac{3y^2(x^2 + y^2) - 2y^3y}{{(x^2 + y^2)}^2}
+        % = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
+    \]
+    Thus \( \partial_x f (x, 0) = 0 \) as well as \( \partial_y f (y, 0) = 1 \) and
+    \( \gradient f(0,0) = (0, 1) \). But for \( t > 0 \)
+    \[
+        \frac{|f(t,t) - f(0,0) - \gradient f(0,0) (t,t)|}{\|(t,t)\|}
+            = \frac{|1/2\,t - t|}{\sqrt{2}t} = \frac{1}{2\sqrt{2}}
+            \]
+\end{example}
+\bigskip
+
+
 \begin{lemma}
     Let \( f: \Rn \to \R \) and \( g: \Rm \to \Rn \).
     \begin{enumerate}
