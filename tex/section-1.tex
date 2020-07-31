@@ -539,13 +539,14 @@
         = \frac{3x^3y^2 + 3xy^4 - 2xy^4}{{(x^2 + y^2)}^2}
         = \frac{3x^3y^2 + xy^4}{{(x^2 + y^2)}^2}
     \]
-    % Hence \( \partial_x f(x, 0) = 0 \) and \( \partial_y f(0, y) = 0 \) and thus \( \gradient f(0,0) = (0, 0) \).
-    For \( (x,y) \ne (0,0) \) it is
+    \note{Here \( \partial_x f(x, 0) = 0 \) and \( \partial_y f(0, y) = 0 \) and thus
+        \( \gradient f(0,0) = (0, 0) \).}
+    Aside from the origin it is
     \[
         \partial_{xy} f(x,y) = \partial_{yx} f(x,y) =
         \frac{y^{2} \left(- 3 x^{4} + 6 x^{2} y^{2} + y^{4}\right)}{{(x^2 + y^2)}^4}
     \]
-    Hence \( \partial_{xy}f(x,0) = 0 \) and  \( \partial_{yx}f(0,y) = 1 \).
+    and therfore \( \partial_{xy}f(x,0) = 0 \) and  \( \partial_{yx}f(0,y) = 1 \).
 \end{remark}
 \bigskip
 
@@ -567,12 +568,11 @@
         \partial_x f(x,y) = \frac{-2xy^3}{{(x^2 + y^2)}^2} \spacedtext{and}
         \partial_y f(x,y) = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
     \]
-    % \[
-    %     \frac{\partial f}{\partial x}(x,y) = \frac{-2xy^3}{{(x^2 + y^2)}^2} \spacedtext{and}
+    % \begin{calculation}
     %     \frac{\partial f}{\partial y}(x,y) = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
-    % \frac{\partial f}{\partial y}(x,y) & = \frac{3y^2(x^2 + y^2) - 2y^3y}{{(x^2 + y^2)}^2}
-    % = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
-    % \]
+    %     \frac{\partial f}{\partial y}(x,y) = \frac{3y^2(x^2 + y^2) - 2y^3y}{{(x^2 + y^2)}^2}
+    %     = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
+    % \end{calculation}
     Thus \( \partial_x f (x, 0) = 0 \) and \( \partial_y f (0,y) = 1 \), hence
     \( \gradient f(0,0) = (0, 1) \). But for \( t > 0 \)
     \[

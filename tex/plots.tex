@@ -25,8 +25,8 @@
 				width=10cm,
 				height=5cm,
 				grid style={dashed, gray!30},
-				xmin=-1,
-				xmax= 1,
+				xmin=-10,
+				xmax= 10,
 				ymin= 0,
 				ymax= 1,
 				axis background/.style={fill=white},
@@ -34,7 +34,7 @@
 				ylabel=y,
 				tick align=outside,
 				enlargelimits=false]
-			\addplot[domain=-1:1,samples=500] {1/(1+exp(-10*x))};
+			\addplot[domain=-10:10,samples=500] {1/(1+exp(-x))};
 			% \addlegendentry{$ \sigmoid(x) = \frac{1}{1+e^{-x}} $}
 		\end{axis}
 	\end{tikzpicture}
