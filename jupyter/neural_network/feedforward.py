@@ -19,7 +19,6 @@ def get_random_weights_and_biases(k, l, m=None, layers=0):
 
 
 class FeedForward:
-
     def __init__(self, dim, layers, a):
         self.dim = dim
         self.N = get_random_weights_and_biases(*dim, layers)
@@ -36,7 +35,6 @@ class FeedForward:
 
 
 class FeedForwardSingleLayer(FeedForward):
-
     def __init__(self, dim, a, da):
         super().__init__(dim=(*dim, None), layers=0, a=a)
         self.da = da

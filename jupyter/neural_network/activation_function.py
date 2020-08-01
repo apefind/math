@@ -45,4 +45,3 @@ tanh = math.tanh
 
 def dx_tanh(x):
     return 1.0 - tanh(x) ** 2
-

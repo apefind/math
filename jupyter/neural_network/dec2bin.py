@@ -20,4 +20,4 @@ def int2bin(n):
 
 
 def bin2int(X):
-    return sum(2**i if x > 0.5 else 0 for i, x in enumerate(X))
+    return sum(2 ** i if x > 0.5 else 0 for i, x in enumerate(X))

@@ -20,4 +20,6 @@ def get_annulus_test_data(x=0.4, y=-0.4, r0=1.1, r1=1.5, n=125):
 
 
 def verify_annulus_classification(A0, A1, w, b, classify=heaviside):
-    assert all(classify(dotprod(w, x) + b) == 1 for x in A0) and all(classify(dotprod(w, x) + b) == 0 for x in A1)
+    assert all(classify(dotprod(w, x) + b) == 1 for x in A0) and all(
+        classify(dotprod(w, x) + b) == 0 for x in A1
+    )

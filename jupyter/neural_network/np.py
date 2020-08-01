@@ -34,7 +34,7 @@ def _dx_linear(x, r=1.0):
 
 
 def _dx_tanh(x):
-    return 1.0 - np.tanh(x)**2
+    return 1.0 - np.tanh(x) ** 2
 
 
 np.sigmoid = _sigmoid
