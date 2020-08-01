@@ -513,7 +513,7 @@
     \]
     From \( f(y,x) = - f(x,y)\)  follows
     \[
-        \partial f_y(x,y) = \frac{x^5 - 4x^3y^2 - xy^4}{{(x^2 + y^2)}^2} \spacedtext{and}
+        \partial_y f(x,y) = \frac{x^5 - 4x^3y^2 - xy^4}{{(x^2 + y^2)}^2} \spacedtext{and}
         \partial_{xy} f(x,y) =
         \frac{x^{6} + 9 x^{4} y^{2} - 9 x^{2} y^{4} - y^{6}}{x^{6} + 3 x^{4} y^{2} + 3 x^{2} y^{4} + y^{6}}
     \]
@@ -528,19 +528,25 @@
     \]
     elsewhere. Then
     \[
+        \partial_x f(x,y) = \frac{- x^2y^3 + y^5}{{(x^2 + y^2)}^2} \spacedtext{ and }
+        \partial_y f(x,y) = \frac{3x^3y^2 + xy^4}{{(x^2 + y^2)}^2}
+    \]
+    \calculation{
         \partial_x f(x,y)
         = \frac{y^3(x^2 + y^2) - xy^3 2x}{{(x^2 + y^2)}^2}
         = \frac{x^2y^3 - 2x^2y^3 + y^5}{{(x^2 + y^2)}^2}
         = \frac{- x^2y^3 + y^5}{{(x^2 + y^2)}^2}
-    \]
-    \[
+    }
+    \calculation{
         \partial_y f(x,y)
         = \frac{3xy^2(x^2 + y^2) - xy^3 2y}{{(x^2 + y^2)}^2}
         = \frac{3x^3y^2 + 3xy^4 - 2xy^4}{{(x^2 + y^2)}^2}
         = \frac{3x^3y^2 + xy^4}{{(x^2 + y^2)}^2}
-    \]
-    \note{Here \( \partial_x f(x, 0) = 0 \) and \( \partial_y f(0, y) = 0 \) and thus
-        \( \gradient f(0,0) = (0, 0) \).}
+    }
+    \note{
+        Here \( \partial_x f(x, 0) = 0 \) and \( \partial_y f(0, y) = 0 \)
+        and thus \( \gradient f(0,0) = (0, 0) \).
+    }
     Aside from the origin it is
     \[
         \partial_{xy} f(x,y) = \partial_{yx} f(x,y) =
@@ -568,11 +574,11 @@
         \partial_x f(x,y) = \frac{-2xy^3}{{(x^2 + y^2)}^2} \spacedtext{and}
         \partial_y f(x,y) = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
     \]
-    % \begin{calculation}
-    %     \frac{\partial f}{\partial y}(x,y) = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
-    %     \frac{\partial f}{\partial y}(x,y) = \frac{3y^2(x^2 + y^2) - 2y^3y}{{(x^2 + y^2)}^2}
-    %     = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
-    % \end{calculation}
+    \calculation{
+        \partial_y f(x,y) = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
+        \frac{\partial f}{\partial y}(x,y) = \frac{3y^2(x^2 + y^2) - 2y^3y}{{(x^2 + y^2)}^2}
+        = \frac{3x^2y^2 + y^4}{{(x^2 + y^2)}^2}
+    }
     Thus \( \partial_x f (x, 0) = 0 \) and \( \partial_y f (0,y) = 1 \), hence
     \( \gradient f(0,0) = (0, 1) \). But for \( t > 0 \)
     \[
