@@ -516,7 +516,7 @@ For convenience the following notation is used
               \]
               where \( k \) indicates the layer of the network, \( j \) is the coordinate index and
               \( i \) ranges over the respective column entries of the weight matrix.
-        \item For \( x \in \Rn \) it is
+        \item For \( x \in \Rn \) and the last layer of the network it is
               \[
                   \begin{split}
                       \frac{\partial}{\partial w_{ij}^{N + 1}}\alpha_j^{N + 1}(Wx + B)
@@ -546,6 +546,13 @@ For convenience the following notation is used
               \[
                   \gradient E(W, B) = \gradient_{(W, B)} \frac{1}{2} \sum_{x, y \in T} {\| y - f(x) \|}^2
                   = \frac{1}{2} \sum_{x, y \in T} \gradient_{(W, B)} {\| y - \alpha(Wx + B) \|}^2
+              \]
+        \item For \( x, y \in T \) it is
+              \[
+                  \begin{split}
+                      \frac{\partial}{\partial w_{ij}^k} \| y - f(x) \| &= 
+                      \frac{\partial}{\partial w_{ij}^k} \sum_{j} {(y_j - \alpha_j(Wx + B))}^2 \\ 
+                  \end{split}
               \]
     \end{enumerate}
 \end{remarks}
