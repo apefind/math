@@ -1,6 +1,3 @@
-from array import array
-
-
 def int2bin(x):
     return [int(i) for i in bin(x)[2:]]
 
