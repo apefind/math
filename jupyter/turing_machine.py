@@ -1,3 +1,6 @@
+from array import array
+
+
 def int2bin(x):
     return [int(i) for i in bin(x)[2:]]
 
@@ -40,6 +43,9 @@ def xnbin2int(y):
 
 
 class Tape:
+    LEFT = "L"
+    RIGHT = "R"
+    STOP = "STOP"
 
     def __init__(self, values):
         self.values = array("I", values)
@@ -66,7 +72,7 @@ class Tape:
         self.values[self.pos] = v
 
     def move(self, mv):
-        if mv == "L":
+        if mv == Tape.LEFT:
             if self.pos == 0:
                 self.values.insert(0, 0)
             else:
@@ -87,11 +93,14 @@ class TuringMachine:
 
     def __call__(self, tape, max_iterations=None):
         i, instr, mv = 0, 0, None
-        while not mv == "S":
+        while not mv == Tape.STOP:
             if max_iterations is not None and i > max_iterations:
-                raise StopIteration(f"max iterations {max_iterations} reached")
+                raise GeneratorExit(f"max iterations {max_iterations} reached")
             value = tape.read()
-            next_instr, new_value, mv = self.instructions[instr][value]
+            try:
+                next_instr, new_value, mv = self.instructions[instr][value]
+            except KeyError:
+                raise GeneratorExit(f"instruction {instr}. for r={value} not found")
             yield instr, next_instr, value, new_value, mv
             tape.write(new_value)
             tape.move(mv)
@@ -111,16 +120,16 @@ def generate_instructions(k):
                 values.append(1)
                 i += 2
             elif K[i:i + 3] == [1, 1, 0]:
-                mv = "R"
+                mv = Tape.RIGHT
                 i += 3
             elif K[i:i + 4] == [1, 1, 1, 0]:
-                mv = "L"
+                mv = Tape.LEFT
                 i += 4
             elif K[i:i + 5] == [1, 1, 1, 1, 0]:
-                mv = "S"
+                mv = Tape.STOP
                 i += 5
             else:
-                raise StopIteration("turing machine not correctly specified")  # e.g. T_7
+                raise GeneratorExit(f"invalid instruction {K[i:i + 5]}")  # e.g. T_7
             if mv is not None:
                 if not values:
                     values = [0, 0]
