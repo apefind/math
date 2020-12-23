@@ -91,7 +91,7 @@ class TuringMachine:
     def __getitem__(self, i):
         return self.instructions[i]
 
-    def __call__(self, tape, max_iterations=None):
+    def run(self, tape, max_iterations=None):
         i, instr, mv = 0, 0, None
         while not mv == Tape.STOP:
             if max_iterations is not None and i > max_iterations:
@@ -129,7 +129,7 @@ def generate_instructions(k):
                 mv = Tape.STOP
                 i += 5
             else:
-                raise GeneratorExit(f"invalid instruction {K[i:i + 5]}")  # e.g. T_7
+                raise GeneratorExit(f"not correctly specified, invalid instruction {K[i:i + 5]}")  # e.g. T_7
             if mv is not None:
                 if not values:
                     values = [0, 0]
@@ -147,7 +147,7 @@ def generate_instructions(k):
     return I
 
 
-class UniversalTuringMachine(TuringMachine):
+class NthTuringMachine(TuringMachine):
 
     def __init__(self, k):
         super().__init__(generate_instructions(k))
@@ -155,3 +155,6 @@ class UniversalTuringMachine(TuringMachine):
 
     def __str__(self):
         return f"T_{self.k}"
+
+    def __call__(self, n, max_iterations=None):
+        pass
